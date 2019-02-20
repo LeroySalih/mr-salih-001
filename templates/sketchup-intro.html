@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Reveal Files-->
+  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/white.css">
+  
+
+  <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+    <div class="reveal">
+			<div class="slides">
+          
+
+				<section>
+          <div style="display:flex; flex-direction: row">
+              <img class="slideImg" 
+                   style="width: 150px; height: 150px; margin: 20px"
+                   src="/static/modules/sketchup/images/sketchup_logo.png">
+              <div style="text-align: left">
+                  <h1 style="text-transform: none">Into to SketchUp</h1>
+                  <hr>
+                  <h2 style="text-transform: none">Software Modelling</h2>
+              </div>
+          </div>
+        </section>
+
+        <section>
+            <section>
+                <div style="display: flex; flex-direction: row;">
+                    <img style="width: 100px; height: 100px; padding-right: 20px;border: none!important; box-shadow: none !important" 
+                          src="/static/modules/sketchup/images/sketchup_logo.png">
+                    <h1 style="text-transform:none">Build a House</h1>
+                </div>
+                
+                <hr>
+                <div style="display:flex; flex-direction: row;">
+                    
+                      <div>
+                        <div style="text-align: left; 
+                                    margin-bottom: 20px; 
+                                    padding: 10px;
+                                    background-color: #c7c6c6">
+                          <p style="font-size: 1rem">LO Question:</p> 
+                          <p><i>"How do we use the <b>basic functionality</b> of SketchUp?"</i></p>
+                          <p style="width: 100%; text-align: right; font-size: 1rem;"><a href="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">Link to Module Description</a></p>
+                        </div>
+                        <div style="text-align: left">
+                          <h3>Task:</h3>
+                          <ul>
+                              <li>Follow the video (below) to construct your first SketchUp house.</li>
+                              <li>Remember: Save your file to the X drive.</li>
+                            </ul>
+                        </div>
+                        
+                      </div>
+                </div>
+            </section>
+            <section>
+                <video width="100%" controls>
+                    <source src="https://www.dropbox.com/s/8bf9mts0bnyxyrn/IntroToSketchUp.mp4?raw=1" type="video/mp4">
+                  </video>
+            </section>
+            
+          </section>
+
+				
+			</div>
+		</div>
+    <button class="btn btn-primary">Test</button>
+    <button class="btn btn-info">Info</button>
+    <script src="/static/reveal.js/lib/js/head.min.js"></script>
+    <script src="/static/reveal.js/js/reveal.js"></script>
+		<script>
+			Reveal.initialize();
+		</script>
+</body>
+</html>
