@@ -5,7 +5,7 @@ Creating my lesson web site.
 Learning and using a bunch of web technologies.
 
 #Todo
-Make a flask App.
+✅ Make a flask App.
 Get static files working
 Get Bootstrap Working
 Get Reveal.js working
