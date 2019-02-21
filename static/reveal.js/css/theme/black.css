@@ -50,12 +50,12 @@ body {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 2.5em; }
+  font-size: 1.75em; }
 
 .reveal h2 {
   font-size: 1.6em; }
@@ -229,9 +229,10 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+ /* background: rgba(255, 255, 255, 0.12); */
+ /* border: 4px solid #fff; */
+ /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); } */
+}
 
 .reveal section img.plain {
   border: 0;

@@ -7,36 +7,209 @@
   
   <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
   
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
   <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Reveal Files-->
   <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="/static/reveal.js/css/theme/white.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
   
 
+  <!-- GSAP files-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+  <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+
   <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet">
-  <title>Document</title>
+  <title>Software Modelling - mr-salih.com</title>
+
+  <style>
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .definition {
+        background-color: rgb(173, 130, 11);
+        box-shadow: 3px 3px 3px #101010;
+        padding: 20px !important;
+      }
+
+      .definition-header  {
+        color: black !important;
+        font-size: 2rem !important;
+      }
+
+      .definition-item  {
+        color: white !important;
+        font-size: 1.75rem !important;
+      }
+
+      .definition-source  {
+        text-align: right;
+      }
+
+      .definition-source  a{
+        color: rgb(0, 0, 100) !important;
+        font-size: 1.75rem !important;
+      }
+
+      /*
+      .lo {
+        text-align: left; 
+        margin-bottom: 20px; 
+        padding: 20px !important;
+        background-color: #c7c6c6
+      }
+
+      .lo-heading {
+        color: black !important;
+        font-size: 1rem !important; 
+      }
+
+      .lo-question {
+        color: black !important;
+        text-align: center;
+      }
+      */
+
+      /*
+      .timeline {
+        display : grid;
+        grid-template-columns: 3rem auto;
+      }
+
+      .timeline div {
+        text-align: left !important;
+      }
+      */
+    </style>
+
+    <!-- Polymer Web App -->
+    <script type="module">
+        
+        import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+        import {LoComponent} from '/static/webcomponents/lo.js'
+        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+
+        customElements.define('my-lo', LoComponent);
+        customElements.define('my-timeline', TimelineComponent);
+    </script>
 </head>
 <body>
     <div class="reveal">
 			<div class="slides">
-          
 
-				<section>
+      <!-- Heading Page -->
+      <section data-background-image="/static/modules/backdrop3-sm.jpg">
+          
           <div style="display:flex; flex-direction: row">
               <img class="slideImg" 
-                   style="width: 150px; height: 150px; margin: 20px"
-                   src="/static/modules/sketchup/images/sketchup_logo.png">
+                    id="logo"
+                    style="width: 150px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important; height: 150px; margin: 20px"
+                    src="/static/modules/sketchup/images/sketchup_logo.png">
               <div style="text-align: left">
-                  <h1 style="text-transform: none">Into to SketchUp</h1>
+                  <h1 id="title" style="transform: translateY(-50%); opacity: 0; text-transform: none; font-size: 5rem; color: white">Software Modelling</h1>
                   <hr>
-                  <h2 style="text-transform: none">Software Modelling</h2>
+                  <h2 id="subTitle" style="transform: translateY(50%); opacity: 0; text-transform: none; font-size: 4rem; color: #686767">Intro to SketchUp</h2>
               </div>
           </div>
-        </section>
+      </section>
+      <!-- End of Heading Page-->
 
+
+      <!-- Timeline-->
+      <section>
         <section>
+          <my-timeline></my-timeline>
+          <!--
+          <div class="timeline">
+            <div>1</div><div>What is Computer Modelling?</div>
+            <div>2</div><div>Basic Concepts of SketchUp.</div>
+            <div>2</div><div>How to Measure Accurately.</div>
+            <div>4</div><div>How Scale, Skew, Move and Rotate.</div>
+            <div>5</div><div>What are Components?</div>
+            <div>6</div><div>How to build from a floor plan.</div>
+            <div>7</div><div>Project - Medieval Castle.</div>
+          </div>
+          -->
+        </section>
+      </section>
+      <!-- End of Timeline -->
+
+
+      <!--Software Modelling -->
+      <section>
+          <section>
+              <h1>What is Computer Modelling?</h1>
+               <my-lo>What are the What, Where, How and  Pros/Cons of Computer Modelling?</my-lo>
+          </section>
+          <section>
+            <h1>What is Computer Modelling?</h1>
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">A computer-based model is a computer program that is designed to <u><b>simulate what might or what did</b></u> happen in a situation.</p>
+              <p class="definition-item fragment fade-up ">Software Modelling allows us to consider the <b><u>interaction</u></b> of real world objects.</p>
+              <p class="definition-source fragment fade-up"><a href="https://simple.wikipedia.org/wiki/Computer_model">Wikipedia, 2018</a></p>
+            </div>
+          </section>
+          <section>
+            <h1><b><u>Where and How</u></b> might we use Computer Modelling?</h1>
+            <div>2 mins pair and share</div>
+          </section>
+          <section>
+              <h1>Pros & Cons</h1>
+              <div>Pair and Share:</div>
+              <div>Discuss with your partner what may be the pro's and con's of using Software Modelling.</div>
+              
+            <div class="pros-cons">
+              <div><h3>Pros</h3></div>
+              <div><h3>Cons</h3></div>
+              <div>
+                  <p class="fragment fade-up">Can improve the estimate of costs.</p>
+                  <p class="fragment fade-up">Can save money by identifying problems early.</p>
+              </div>
+              <div>
+                  <p class="fragment fade-up">Increases the cost of the project.</p>
+                  <p class="fragment fade-up">Can create unreasonable expectations.</p>
+                  <p class="fragment fade-up">How do we know if the model is right?</p>
+              </div>
+
+            </div>
+          </section>
+          
+      </section>
+      <!-- End of Software Modelling -->
+
+
+      <!-- First Concepts -->
+      <section>
+          <section>
+            <h1>Using SketchUp</h1>
+            <!--
+            <div class="lo">
+              <p class="lo-heading">LO Question:</p> 
+              <p class="lo-question"><i>"What is <b>SketchUp</b> and how do we use it?"</i></p>
+              <div style="width: 100%; text-align: right; font-size: 1.5rem; display: flex; flex-direction: row">
+                <img src="/static/modules/PDF_file_icon.svg" style="border: none !important; margin: 0px 0px 0px 0px !important; margin-right: 10px; width:40px; height: 40px; box-shadow: none!important"> 
+                <a style="margin-left: 10px !important;" href="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">Link to Module Description</a>
+              </div>
+            </div>
+            -->
+            <my-lo>"What is <b>SketchUp</b> and how do we use it?"</my-lo>
+          </section>
+
+          <section>
+              <h1>Key Features of SketchUp</h1>
+              <ul>
+                <li><b>1. SketchUp works in 3D.</b> This means that you will need to get good at moving around the 3D scene (pan, rotate and zoom).</li>
+                <li><b>2. SketchUp will try to help you.</b> The mouse will "snap" to lines, mid points.</li>
+                
+              </ul>
+          </section>
             <section>
                 <div style="display: flex; flex-direction: row;">
                     <img style="width: 100px; height: 100px; padding-right: 20px;border: none!important; box-shadow: none !important" 
@@ -48,14 +221,7 @@
                 <div style="display:flex; flex-direction: row;">
                     
                       <div>
-                        <div style="text-align: left; 
-                                    margin-bottom: 20px; 
-                                    padding: 10px;
-                                    background-color: #c7c6c6">
-                          <p style="font-size: 1rem">LO Question:</p> 
-                          <p><i>"How do we use the <b>basic functionality</b> of SketchUp?"</i></p>
-                          <p style="width: 100%; text-align: right; font-size: 1rem;"><a href="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">Link to Module Description</a></p>
-                        </div>
+                        
                         <div style="text-align: left">
                           <h3>Task:</h3>
                           <ul>
@@ -72,18 +238,113 @@
                     <source src="https://www.dropbox.com/s/8bf9mts0bnyxyrn/IntroToSketchUp.mp4?raw=1" type="video/mp4">
                   </video>
             </section>
-            
-          </section>
+            <section>
+              <h1>Resources</h1>
+              <ul>
 
-				
+              <li><a href="https://www.youtube.com/watch?v=9Fbvtc2eLzU&list=PL190C90DCE62242C9">SketchUp Navigation</a></li>
+              </ul>
+            </section>
+      </section>
+      <!-- End Section First Concepts-->
+
+          
+      <!-- Useful Resources -->
+      <section>
+        <section>
+          <h1>Useful Resources</h1>
+          
+          <ul>
+            <li><a href="https://help.sketchup.com/en/downloading-older-versions">Download SketchUp at Home (optional).</a></li>
+            <ul>
+                <li>Select Version 2017 Make</li>
+                <li>Ensure that you chose the correct version.</li>
+            </ul>
+
+            <li><a href="https://www.youtube.com/playlist?list=PLMK2xMz5H5ZvY28MrKdFPmNJbODwLgSqj">You Tube Tutorials from JD Williams.</a></li>
+            <li><a href="https://www.youtube.com/watch?v=EdsFkiPw4nA&list=PL190C90DCE62242C9&index=10">You Tube Tutorials from SketchUp</a></li>
+            <li><a href="https://www.youtube.com/watch?v=cfoQf_8YYxg">Reference Video.</a>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <!-- End of Useful Resources -->
+
+      
+      <!-- Marking Scheme Page -->
+      <section>
+          <section>
+            <h1>End of Module Project: Build a Castle</h1>
+          </section>
+          <section>
+              <div>
+                <h2>2018 Castle Designs</h2>
+                <p>To help inspire you, here are some examples of 2018 Year 7 castle design.</p>
+                <video width="600" height="450" controls>
+                  <source src="https://www.dropbox.com/s/p9u9vjudwejfl9p/CastlesYear7-2018.mp4?raw=1" type="video/mp4">
+                </video>
+              </div>
+            </section>
+          <section>
+            <h1>Marking Scheme</h1>
+            <div>
+                <p>The marking scheme for this module can be found here.</p>
+                <div style="width: 100%; text-align: right; font-size: 2rem; display: flex; flex-direction: row">
+                    <img src="/static/modules/PDF_file_icon.svg" style="border: none !important; margin: 0px 0px 0px 0px !important; margin-right: 10px; width:40px; height: 40px; box-shadow: none!important"> 
+                    <a style="margin-left: 10px !important;" href="http://127.0.0.1:5000/static/modules/sketchup/module-description.pdf#page=2">Link to Module Description</a>
+                </div>
+                
+            </div>
+        </section>
+
+      </section>
+      <!-- End of Marking Scheme-->
+
+      
+
 			</div>
 		</div>
-    <button class="btn btn-primary">Test</button>
-    <button class="btn btn-info">Info</button>
+
     <script src="/static/reveal.js/lib/js/head.min.js"></script>
     <script src="/static/reveal.js/js/reveal.js"></script>
 		<script>
-			Reveal.initialize();
+      function onStart() {
+        console.log('Animation Starting');
+      }
+
+      function onComplete() {
+        console.log('Animation Complete');
+      }
+			Reveal.initialize({
+        center: true
+      });
+
+      Reveal.addEventListener( 'ready', function( event ) {
+          // event.currentSlide, event.indexh, event.indexv
+          console.log(event);
+          var logo = document.getElementById("logo");
+          TweenLite.to(logo, 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              xPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+         
+
+            TweenLite.to(document.getElementById("title"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+
+            TweenLite.to(document.getElementById("subTitle"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  -70, 
+              onStart: onStart,
+              onComplete: onComplete});
+        } );
 		</script>
 </body>
 </html>
