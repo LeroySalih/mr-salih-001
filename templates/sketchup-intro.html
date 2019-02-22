@@ -27,11 +27,12 @@
   <title>Software Modelling - mr-salih.com</title>
 
   <style>
+      /*
       .pros-cons {
         display: grid;
         grid-template-columns: 1fr 1fr;
       }
-
+*/
       .definition {
         background-color: rgb(173, 130, 11);
         box-shadow: 3px 3px 3px #101010;
@@ -94,9 +95,16 @@
         import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
         import {LoComponent} from '/static/webcomponents/lo.js'
         import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
 
         customElements.define('my-lo', LoComponent);
         customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-pros-cons', ProsConsComponent);
+        customElements.define('my-pros', ProsComponent);
+        customElements.define('my-cons', ConsComponent);
+        customElements.define('my-pro', ProComponent);
+        customElements.define('my-con', ConComponent);
+        
     </script>
 </head>
 <body>
@@ -158,27 +166,29 @@
           </section>
           <section>
             <h1><b><u>Where and How</u></b> might we use Computer Modelling?</h1>
-            <div>2 mins pair and share</div>
+            <div>2 mins pair and share:</div>
           </section>
+
           <section>
               <h1>Pros & Cons</h1>
-              <div>Pair and Share:</div>
-              <div>Discuss with your partner what may be the pro's and con's of using Software Modelling.</div>
-              
-            <div class="pros-cons">
-              <div><h3>Pros</h3></div>
-              <div><h3>Cons</h3></div>
-              <div>
-                  <p class="fragment fade-up">Can improve the estimate of costs.</p>
-                  <p class="fragment fade-up">Can save money by identifying problems early.</p>
-              </div>
-              <div>
-                  <p class="fragment fade-up">Increases the cost of the project.</p>
-                  <p class="fragment fade-up">Can create unreasonable expectations.</p>
-                  <p class="fragment fade-up">How do we know if the model is right?</p>
-              </div>
+              <div>What may be the pro's and con's of using Computer Modelling.</div>
+              <div>2 min pair and share:</div>
+          </section>
 
-            </div>
+          <section>
+            <h1>Computer Modelling</h1>
+            <my-pros-cons>
+              <my-pros>
+                <my-pro class="fragment fade-up">Can improve the estimate of costs.</pro>
+                <my-pro class="fragment fade-up">Can save money by identifying problems early.</pro>
+              </my-pros>
+              <my-cons>
+                <my-con class="fragment fade-up">Increases the cost of the project.</con>
+                <my-con class="fragment fade-up">Can create unreasonable expectations.</cons>
+                <my-con class="fragment fade-up">How do we know if the model is right?</my-con>
+              </my-cons>
+            </my-pros-cons> 
+            
           </section>
           
       </section>
