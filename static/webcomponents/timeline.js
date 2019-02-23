@@ -17,9 +17,9 @@ export class TimelineComponent extends LitElement {
 
     .timeline div {
       text-align: left !important;
+      line-height: 4rem;
     }
     </style>
-    <h1>Timeline</h1>
     <div class="timeline">
       <div>1</div><div>What is Computer Modelling?</div>
       <div>2</div><div>Basic Concepts of SketchUp.</div>

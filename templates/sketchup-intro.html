@@ -112,17 +112,24 @@
 			<div class="slides">
 
       <!-- Heading Page -->
-      <section data-background-image="/static/modules/backdrop3-sm.jpg">
-          
+      <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
+      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
           <div style="display:flex; flex-direction: row">
               <img class="slideImg" 
                     id="logo"
-                    style="width: 150px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important; height: 150px; margin: 20px"
+                    style="width: 100px; height: 100px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important;  margin: 20px"
                     src="/static/modules/sketchup/images/sketchup_logo.png">
               <div style="text-align: left">
-                  <h1 id="title" style="transform: translateY(-50%); opacity: 0; text-transform: none; font-size: 5rem; color: white">Software Modelling</h1>
+                  <h1 id="title" style="transform: translateY(-50%); 
+                                        opacity: 0; text-transform: none; 
+                                        font-size: 3rem; color: rgb(0, 0, 0);
+                                        margin-top: 10px;
+                                        margin-bottom: 5px;
+                                        ">Software Modelling</h1>
                   <hr>
-                  <h2 id="subTitle" style="transform: translateY(50%); opacity: 0; text-transform: none; font-size: 4rem; color: #686767">Intro to SketchUp</h2>
+                  <h2 id="subTitle" style="transform: translateY(50%); 
+                                           opacity: 0; text-transform: none; 
+                                           font-size: 2rem; color: #686767">Intro to SketchUp</h2>
               </div>
           </div>
       </section>
@@ -132,18 +139,9 @@
       <!-- Timeline-->
       <section>
         <section>
+          <h1>Timeline</h1>
           <my-timeline></my-timeline>
-          <!--
-          <div class="timeline">
-            <div>1</div><div>What is Computer Modelling?</div>
-            <div>2</div><div>Basic Concepts of SketchUp.</div>
-            <div>2</div><div>How to Measure Accurately.</div>
-            <div>4</div><div>How Scale, Skew, Move and Rotate.</div>
-            <div>5</div><div>What are Components?</div>
-            <div>6</div><div>How to build from a floor plan.</div>
-            <div>7</div><div>Project - Medieval Castle.</div>
-          </div>
-          -->
+          
         </section>
       </section>
       <!-- End of Timeline -->
@@ -190,9 +188,7 @@
             </my-pros-cons> 
             
           </section>
-          <section>
-            Homework.
-          </section>
+          
           
       </section>
       <!-- End of Software Modelling -->
@@ -202,16 +198,6 @@
       <section>
           <section>
             <h1>Using SketchUp</h1>
-            <!--
-            <div class="lo">
-              <p class="lo-heading">LO Question:</p> 
-              <p class="lo-question"><i>"What is <b>SketchUp</b> and how do we use it?"</i></p>
-              <div style="width: 100%; text-align: right; font-size: 1.5rem; display: flex; flex-direction: row">
-                <img src="/static/modules/PDF_file_icon.svg" style="border: none !important; margin: 0px 0px 0px 0px !important; margin-right: 10px; width:40px; height: 40px; box-shadow: none!important"> 
-                <a style="margin-left: 10px !important;" href="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">Link to Module Description</a>
-              </div>
-            </div>
-            -->
             <my-lo>"What is <b>SketchUp</b> and how do we use it?"</my-lo>
           </section>
 
@@ -252,10 +238,21 @@
                   </video>
             </section>
             <section>
-              <h1>Resources</h1>
+                <h1>Homework</h1>
+                <p>
+                  Using a search engine, search for images of SkecthUp models that have been created by others.
+                </p>
+                <p>
+                  Create a Word (or similar) document that contains images of 3 SketchUp models that you like or find impressive.  
+                </p>  
+                <p>
+                    Write a short paragraph next to each image to explain why you have chosen each model.
+                </p>
+              </section>
+            <section>
+              <h1>Additional Resources</h1>
               <ul>
-
-              <li><a href="https://www.youtube.com/watch?v=9Fbvtc2eLzU&list=PL190C90DCE62242C9">SketchUp Navigation</a></li>
+                <li><a href="https://www.youtube.com/watch?v=9Fbvtc2eLzU&list=PL190C90DCE62242C9">SketchUp Navigation</a></li>
               </ul>
             </section>
       </section>
@@ -329,7 +326,7 @@
         console.log('Animation Complete');
       }
 			Reveal.initialize({
-        center: true
+        center: false
       });
 
       Reveal.addEventListener( 'ready', function( event ) {

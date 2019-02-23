@@ -1,11 +1,25 @@
 from flask import Flask, render_template, url_for
+import pymysql
+
+#db = pymysql.connect("127.0.0.1", "root", "cardiff1", "lessons")
+
 
 app = Flask(__name__)
+# api = Api(app)
+
+
+
+
 app.config['DEBUG'] = True
+
 
 @app.route('/')
 def hello():
-  return render_template("index.html")
+  #cursor = db.cursor()
+  #sql = "SELECT * FROM tasks"
+  #cursor.execute(sql)
+  #results = cursor.fetchall()
+  return render_template('index.html', results=None)
 
 @app.route('/p5-intro')
 def p5Intro():
