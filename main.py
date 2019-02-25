@@ -29,9 +29,9 @@ def p5Intro():
 def sketchUpIntro():
   return render_template("sketchup-intro.html")
 
-@app.route('/html-basics')
+@app.route('/web-server')
 def htmlBasics():
-  return render_template("html-basics.html")
+  return render_template("web-server.html")
 
 if __name__ == '__main__':
   app.run(debug=True)

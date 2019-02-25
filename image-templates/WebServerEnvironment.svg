@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 251 297" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-207.195,-171.122)">
+        <g transform="matrix(0.864133,0,0,0.980064,42.7932,2.41946)">
+            <rect x="190.25" y="172.134" width="290.114" height="302.761" style="fill:rgb(240,244,240);"/>
+        </g>
+        <rect x="281.396" y="371.133" width="118.604" height="80.374" style="fill:rgb(235,235,235);"/>
+        <g transform="matrix(1,0,0,1,-23.8302,9.85596)">
+            <text x="336.37px" y="406.745px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:15px;">Browser</text>
+        </g>
+        <rect x="281.396" y="362.899" width="118.604" height="8.234" style="fill:rgb(133,138,164);"/>
+        <g transform="matrix(1,0,0,1,2.11108,1.28013)">
+            <circle cx="284.233" cy="365.736" r="2.837" style="fill:rgb(231,18,16);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,11.3821,1.28013)">
+            <circle cx="284.233" cy="365.736" r="2.837" style="fill:rgb(133,138,164);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,9.74043,1.28013)">
+            <circle cx="284.233" cy="365.736" r="2.837" style="fill:rgb(220,203,41);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,17.0559,1.28013)">
+            <circle cx="284.233" cy="365.736" r="2.837" style="fill:rgb(31,140,28);"/>
+        </g>
+        <g transform="matrix(1,-0,-0,1,207.195,171.122)">
+            <use xlink:href="#_Image1" x="106.774" y="108.049" width="50.349px" height="67.21px" transform="matrix(0.987239,0,0,0.988375,0,0)"/>
+        </g>
+        <g transform="matrix(1,0,0,1,18.0234,1.80397)">
+            <rect x="295.615" y="277.143" width="45.083" height="61.943" style="fill:rgb(215,216,225);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,13.4929,15.3844)">
+            <text x="310.656px" y="298.434px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11px;">.html</text>
+        </g>
+        <g transform="matrix(1,-0,-0,1,207.195,171.122)">
+            <use xlink:href="#_Image2" x="173.29" y="102.583" width="41.894px" height="43.622px" transform="matrix(0.997476,0,0,0.991406,0,0)"/>
+        </g>
+        <g transform="matrix(0.812451,0,0,0.619204,140.907,102.247)">
+            <rect x="295.615" y="277.143" width="45.083" height="61.943" style="fill:rgb(215,216,225);"/>
+        </g>
+        <g transform="matrix(0.812451,0,0,0.818954,138.9,50.9653)">
+            <text x="310.656px" y="298.434px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11px;">.css</text>
+        </g>
+        <g transform="matrix(1,-0,-0,1,207.195,171.122)">
+            <use xlink:href="#_Image3" x="173.775" y="142.782" width="41.8px" height="40.701px" transform="matrix(0.995235,0,0,0.9927,0,0)"/>
+        </g>
+        <g transform="matrix(0.810363,0,0,0.572045,141.618,155.355)">
+            <rect x="295.615" y="277.143" width="45.083" height="61.943" style="fill:rgb(215,216,225);"/>
+        </g>
+        <g transform="matrix(0.000334295,-0.331587,0.999999,0.00100816,109.302,447.894)">
+            <path d="M280.867,231.846L281.696,232L277.695,234.355L257.029,230.494L277.695,226.633L281.696,228.988L280.867,229.143L327.229,229.143L327.229,226.633L338.872,226.633L338.872,234.355L327.229,234.355L327.229,231.846L280.867,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(0.810363,0,0,0.756582,143.007,106.325)">
+            <text x="310.656px" y="298.434px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11px;">.js</text>
+        </g>
+        <g transform="matrix(0.000334295,-0.331587,0.999999,0.00100816,157.636,447.894)">
+            <path d="M280.867,231.846L281.696,232L277.695,234.355L257.029,230.494L277.695,226.633L281.696,228.988L280.867,229.143L327.229,229.143L327.229,226.633L338.872,226.633L338.872,234.355L327.229,234.355L327.229,231.846L280.867,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,0,-192.398)">
+            <rect x="281.396" y="371.133" width="118.604" height="80.374" style="stroke:rgb(235,235,235);stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-35.8931,-183.193)">
+            <text x="336.37px" y="406.745px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:15px;fill:white;">WebServer</text>
+        </g>
+        <g transform="matrix(0.000334295,-0.331587,0.999999,0.00100816,109.454,363.942)">
+            <path d="M280.867,231.846L281.696,232L277.695,234.355L257.029,230.494L277.695,226.633L281.696,228.988L280.867,229.143L327.229,229.143L327.229,226.633L338.872,226.633L338.872,234.355L327.229,234.355L327.229,231.846L280.867,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <rect x="281.396" y="371.133" width="117.969" height="8.897" style="fill:rgb(255,250,250);"/>
+        <g transform="matrix(0.571316,0,0,0.571316,96.4427,145.359)">
+            <text x="336.37px" y="406.745px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:15px;">https://www<tspan x="413.062px 417.23px " y="406.745px 406.745px ">.b</tspan>bc.com</text>
+        </g>
+        <g transform="matrix(-0.331587,-1.09179e-16,3.28947e-16,-1,371.572,606.076)">
+            <path d="M280.867,231.846L281.696,232L277.695,234.355L257.029,230.494L277.695,226.633L281.696,228.988L280.867,229.143L327.229,229.143L327.229,226.633L338.872,226.633L338.872,234.355L327.229,234.355L327.229,231.846L280.867,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(-8.57047e-17,0.588772,-1.10219,-1.60094e-16,553.92,100.481)">
+            <path d="M279.338,231.846L277.695,234.355L257.029,230.494L277.695,226.633L279.338,229.143L331.645,229.143L331.645,226.633L338.872,226.633L338.872,234.355L331.645,234.355L331.645,231.846L279.338,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(0.571316,0,0,0.571316,33.9209,83.778)">
+            <text x="336.37px" y="406.745px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:15px;">https://www<tspan x="413.062px 417.23px " y="406.745px 406.745px ">.b</tspan>bc.com</text>
+        </g>
+        <g transform="matrix(-6.19783e-17,0.425777,-1.10219,-1.60094e-16,553.92,216.72)">
+            <path d="M280.332,231.846L280.741,231.922L277.695,234.355L257.029,230.494L277.695,226.633L280.741,229.066L280.332,229.143L328.878,229.143L328.878,226.633L338.872,226.633L338.872,234.355L328.878,234.355L328.878,231.846L280.332,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(7.37459e-17,1.37299,-1.07751,5.7801e-17,620.279,-101.089)">
+            <path d="M266.204,231.846L265.5,234.355L257.029,230.494L265.5,226.633L266.204,229.143L335.198,229.143L335.198,226.633L338.872,226.633L338.872,234.355L335.198,234.355L335.198,231.846L266.204,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(0.000334295,-0.331587,0.999999,0.00100816,161.093,363.946)">
+            <path d="M280.867,231.846L281.696,232L277.695,234.355L257.029,230.494L277.695,226.633L281.696,228.988L280.867,229.143L327.229,229.143L327.229,226.633L338.872,226.633L338.872,234.355L327.229,234.355L327.229,231.846L280.867,231.846Z" style="fill:rgb(56,78,200);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,22.694,-8.82197)">
+            <circle cx="222.283" cy="383.62" r="11.899" style="fill:rgb(59,159,68);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,17.5019,-4.52463)">
+            <text x="222.509px" y="385.154px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:18px;fill:white;">1</text>
+        </g>
+        <g transform="matrix(1,0,0,1,38.5929,-88.1455)">
+            <circle cx="222.283" cy="383.62" r="11.899" style="fill:rgb(59,159,68);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,33.4007,-83.8481)">
+            <text x="222.509px" y="385.154px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:18px;fill:white;">2</text>
+        </g>
+        <g transform="matrix(1,0,0,1,97.7591,-140.84)">
+            <circle cx="222.283" cy="383.62" r="11.899" style="fill:rgb(59,159,68);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,92.567,-136.543)">
+            <text x="222.509px" y="385.154px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:18px;fill:white;">3</text>
+        </g>
+        <g transform="matrix(1,0,0,1,149.634,-102.486)">
+            <circle cx="222.283" cy="383.62" r="11.899" style="fill:rgb(59,159,68);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,144.442,-98.1887)">
+            <text x="222.509px" y="385.154px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:18px;fill:white;">4</text>
+        </g>
+        <g transform="matrix(1,0,0,1,196.453,-70.4147)">
+            <circle cx="222.283" cy="383.62" r="11.899" style="fill:rgb(59,159,68);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,191.26,-66.1173)">
+            <text x="222.509px" y="385.154px" style="font-family:'CourierNewPS-BoldMT', 'Courier New', monospace;font-weight:700;font-size:18px;fill:white;">5</text>
+        </g>
+    </g>
+    <defs>
+        <image id="_Image1" width="51px" height="68px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABECAYAAAAshg1TAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABWUlEQVRoge3bwU7CQBSF4b+1WIIxsDG8/xOKJpgWaMfFnUkHdaEu5JicP5kQCov50sJqbkPUflgN+iVgrldDbL4D+rxW6IMK5AyMeV06YuM98AhsgQcCpIwpkDfgNa+5xmyBPbAD1vm6ajMwAM/5/QicCmZF3JEd8ARs0MZMxF0BOAIvQNsRj1MBrQnIBri7wSa/25Rf6984Xb7YsKBaAqKMget/3gZolB+lH2eMasaoZoxqxqhmjGrGqGaMasaoZoxqxqhmjGrGqGaMasaoZoxqxqhmjGrGqGaMasaoZoxqxqhmjGrGqGaMasaoZsyNS3l9qqu+MBOHnyfg8jf7+lWJZZ8zCy51XE88DMSx9IT2Ie1yfH4g9j2RMfXEw4E4vd2j/QiWwYYDMQtwpsKMxNgG+UP1kZNEAI7Evkdg+moY6J7/Mwx0ohoGKhuuBxrK46WOgeVPawbSO5gNVE+WBmzzAAAAAElFTkSuQmCC"/>
+        <image id="_Image2" width="42px" height="44px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAsCAYAAAATmipGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABM0lEQVRYhe3Z3WrDMAyG4TeJS9sV1p2M3f8droWkP1nsHUgm7nY0ENMG+kAU24U8OORE6pD0X6rDNwXIbXUILAFbrQ0weAlZkTNw0/pICHQLPANH4AnBet1qUeQInLVyCz0Cb8CLrnsfJxm4Au/IZd2Be4VugIMiX4E9Pq+/AAtwUeSo4D7pxqDYnSIP+N3oor/t99Il3ey0ej0Y8IPSPL+6XDE/SkCtE1DrBNQ6AbVOQK0TUOsE1DoBtU5ArRNQ6wTUOgG1TkCtE1Dr/Hto+VXF43NrPVhSs8hIE7WWR2rHeWGdiAACrYcz0jufdM+z43xRy6zrklhHJRPSLwdpkXtA65u9qWVSW07NwUn/PCI37TkVqRd3Qm7220Bsx98aiF2R8c1ch151tNg2+T3TftwZKJ/OhVcftTLyJQAAAABJRU5ErkJggg=="/>
+        <image id="_Image3" width="42px" height="41px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABL0lEQVRYhe3ZQUvDQBCG4TfNlkYFSw/6/3+iCo1NarIeZrZO60kYOh7mgyG0BPJkk1y+7ZBsbqYjNhVY7XQIrAA7nS3QRwn5QZ6BSeerINAd8AzsgUcEG7WqVZFH4ENntdA98AocgIE46AqcgDc1zMDcoFtkJQ/AC/BAzONvj31U5FHBm6J/9IodFPmE3EBEFgRsv5eumBPaF9/rREEx17+8fpGYPyWh3kmodxLqnYR6J6HeSah3EuqdhHonod5JqHcS6p2Eeieh3rHQqoM53juVa8cl5eaEFWnTlrvRrlPN9VurBwjUVtEnpJusxNaOn0glPuvvWgyylaYgPWkkdFLLiNjWBp2Qrry1vJEdflu4EXhHnvKvXZGB+F0RkFVtr+IMnNuq2bb5P+0zLXqs39fqVxrRaRfQAAAAAElFTkSuQmCC"/>
+    </defs>
+</svg>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
+  
+  <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
+  <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Reveal Files-->
+  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
+  
+
+  <!-- GSAP files-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+  <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+
+  <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet">
+  <title>Web Servers - mr-salih.com</title>
+
+  <style>
+      /*
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+*/
+      .definition {
+        background-color: rgb(173, 130, 11);
+        box-shadow: 3px 3px 3px #101010;
+        padding: 20px !important;
+      }
+
+      .definition-header  {
+        color: black !important;
+        font-size: 2rem !important;
+      }
+
+      .definition-item  {
+        color: white !important;
+        font-size: 1.75rem !important;
+      }
+
+      .definition-source  {
+        text-align: right;
+      }
+
+      .definition-source  a{
+        color: rgb(0, 0, 100) !important;
+        font-size: 1.75rem !important;
+      }
+
+      /*
+      .lo {
+        text-align: left; 
+        margin-bottom: 20px; 
+        padding: 20px !important;
+        background-color: #c7c6c6
+      }
+
+      .lo-heading {
+        color: black !important;
+        font-size: 1rem !important; 
+      }
+
+      .lo-question {
+        color: black !important;
+        text-align: center;
+      }
+      */
+
+      /*
+      .timeline {
+        display : grid;
+        grid-template-columns: 3rem auto;
+      }
+
+      .timeline div {
+        text-align: left !important;
+      }
+      */
+    </style>
+
+    <!-- Polymer Web App -->
+    <script type="module">
+        
+        import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+        import {LoComponent} from '/static/webcomponents/lo.js'
+        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
+
+        customElements.define('my-lo', LoComponent);
+        customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-pros-cons', ProsConsComponent);
+        customElements.define('my-pros', ProsComponent);
+        customElements.define('my-cons', ConsComponent);
+        customElements.define('my-pro', ProComponent);
+        customElements.define('my-con', ConComponent);
+        
+    </script>
+</head>
+<body>
+    <div class="reveal">
+			<div class="slides">
+
+      <!-- Heading Page -->
+      <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
+      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
+          <div style="display:flex; flex-direction: row">
+              <img class="slideImg" 
+                    id="logo"
+                    style="width: 100px; height: 100px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important;  margin: 20px"
+                    src="/static/modules/sketchup/images/sketchup_logo.png">
+              <div style="text-align: left">
+                  <h1 id="title" style="transform: translateY(-50%); 
+                                        opacity: 0; text-transform: none; 
+                                        font-size: 3rem; color: rgb(0, 0, 0);
+                                        margin-top: 10px;
+                                        margin-bottom: 5px;
+                                        ">Web Servers</h1>
+                  <hr>
+                  <h2 id="subTitle" style="transform: translateY(50%); 
+                                           opacity: 0; text-transform: none; 
+                                           font-size: 2rem; color: #686767">Web Design</h2>
+              </div>
+          </div>
+      </section>
+      <!-- End of Heading Page-->
+
+
+      <!-- Timeline
+      <section>
+        <section>
+          <h1>Timeline</h1>
+          <my-timeline></my-timeline>
+          
+        </section>
+      </section>
+      End of Timeline -->
+
+      <section>
+        <h1>The World Wide Web (WWW) Environment</h1>
+        <div style="display: grid; grid-template-columns: 50% 40%; height: 700px !important">
+          <div>
+            Description
+            <ul>
+              <li style="font-size: 2rem; line-height: 4rem !important">1. User enters URL in Browser.</li>
+              <li style="font-size: 2rem; line-height: 4rem !important">2. Browser sends URL to Web Server.</li>
+              <li style="font-size: 2rem; line-height: 4rem !important">3. Server returns .html file.</li>
+              <li style="font-size: 2rem; line-height: 4rem !important">4. HTML File requests associated files.</li>
+              <li style="font-size: 2rem; line-height: 4rem !important">5. Browser Builds web page.</li>
+            </ul>
+          </div>
+          <div>
+            <img src="/static/modules/web-design/images/WebServerEnvironment.svg">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1>Anatomy of URL</h1>
+        <div>
+            <img src="/static/modules/web-design/images/anatomy-of-a-url.gif">
+        </div>
+      </section>
+
+
+      <section>
+        <h1>Basic HTML & CSS</h1>
+        <div>
+          <ul>
+            <li>1. Fork the repl at <a href="https://repl.it/@mrsalih/BasicHTML">https://repl.it/@mrsalih/BasicHTML</a></li>
+            <li>2. Follow the Basic HTML video at <a href="https://www.dropbox.com/s/atsb460qwr8rxl2/BasicHTML.mp4?raw=true">here</a>.</li>
+            <li>3. Follow the Basic CSS video at <a href="https://www.dropbox.com/s/0cz7i9f5rv05byc/BasicCSS.mp4?dl=0">here</a></li>
+          </ul></div>
+      </section>
+
+      
+
+			</div>
+		</div>
+
+    <script src="/static/reveal.js/lib/js/head.min.js"></script>
+    <script src="/static/reveal.js/js/reveal.js"></script>
+		<script>
+      function onStart() {
+        console.log('Animation Starting');
+      }
+
+      function onComplete() {
+        console.log('Animation Complete');
+      }
+			Reveal.initialize({
+        center: false
+      });
+
+      Reveal.addEventListener( 'ready', function( event ) {
+          // event.currentSlide, event.indexh, event.indexv
+          console.log(event);
+          var logo = document.getElementById("logo");
+          TweenLite.to(logo, 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              xPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+         
+
+            TweenLite.to(document.getElementById("title"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+
+            TweenLite.to(document.getElementById("subTitle"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  -70, 
+              onStart: onStart,
+              onComplete: onComplete});
+        } );
+		</script>
+</body>
+</html>
