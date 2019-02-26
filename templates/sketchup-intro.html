@@ -25,7 +25,7 @@
 
   <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet">
   <title>Software Modelling - mr-salih.com</title>
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <style>
       /*
       .pros-cons {
@@ -87,6 +87,17 @@
         text-align: left !important;
       }
       */
+
+      .front-page h1 {
+        color: green;
+      }
+      .slide h1 {
+        color: red;
+        font-family: 'Roboto', Tahoma;
+        font-size: 4rem;
+        text-align: left;
+        border-bottom: silver 1px solid;
+      }
     </style>
 
     <!-- Polymer Web App -->
@@ -94,11 +105,12 @@
         
         import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
         import {LoComponent} from '/static/webcomponents/lo.js'
-        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {TimelineComponent, TimelineItemComponent} from '/static/webcomponents/timeline.js'
         import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
 
         customElements.define('my-lo', LoComponent);
         customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-timeline-item', TimelineItemComponent);
         customElements.define('my-pros-cons', ProsConsComponent);
         customElements.define('my-pros', ProsComponent);
         customElements.define('my-cons', ConsComponent);
@@ -113,7 +125,8 @@
 
       <!-- Heading Page -->
       <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
-      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
+      <section 
+               data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
           <div style="display:flex; flex-direction: row">
               <img class="slideImg" 
                     id="logo"
@@ -138,9 +151,18 @@
 
       <!-- Timeline-->
       <section>
-        <section>
+        <section data-state="slide">
           <h1>Timeline</h1>
-          <my-timeline></my-timeline>
+          <my-timeline>
+            <my-timeline-item itemNumber="1" completed="true">What is <b>Computer Modelling</b>?         </my-timeline-item>
+            <my-timeline-item itemNumber="2" completed="true">Basic Concepts of SketchUp.         </my-timeline-item>
+            <my-timeline-item itemNumber="3" completed="true">How to <b>Measure Accurately</b>.          </my-timeline-item>
+            <my-timeline-item itemNumber="4">How to Make Compound Shapes.        </my-timeline-item>
+            <my-timeline-item itemNumber="5">How to Scale, Skew, Move and Rotate.</my-timeline-item>
+            <my-timeline-item itemNumber="6">What are Components?                </my-timeline-item>
+            <my-timeline-item itemNumber="7">How to Build from a Reference Plan. </my-timeline-item>
+            <my-timeline-item itemNumber="8">Project - Medieval Castle.          </my-timeline-item>
+          </my-timeline>
           
         </section>
       </section>
@@ -149,7 +171,7 @@
 
       <!--Software Modelling -->
       <section>
-          <section>
+          <section data-state="slide">
               <h1>What is Computer Modelling?</h1>
                <my-lo>What are the What, Where, How and  Pros/Cons of Computer Modelling?</my-lo>
           </section>
@@ -258,6 +280,7 @@
       </section>
       <!-- End Section First Concepts-->
 
+      <!-- Measuring with SketchUp-->
       <section>
         <section>
           <h1>Measuring with SketchUp</h1>
@@ -271,6 +294,7 @@
           </my-lo>
         </section>
         
+
         <section>
           <h1>Specifying Dimensions</h1>
           <ul>
@@ -314,7 +338,11 @@
                 </div>
           </div>
       </section>
+
+      
+
       <section>
+        <h1>Make a Table</h1>
         <video width="100%" controls>
             <source src="https://www.dropbox.com/s/nsdfcxpbdgmyxji/Measuring.mp4?raw=1" type="video/mp4">
           </video>
@@ -322,6 +350,44 @@
 
       </section>
 
+      <!-- End of Measuring with SketchUp -->
+      <section>
+          <section>
+            <h1>Compound Shapes</h1>
+            <my-lo>
+              <ul>To be able to demonstrate:
+                <li>Pencil Lines</li>
+                <li>Polygons Shapes</li>  
+                <li>Creating merged shapes</li>
+                <li>Adding dimension lines</li>
+              </ul>
+          </my-lo>
+          </section> 
+          <section>
+            <h1>Pencil Lines</h1>
+            <p>Pencil Lines allow us to add <b>Vetrices</b> and <b>Edges</b> to existing shapes.</p>
+            <p>Pencil Lines also allow us to create new <b>faces</b>.</p>
+            <video width="100%" controls>
+              <source src="https://www.dropbox.com/s/6tlgr46939xhov3/PencilLines.mp4?raw=1" type="video/mp4">
+            </video>
+          </section>
+          <section>
+            <h1>Polygons</h1>
+            <p>Polygons allow us to create <b>regular polygons</b>.</p>
+            <p>You can specify the number of sides before selecting the center point.</p>
+            <video width="100%" controls>
+              <source src="https://www.dropbox.com/s/i4keyxzy5l2bsq0/Polygons.mp4?raw=1" type="video/mp4">
+            </video>
+          </section>
+          <section>
+            <h1>Merging Shapes</h1>
+   
+            <p>Drawing shapes over existing shapes will merge the verticies to form a new shape.  This new set of verticies can either be treated seperately, or can be merged in to a single new shape using the eraser tool.</p>
+            <video width="100%" controls>
+              <source src="https://www.dropbox.com/s/dv9tnzwvzyotn09/Compound.mp4?raw=1" type="video/mp4">
+            </video>
+          </section>
+        </section>
       <!-- Useful Resources -->
       <section>
         <section>
