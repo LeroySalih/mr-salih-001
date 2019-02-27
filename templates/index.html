@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
-  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poppins:500|Seymour+One" rel="stylesheet">
+
   <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
   <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -16,42 +16,63 @@
   
 
   <link href="{{url_for('static', filename='style.css') }}" rel="stylesheet">
-  <title>Document</title>
+
+  <link  href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+  
+  <title>mr-salih.com</title>
+  <style>
+
+    body {
+      min-width: 100vw;
+      min-height: 100vh;
+      background-color: #85F5DA;
+
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .landing-heading {
+      font-family: 'Seymour One', sans-serif;
+      max-width: max-content;
+      
+    }
+
+    .landing-heading h1 {
+      color : black;
+      font-family: 'poppins';
+      font-size: 5rem;
+      border-bottom: solid 1px silver;
+    }
+
+    .landing-heading h2 {
+      color : rgb(51, 51, 51);
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 2.2rem;
+    }
+
+    
+  </style>
+  <script type="module">
+    import {ModuleLinkComponent} from '/static/webcomponents/module-link.js';
+  </script>
 </head>
 <body>
-    <div>
-      <div>
-        <div>Year 7</div>
-        <a href="/sketchup-intro">
-        <div style="background:url('/static/modules/sketchup/FrontSlideBackdrop.png');
-                    padding: 10px;
-                    background-size: 100%;
-                    box-shadow: silver 5px 5px 5px;
-                    width:200px;height:100px">
-            Computer Modelling
-        </div>
-      </a>
-        <div>
-            <div>Introduction to Programming</div>
-            <div>p5</div>
-        </div>
 
-        <div>
-            <div>
-              <a href="/sketchup-intro">Software Modelling</a></div>
-            <div>SketchUp</div>
-        </div>
-
-        
-        
-      </div>
-    </div>
-    <script>
-    
-    window.addEventListener( 'message', function (event) {
-        console.log(event);
-
-    });
-    </script>
+  <section class="content">
+      <section class="landing-heading">
+          <h1 class="landing-heading">mr-salih.com</h1>
+          <h2 class="landing-">Maths and Computing materials for KS3 and KS4.</h2>
+      </section>
+  </section>
+  
+  
 </body>
 </html>
