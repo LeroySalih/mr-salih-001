@@ -25,6 +25,11 @@ def hello():
 def p5Intro():
   return render_template("p5-intro.html")
 
+
+@app.route('/test')
+def test():
+  return render_template("test.html")
+
 @app.route('/sketchup-intro')
 def sketchUpIntro():
   return render_template("sketchup-intro.html")
