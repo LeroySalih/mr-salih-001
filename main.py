@@ -34,6 +34,18 @@ def test():
 def sketchUpIntro():
   return render_template("sketchup-intro.html")
 
+
+@app.route('/maths/venn-diagrams')
+def maths_venn_diagrams():
+  return render_template("venn-diagrams.html")
+
+
+@app.route('/computing/web-design')
+def computing_web_design():
+  return render_template("computing/ks3/year8/web-design.html")
+
+
+
 @app.route('/web-server')
 def htmlBasics():
   return render_template("web-server.html")
