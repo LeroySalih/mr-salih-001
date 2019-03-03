@@ -30,9 +30,9 @@ def p5Intro():
 def test():
   return render_template("test.html")
 
-@app.route('/sketchup-intro')
+@app.route('/computing/sketchup-intro')
 def sketchUpIntro():
-  return render_template("sketchup-intro.html")
+  return render_template("computing/sketchup-intro.html")
 
 
 @app.route('/maths/venn-diagrams')
@@ -42,13 +42,16 @@ def maths_venn_diagrams():
 
 @app.route('/computing/web-design')
 def computing_web_design():
-  return render_template("computing/ks3/year8/web-design.html")
+  return render_template("computing/web-design.html")
+
+@app.route('/computing/algorithms')
+def computing_algorithms():
+  return render_template("computing/algorithms.html")
 
 
-
-@app.route('/web-server')
+@app.route('/computing/web-server')
 def htmlBasics():
-  return render_template("web-server.html")
+  return render_template("computing/web-server.html")
 
 if __name__ == '__main__':
   app.run(debug=True)

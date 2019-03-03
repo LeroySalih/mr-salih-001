@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
+  
+  <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
+  <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Reveal Files-->
+  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
+  
+
+  <!-- GSAP files-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+  <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+
+  <link href="/static/styles/main.css" rel="stylesheet">
+  <title>Web Design - mr-salih.com</title>
+
+  <style>
+      
+      .definition {
+        background-color: rgb(173, 130, 11);
+        box-shadow: 3px 3px 3px #101010;
+        padding: 20px !important;
+      }
+
+      .definition-header  {
+        color: black !important;
+        font-size: 2rem !important;
+      }
+
+      .definition-item  {
+        color: white !important;
+        font-size: 1.75rem !important;
+      }
+
+      .definition-source  {
+        text-align: right;
+      }
+
+      .definition-source  a{
+        color: rgb(0, 0, 100) !important;
+        font-size: 1.75rem !important;
+      }
+
+      
+    </style>
+
+    <!-- Polymer Web App -->
+    <script type="module">
+        
+        import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+        import {LoComponent} from '/static/webcomponents/lo.js'
+        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
+
+        customElements.define('my-lo', LoComponent);
+        customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-pros-cons', ProsConsComponent);
+        customElements.define('my-pros', ProsComponent);
+        customElements.define('my-cons', ConsComponent);
+        customElements.define('my-pro', ProComponent);
+        customElements.define('my-con', ConComponent);
+        
+    </script>
+</head>
+<body>
+    <div class="reveal">
+			<div class="slides">
+
+      <!-- Heading Page -->
+      <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
+      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
+          <div style="display:flex; flex-direction: row">
+              <img class="slideImg" 
+                    id="logo"
+                    style="width: 100px; height: 100px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important;  margin: 20px"
+                    src="/static/modules/web-design/images/68-JS Code.svg">
+              <div style="text-align: left">
+                  <h1 id="title" style="transform: translateY(-50%); 
+                                        opacity: 0; text-transform: none; 
+                                        font-size: 3rem; color: rgb(0, 0, 0);
+                                        margin-top: 10px;
+                                        margin-bottom: 5px;
+                                        ">Introduction to Algorithms</h1>
+                  <hr>
+                  <h2 id="subTitle" style="transform: translateY(50%); 
+                                           opacity: 0; text-transform: none; 
+                                           font-size: 2rem; color: #686767">Algorithms</h2>
+              </div>
+          </div>
+      </section>
+      
+      <!-- 
+      <section>
+        <section>Prototyping with Figma</section>
+        <section>What is Figma?</section>
+        <section>Key Terms:</section>
+      </section>
+      -->
+    
+
+      <!--
+      <section>
+        <h1>Layout</h1>
+        <my-lo mdd="https://www.dropbox.com/s/es06oatp5e3bc08/Module%20Description.pdf?dl=0">
+            <ul>
+              <li>TBAT identify the elements, components and layout of a webpage.</li>
+              <li>TBAT describe and discuss the layout of a webpage.</li>
+            </ul>
+        </my-lo>
+      </section>
+      -->
+
+      <section>
+        <h1>Algorithms</h1>
+        <ul>
+          <li>Challenges</li>
+        </ul>
+      </section>
+
+      <section>
+        <section>
+            <h1>Challenges</h1>
+        </section>
+        
+
+        <section>
+          <section>
+            <h1>Challenge 1:</h1>
+            <div style="display: grid; grid-template-areas: 'flowchart text' ">
+              <div style="grid-area: flowchart;background-color: white; height: 600px;">
+                  <img src="https://docs.google.com/drawings/d/e/2PACX-1vSYM9vuWXZTj7dMWM3MB_DGnXYBLE7Pkbt7jfNSt22AcqdpQNH70hfgI_EDM-m0xDgpHcxSRLtEgDjG/pub?w=486&amp;h=994">
+              </div>
+
+              <div style="grid-area: text; text-align: left; padding: 20px; ">
+                  <p>1. Create a trace table for the variables listed below:</p>
+                  <p><ul>
+                      <li>Input</li>
+                      <li>Index</li>
+                      <li>Length</li>
+                      <li>Result</li>
+                      <li>Char</li>
+                    </ul>
+                  </p>
+                  <p>
+                      2. Describe what this algorithm achieves.
+                  </p>
+                  
+                </div>
+
+                
+
+            </div>
+          </section>
+        </section>
+      </section>
+
+  
+
+        
+
+        
+        
+        
+
+        
+
+     
+      
+
+			</div>
+		</div>
+
+    <script src="/static/reveal.js/lib/js/head.min.js"></script>
+    <script src="/static/reveal.js/js/reveal.js"></script>
+		<script>
+      function onStart() {
+        console.log('Animation Starting');
+      }
+
+      function onComplete() {
+        console.log('Animation Complete');
+      }
+			Reveal.initialize({
+        center: false
+      });
+
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        console.log(event.currentSlide);
+        var comments = event.currentSlide.queryDocument('script');
+        console.log(comments);
+
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      } );
+
+      Reveal.addEventListener( 'ready', function( event ) {
+          // event.currentSlide, event.indexh, event.indexv
+          console.log(event);
+          var logo = document.getElementById("logo");
+          TweenLite.to(logo, 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              xPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+         
+
+            TweenLite.to(document.getElementById("title"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+
+            TweenLite.to(document.getElementById("subTitle"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  -70, 
+              onStart: onStart,
+              onComplete: onComplete});
+        } );
+		</script>
+</body>
+</html>
