@@ -21,28 +21,22 @@ def hello():
   #results = cursor.fetchall()
   return render_template('index.html', results=None)
 
-@app.route('/p5-intro')
-def p5Intro():
-  return render_template("p5-intro.html")
-
-
-@app.route('/test')
-def test():
-  return render_template("test.html")
+@app.route('/computing/p5-intro')
+def computing_p5Intro():
+  return render_template("computing/p5-intro.html")
 
 @app.route('/computing/sketchup-intro')
-def sketchUpIntro():
+def computing_sketchUpIntro():
   return render_template("computing/sketchup-intro.html")
-
-
-@app.route('/maths/venn-diagrams')
-def maths_venn_diagrams():
-  return render_template("venn-diagrams.html")
 
 
 @app.route('/computing/web-design')
 def computing_web_design():
   return render_template("computing/web-design.html")
+
+@app.route('/computing/python-intro')
+def computing_python_intro():
+  return render_template("computing/python-intro.html")
 
 @app.route('/computing/algorithms')
 def computing_algorithms():
@@ -50,8 +44,12 @@ def computing_algorithms():
 
 
 @app.route('/computing/web-server')
-def htmlBasics():
+def computing_web_server():
   return render_template("computing/web-server.html")
+
+@app.route('/maths/venn-diagrams')
+def maths_venn_diagrams():
+  return render_template("venn-diagrams.html")
 
 if __name__ == '__main__':
   app.run(debug=True)
