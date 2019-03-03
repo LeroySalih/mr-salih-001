@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
+  
+  <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
+  <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Reveal Files-->
+  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
+  
+
+  <!-- GSAP files-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+  <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+
+  <link href="/static/styles/main.css" rel="stylesheet">
+  <title>Web Design - mr-salih.com</title>
+
+  <style>
+      /*
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+*/
+      .definition {
+        background-color: rgb(173, 130, 11);
+        box-shadow: 3px 3px 3px #101010;
+        padding: 20px !important;
+      }
+
+      .definition-header  {
+        color: black !important;
+        font-size: 2rem !important;
+      }
+
+      .definition-item  {
+        color: white !important;
+        font-size: 1.75rem !important;
+      }
+
+      .definition-source  {
+        text-align: right;
+      }
+
+      .definition-source  a{
+        color: rgb(0, 0, 100) !important;
+        font-size: 1.75rem !important;
+      }
+
+      
+    </style>
+
+    <!-- Polymer Web App -->
+    <script type="module">
+        
+        import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+        import {LoComponent} from '/static/webcomponents/lo.js'
+        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
+
+        customElements.define('my-lo', LoComponent);
+        customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-pros-cons', ProsConsComponent);
+        customElements.define('my-pros', ProsComponent);
+        customElements.define('my-cons', ConsComponent);
+        customElements.define('my-pro', ProComponent);
+        customElements.define('my-con', ConComponent);
+        
+    </script>
+</head>
+<body>
+    <div class="reveal">
+			<div class="slides">
+
+      <!-- Heading Page -->
+      <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
+      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
+          <div style="display:flex; flex-direction: row">
+              <img class="slideImg" 
+                    id="logo"
+                    style="width: 100px; height: 100px; transform: translateX( -50%) !important; opacity: 0 !important; background: none !important;  margin: 20px"
+                    src="/static/modules/web-design/images/68-JS Code.svg">
+              <div style="text-align: left">
+                  <h1 id="title" style="transform: translateY(-50%); 
+                                        opacity: 0; text-transform: none; 
+                                        font-size: 3rem; color: rgb(0, 0, 0);
+                                        margin-top: 10px;
+                                        margin-bottom: 5px;
+                                        ">Introduction to Wed Design</h1>
+                  <hr>
+                  <h2 id="subTitle" style="transform: translateY(50%); 
+                                           opacity: 0; text-transform: none; 
+                                           font-size: 2rem; color: #686767">Making Web Pages</h2>
+              </div>
+          </div>
+      </section>
+      
+      <section>
+        <section>Prototyping with Figma</section>
+        <section>What is Figma?</section>
+        <section>Key Terms:</section>
+      </section>
+
+      <section>
+
+        <section>
+          <h1>Layout</h1>
+          <my-lo mdd="https://www.dropbox.com/s/es06oatp5e3bc08/Module%20Description.pdf?dl=0">
+              <ul>
+                <li>TBAT identify the elements, components and layout of a webpage.</li>
+                <li>TBAT describe and discuss the layout of a webpage.</li>
+              </ul>
+              
+          </my-lo>
+        </section>
+        
+        <section data-state="WhatIsLayout">
+            <h1>What is Layout?</h1>
+            <div class="fragment">An <b><u>Element</u></b> is a discrete unit of design within the webpage.</div>
+            <div class="fragment">A <b><u>Component</u></b> is a collection of elements with a common purpose.</div>
+            <div class="fragment">A <b>Section</b> is a related collection of components.</div>
+            <div class="fragment"><b><u>Layout</u></b> describes the placement of these sections within the webpage.</div>
+            <script>
+              console.log('Open a Browser to ebay.com')
+              console.log('Take a screen screenshot, uploasd to figma.')
+              console.log('Identify the sections using overlays.')
+            </script>
+        </section>
+
+        <section>
+          <img src="/static/modules/computing/web-design/IntroToWebDesign/Layout_1.svg"/>
+        </section>
+
+        <section>
+            <h1>Good Layout Guides</h1>
+            <ul>
+            <li class="fragment">Users are pleased by the design, but drawn to the content.</li>
+            <li class="fragment">Users can move easily via intuitive navigation.</li>
+            <li class="fragment">Users can recognise that each page belongs to the site.</li>
+            <li class="fragment quote">Principles of Beautiful Web Design, BEAIRD & GEORGE, 2014</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Standard Layouts</h1>
+          <ul>
+            <li>1 Col</li>
+            <li>2 Col, Left nav</li>
+            <li>2 Col, Right nav</li>
+            <li>3 Col </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Task 1</h1>
+          <ul>
+            <li>Navigate to </li>
+            <li>Take a screenshot.</li>
+            <li>Using overlays, identify the type of layout used.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Web Page Anatomy</h1>
+          <ul>
+            <li>Container</li>
+            <li>Logo</li>
+            <li>Navigation</li>
+            <li>Content</li>
+            <li>Footer</li>
+            <li>Header</li>
+            <li>Hero</li>
+            <li>Call To Action</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Wireframe</h1>
+          <div style="background-color: white">
+              <img src="/static/modules/computing/web-design/IntroToWebDesign/Wireframe1.svg"/>
+          </div>
+          
+
+        </section>
+
+        <section>
+          <h1>Wireframe to Actual</h1>
+          <img src="/static/modules/computing/web-design/IntroToWebDesign/Wireframe2.svg"/>
+        </section>
+
+        <section>
+            <h1>Actual</h1>
+            <img src="/static/modules/computing/web-design/IntroToWebDesign/Wireframe3.svg"/>
+          </section>
+
+        <section>
+          <h1>Task</h1>
+          <ul>
+            <li>Navigate to </li>
+            <li>Take a screenshot.</li>
+            <li>Using overlays, identify the key components of the web page.</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h1>Homework</h1>
+          <ul>
+            <li>1. Complete any unfinished tasks</li>
+            <li>2. Using the Wayback machine, compare the www.bbc.co.uk from <a href="https://web.archive.org/web/19990128182355/http://www.bbc.co.uk:80/home/today/index.shtml">1999</a> with <a href="www.bbc.co.uk">todays</a> design.</li>
+            <li>How has the webpage anatomy changed?  Which design do you prefer and why?  Do both sites conform to the layout rules discussed in class?  </li>
+          </ul>
+        </section>
+
+        <section>
+
+        </section>
+        
+      </section>
+
+      <section>
+        <h1>Colours</h1>
+      </section>
+
+      <section>
+        <h1>Text and Font</h1>
+      </section>
+
+      <section>
+        <h1>Images and Content</h1>
+      </section>
+
+      <section>
+        <h1>Project Task</h1>
+        <div>
+          Design a website for your favourite coffee shop.
+          <div>Design for PC and Smart Phone</div>
+        </div>
+      </section>
+      
+      
+
+			</div>
+		</div>
+
+    <script src="/static/reveal.js/lib/js/head.min.js"></script>
+    <script src="/static/reveal.js/js/reveal.js"></script>
+		<script>
+      function onStart() {
+        console.log('Animation Starting');
+      }
+
+      function onComplete() {
+        console.log('Animation Complete');
+      }
+			Reveal.initialize({
+        center: false
+      });
+
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        console.log(event.currentSlide);
+        var comments = event.currentSlide.queryDocument('script');
+        console.log(comments);
+
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      } );
+
+      Reveal.addEventListener( 'ready', function( event ) {
+          // event.currentSlide, event.indexh, event.indexv
+          console.log(event);
+          var logo = document.getElementById("logo");
+          TweenLite.to(logo, 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              xPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+         
+
+            TweenLite.to(document.getElementById("title"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  50, 
+              onStart: onStart,
+              onComplete: onComplete});
+
+            TweenLite.to(document.getElementById("subTitle"), 1, {
+              opacity: 1,
+       //       backgroundColor:'white', 
+              yPercent:  -70, 
+              onStart: onStart,
+              onComplete: onComplete});
+        } );
+		</script>
+</body>
+</html>

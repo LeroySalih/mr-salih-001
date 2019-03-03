@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"  >
+  
+  <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
+  <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Reveal Files-->
+  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
+  
+
+  <!-- GSAP files-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+  <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+
+
+  
+      
+  <script>
+      MathJaxConfig = {
+        scale: 130,
+        TeX: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+      };
+  </script>
+  <script src="https://mathjax.github.io/mj3-demos/tex2html/mj3-tex2html-beta.dist.js"></script>
+  <style>
+      .MathJax {
+            font-size: 0.5em !important;
+            }
+      </style>
+
+  <link href="/static/styles/main.css" rel="stylesheet">
+  <title>Venn Diagrams - mr-salih.com</title>
+
+  <style>
+      /*
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+*/
+      .definition {
+        background-color: rgb(173, 130, 11);
+        box-shadow: 3px 3px 3px #101010;
+        padding: 20px !important;
+      }
+
+      .definition-header  {
+        color: black !important;
+        font-size: 2rem !important;
+      }
+
+      .definition-item  {
+        color: white !important;
+        font-size: 1.75rem !important;
+      }
+
+      .definition-source  {
+        text-align: right;
+      }
+
+      .definition-source  a{
+        color: rgb(0, 0, 100) !important;
+        font-size: 1.75rem !important;
+      }
+
+     
+    </style>
+
+    <!-- Polymer Web App -->
+    <script type="module">
+        
+        import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+        import {LoComponent} from '/static/webcomponents/lo.js'
+        import {TimelineComponent} from '/static/webcomponents/timeline.js'
+        import {ProsConsComponent, ProsComponent, ConsComponent, ProComponent, ConComponent} from '/static/webcomponents/pro-con.js'
+
+        customElements.define('my-lo', LoComponent);
+        customElements.define('my-timeline', TimelineComponent);
+        customElements.define('my-pros-cons', ProsConsComponent);
+        customElements.define('my-pros', ProsComponent);
+        customElements.define('my-cons', ConsComponent);
+        customElements.define('my-pro', ProComponent);
+        customElements.define('my-con', ConComponent);
+        
+    </script>
+</head>
+<body>
+    <div class="reveal">
+			<div class="slides">
+
+      <!-- Heading Page -->
+      <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
+      <section data-background-image="/static/modules/maths/venn-diagrams/venn-diagramms.svg">
+          
+      </section>
+      <!-- End of Heading Page-->
+
+      <!-- Lo Page -->
+      <section>
+        <h1>Venn Diagrams </h1>
+        <ul>LO TBAT:
+          <li>Identify sections of venn diagram.</li>
+          <li>Identify regions based on Set notation.</li>
+        </ul>
+      </section>
+
+      <section>
+          <section>
+              <h1>Sections:</h1>
+              <div id="venn1"></div>
+              <div>
+                  <!-- 
+      \begin{align*} \text{vol}(A_1 \vee A_2) - \text{vol}(A''_1 \vee A''_2) &= \binom{4x}{2x} - \binom{4x}{2x - 1} - \left(\binom{2x}{x}^2 - \binom{2x - 1}{x - 1}\binom{2x + 1}x\right) \\ &= \frac{1}{2x + 1}\binom{4x}{2x} - \left(\binom{2x}{x}^2 - \binom{2x-1}{x}\binom{2x}{x}\right. \\ &\qquad \qquad + \binom{2x - 1}{x - 1}\binom{2x + 1}x - \left.\binom{2x - 1}{x - 1}\binom{2x + 1}x \right) \\ &= \frac{1}{2x + 1}\binom{4x}{2x} - \left(\binom{2x}{x}\binom{2x - 1}{x - 1} - \binom{2x - 1}{x - 1}\binom{2x}{x-1}\right) \\ &= \frac{1}{2x + 1}\binom{4x}{2x} - \frac{1}{x + 1}\binom{2x}{x}\binom{2x - 1}{x - 1} \\ &= \frac{1}{2x + 1}\binom{4x}{2x} - \frac{1}{2x + 2}\binom{2x}{x}^2 \\ &> \frac{1}{2x + 2}\left(\binom{4x}{2x} - \binom{2x}{x}^2\right) \\ &> 0.
+      \end{align*}
+      -->$\displaystyle  \operatorname{vol}(A_1 \vee A_2) - \operatorname{vol}(A''_1 \vee A''_2) $
+      $\displaystyle = \binom{4x}{2x} - \binom{4x}{2x - 1} - \left(\binom{2x}{x}^2 - \binom{2x - 1}{x - 1}\binom{2x + 1}x\right) $
+                </div> 
+          </section>
+          <section>
+            <h1>Finding Complex Regions</h1>
+            <div>
+              <ul>
+                <li>Shade Region A</li>
+                <li>Shade Region B</li>
+                <li>For A union B, find all regions that have been shaded once or more.</li>
+                <li>For A intersection B, find all regions that have been shaded twice.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+              <svg viewbox="0 0 500 500" >
+                  <defs>
+                     <pattern id="pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                      <path stroke="white" stroke-linecap="round" stroke-width="0.5" d="M 0,0 L 10, 10"/>
+                      <path stroke="white" stroke-linecap="round" stroke-width="0.5" d="M 0,10 L 10, 0"/>
+                    </pattern>
+                  </defs>
+                
+                  <path d="M250 75 
+                           A100 100
+                           0
+                           0 0
+                           250 200
+                           
+                           A100 100
+                           0
+                           0 0
+                           250 75
+                           " 
+                         stroke="white" fill="url(#pattern)" />
+                  <path d="M250 75 
+                           A100 100
+                           0
+                           1 0
+                           250 200
+                           
+                           A100 100
+                           0
+                           1 0
+                           250 75
+                           " fill="none" stroke="white"/>
+                
+                </svg>
+          </section>
+          
+          
+      </section>
+
+
+      
+
+      
+
+      
+
+
+      
+
+      
+
+			</div>
+		</div>
+
+    <script src="/static/reveal.js/lib/js/head.min.js"></script>
+    <script src="/static/reveal.js/js/reveal.js"></script>
+		<script>
+      
+			Reveal.initialize({
+        center: false
+      });
+
+      
+
+      
+      
+		</script>
+</body>
+</html>
