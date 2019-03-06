@@ -31,15 +31,17 @@ export class LoComponent extends LitElement {
 
     .lo-question {
       color: black !important;
-      text-align: center;
+      text-align: left;
+    }
+
+    .lo-question ul {
+      width: 100%;
     }
     </style>
     <div class="lo">
       <p class="lo-heading">LO Question:</p> 
       <p class="lo-question"><i><slot></slot></i></p>
       <div style="width: 100%; text-align: right; font-size: 1.5rem; display: flex; flex-direction: row">
-        
-        
         <span>${mddHtml}</span>
       </div>
     </div>
