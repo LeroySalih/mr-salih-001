@@ -1,24 +1,14 @@
 from flask import Flask, render_template, url_for
-import pymysql
 
-#db = pymysql.connect("127.0.0.1", "root", "cardiff1", "lessons")
 
+from db import cursor
 
 app = Flask(__name__)
-# api = Api(app)
-
-
-
 
 app.config['DEBUG'] = True
 
-
 @app.route('/')
 def hello():
-  #cursor = db.cursor()
-  #sql = "SELECT * FROM tasks"
-  #cursor.execute(sql)
-  #results = cursor.fetchall()
   return render_template('index.html', results=None)
 
 @app.route('/computing/p5-intro')
@@ -50,6 +40,20 @@ def computing_web_server():
 @app.route('/maths/venn-diagrams')
 def maths_venn_diagrams():
   return render_template("venn-diagrams.html")
+
+
+@app.route('/db-test')
+def db_test():
+  
+  sql = "SELECT * FROM EMPLOYEE"
+  cursor.execute(sql)
+  results = cursor.fetchall()
+  rows = len(results)
+  return render_template('db-test.html', results=rows)
+
+@app.route('/bid/<pid>/<name>/<bid>')
+def placeBid(pid, name, bid):
+  return render_template('place_bid.html', pid=pid, name=name, bid=bid)
 
 if __name__ == '__main__':
   app.run(debug=True)

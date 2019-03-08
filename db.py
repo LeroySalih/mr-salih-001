@@ -1,3 +1,10 @@
+import pymysql
+
+db = pymysql.connect("remotemysql.com","Xtt8yYyjlx","nuFUdHOy80","Xtt8yYyjlx" )
+
+cursor = db.cursor()
+
+"""
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -19,3 +26,4 @@ mycursor.execute("SELECT * FROM tasks;")
 
 for x in mycursor:
   print(x)
+"""
