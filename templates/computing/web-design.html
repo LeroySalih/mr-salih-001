@@ -24,7 +24,7 @@
 
 
   <link href="/static/styles/main.css" rel="stylesheet">
-  <title>Web Design - mr-salih.com</title>
+  <title>Web Design - mrsalih.com</title>
 
   <style>
       /*
@@ -229,7 +229,137 @@
       </section>
 
       <section>
-        <h1>Colours</h1>
+        <section>
+            <h1>Colours</h1>
+            <my-lo>
+              <div>TBAT:</div>
+              <ul>
+                <li>Explain why colours are important in design.</li>
+                <li>What are the common 'meanings' of colour.</li>
+                <li>Specify a colour using RGB and HSL notation.</li>
+              </ul>
+            </my-lo>
+        </section>
+        <section>
+          <h1 class="fragment">Do Colours Have Meaning?</h1>
+          <h2 class="fragment">What does "have meaning" really mean?</h2>
+          <h2 class="fragment">Discuss in your pairs</h2>
+          <h2 class="fragment">Colours give us information.</h2>
+        </section>
+
+        <section>
+          <h1>Do Colours have Meaning?</h1>
+          <h2>
+            <a href="https://create.kahoot.it/share/colour-theory/3cbea450-4069-4cc0-9f4c-38b5801070d9">Kahoot</a>
+          </h2>
+        </section>
+
+        <section>
+          <h1>Reflect on what we have seen:</h1>
+          <h2>Does a colour always mean the same thing to everyone?</h2>
+          <h2>Does a colour only have 1 meaning?</h2>
+        </section>
+
+        <section>
+          <h1>Context</h1>
+          <h2>Context is the situation surrounding us.</h2>
+          <h3 class="fragment">"Should we run in the corridor?"</h3>
+          <h3 class="fragment">"Should we run in the corridor if are being chased by a big dog?"</h3>
+        </section>
+
+        <section>
+          <h3>In each context, with what do you associate each colour?</h3>
+          <h3>(If anything)</h3>
+          <table style="background-color: white; color: black">
+            <tr>
+              <td>Context</td><td>White</td><td>Blue</td><td>Red</td><td>Black</td>
+            </tr>
+            <tr>
+              <td>Weather</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sea</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Building</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sky</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Mens Shoes</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sports Teams</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+          </table>
+        </section>
+
+        <section>
+          <h1>Why should we worry about Colour Theory?</h1>
+          <div class="fragment">To reinforce our message.</div>
+          <div class="fragment">To ensure we are not sending an unintentional message.</div>
+        </section>
+
+        <section>
+          <h1>Specifying a Colour</h1>
+          <h2>RGB</h2>
+          <div style="display: flex; flex-direction: row;">
+            <div>
+              <img style="width: 400px !important; " src="/static/modules/computing/web-design/IntroToWebDesign/rgb-colors.jpeg">
+            </div>
+            <div>
+                <h3>Refers to the amount of Red, Green and Blue in a colour.</h3>
+                
+                <h3>Each value is number between 0 and 255.</h3>
+                <h3>Written as rgb(red_number, green_number, blue_number)</h3>
+                <h3>e.g. rgb(100, 30, 255)</h3>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>Task:</h1>
+
+          <ul>
+            <li>Navigate to:</li>
+            <li>
+              <a href="https://www.w3schools.com/colors/colors_rgb.asp">Color Picker RGB</a>
+            </li>
+            <li>What are the RGB colour codes for:
+              
+              <table style="margin-top: 30px !important">
+                <tr>
+                  <td>White</td>
+                  <td>Grey</td>
+                  <td>Black</td>
+                </tr>
+                <tr>
+                  <td>Light Red</td>
+                  <td>Pure Red</td>
+                  <td>Dark Red</td>
+                </tr>
+                <tr>
+                  <td>Light Green</td>
+                  <td>Pure Green</td>
+                  <td>Dark Green</td>
+                </tr> 
+                <tr>
+                  <td>Light Blue</td>
+                  <td>Pure Blue</td>
+                  <td>Dark Blue</td>
+                </tr>  
+              </table>
+             
+            </li>
+          </ul>
+        </section>
+        
       </section>
 
       <section>
@@ -264,7 +394,8 @@
         console.log('Animation Complete');
       }
 			Reveal.initialize({
-        center: false
+        center: false,
+        history: true
       });
 
       Reveal.addEventListener( 'slidechanged', function( event ) {

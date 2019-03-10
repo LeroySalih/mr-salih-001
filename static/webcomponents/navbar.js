@@ -24,7 +24,7 @@ export class NavbarComponent extends LitElement {
       </button>
       <a class="navbar-brand" href="#">
           <img src="/static/SalihAvatar.png" width="30" height="30" alt="">
-          <span style="font-family: 'poppins'">mr-salih.com</span>
+          <span style="font-family: 'poppins'">mrsalih.com</span>
         </a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         
