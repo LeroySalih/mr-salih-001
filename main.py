@@ -41,6 +41,10 @@ def computing_web_server():
 def maths_venn_diagrams():
   return render_template("venn-diagrams.html")
 
+@app.route('/maths/past-papers')
+def maths_past_papers():
+  return render_template("maths/past-papers.html")
+
 
 @app.route('/db-test')
 def db_test():

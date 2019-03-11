@@ -12,8 +12,12 @@
 
   <!-- Reveal Files-->
   <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="/static/reveal.js/css/theme/black.css">
+  <link rel="stylesheet" href="/static/reveal.js/css/theme/white.css">
+  <link rel="stylesheet" href="/static/styles/slides.css">
   
+  <!-- Font Files-->
+  <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
   <!-- GSAP files-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
@@ -53,6 +57,17 @@
         font-size: 1.75rem !important;
       }
 
+
+      .task {
+        counter-reset: task-counter;
+      }
+
+      .task::before {
+        counter-increment: task-counter;
+        content: "Section " counter(section) ": ";
+      }
+      
+
       
     </style>
 
@@ -80,7 +95,7 @@
 
       <!-- Heading Page -->
       <!-- <section data-background-image="/static/modules/backdrop3-sm.jpg"> -->
-      <section data-background-image="/static/modules/sketchup/FrontSlideBackdrop.png">
+      <section data-background-image="/static/modules/SlideBackgroundLanding.png" data-state="landing">
           <div style="display:flex; flex-direction: row">
               <img class="slideImg" 
                     id="logo"
@@ -101,28 +116,8 @@
           </div>
       </section>
       
-      <!-- 
-      <section>
-        <section>Prototyping with Figma</section>
-        <section>What is Figma?</section>
-        <section>Key Terms:</section>
-      </section>
-      -->
-    
-
-      <!--
-      <section>
-        <h1>Layout</h1>
-        <my-lo mdd="https://www.dropbox.com/s/es06oatp5e3bc08/Module%20Description.pdf?dl=0">
-            <ul>
-              <li>TBAT identify the elements, components and layout of a webpage.</li>
-              <li>TBAT describe and discuss the layout of a webpage.</li>
-            </ul>
-        </my-lo>
-      </section>
-      -->
-
-      <section>
+      
+      <section data-state="challenges">
         <h1>Algorithms</h1>
         <ul>
           <li>Challenges</li>
@@ -145,14 +140,14 @@
 
               <div style="grid-area: text; text-align: left; padding: 20px; ">
                   <p>1. Create a trace table for the variables listed below:</p>
-                  <p><ul>
-                      <li>Input</li>
-                      <li>Index</li>
-                      <li>Length</li>
-                      <li>Result</li>
-                      <li>Char</li>
+                <ul>
+                    <li>Input</li>
+                    <li>Index</li>
+                    <li>Length</li>
+                    <li>Result</li>
+                    <li>Char</li>
                     </ul>
-                  </p>
+                  
                   <p>
                       2. Describe what this algorithm achieves.
                   </p>
@@ -192,17 +187,34 @@
       function onComplete() {
         console.log('Animation Complete');
       }
+
+
 			Reveal.initialize({
-        center: false
+        width: '100%',
+        height: '100%',
+        center: false,
+        history: true
       });
 
       Reveal.addEventListener( 'slidechanged', function( event ) {
-        console.log(event.currentSlide);
-        var comments = event.currentSlide.queryDocument('script');
-        console.log(comments);
+        
+        var state = Reveal.getState();
+        console.log(`Slide State: `, state);
+        
 
         // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-      } );
+      }, false );
+
+      Reveal.addEventListener('startSlide', function (event) {
+        console.log('Looking at Start')
+      }, false)
+
+      Reveal.addEventListener('challenges', function (event) {
+        var state =  Reveal.getState()
+        console.log('Looking at Challenges', state, event)
+      }, false)
+
+
 
       Reveal.addEventListener( 'ready', function( event ) {
           // event.currentSlide, event.indexh, event.indexv
