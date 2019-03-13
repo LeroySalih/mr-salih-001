@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poppins:500|Seymour+One" rel="stylesheet">
+  
+ 
+    <!-- bootstrap -->
+    <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
+    <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link  href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+  <link href="/static/styles/slides.css" rel="stylesheet">
+
+  
+   
+   <!-- Polymer WebElement Files -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+  
+  <!-- Polymer Web App -->
+   <script type="module" src="/static/webcomponents/SlideVideo.js"></script>
+   <script type="module" src="/static/webcomponents/lo.js"></script>
+   <script type="module" src="/static/webcomponents/pro-con.js"></script>
+   <script type="module" src="/static/webcomponents/timeline.js"></script>
+  
+
+
+  <title>{% block title %}{% endblock %}</title>
+  {% block style%} {% endblock %}
+</head>
+
+
+<body>
+        {% include "navbar.html" %}
+        {% block body%}
+
+        {% endblock %}
+   
+    
+</body>
+</html>

@@ -48,7 +48,7 @@ export class ProsConsComponent extends LitElement {
   
   render() {
     const {pros, cons} = this || {pros: [], cons: []};
-    console.log(pros, cons);
+    
 
     
     return html `
@@ -66,3 +66,9 @@ export class ProsConsComponent extends LitElement {
     `
   }
 }
+
+customElements.define('my-pros-cons', ProsConsComponent);
+customElements.define('my-pros', ProsComponent);
+customElements.define('my-cons', ConsComponent);
+customElements.define('my-pro', ProComponent);
+customElements.define('my-con', ConComponent);

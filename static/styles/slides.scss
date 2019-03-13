@@ -1,36 +1,141 @@
-.reveal h1 {
+
+  html, body {
+    scroll-behavior: smooth;
+    font-family: 'Open Sans';
+  }
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.container {
+  max-width : 80%;
+  margin: auto;
+}
+
+.container h1 {
   color: black;
   font-family: 'Ropa Sans';
-  font-size: 1.5em;
-  padding-left: 1em;
-  text-align: left;
-  background-color: silver;
-  background: rgb(0, 250, 154);
+  font-size: 4em;
 }
 
-.reveal p, .reveal li {
-  font-size: 0.8em;
-  font-family: 'open Sans';
+h2 {
+  font-family: 'Ropa Sans';
+  font-size: 2em;
+  border-bottom: silver 1px solid;
 }
 
-html.landing h1 {
-  color: black;
+h2:before {
+
+
+  background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin-right:10px; 
+    content:"";
+ 
+}
+
+
+
+h3 {
   font-family: 'Ropa Sans';
   font-size: 1.5em;
-  background: none;
+  color: rgb(107, 106, 106); 
 }
 
-.reveal .slides {
-  height: 100% !important;
-  top: 0 !important;
-  margin-top: 0 !important; 
+.task {
+  background-color: orange;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.reveal .slides>section {
-  min-height: 90% !important;
-  top: auto !important;
+my-timeline {
+  display : grid;
+  grid-template-columns: 1fr;
+  counter-reset: timeline;
+}
+my-timeline-item {
+  line-height: 2em;
 }
 
-.reveal .slides>section>section {
-  min-height: 100% !important;
+my-timeline-item::before {
+  counter-increment: timeline;
+  color: black;
+  content: counter(timeline);
+  display: inline;
+  background-color: green;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

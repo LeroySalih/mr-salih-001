@@ -5,41 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}{% endblock %}</title>
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poppins:500|Seymour+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  
   <!-- bootstrap -->
   <script src="/static/jQuery/jquery-3.3.1.slim.min.js" ></script>
   <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <link  href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
 
-  <!-- Reveal Files-->
-  <link rel="stylesheet" href="/static/reveal.js/css/reveal.css">
-  <link rel="stylesheet" href="/static/reveal.js/css/theme/white.css">
-  
-  <!-- GSAP files-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.0/TweenMax.min.js"></script>
+
+
 
   <!-- Polymer WebElement Files -->
   <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
 
+
   <link href="/static/styles/main.css" rel="stylesheet">
+
   {% block style%}{% endblock %}
 
   <script type="module">
       import {ModuleLinkComponent} from '/static/webcomponents/module-link.js';
       import {NavbarComponent} from '/static/webcomponents/navbar.js';
-    </script>
+  </script>
+  <style>
+  
+    .navbar-show { opacity : 1 }
+    .navbar-hide { opacity : 0}
+  </style>
 </head>
 <body>
-  <my-navbar></my-navbar>
+
+    {% include 'navbar.html' %}
+
+    
   {% block body%}
 
   {% endblock %}
-    
+
 </body>
 </html>

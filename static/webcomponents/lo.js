@@ -48,3 +48,5 @@ export class LoComponent extends LitElement {
     `
   }
 }
+
+customElements.define('my-lo', LoComponent);
