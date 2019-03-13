@@ -1,0 +1,33 @@
+:root {
+  --table-background : aquamarine;
+}
+
+.igcse-papers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width:80%;
+}
+
+.igcse-papers-grid div:nth-child(12n+1) {
+  background-color: var(--table-background)
+}
+
+.igcse-papers-grid div:nth-child(12n+2) {
+  background-color: var(--table-background)
+}
+
+.igcse-papers-grid div:nth-child(12n+3) {
+  background-color: var(--table-background)
+}
+
+.igcse-papers-grid div:nth-child(12n+4) {
+  background-color: var(--table-background)
+}
+
+.igcse-papers-grid div:nth-child(12n+5) {
+  background-color: var(--table-background)
+}
+
+.igcse-papers-grid div:nth-child(12n+6) {
+  background-color: var(--table-background)
+}

@@ -11,6 +11,15 @@ app.config['DEBUG'] = True
 def hello():
   return render_template('index.html', results=None)
 
+@app.route('/maths')
+def maths():
+  return render_template('module-header-maths.html')
+
+
+@app.route('/computing')
+def computing():
+  return render_template('module-header-computing.html')
+
 @app.route('/computing/p5-intro')
 def computing_p5Intro():
   return render_template("computing/p5-intro.html")

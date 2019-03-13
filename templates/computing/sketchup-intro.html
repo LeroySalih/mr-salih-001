@@ -4,6 +4,13 @@
 
 {% block style%}
 <style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
 
 </style>
 {% endblock%}
@@ -24,7 +31,6 @@
       <a href="#useful">Useful Resources</a>
       <a href="#project">End of Module Project</a>
       <a href="#challenges">Additional Challenges</a>
-
     </div>
 
     <div class="content">
@@ -32,7 +38,6 @@
         
         <a name="home"><h1>Intro to Modelling with SketchUp.</h1></a>
         
-
         <section>
             <a name="timeline"><h2>Timeline</h2></a>
             <my-timeline>
@@ -47,243 +52,185 @@
             </my-timeline> 
         </section>
 
+        <!-- What is computer modelling -->
         <section>
-            <section data-state="slide">
-                <a name="computermodelling"><h2>What is Computer Modelling?</h2></a>
-                 <my-lo>What are the What, Where, How and  Pros/Cons of Computer Modelling?</my-lo>
-            </section>
-            <section>
-              <h3>What is Computer Modelling?</h3>
-              <div class="definition" >
-                <p class="definition-header">Definition:</p>
-                <p class="definition-item fragment fade-up">A computer-based model is a computer program that is designed to <u><b>simulate what might or what did</b></u> happen in a situation.</p>
-                <p class="definition-item fragment fade-up ">Software Modelling allows us to consider the <b><u>interaction</u></b> of real world objects.</p>
-                <p class="definition-source fragment fade-up"><a href="https://simple.wikipedia.org/wiki/Computer_model">Wikipedia, 2018</a></p>
-              </div>
-            </section>
+            <a name="computermodelling"><h2>What is Computer Modelling?</h2></a>
+            <my-lo>What are the What, Where, How and  Pros/Cons of Computer Modelling?</my-lo>
+          
+            <h3>What is Computer Modelling?</h3>
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">A computer-based model is a computer program that is designed to <u><b>simulate what might or what did</b></u> happen in a situation.</p>
+              <p class="definition-item fragment fade-up ">Software Modelling allows us to consider the <b><u>interaction</u></b> of real world objects.</p>
+              <p class="definition-source fragment fade-up"><a href="https://simple.wikipedia.org/wiki/Computer_model">Wikipedia, 2018</a></p>
+            </div>
+            
 
-            <section class="task">
+            <div class="task">
               <h3>Where and How might we use Computer Modelling?</h3>
               <div>2 mins pair and share:</div>
-            </section>
-        
-            <section>
-                <h3>Pros & Cons</h3>
-                <div>What may be the pro's and con's of using Computer Modelling.</div>
-                <div>2 min pair and share:</div>
-                <my-pros-cons>
-                    <my-pros>
-                      <my-pro class="fragment fade-up">Can improve the estimate of costs.</pro>
-                      <my-pro class="fragment fade-up">Can save money by identifying problems early.</pro>
-                    </my-pros>
-                    <my-cons>
-                      <my-con class="fragment fade-up">Increases the cost of the project.</con>
-                      <my-con class="fragment fade-up">Can create unreasonable expectations.</cons>
-                      <my-con class="fragment fade-up">How do we know if the model is right?</my-con>
-                    </my-cons>
-                  </my-pros-cons> 
-            </section>
+            </div>
         
             
+            <h3>Pros & Cons</h3>
+            <div>What may be the pro's and con's of using Computer Modelling.</div>
+            <div>2 min pair and share:</div>
+            <my-pros-cons>
+                <my-pros>
+                  <my-pro class="fragment fade-up">Can improve the estimate of costs.</pro>
+                  <my-pro class="fragment fade-up">Can save money by identifying problems early.</pro>
+                </my-pros>
+                <my-cons>
+                  <my-con class="fragment fade-up">Increases the cost of the project.</con>
+                  <my-con class="fragment fade-up">Can create unreasonable expectations.</cons>
+                  <my-con class="fragment fade-up">How do we know if the model is right?</my-con>
+                </my-cons>
+              </my-pros-cons> 
             
         </section>
 
-        <!-- First Concepts -->
+        <!-- Using SketchUp -->
       <section>
-          <section>
+          
             <a name="usingskectchup"><h2>Using SketchUp</h2></a>
             <my-lo>"What is <b>SketchUp</b> and how do we use it?"</my-lo>
-          </section>
+        
+            <h3>Key Features of SketchUp</h3>
+            <ul>
+              <li><b>1. SketchUp works in 3D.</b> This means that you will need to get good at moving around the 3D scene (pan, rotate and zoom).</li>
+              <li><b>2. SketchUp will try to help you.</b> The mouse will "snap" to lines, mid points.</li>
+            </ul>
+                          
+            <div style="task">
+              <div class="task">
+                <h3>Build a House</h3>
+                <ul>
+                    <li>Follow the video (below) to construct your first SketchUp house.</li>
+                    <li>Remember: Save your file to the X drive.</li>
+                  </ul>
+              </div>
 
-          <section>
-              <h3>Key Features of SketchUp</h3>
-              <ul>
-                <li><b>1. SketchUp works in 3D.</b> This means that you will need to get good at moving around the 3D scene (pan, rotate and zoom).</li>
-                <li><b>2. SketchUp will try to help you.</b> The mouse will "snap" to lines, mid points.</li>
+              <my-slide-video  videoUrl="https://www.dropbox.com/s/8bf9mts0bnyxyrn/IntroToSketchUp.mp4?raw=1">
                 
-              </ul>
-          </section>
-            <section>
-                <div style="display: flex; flex-direction: row;">
-                    h3 style="text-transform:none">Build a House</h3>
-                </div>
-                
-                <hr>
-                
-                        
-                  <div style="task">
-                    <h3>Task:</h3>
-                    <ul>
-                        <li>Follow the video (below) to construct your first SketchUp house.</li>
-                        <li>Remember: Save your file to the X drive.</li>
-                      </ul>
-                  </div>
-                        
-                      
-            </section>
+              </my-slide-video>
+              
+              <div class="task">
+                  <h3>Homework</h3>
+                  <p>
+                    Using a search engine, search for images of SkecthUp models that have been created by others.
+                  </p>
+                  <p>
+                    Create a Word (or similar) document that contains images of 3 SketchUp models that you like or find impressive.  
+                  </p>  
+                  <p>
+                      Write a short paragraph next to each image to explain why you have chosen each model.
+                  </p>
+              </div>
+              
+            </div>
+        </section>
+
             
-
-            <section>
-                <my-slide-video  videoUrl="https://www.dropbox.com/s/8bf9mts0bnyxyrn/IntroToSketchUp.mp4?raw=1">
-                  <h3 slot="slideTitle">Intro To SketchUp</h3>
-                  <div class="videoSection">
-                    <h2>Demo Video</h2>
-                    <p>This is some other information.</p>
-                  </div>
-                </my-slide-video>
-              </section>
-            <section>
-                <h2>Homework</h2>
-                <p>
-                  Using a search engine, search for images of SkecthUp models that have been created by others.
-                </p>
-                <p>
-                  Create a Word (or similar) document that contains images of 3 SketchUp models that you like or find impressive.  
-                </p>  
-                <p>
-                    Write a short paragraph next to each image to explain why you have chosen each model.
-                </p>
-              </section>
-            <section>
-              <h3>Additional Resources</h3>
-              <ul>
-                <li><a href="https://www.youtube.com/watch?v=9Fbvtc2eLzU&list=PL190C90DCE62242C9">SketchUp Navigation</a></li>
-              </ul>
-            </section>
       </section>
       <!-- End Section First Concepts-->
 
       <!-- Measuring with SketchUp-->
       <section>
-          <section>
-           <a name="measuring"> <h2>Measuring with SketchUp</h2></a>
-  
-            <my-lo>
-              <ul>To be able to demonstrate:
-                <li>Specifying dimensions</li>
-                <li>Using tape measure</li>
-                <li>Adding dimension lines</li>
-              </ul>
-            </my-lo>
-          </section>
-          
-  
-          <section>
-            <h3>Specifying Dimensions</h3>
-            <ul>
-              <li>Click to start the rectangle (do not drag!)</li>
-              <li>Type the dimensions (<i>e.g. 2m,1m</i>)</li>
-              <li>Press Enter</li>
-            </ul>
-          </section>
-  
-          <section>
-            <h3>Using the Tape Measure</h3>
-            <div>You can use the tape measure to generate guide lines that help you plan the placement of shapes.</div>
-            <ul>
-              <li>Click to start tap emeasure </li>
-              <li>Move the mouse in the desired direction</li>
-              <li>Enter distance (e.g. 0.1m)</li>
-              <li>Press enter</li>
-            </ul>
-          </section>
-  
-          <section>
+        <a name="measuring"> <h2>Measuring with SketchUp</h2></a>
 
-              
-                    
-        </section>
-  
-        
+        <my-lo>
+          <ul>To be able to demonstrate:
+            <li>Specifying dimensions</li>
+            <li>Using tape measure</li>
+            <li>Adding dimension lines</li>
+          </ul>
+        </my-lo>
+
+        <div class="task">
+          <h3>Task: Build a Table</h3>
+          <p>Follow the video (below) to <b>accurately</b> construct a SketchUp table.</p>
+          <p>Remember: Save your file to the X drive.</p>
+        </div>
 
         <my-slide-video  videoUrl="https://www.dropbox.com/s/nsdfcxpbdgmyxji/Measuring.mp4?raw=1">
           <h3 slot="slideTitle">Make a Table</h3>
-          <div class="task">
-              <h3>Task: Build a Table</h3>
-              <p>Follow the video (above) to <b>accurately</b> construct a SketchUp table.</p>
-              <p>Remember: Save your file to the X drive.</p>
-            </div>
         </my-slide-video>
 
-  
-        </section>
+        <h3>Specifying Dimensions</h3>
+        <ul>
+          <li>Click to start the rectangle (do not drag!)</li>
+          <li>Type the dimensions (<i>e.g. 2m,1m</i>)</li>
+          <li>Press Enter</li>
+        </ul>
+        <h3>Using the Tape Measure</h3>
+        <div>You can use the tape measure to generate guide lines that help you plan the placement of shapes.</div>
+        <ul>
+          <li>Click to start tap emeasure </li>
+          <li>Move the mouse in the desired direction</li>
+          <li>Enter distance (e.g. 0.1m)</li>
+          <li>Press enter</li>
+        </ul>
+      </section>
 
+      <section>
+        <a name="compound"><h2>Compound Shapes</h2></a>
+        <my-lo>
+            <ul>To be able to demonstrate:
+              <li>Pencil Lines</li>
+              <li>Polygons Shapes</li>  
+              <li>Creating merged shapes</li>
+              <li>Adding dimension lines</li>
+            </ul>
+        </my-lo>
+          
 
-        <section>
-            <section>
-              <a name="compound"><h2>Compound Shapes</h2></a>
-              <my-lo>
-                <ul>To be able to demonstrate:
-                  <li>Pencil Lines</li>
-                  <li>Polygons Shapes</li>  
-                  <li>Creating merged shapes</li>
-                  <li>Adding dimension lines</li>
-                </ul>
-            </my-lo>
-            </section> 
-            <section>
-              <h3>Pencil Lines</h3>
-              <p>Pencil Lines allow us to add <b>Vetrices</b> and <b>Edges</b> to existing shapes.</p>
-              <p>Pencil Lines also allow us to create new <b>faces</b>.</p>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/6tlgr46939xhov3/PencilLines.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-            <section>
-              <h3>Polygons</h3>
-              <p>Polygons allow us to create <b>regular polygons</b>.</p>
-              <p>You can specify the number of sides before selecting the center point.</p>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/i4keyxzy5l2bsq0/Polygons.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-            <section>
-              <h3>Merging Shapes</h3>
-     
-              <p>Drawing shapes over existing shapes will merge the verticies to form a new shape.  This new set of verticies can either be treated seperately, or can be merged in to a single new shape using the eraser tool.</p>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/dv9tnzwvzyotn09/Compound.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-          </section>
+        <my-slide-video  videoUrl="https://www.dropbox.com/s/6tlgr46939xhov3/PencilLines.mp4?raw=1">
+          <h3 slot="slideTitle">Pencil Lines</h3>
+          <p>Pencil Lines allow us to add <b>Vetrices</b> and <b>Edges</b> to existing shapes.</p>
+          <p>Pencil Lines also allow us to create new <b>faces</b>.</p>
+        </my-slide-video>
+
+        <my-slide-video  videoUrl="https://www.dropbox.com/s/i4keyxzy5l2bsq0/Polygons.mp4?raw=1">
+          <h3 slot="slideTitle">Polygons</h3>
+          <p>Polygons allow us to create <b>regular polygons</b>.</p>
+          <p>You can specify the number of sides before selecting the center point.</p>
+        </my-slide-video>
+
+        <my-slide-video  videoUrl="https://www.dropbox.com/s/dv9tnzwvzyotn09/Compound.mp4?raw=1">
+          <h3 slot="slideTitle">Merging Shapes</h3>
+          <p>Drawing shapes over existing shapes will merge the verticies to form a new shape.  This new set of verticies can either be treated seperately, or can be merged in to a single new shape using the eraser tool.</p>
+        </my-slide-video>
+      </section>
           <!-- End of Compound Shapes-->
           
           <!-- Making Components -->
-          <section>
-            <section>
-              <a name="components"><h2>What are Components?</h2></a>
-              <my-lo>
-                <div>To be able to:</div>
-                <ul>
-                  <li>Crate a simple component.</li>
-                  <li>Edit a component.</li>
-                </ul>
-              </my-lo>
-            </section>
-  
-            <section>
-              <h3>Components are</h3>
-              <ul>
-                <li>Components are a way to create <b>reusable</b> objects.</li>
-                <li>Components can be shared between files and people.</li>
-                <li>Components allow us to produce repeated shapes, very quickly.</li>
-              </ul>
-            </section>
-  
-            <section>
-              <h3>Making Components</h3>
-     
-              <p>Learn to create a component.</p>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/mjba71ksyr6vkhb/Components.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-          </section>
+      <section>
+            
+        <a name="components"><h2>What are Components?</h2></a>
+        <my-lo>
+          <div>To be able to:</div>
+          <ul>
+            <li>Crate a simple component.</li>
+            <li>Edit a component.</li>
+          </ul>
+        </my-lo>
+              
+        <h3>Components are</h3>
+        <ul>
+          <li>Components are a way to create <b>reusable</b> objects.</li>
+          <li>Components can be shared between files and people.</li>
+          <li>Components allow us to produce repeated shapes, very quickly.</li>
+          <li>Components allow us to move shapes, without them becoming <b>sticky</b>.</li>
+        </ul>
+            
+        <my-slide-video  videoUrl="https://www.dropbox.com/s/mjba71ksyr6vkhb/Components.mp4?raw=1">
+        </my-slide-video>        
+      </section>
           <!-- End of Making Components-->
           
           <!-- Moving and Rotation-->
           <section>
-            <section>
+            
               <a name="moving"><h2>Moving, Rotation and Scaling</h2></a>
               <my-lo>
                 <div>To be able to:</div>
@@ -293,33 +240,28 @@
                   <li>Scale Shapes.</li>
                 </ul>
               </my-lo>
-            </section>
-            <section>
-              <h3>Moving an Object</h3>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/fosi5ofh2eilblv/Moving.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-            <section>
-              <h3>Rotating an Object</h3>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/ohckq73u467i01v/Rotating.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
-            <section>
-              <h3>Scale an Object</h3>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/kpd4pie4eeo9zk2/Scaling.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
+            
+            
+              
+              <my-slide-video  videoUrl="https://www.dropbox.com/s/fosi5ofh2eilblv/Moving.mp4?raw=1">
+                <h3 slot="slideTitle">Moving an Object</h3>
+              </my-slide-video>
+
+              <my-slide-video  videoUrl="https://www.dropbox.com/s/ohckq73u467i01v/Rotating.mp4?raw=1">
+                <h3 slot="slideTitle">Rotating an Object</h3>
+              </my-slide-video>
+            
+              <my-slide-video  videoUrl="https://www.dropbox.com/s/kpd4pie4eeo9zk2/Scaling.mp4?raw=1">
+                <h3 slot="slideTitle">Scale an Object</h3>
+              </my-slide-video>
           </section>
           <!-- End of Moving and Rotations-->
   
           <!-- Copies of Objects-->
           <!-- End of Copies of Objects -->
           <section>
-            <section>
-              <a name="copies"><h2>Creating copies of Objects</h2></a>
+            
+              <a name="copies"><h2>Creating Copies of Objects</h2></a>
               <my-lo>
                 <div>To be able to:</div>
                 <ul>
@@ -328,20 +270,24 @@
                   <li>Scale Shapes.</li>
                 </ul>
               </my-lo>
-            </section>
-            <section>
-              <h3>Copies of Objects</h3>
-              <video width="50%" controls>
-                <source src="https://www.dropbox.com/s/5vopxz6ax31kf4q/Copies.mp4?raw=1" type="video/mp4">
-              </video>
-            </section>
+            
+              <my-slide-video  videoUrl="https://www.dropbox.com/s/5vopxz6ax31kf4q/Copies.mp4?raw=1">
+                <h3 slot="slideTitle">Copies of Objects</h3>
+              </my-slide-video>
+            
           </section>
   
         <!-- Useful Resources -->
         <section>
-          <section>
+          
+
             <a name="useful"><h2>Useful Resources</h2></a>
-            
+           
+              <h3>Additional Resources</h3>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=9Fbvtc2eLzU&list=PL190C90DCE62242C9">SketchUp Navigation</a></li>
+              </ul>
+           
             <ul>
               <li><a href="https://help.sketchup.com/en/downloading-older-versions">Download SketchUp at Home (optional).</a></li>
               <ul>
@@ -354,21 +300,19 @@
               <li><a href="https://www.youtube.com/watch?v=cfoQf_8YYxg">Reference Video.</a>
               </li>
             </ul>
-          </section>
+         
         </section>
         <!-- End of Useful Resources -->
   
         
         <!-- Marking Scheme Page -->
         <section>
-            <section>
+            
               <a name="project"><h2>End of Module Project: Build a Castle</h2></a>
               <p>Select a castle floor plan.  Either find your own, or chose one from <a href="https://www.google.com/search?rlz=1C5CHFA_enSA774SA774&q=castle+floor+plans&tbm=isch&source=univ&safe=strict&sa=X&ved=2ahUKEwjZir2TztngAhUPTBUIHUb9AYIQsAR6BAgDEAE&biw=936&bih=786#imgrc=GH0POwwVZVB_AM:"> here</a></p>
               <p>Create a 3D model of the castle.</p>
               <p>Ensure that you have </p>
-            </section>
-
-            <section>
+           
                 <div>
                   <h3>2018 Castle Designs</h3>
                   <p>To help inspire you, here are some examples of 2018 Year 7 castle design.</p>
@@ -376,9 +320,7 @@
                     <source src="https://www.dropbox.com/s/p9u9vjudwejfl9p/CastlesYear7-2018.mp4?raw=1" type="video/mp4">
                   </video>
                 </div>
-              </section>
-
-            <section>
+              
               <h3>Marking Scheme</h3>
               <div>
                   <p>The marking scheme for this module can be found here.</p>
@@ -388,27 +330,25 @@
                   </div>
                   
               </div>
-          </section>
+          
   
         </section>
         <!-- End of Marking Scheme-->
   
         <section>
-          <section>
+          
             <a name="challenges"><h2>SketchUp Challenges</h2></a>
-          </section>
-          <section>
+          
             <h3>SketchUp Blocks</h3>
             <p>The following link contains a number of isometric shapes.  Each isometric triangle represents 10cms. Create all shapes in SketchUp for a merit.</p>
             <a href="https://www.dropbox.com/s/pm70a1e5kaf9e5y/SketchUp.pdf?dl=0">PDF File</a>
-          </section>
-          <section>
+          
               <h3>Swimming Pool</h3>
               <p>Watch the following video to learn how to create a swimming pool.  Use these techniques to design your own swimming pool.</p>
               <video width="600" height="450" controls>
                   <source src="https://www.dropbox.com/s/mja2bhj5ojl2dw8/SwimingPool.mp4?raw=1" type="video/mp4">
                 </video>
-            </section>
+            
         </section>
   
         <!-- End of Measuring with SketchUp -->
