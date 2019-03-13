@@ -11,8 +11,8 @@ export class LoComponent extends LitElement {
 
     if (mdd != undefined) {
       mddHtml = html `
-        <img src="/static/modules/PDF_file_icon.svg" style="border: none !important; margin: 0px 0px 0px 0px !important; margin-right: 10px; width:40px; height: 40px; box-shadow: none!important"> 
-        <a style="margin-left: 10px !important;" href="${mdd}">Link to Module Description</a>
+        <img src="/static/modules/PDF_file_icon.svg" style="border: none !important; margin: 0px 0px 0px 0px !important;  width:30px; height: 30px; box-shadow: none!important"> 
+        <a  href="${mdd}">Link to Module Description</a>
         `; 
     } 
     return html `
@@ -41,7 +41,7 @@ export class LoComponent extends LitElement {
     <div class="lo">
       <p class="lo-heading">LO Question:</p> 
       <p class="lo-question"><i><slot></slot></i></p>
-      <div style="width: 100%; text-align: right; font-size: 1.5rem; display: flex; flex-direction: row">
+      <div style="width: 100%; text-align: right; display: flex; flex-direction: row">
         <span>${mddHtml}</span>
       </div>
     </div>

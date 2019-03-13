@@ -15,7 +15,7 @@ html, body {
 .sidebar a {
   display: block;
   color: black;
-  padding: 10px;
+  padding: 16px;
   text-decoration: none; }
 
 /* Active/current link */
@@ -77,7 +77,8 @@ h2:before {
 h3 {
   font-family: 'Ropa Sans';
   font-size: 1.5em;
-  color: #6b6a6a; }
+  color: #6b6a6a;
+  margin-top: 40px; }
 
 .task {
   background-color: orange;
