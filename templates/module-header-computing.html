@@ -3,7 +3,18 @@
 {% block style %}
   <link href="/static/styles/module-header.css" rel="stylesheet">
   <style>
-    
+    .module-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .module {
+      margin: 15px;
+      padding: 5px;
+      border: silver 1px solid;
+      max-width: max(300, min-content);
+    }
 
   </style>
 {% endblock %}
@@ -11,19 +22,22 @@
 {% block body%}
 <div class="container">
     <H1>Computing Materials</H1>
-    <h2>KS3</h2>
-    <h3>Units of Work</h3>
-    <div>
-      <div><a href="/computing/sketchup-intro">Intro To SketchUp</a></div>
-    </div>
-    <div>
-        <div><a href="/computing/web-design">Web Design with Figma</a></div>
+    <h3>Modules</h3>
+    <div class="module-container">
+      <div class="module">
+        <h4>Modelling</h4>
+        <a href="/computing/models/modelling-with-sketchup">Modelling with SketchUp</a>
       </div>
-    <h2>KS4</h2>
-    <h3>Units of Work</h3>
-    <div>
-      <div><a href="/computing/web-server">Web Servers</a></div>
+
+      <div class="module">
+          <h4>Web</h4>
+          <div><a href="/computing/web/internet-www">Internet and the WWW</a></div>
+          <div><a href="/computing/web/web-design">Web Design with Figma</a></div>
+          <div><a href="/computing/web/intro-html-css-js">Intro to HTML, CSS and JS</a></div>
+          <div><a href="/computing/web/web-server">Web Servers</a></div>
+        </div>
     </div>
+
     
     
     <!--     

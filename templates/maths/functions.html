@@ -1,0 +1,59 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Functions{% endblock %}
+
+{% block style%}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<style>
+
+
+</style>
+{% endblock %}
+{% block body%}
+<div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#whatarefunctions">What are Functions?</a>
+      
+      
+    </div>
+    <div class="content">
+        <a name="home"><h1>Functions.</h1></a>
+
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+              <my-timeline-item >What are Functions? </my-timeline-item>
+              <my-timeline-item >Function Graphs. </my-timeline-item>
+              <my-timeline-item >Inverse Functions.</my-timeline-item>
+              <my-timeline-item >Composite Functions.</b>. </my-timeline-item>
+              <my-timeline-item >Values for Domain and Range.</my-timeline-item>
+            </my-timeline> 
+        </section>
+        <section>
+            <a name="whatarefunctions"><h2>What are Functions?</h2></a>
+        </section>
+    </div>
+</div>
+  <section>
+    <h1>Functions</h1>
+
+    <h2>What is a function?</h2>
+    <h2>Input, Output and Rules</h2>
+    <h2>Domain and Range</h2>
+    <h2>Inverse Functions</h2>
+    <h2>Composite Functions</h2>
+    <h2>Function Transformations</h2>
+    <h2>Range and Domain Exclusions</h2>
+
+    <p>
+      \( New Value = Old Value \times (1 + {1 + r \over 100 }) \) 
+    </p>
+
+  </section>
+  <p>
+    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+    $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+  </p>
+{% endblock %}

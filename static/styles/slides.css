@@ -65,15 +65,6 @@ h2 {
   font-size: 2em;
   border-bottom: silver 1px solid; }
 
-h2:before {
-  background-image: url("/static/modules/sketchup/images/sketchup_logo.png");
-  background-size: 30px 30px;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  content: ""; }
-
 h3 {
   font-family: 'Ropa Sans';
   font-size: 1.5em;
@@ -92,6 +83,11 @@ my-timeline {
 
 my-timeline-item {
   line-height: 2em; }
+
+section {
+  padding-bottom: 50px;
+  border-bottom: 2px solid #326432;
+  margin-bottom: 50px; }
 
 my-timeline-item::before {
   counter-increment: timeline;

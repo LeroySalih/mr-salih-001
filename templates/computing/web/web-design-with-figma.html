@@ -1,0 +1,274 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Intro to HTML, CSS and JS{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/web-design/images/68-JS Code.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#layout">What is Layout?</a>
+      <a href="#colours">Using Colours.</a>
+     
+      <a href="#additional">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">        
+        <a name="home"><h1>Web Design.</h1></a>
+        <div>
+          In this module we are going to gain an understanding of how Web Servers work by building a Web Server and connecting it to a databse.
+        </div>
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+                <my-timeline-item >What Layout? </my-timeline-item>
+              <my-timeline-item >Using Colours. </my-timeline-item>
+              
+            </my-timeline> 
+        </section>
+
+
+        <section>
+          <a name="layout"><h2>Layout</h2></a>
+          <my-lo mdd="">
+            <p>
+              To be able to:
+              <ul>
+                <li>Describe what Layout means</li>
+                <li>Describe the difference between a section, component and element.</li>
+                <li>Describe the common components of a WebPage</li>
+              </ul>
+            </p>
+          </my-lo>
+
+          <h3>What is Layout?</h3>
+          <div>
+              <div class="fragment">An <b><u>Element</u></b> is a discrete unit of design within the webpage.</div>
+              <div class="fragment">A <b><u>Component</u></b> is a collection of elements with a common purpose.</div>
+              <div class="fragment">A <b>Section</b> is a related collection of components.</div>
+              <div class="fragment"><b><u>Layout</u></b> describes the placement of these sections within the webpage.</div>
+
+              <img src="/static/modules/computing/web-design/IntroToWebDesign/Layout_1.svg"/>
+          </div>
+          
+          <h3>The goals of Good Layout</h3>
+            <ul>
+            <li class="fragment">Users are pleased by the design, but drawn to the content.</li>
+            <li class="fragment">Users can move easily via intuitive navigation.</li>
+            <li class="fragment">Users can recognise that each page belongs to the site.</li>
+            <li class="fragment quote">Principles of Beautiful Web Design, BEAIRD & GEORGE, 2014</li>
+          </ul>
+
+          <h3>Some Standard Layouts</h3>
+          <ul>
+            <li>1 Col</li>
+            <li>2 Col, Left nav</li>
+            <li>2 Col, Right nav</li>
+            <li>3 Col </li>
+          </ul>
+
+          <h3>Web Page Anatomy</h3>
+          <ul>
+            <li>Container</li>
+            <li>Logo</li>
+            <li>Navigation</li>
+            <li>Content</li>
+            <li>Footer</li>
+            <li>Header</li>
+            <li>Hero</li>
+            <li>Call To Action</li>
+          </ul>
+
+          <div class="task">
+
+            <h3>Incorporate JS into your CV</h3>
+            <div>Incorporate your JS code into your CV so that your CV is able to display the correct time.</div>
+            <div>
+              You may need to add the following code to your CV.html 
+            </div>
+            <code><pre><script src="script.js"></script></pre></code>
+          </div>
+
+          <h3>Wireframe</h3>
+          <div style="background-color: white">
+              <img src="/static/modules/computing/web-design/IntroToWebDesign/Wireframe1.svg"/>
+          </div>
+        </section>
+
+
+        <section>
+          <a name="colours"><h2>Using Colours</h2></a>
+          <my-lo>
+            <p>To be able to:</p>
+            <ul>
+                <li>Explain why colours are important in design.</li>
+                <li>What are the common 'meanings' of colour.</li>
+                <li>Specify a colour using RGB and HSL notation.</li>
+            </ul>
+          </my-lo>
+
+          <h3>What is Colour Theory?</h3>
+          <div>
+            <div class="task">
+              <h3>Do Colours have meaning?</h3>
+              <div>What does "having meaning" mean?</div>
+              <div>Discuss in your pairs, 2 mins.</div>
+            </div>
+          </div>
+
+          <h3>Do Colours have Meaning? A Colour Survey</h3>
+          <p>
+            <a href="https://create.kahoot.it/share/colour-theory/3cbea450-4069-4cc0-9f4c-38b5801070d9">Kahoot</a>
+          </p>
+          <p>Reflect on what we have seen:</p>
+          <ul>
+              <li>Does a colour always mean the same thing to everyone?</li>
+              <li>Does a colour only have 1 meaning?</li>
+          </ul>
+
+
+          <h3>Context</h3>
+          <p>Reflect on what we have seen:</p>
+          <p>Does a colour always mean the same thing to everyone?</p>
+          <p>Does a colour only have 1 meaning?</p>
+          
+          <h3>Context</h3>
+          <div>Context is the situation surrounding us.</div>
+
+          <ul>
+            <li>Should we run in the corridor?</li>
+            <li>Should we run in the corridor if are being chased by a big dog?</li>
+          </ul>
+
+
+          <p>In each context, with what do you associate each colour?</p>
+          <p>(If anything)</p>
+          <table class="table" style="background-color: white; color: black">
+            <tr>
+              <td>Context</td><td>White</td><td>Blue</td><td>Red</td><td>Black</td>
+            </tr>
+            <tr>
+              <td>Weather</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sea</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Building</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sky</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Mens Shoes</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+            <tr>
+              <td>Sports Teams</td><td></td><td></td><td></td><td></td>
+            </tr>
+
+          </table>
+
+          <h3>Why should we worry about Colour Theory?</h1>
+            <ul>
+              <li>To reinforce our message.</li>
+              <li>To ensure we are not sending an unintentional message.</li>
+            </ul>
+
+
+          <h3>Specifying a Colour with RGB</h3>
+          
+          <div style="display: flex; flex-direction: row;">
+           
+              <img style="width: 400px !important; " src="/static/modules/computing/web-design/IntroToWebDesign/rgb-colors.jpeg">
+           
+            <div>
+                <p>Refers to the amount of Red, Green and Blue in a colour.</p>
+                <p>Each value is number between 0 and 255.</p>
+                <p>Written as rgb(red_number, green_number, blue_number)</p>
+                <p>e.g. rgb(100, 30, 255)</p>
+            </div>
+          </div>
+        
+          <div class="task">
+            <p>Navigate to: <a href="https://www.w3schools.com/colors/colors_rgb.asp">Color Picker RGB</a></p>
+            <p>What are the RGB colour codes for: </p>
+              
+              <table class="table" style="margin-top: 30px !important">
+                <tr>
+                  <td>White</td>
+                  <td>Grey</td>
+                  <td>Black</td>
+                </tr>
+                <tr>
+                  <td>Light Red</td>
+                  <td>Pure Red</td>
+                  <td>Dark Red</td>
+                </tr>
+                <tr>
+                  <td>Light Green</td>
+                  <td>Pure Green</td>
+                  <td>Dark Green</td>
+                </tr> 
+                <tr>
+                  <td>Light Blue</td>
+                  <td>Pure Blue</td>
+                  <td>Dark Blue</td>
+                </tr>  
+              </table>
+            </div>
+        </section>
+
+       
+            
+        
+
+
+        <section>
+          <a name="additional"><h3>Additional Resources</h3></a>
+          <ul>
+            
+          </ul>
+        
+        </section>
+         
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+

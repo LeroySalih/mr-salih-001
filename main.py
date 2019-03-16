@@ -24,15 +24,10 @@ def computing():
 def computing_p5Intro():
   return render_template("computing/p5-intro.html")
 
-@app.route('/computing/sketchup-intro')
+@app.route('/computing/models/modelling-with-sketchup')
 def computing_sketchUpIntro():
-  return render_template("computing/sketchup-intro.html")
+  return render_template("computing/models/modelling-with-sketchup.html")
 
-
-
-@app.route('/computing/web-design')
-def computing_web_design():
-  return render_template("computing/web-design.html")
 
 @app.route('/computing/python-intro')
 def computing_python_intro():
@@ -42,14 +37,40 @@ def computing_python_intro():
 def computing_algorithms():
   return render_template("computing/algorithms.html")
 
+@app.route('/computing/using-arrays')
+def computing_arrays():
+  return render_template("computing/using-arrays.html")
 
-@app.route('/computing/web-server')
+
+
+@app.route('/computing/web/internet-www')
+def computing_internet_www():
+  return render_template("computing/web/internet-www.html")
+
+@app.route('/computing/web/intro-html-css-js')
+def computing_intro_html():
+  return render_template("computing/web/intro-html-css-js.html")
+
+@app.route('/computing/web/web-server')
 def computing_web_server():
-  return render_template("computing/web-server.html")
+  return render_template("computing/web/web-server.html")
+
+@app.route('/computing/web/web-design')
+def computing_web_design():
+  return render_template("computing/web/web-design-with-figma.html")
+
+@app.route('/computing/web/web-design-2')
+def computing_web_design2():
+  return render_template("computing/web/web-design-with-figma-2.html")
+
 
 @app.route('/maths/venn-diagrams')
 def maths_venn_diagrams():
   return render_template("venn-diagrams.html")
+
+@app.route('/maths/functions')
+def maths_functions():
+  return render_template("maths/functions.html")
 
 @app.route('/maths/past-papers')
 def maths_past_papers():

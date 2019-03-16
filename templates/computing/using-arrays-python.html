@@ -1,0 +1,106 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Modelling with SketchUp{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#computermodelling">What is a Server?</a>
+    </div>
+
+    <div class="content">
+
+        
+        <a name="home"><h1>Web Servers.</h1></a>
+        
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+              <my-timeline-item >What are <b>Web Servers</b>? </my-timeline-item>
+              <my-timeline-item >How does the Web Work? </my-timeline-item>
+              <my-timeline-item >What is a URL?</b>. </my-timeline-item>
+              <my-timeline-item >Creating a WebServer </my-timeline-item>
+              <my-timeline-item >Adding Templates  </my-timeline-item>
+              <my-timeline-item >Adding Pages</my-timeline-item>
+              <my-timeline-item >Adding Parameters </my-timeline-item>
+              <my-timeline-item >Project: Create an Employee Database</my-timeline-item>
+            </my-timeline> 
+        </section>
+
+        <!-- What is computer modelling -->
+        <section>
+            <a name="computermodelling"><h2>What is a Server?</h2></a>
+            <my-lo mdd="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">
+              What are the What, Where, How and  Pros/Cons of Computer Modelling?
+            </my-lo>
+          
+            <h3>What is Computer Modelling?</h3>
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">A computer-based model is a computer program that is designed to <u><b>simulate what might or what did</b></u> happen in a situation.</p>
+              <p class="definition-item fragment fade-up ">Software Modelling allows us to consider the <b><u>interaction</u></b> of real world objects.</p>
+              <p class="definition-source fragment fade-up"><a href="https://simple.wikipedia.org/wiki/Computer_model">Wikipedia, 2018</a></p>
+            </div>
+            
+
+            <div class="task">
+              <h3>Where and How might we use Computer Modelling?</h3>
+              <div>2 mins pair and share:</div>
+            </div>
+        
+            
+            <h3>Pros & Cons</h3>
+            <div>What may be the pro's and con's of using Computer Modelling.</div>
+            <div>2 min pair and share:</div>
+            <my-pros-cons>
+                <my-pros>
+                  <my-pro class="fragment fade-up">Can improve the estimate of costs.</pro>
+                  <my-pro class="fragment fade-up">Can save money by identifying problems early.</pro>
+                </my-pros>
+                <my-cons>
+                  <my-con class="fragment fade-up">Increases the cost of the project.</con>
+                  <my-con class="fragment fade-up">Can create unreasonable expectations.</cons>
+                  <my-con class="fragment fade-up">How do we know if the model is right?</my-con>
+                </my-cons>
+              </my-pros-cons> 
+            
+        </section>
+
+        
+  
+        <!-- End of Measuring with SketchUp -->
+    </div>
+  </div>
+
+{% endblock %}
+
+

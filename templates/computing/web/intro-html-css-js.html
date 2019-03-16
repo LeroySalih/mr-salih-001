@@ -1,0 +1,237 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Intro to HTML, CSS and JS{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/web-design/images/68-JS Code.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#server">What is HTML?</a>
+      <a href="#html">Writing your CV Web Page</a>
+      <a href="#css">Styling your CV</a>
+      <a href="#js">Example JS</a>
+      <a href="#additional">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">
+
+        
+        <a name="home"><h1>Intro to HTML, CSS and JS.</h1></a>
+        <div>
+          In this module we are going to gain an understanding of how Web Servers work by building a Web Server and connecting it to a databse.
+        </div>
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+                <my-timeline-item >What is a Web Page? </my-timeline-item>
+              <my-timeline-item >What is HTML? </my-timeline-item>
+              <my-timeline-item >Writing a CV</my-timeline-item>
+              <my-timeline-item >Styling your CV</b>. </my-timeline-item>
+              <my-timeline-item >Example JS. </my-timeline-item>
+            </my-timeline> 
+        </section>
+
+        <!-- What is computer modelling -->
+        <section>
+            <a name="url"><h2>What is a Web Page</h2></a>
+            <my-lo mdd="">
+              <div>To be able to:</div>
+              <ul>
+                <li>describe the format of a Web Page.</li>
+                <li>describe the format of a HTML tag.</li>
+              </ul>
+            </my-lo>
+
+            
+
+        </section>
+
+        <section>
+            <a name="server"><h2>What is HTML?</h2></a>
+            <my-lo mdd="">
+              <p>To be able to:</p>
+              <p>Describe the uses and working of HTML</p>
+            </my-lo>
+          
+            <h3>What is HTML?</h3>
+            <!-- Todo: Add a reveal button. -->
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">
+              <div>defintion goes here</div>
+              </p>
+            </div>
+
+            <h3>Anatomy of a HTML Tag</h3>
+            <p>
+                
+            </p>
+
+            <div class="task">
+              <h3>HTML</h3>
+              <div> description goes here.</div>
+              
+            </div>
+        
+            
+
+            <h3>Alternatives to HTML.</h3>
+            <div>What may be the pro's and con's of using HTML</div>
+            <div>2 min pair and share:</div>
+            <my-pros-cons>
+                <my-pros>
+                  <my-pro class="fragment fade-up">p1.</pro>
+                  <my-pro class="fragment fade-up">p2.</pro>
+                </my-pros>
+                <my-cons>
+                  <my-con class="fragment fade-up">c1.</con>
+                  <my-con class="fragment fade-up">c2.</cons>
+                  <my-con class="fragment fade-up">c3?</my-con>
+                </my-cons>
+              </my-pros-cons> 
+            
+        </section>
+
+        
+
+        <section>
+          <a name="html"><h2>Writing Your CV Web Page</h2></a>
+          <my-lo mdd="">
+              <div>To be gain experience of:</div>
+              <ul>
+                <li>Writing your first web page.</li>
+                
+              </ul>
+            </my-lo>
+           
+            <h3>Writing a CV</h3>
+            
+            <div>The following videos require you to be able to log in to <a href="https://www.repl.it">https://www.repl.it</a></div>
+            <div>You register for an account <a href="https://repl.it/signup">here</a>.</div>
+            <div>Fork the repl at <a href="https://repl.it/@mrsalih/BasicHTML">https://repl.it/@mrsalih/BasicHTML</a>.</div>
+            <div style="margin-bottom: 30px;">Follow along with this video to create a CV for Mr Salih.</div>  
+            <my-slide-video  videoUrl="https://www.dropbox.com/s/atsb460qwr8rxl2/BasicHTML.mp4?raw=1">
+                
+            </my-slide-video>
+
+            <div class="task">
+              <h3>Create Your CV</h3>
+              <ul>
+                <li>Create a new HTML 5 repl.</li>
+                <li>Create your own CV, you can reuse the sections in Mr Salih's CV, or create your own.</li>
+                <li>Remember that the whole world will be able to see your CV.</li>
+              </ul>
+            </div>
+        </section>
+
+        <section>
+          <a name="css"><h2>Styling Your CV Web Page</h2></a>
+          <my-lo mdd="">
+            <p>To be able to:</p>
+            <p>Apply styles to elements of your Web Page</p>
+          </my-lo>
+
+          <h3>What is CSS</h3>
+          <div>Text goes here....</div>
+
+          <h3>You Try</h3>
+          <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="leroysalih" data-slug-hash="bZMVjo" data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS Tutorial">
+              <span>See the Pen <a href="https://codepen.io/leroysalih/pen/bZMVjo/">
+              CSS Tutorial</a> by Leroy Salih (<a href="https://codepen.io/leroysalih">@leroysalih</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+          <h3>Applying Styles</h3>
+          <div>Continue from the Mr Salih CV you created last lesson.</div>
+          <div>Follow the video to recreate the styled CV for Mr Salih.</div>
+          <my-slide-video  videoUrl="https://www.dropbox.com/s/0cz7i9f5rv05byc/BasicCSS.mp4?raw=1">
+                
+          </my-slide-video>
+
+          <div class="task">
+              <h3>Style Your CV</h3>
+              <p>Using what you gave practiced,</p>
+              <ul>
+          
+                <li>Style your own CV, you can reuse the sections in Mr Salih's CV, or create your own.</li>
+                <li>Remember that the whole world will be able to see your CV.</li>
+              </ul>
+          </div>
+        </section>
+
+        <section>
+          <a name="javascript"><h2>Javascript</h2></a>
+          <my-lo mdd="">
+            <p>
+              To be able to:
+            </p>
+            <ul>
+              <li>Create and execute a simple Javascript function</li>
+            </ul>
+          </my-lo>
+
+          <h3>Simple Javascript</h3>
+          <div>We are going to create a simple javascript clock.</div>
+          <my-slide-video  videoUrl="https://www.dropbox.com/s/ecz03tjrkmulf57/BasicJavascript.mp4?raw=1">
+                
+          </my-slide-video>
+          <div class="task">
+
+            <h3>Incorporate JS into your CV</h3>
+            <div>Incorporate your JS code into your CV so that your CV is able to display the correct time.</div>
+            <div>
+              You may need to add the following code to your CV.html 
+            </div>
+            <code><pre><script src="script.js"></script></pre></code>
+          </div>
+        </section>
+
+
+        <section>
+          <a name="additional"></a><h3>Additional Resources</h3></a>
+          <ul>
+            <li><a href="https://www.dropbox.com/s/96glsd3fak45oc4/html5-cheat-sheet.jpg?dl=0">HTML Cheat Sheet</a></li>
+            <li><a href="https://www.dropbox.com/s/8po7exa17yqxvky/wsu-css-cheat-sheet.pdf?dl=0">CSS Cheat Sheet</a></li>
+          </ul>
+        
+        </section>
+         
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,221 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Building Web Sites{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#server">What is a Server?</a>
+      <a href="#url">What is a URL?</a>
+      <a href="#buildingaserver">Building a Web Site</a>
+
+      <a href="#database">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">
+
+        
+        <a name="home"><h1>Web Servers.</h1></a>
+        <div>
+          In this module we are going to gain an understanding of how Web Servers work by building a Web Server and connecting it to a databse.
+        </div>
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+              <my-timeline-item >What is a <b>Web Server</b>? </my-timeline-item>
+              <my-timeline-item >How does the Web Work? </my-timeline-item>
+              <my-timeline-item >What is a URL?</b>. </my-timeline-item>
+              <my-timeline-item >Creating a WebServer </my-timeline-item>
+              <my-timeline-item >Adding Templates  </my-timeline-item>
+              <my-timeline-item >Adding Pages</my-timeline-item>
+              <my-timeline-item >Adding Parameters </my-timeline-item>
+              
+            </my-timeline> 
+        </section>
+
+        <!-- What is computer modelling -->
+        <section>
+            <a name="server"><h2>What is a Server?</h2></a>
+            <my-lo mdd="">
+              <p>What is a Web Server?</p>
+              <p>What Web Servers exist?</p>
+              <p>How they different?</p>
+            </my-lo>
+          
+            <h3>What is a Web Server?</h3>
+            <!-- Todo: Add a reveal button. -->
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">
+              <div>defintion goes here</div>
+              </p>
+            </div>
+
+            <div>What Web Servers exist</div>
+            
+
+            <div class="task">
+              <h3>Web Servers</h3>
+              <div>Using the additional resources section and other pages you may find, find the name of 3 web servers.</div>
+              <div>Using your research, complete the following table:</div>
+              <table class="table">
+                <tr><td></td><td>Web Server 1</td><td>Web Server 2</td><td>Web Server 3</td></tr>
+                <tr><td>Name of Owning organisation</td><td></td><td></td><td></td></tr>
+                <tr><td>Open Source or Proprietry?</td><td></td><td></td><td></td></tr>
+                <tr><td>Operating Systems Supported</td><td></td><td></td><td></td></tr>
+                <tr><td>Market Share (most recent)</td><td></td><td></td><td></td></tr>
+
+              </table>
+              
+            </div>
+        
+            <h3>What does a Web Server do?</h3>
+            <div></div>
+
+            <h3>Alternatives to Web Servers.</h3>
+            <div>What may be the pro's and con's of using a Web Server</div>
+            <div>2 min pair and share:</div>
+            <my-pros-cons>
+                <my-pros>
+                  <my-pro class="fragment fade-up">p1.</pro>
+                  <my-pro class="fragment fade-up">p2.</pro>
+                </my-pros>
+                <my-cons>
+                  <my-con class="fragment fade-up">c1.</con>
+                  <my-con class="fragment fade-up">c2.</cons>
+                  <my-con class="fragment fade-up">c3?</my-con>
+                </my-cons>
+              </my-pros-cons> 
+            
+        </section>
+
+        <section>
+            <a name="url"><h2>What is a Url?</h2></a>
+            <my-lo mdd="">
+              
+
+            </my-lo>
+
+            <h3>Anatomy of a URL</h3>
+            <p>
+                <img src="/static/modules/web-design/images/anatomy-of-a-url.gif">
+            </p>
+
+        </section>
+
+        <section>
+          <a name="buildingaserver"><h2>Building a Web Site</h2></a>
+          <my-lo mdd="">
+              <p>Over the next sessions, you will learn to initialise and configure a Web Server.</p>
+            </my-lo>
+
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#setupwin">SetUp - Windows</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#setupmac">SetUp - Mac</a>
+              </li>
+
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane container active" id="setupwin">
+                <h3>SetUp the Web Server</h3>
+                <my-slide-video  videoUrl="https://www.dropbox.com/s/2dvsojd1aiuo79y/1.%20SetUp%20-%20Windows.mp4?raw=1">
+                    
+                </my-slide-video>
+              </div>
+              <div class="tab-pane container fade" id="setupmac">
+                <h3>SetUp the Web Server</h3>
+                <my-slide-video  videoUrl="https://www.dropbox.com/s/zalu6ydvs39gcw4/1.%20SetUp.mp4?raw=1">
+                    
+                </my-slide-video>
+              </div>
+
+            </div>
+
+            
+ 
+
+            <h3>Adding Templates</h3>
+            <my-slide-video  videoUrl="https://www.dropbox.com/s/n8t8x5364pluah7/2.%20AddingTemplates.mp4?raw=1">
+                
+            </my-slide-video>
+
+            <h3>Adding Pages</h3>
+            <my-slide-video  videoUrl="https://www.dropbox.com/s/eos7793h5p79fue/3.%20AddPages.mp4?raw=1">
+                
+            </my-slide-video>
+
+            
+            <h3>Adding Parameters</h3>
+            <my-slide-video  videoUrl="https://www.dropbox.com/s/hz3ye5rb8qvgqtm/4.%20AddParameters.mp4?raw=1">
+                
+            </my-slide-video>
+
+            <div class="task">
+              <h3>Add Your Own Pages</h3>
+              <p>In your web system, we are going to store the details of imaginary customers.</p>
+              <ul>
+                <li>Using the same structure as the house pages, create 2 pages that will
+                  <li>List the customers.</li>
+                  <li>Display the details of a single customer, based on a parameter in the URL.</li>
+                </li>
+              </ul>
+            </div>
+          
+        </section>
+
+
+
+        <section>
+          <a name="additional"></a><h3>Additional Resources</h3></a>
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Web_server">Wikipedia article Web Servers.</a></li>
+            <li><a href="https://www.harding.edu/fmccown/history-of-internet-and-web.pdf">Short History of the Internet.</a></li>
+            <li><a href="http://www.pewinternet.org/2014/03/11/world-wide-web-timeline/">World Wide Web Timeline.</a></li>
+            <li><a href="https://news.netcraft.com/archives/2018/08/24/august-2018-web-server-survey.html">Web Server Market Share.</a></li>
+          </ul>
+        
+        </section>
+         
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+

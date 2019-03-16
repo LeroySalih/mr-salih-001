@@ -1,0 +1,106 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Modelling with SketchUp{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#computermodelling">Using Arrays.</a>
+    </div>
+
+    <div class="content">
+
+        
+        <a name="home"><h1>Arrays.</h1></a>
+        
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+              <my-timeline-item >What are <b>Web Servers</b>? </my-timeline-item>
+              <my-timeline-item >How does the Web Work? </my-timeline-item>
+              <my-timeline-item >What is a URL?</b>. </my-timeline-item>
+              <my-timeline-item >Creating a WebServer </my-timeline-item>
+              <my-timeline-item >Adding Templates  </my-timeline-item>
+              <my-timeline-item >Adding Pages</my-timeline-item>
+              <my-timeline-item >Adding Parameters </my-timeline-item>
+              <my-timeline-item >Project: Create an Employee Database</my-timeline-item>
+            </my-timeline> 
+        </section>
+
+        <!-- What is computer modelling -->
+        <section>
+            <a name="computermodelling"><h2>What is an Array?</h2></a>
+            <my-lo mdd="https://www.dropbox.com/s/nb6tnys10djmwgb/Module%20Description.pdf?dl=0">
+              What are the What, Where, How and  Pros/Cons of Computer Modelling?
+            </my-lo>
+          
+            <h3>What are Arrays?</h3>
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item">An <b>array</b> is also called a list.</p>
+              <p class="definition-item"> An array is a collection of 0, 1 or more variables, all stored in a single variable.</p>
+              <p class="definition-item"> As arrays are stored in a single variable, we can find out about the variables being stored in the array.</p>
+            </div>
+            
+
+            <div class="task">
+              <h3>Where and How might we use Computer Modelling?</h3>
+              <div>2 mins pair and share:</div>
+            </div>
+        
+            
+            <h3>Pros & Cons</h3>
+            <div>What may be the pro's and con's of using Computer Modelling.</div>
+            <div>2 min pair and share:</div>
+            <my-pros-cons>
+                <my-pros>
+                  <my-pro class="fragment fade-up">Can improve the estimate of costs.</pro>
+                  <my-pro class="fragment fade-up">Can save money by identifying problems early.</pro>
+                </my-pros>
+                <my-cons>
+                  <my-con class="fragment fade-up">Increases the cost of the project.</con>
+                  <my-con class="fragment fade-up">Can create unreasonable expectations.</cons>
+                  <my-con class="fragment fade-up">How do we know if the model is right?</my-con>
+                </my-cons>
+              </my-pros-cons> 
+            
+        </section>
+
+        
+  
+        <!-- End of Measuring with SketchUp -->
+    </div>
+  </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,136 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Internet and the World Wide Web.{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/modules/computing/internet-www/41-Development.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#internet">What is the Internet and the World Wide Web?</a>
+      <a href="#working">How do they work together?</a>
+    </div>
+
+    <div class="content">
+
+        
+        <a name="internet"><h1>Internet and the World Wide Web.</h1></a>
+        <div>Do you know the difference between the Internet and the World Wide Web?</div>
+        <div style="margin-bottom:30px;">In this module, we will examine how each work and how they work together.</div>
+
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+              <my-timeline-item>What are the Internet and the World Wide Web? </my-timeline-item>
+              <my-timeline-item>How do they Work Together? </my-timeline-item>
+              
+            </my-timeline> 
+        </section>
+
+        <!-- What is computer modelling -->
+        <section>
+            <a name="url"><h2>What are the Internet and the World Wide Web?</h2></a>
+            <my-lo mdd="">
+              <div>To be able to:</div>
+              <ul>
+                <li>Describe what the Internet and WWW are.</li>
+                <li>Describe the history of the Internet and the WWW.</li>
+              </ul>
+            </my-lo>
+
+            <h3>The Internet is....</h3>
+            <div>...</div>
+
+            <h3>The Hardware of the Internet.</h3>
+            <div>...</div>
+
+            <h3>The History of the Internet.</h3>
+            <div>...</div>
+
+            <h3>What is the World Wide Web?</h3>
+            <!-- Todo: Add a reveal button. -->
+            <div class="definition" >
+              <p class="definition-header">Definition:</p>
+              <p class="definition-item fragment fade-up">
+              <div>defintion goes here</div>
+              </p>
+            </div>
+
+            <h3>The Software of the WWW.</h3>
+            <div>...</div>
+
+            <h3>The History of WWWW.</h3>
+            <div>...</div>
+
+            <div class="task">
+              <h3>Simon Says....</h3>
+              <div>
+                <p>Your friend Simon says "The Internet and the World Wide Web are the same thing."</p>
+                <p>Is he correct?</p>
+                <p>Can the Internet exist without the World Wide Web?  Can the World Wide Web exist without the Internet?</p>  
+                <p>Explain all of your answers.</p>
+
+              </div>
+            </div>
+        </section>
+
+        <section>
+          <a name="working"><h2>How do the Internet and World Wide Web work together?</h2></a>
+          
+          <h3>Overview</h3>
+          <div style="display: flex; flex-direction: row;width: 100%; height: 400px; align-items: flex-start;">
+              <img style="width: 50%; " src="/static/modules/web-design/images/WebServerEnvironment.svg">
+              <ol>
+                  <li>User enters URL in Browser</li>
+              </ol>
+          </div>
+      
+          <h3>HTTP/HTTPS</h3>
+          <div>...</div>
+
+          <h3>HTML</h3>
+          <div>...</div>
+
+
+        </section>
+
+        <section>
+          <a name="additional"></a><h3>Additional Resources</h3></a>
+          <ul>
+          </ul>
+        
+        </section>
+         
+    </div>
+  </div>
+
+{% endblock %}
+
+
