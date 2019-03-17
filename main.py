@@ -59,9 +59,7 @@ def computing_web_server():
 def computing_web_design():
   return render_template("computing/web/web-design-with-figma.html")
 
-@app.route('/computing/web/web-design-2')
-def computing_web_design2():
-  return render_template("computing/web/web-design-with-figma-2.html")
+
 
 
 @app.route('/maths/venn-diagrams')
