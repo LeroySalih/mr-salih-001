@@ -5,37 +5,106 @@
   {% block style %}
   
   <link href="/static/styles/index.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: rgb(240, 238, 238);
+    }
+    .top-half {
+      height: 50vh;
+
+      background: rgb(177, 247, 237);
+    }
+
+    .blocks {
+      display: flex;
+      flex-direction: row;
+      align-content: space-around;
+      justify-content: space-evenly;
+      margin-top: 50px;
+      
+      width: 100%
+    }
+
+    
+
+    .landing-heading {
+      margin-top: 150px;
+      
+    }
+    .landing-heading {
+      max-width: max-content;
+    }
+
+    .landing-heading h1 {
+    color : black;
+    font-family: 'poppins';
+    font-size: 5rem;
+    border-bottom: solid 1px silver;
+    }
+
+    .landing-heading h2 {
+    color : rgb(51, 51, 51);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2.2rem;
+    }
+
+    .block {
+      width: 200px;
+      height: 250px;
+      background: white;
+      border: silver 1px solid;
+      padding: 10px;
+      box-shadow: 5px 0px 5px silver;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .block img {
+      width: 50px;
+    }
+
+    .block h1 {
+      font-size: 1rem;
+      display: inline;
+    }
+
+    .block p {
+      font-size: 0.8em;
+      margin-top: 10px;
+      flex:1;
+    }
+  </style>
   {% endblock %}
   
   {% block body %}
-  
+  <div class="top-half">
   <section class="content">
-      <section class="landing-heading">
+      <section class="landing-heading ">
           <h1 >www.mrsalih.com</h1>
           <h2 >Maths and Computing materials for KS3 and KS4.</h2>
-          <div>
-                <table style="font-family: 'Open Sans Condensed', sans-serif; width: 100%; margin-top: 30px;">
-                    <tr>
-                        <td style="border-bottom: solid 1px silver;">Year 7</td>
-                        <td style="border-bottom: solid 1px silver;">Year 8</td>
-                        <td style="border-bottom: solid 1px silver;">Year 10</td>
-                    </tr>
-                    <tr style="vertical-align: top;">
-                          <td>
-                              <p><a href="/computing/p5-intro">Introduction to Programming with p5</a></p>
-                              <p><a href="/computing/sketchup-intro">Modelling with SketchUp</a></p>
-                            </td>
-                          <td><p><a href="/computing/web-design">Web Design with Figma</a></p></td>
-                          <td>
-                            <p><a href="/computing/python-intro">Intro to Python</a></p>
-                            <p><a href="/computing/algorithms">Algorithms</a></p>
-    
-                            <p><a href="/computing/web-server">Web Servers</a></p>
-                          </td>
-                      </tr>
-                </table>
-            </div>
+          <div class="blocks">
+                <div class="block">
+                  <img  src="/static/images/24. online, training, lesson, video, learning, teacher.svg">
+                  <h1>Computing</h1>
+                  <p>A collection of past papers, videos and challenges for KS3 and KS4 Computing and Computer Science.</p>
+                  <p class="read-more"><a href="/computing">Read More</a></p>
+                </div>
+                <div class="block">
+                  <img  src="/static/images/18. protractor, triangle, pencil, compasses, school, university, learning.svg">
+                  <h1>Maths</h1>
+                  <p>A collection of past papers, videos and challenges for KS3 and KS4 Maths.</p>
+                  
+                  <p class="read-more"><a href="/maths">Read More</a></p>
+                </div>
+                <div class="block">
+                  <img  src="static/images/16. board, sponge, school, university, college, learning.svg">
+                  <h1>Clubs</h1>
+                  <p></p>
+                  <p class="read-more">Read More</p>
+                </div>
+          </div>
       </section>
+    </div>
       
   </section>
   {% endblock %}
