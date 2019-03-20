@@ -15,6 +15,10 @@ def hello():
 def maths():
   return render_template('module-header-maths.html')
 
+@app.route('/maths/algebra-club')
+def maths_algebra_club():
+  return render_template('maths/simplifying-algebra.html')
+
 
 @app.route('/computing')
 def computing():
