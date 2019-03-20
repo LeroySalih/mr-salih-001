@@ -15,7 +15,7 @@ def hello():
 def maths():
   return render_template('module-header-maths.html')
 
-@app.route('/maths/algebra-club')
+@app.route('/maths/algebra-club/simplifying')
 def maths_algebra_club():
   return render_template('maths/simplifying-algebra.html')
 
