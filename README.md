@@ -18,3 +18,9 @@ Created Remote Repo
 Cloned to Desktop
 Make changes, then push 
 
+Added a clone of repo to work desktop.
+pull to this repo.
+work, then push bakc to github.
+
+must remember to pull on main workstaion. 
+
