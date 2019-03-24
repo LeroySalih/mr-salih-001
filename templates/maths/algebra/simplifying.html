@@ -1,0 +1,265 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Simplifying Algebra{% endblock %}
+
+{% block style%}
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<style>
+
+  .remember {
+    border: solid 2px #f50642;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .correct {
+    color: green;
+    font-size: 2em;
+  }
+
+  .incorrect {
+    color: red;
+    font-size: 2em;
+  }
+
+</style>
+<script src="/static/js/q-a.js"></script>
+
+{% endblock %}
+{% block body%}
+<div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+  
+      <a href="#sums">Simplifying Algebraic Sums</a>
+      <a href="#products">Simplifying Algebraic Products</a>
+      <a href="#brackets">Simplifying Algebraic Brackets</href>
+      
+      
+    </div>
+    <div class="content">
+        <a name="home"><h1>Simplifying Algebra.</h1></a>
+
+        <section>
+
+
+            <a name="sums"><h2>Simplifying Algebraic Sums</h2></a>
+            <div>
+              <p>LO:</p>
+              <p>After watching this video, you should be able to simplify:</p>
+              <p>\(4x^2 -5x + 4 + 3x^2 -10x + 5 \)</p>
+            </div>
+           
+              
+              <iframe width="560" height="315" 
+                  src="https://www.youtube.com/embed/y7GwRJOIohM" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+              <ul>
+                  <li><b>Key Vocabulary:</b> descriptions for the expression, term, coefficient, variable and exponent. (0:05)</li>
+                  <li><b>Like Terms:</b> any terms that contain the same variable and exponent. (4: 47)</li>
+                  <li><b>Simplifying:</b> terms that contain the same variables and plus and minus. (8: 06)</li>
+                </ul>
+            
+
+          <a name="checkquestions"><h3>Check Questions</h3></a>
+          <p>Answer these questions in your exercise book.</p>
+          <p>Would you describe \(3x^2 + 2x = 5\) as an expression or equation?🔥</p>
+          <p>From the above question:🔥</p>
+          <p>
+            <ul>
+              <li>Identify the terms.</li>
+              <li>Identify the variable. </li>
+              <li>Identify the coefficients.</li>
+              <li>Identify the exponents of the terms.</li>
+            </ul>
+          </p>
+          
+          <p>Simplify the following expressions:🔥🔥</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            
+            <p>\( x + 4 + 3x + 2\)</p>
+            <p>\( -4x^2 + 4 + 3 + 2x^2\)</p>
+            <p>\( 3x^2 + 6x -10x -6x^2 + 3 + 5\)</p>
+            <p>\( -4x^2 + 4x^2 + 3y - 3y\)</p>
+        
+          </div>
+
+          <p>Simplify the following expressions: 🔥🔥🔥</p>
+          <div>
+            <p>\( 3ax^2 + 3a^2x + 3a + 3x + ax^2 -3x^1\)</p>
+            <p>\( 0.5x^2 + 0.5x^2 + x^2 - 0.252x^2\)</p>
+          </div>
+          <a name="questions"><h3>Test Question</h3></a>
+          <p>Use the below question generator to practice.</p>
+          <table>
+            <tr>
+              <td colspan="2"> <button onclick="generateQ()">New Question</button></td>
+  
+            </tr> 
+            <tr>
+                <td colspan="2">Simplify the following expression.</td>
+              </tr> 
+              <tr><td colspan="2">
+                  <div id="question"></div>
+              </td></tr>
+            <tr>
+              <td colspan="2">Enter the coefficient of each term in the relative input box.</td>
+            </tr>
+            <tr>
+              <td>\(x^2\)</td>      <td><input id="x2" onkeyup="updateAnswer()" type="number" placeholder="Example: -3 for -3x squared"></td> 
+            </tr>
+            <tr>
+              <td>\(x\)</td>        <td><input id="x1" onkeyup="updateAnswer()" type="number" placeholder="Example: -2 for -2x"></td>
+            </tr>
+            <tr>
+              <td>\(numbers\)</td>  <td><input id="x0" onkeyup="updateAnswer()" type="number" placeholder="Example: -6 for -6"></td>
+            </tr>
+
+  
+            <tr>
+              <td><div id="answer"></div></td>
+            </tr>
+            <tr>
+              <td><button onclick="checkAnswers()">Check</button></td>
+            </tr>
+            <tr><div id="result"></div></tr>
+          </table>
+        </section>
+        <section>
+            <a name="products"><h2>Simplifying Algebraic Products</h2></a>
+            <div>
+                <p>LO:</p>
+                <p>After watching this video, you should be able to simplify:</p>
+                <p>\(3y \times y \times 3y^2 \)</p>
+            </div>
+            <div class="remember">
+              <p>Remember:</p>
+              <p>\(3xy \space means \space 3\times x \times y \)</p>
+              <p>\(x^2 \times x \space means \space x \times x \times x = x^3 \)</p>
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_hM-yjpBWPI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a name="checkquestions"><h3>Check Questions</h3></a>
+            <p>Simplify the following expressions: 🔥🔥</p>
+            <p>\(2 \times x \times x\)</p>
+            <p>\(6 \times y \times x\)</p>
+            <p>\(-3 \times x \times y\)</p>
+            <p>\(-4 \times -4 \times x\)</p>
+            <p>\(3x \times 6x \times 3x\)</p>
+        </section>
+        <section>
+          <a name="brackets"><h2>Simplify Brackets</h2></a>
+          <div>
+              <p>LO:</p>
+              <p>After watching this video, you should be able to simplify the following expression:</p>
+              <p>\(3 (x + 5) \)</p>
+          </div>
+          <div class="remember">
+            <p>Remember:</p>
+            <p>\( 5 (3x + 2) = (5 \times 3x) + (5 \times 2) = 15x + 10\)</p>
+          </div>
+
+          <div class="remember">
+              <p>Remember:</p>
+              <p>After expanding the brackets, we must always simplify if possible.</p>
+            </div>
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/9VL7X-hxpPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <a name="checkquestions"><h3>Check Questions</h3></a>
+          <p>Expand and simplify the following expressions🔥</p>
+          <p>\(6(q + 4x)\)</p>
+          <p>\(6(q - 4x)\)</p>
+          <p>\(-6(q + 4x)\)</p>
+          <p>\(-6(q - 4x)\)</p>
+          <p>Expand and simplify the following expressions🔥</p>
+          <p>\(2x + 5(q + 4x)\)</p>
+          <p>\(5(q - 4) - 5\)</p>
+          <p>\(1.1 (a+3)\)</p>
+          <p>Expand and simplify the following expressions🔥🔥</p>
+          <p>\(2x + 5(3y + 6x)\)</p>
+          <p>\(\frac{1}{2}(2q - 4) - 5\)</p>
+          <p>\(1.1 (a+3)\)</p>
+          <p>\(\frac{2}{3} (9a+3) + \frac{1}{3}(3a -6)\)</p>
+        </section>
+        <section>
+          <a name="testpaper"><H2>Maths Genie: Simplifying Algebra</h2></a>
+          <p>Complete the following questions in the back of your maths book.</p>
+          <p><a href="https://www.mathsgenie.co.uk/resources/57_collecting-like-terms.pdf">Simplifying Algebra</a></p>
+        </section>
+
+        <section>
+          
+          
+        </section>
+    </div>
+</div>
+
+
+<script src="/static/js/q-a.js"></script>
+<script >
+
+  var q;
+
+  function generateQ() {
+  
+    q = generateQuestion(QUESTION_TYPES.SIMPLIFY_SUM)
+
+    katex.render(q.questionText(), question, {
+      throwOnError: false
+    });
+
+    $("#x2").val('') 
+    $("#x1").val('') 
+    $("#x0").val('') 
+
+}
+
+function checkAnswers(a) {
+    var a = []
+    a = [parseInt($("#x2").val()) || 0, parseInt($("#x1").val()) || 0, parseInt($("#x0").val()) || 0]
+    //console.log(a);
+    if (q.checkAnswer(a)){
+      $("#result").html("Correct")
+      $("#result").removeClass('incorrect')
+      $("#result").addClass('correct')
+
+    } else {
+      $("#result").html("Incorrect")
+      $("#result").removeClass('correct')
+      $("#result").addClass('incorrect')
+    }
+  }
+
+function updateAnswer() {
+    let x2text = $("#x2").val()
+    let x1text = $("#x1").val()
+    let x0text = $("#x0").val()
+
+    let str = `${xIndex (x2text, 2, true)} ${xIndex(x1text, 1, false)} ${xIndex(x0text, 0, false)}`
+    katex.render(str, answer, {
+      throwOnError: false
+    });
+  }
+
+  function onLoad() {
+    console.log('Loaded')
+    generateQ()
+  }
+
+  window.addEventListener("load", onLoad);
+  
+</script>
+
+
+
+
+  
+{% endblock %}

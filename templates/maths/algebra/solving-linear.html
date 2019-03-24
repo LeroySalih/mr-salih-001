@@ -1,0 +1,233 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Solving Linear Algebra{% endblock %}
+
+{% block style%}
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<style>
+
+  .timeline li {
+    line-height: 3em;
+  }
+  .remember {
+    border: solid 2px #f50642;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .correct {
+    color: green;
+    font-size: 2em;
+  }
+
+  .incorrect {
+    color: red;
+    font-size: 2em;
+  }
+
+</style>
+
+{% endblock %}
+{% block body%}
+<div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+  
+      <a href="#sums">Solving Equations</a>
+      <a href="#fractions">Solving Equations with Fractions</a>
+      <a href="#genie">Maths Genie: Solving Linear Algebra</a>
+      
+      
+      
+    </div>
+    <div class="content">
+        <a name="home"><h1>Solving Equations.</h1></a>
+
+        <section>
+
+
+            <a name="sums"><h2>Solving Equations</h2></a>
+            <div>
+              <p>LO:</p>
+              <p>After watching these videos, you should be able to solve the following equations:</p>
+              <table style="width: 80%">
+                <tr><td>\(x + 5 = 12\)</td><td>\(x - 3 = 10\)</td><td>\(5 - x = 10\)</td></tr>
+                <tr><td>\( 7x = 21\)</td><td>\( \frac{x}{3} = 10 \)</td><td>\( \frac{5}{x} = 10 \)</td></tr>
+              </table>
+              
+            </div>
+           
+              
+            <div class="remember">
+              <h3>Remember: Toolbox.</h3>
+              <p>To <b>solve</b> an equation, you need to get the unknown (<i>the variable</i>) on its own.</p>
+              <p>General Rules.</p>
+              <ul>
+                <li>Add to both sides</li>
+                <li>Subtract from both sides</li>
+                <li>Multiply both sides</li>
+                <li>Divide both sides</li>
+                <li>Square both sides</li>
+                <li>Square root</li>
+              </ul>
+              
+            </div>
+            <div class="remember">
+              <h3>Remember: Steps</h3>
+              <p>When solving an equation, always follow these steps.</p>
+              <ol>
+                <li><b>Simplify</b> - If Possible.</li>
+                <li><b>Solve</b> - Get the Unknown Alone.</li>
+                <li><b>Substitute</b> - Check if your answer is correct.</li>
+              </ol>
+
+            </div>
+            <h3>Solving Equations</h3>
+            <iframe width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/9Y05pw9jH3Q" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+              <p>In this video, examples of the following equations are soved.</p>
+              <ul>
+                  <li>(0:55)&nbsp; <b>\(ax+b=c\)</b> </li>
+                  <li>(4:26)&nbsp; <b>\(a-bx=c\)</b> </li>
+                  <li>(6:49)&nbsp; <b>\(ax+b=cx+d\)</b> </li>
+                  <li>(8:00)&nbsp; <b>\(ax+b=c(dx+e)\)</b> </li>
+                  <li>(9:21)&nbsp; <b>\( a(bx  +c) + d(ex + f) = g  \)</b> </li>
+              </ul>
+            
+
+          
+          <a name="questions"><h3>Test Question</h3></a>
+          <p>Use the below question generator to practice.</p>
+          <table>
+            <tr>
+              <td colspan="2"> <button onclick="generateQ()">New Question</button></td>
+  
+            </tr> 
+            <tr>
+                <td colspan="2">Solve the following equation.</td>
+              </tr> 
+              <tr><td colspan="2">
+                  <div id="question"></div>
+              </td></tr>
+            <tr>
+              <td colspan="2">Enter the value of x below.</td>
+            </tr>
+            
+            <tr>
+              <td>\(x=\)</td>  <td><input id="x0" type="number" placeholder="Example: -6 for -6"><button onclick="checkAnswers()">Check</button></td>
+            </tr>
+            <tr>
+              <td><div id="answer"></div></td>
+            </tr>
+            
+            <tr><td colspan="2"><div id="result"></div></td></tr>
+          </table>
+
+          
+
+        </section>
+
+
+
+        <section>
+            <a name="fractions"><h2>Solving Equations (with fractions)</h2></a>
+            <div>
+                <p>LO:</p>
+                <p>After watching this video, you should be able to simplify:</p>
+                <p>\(3y \times y \times 3y^2 \)</p>
+            </div>
+            <div class="remember">
+              <p>Remember:</p>
+              <p>\(3xy \space means \space 3\times x \times y \)</p>
+              <p>\(x^2 \times x \space means \space x \times x \times x = x^3 \)</p>
+            </div>
+            
+            <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/DiUzSTm330U" 
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+
+            <ul class="timeline">
+              <li>(0:05)&nbsp;<b>Basis for Algebra Fractions</b></li>
+              <li>(2:35)&nbsp;<b>\(\frac{a}{b}x=c\)</b></li>
+              <li>(3:20)&nbsp;<b>\(\frac{a}{b}(cx + d) =e\)</b></li>
+              <li>(5:42)&nbsp;<b>\(\frac{a}{x} = -e\)</b></li>
+              <li>(7:40)&nbsp;<b>\(\frac{a(bx +c)}{d} = e\)</b></li>
+              <li>(8:44)&nbsp;<b>\(\frac{a(bx +c)}{d} = ex + f\)</b></li>
+              <li>(10:30)&nbsp;<b>\(\ \frac{a(bx +c)}{d} - \frac{e(fx +g)}{h}  =  \frac{i}{j} \)</b></li>
+            </ul>
+           
+        </section>
+
+        <section>
+          <a name="genie"><H2>Maths Genie: Solving Linear Algebra</h2></a>
+          <p>Complete the following questions in the back of your maths book.</p>
+          <p><a href="https://www.mathsgenie.co.uk/resources/59_solving.pdf">Solving Linear Algebra</a></p>
+        </section>
+
+        <section>
+          
+          
+        </section>
+    </div>
+</div>
+<script src="/static/js/q-a.js"></script>
+<script >
+
+  var q, q2;
+
+  function generateQ() {
+  
+    q = generateQuestion(QUESTION_TYPES.SOLVE_LINEAR_1)
+
+    katex.render(q.questionText(), question, {
+      throwOnError: false
+    });
+
+    $("#x0").val('') 
+    $("#result").html('')
+
+}
+
+
+
+function checkAnswers() {
+    
+    const a = parseInt($("#x0").val()) || 0
+    //console.log(a);
+    if (q.checkAnswer(a)){
+      $("#result").html("Correct")
+      $("#result").removeClass('incorrect')
+      $("#result").addClass('correct')
+
+    } else {
+      $("#result").html("Incorrect")
+      $("#result").removeClass('correct')
+      $("#result").addClass('incorrect')
+    }
+  }
+
+  
+
+  function onLoad() {
+    console.log('Loaded')
+    generateQ();
+  }
+
+  window.addEventListener("load", onLoad);
+  
+</script>
+
+  
+{% endblock %}

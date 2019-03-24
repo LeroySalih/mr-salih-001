@@ -15,9 +15,14 @@ def hello():
 def maths():
   return render_template('module-header-maths.html')
 
-@app.route('/maths/algebra-club/simplifying')
-def maths_algebra_club():
-  return render_template('maths/simplifying-algebra.html')
+@app.route('/maths/algebra')
+def maths_algebra():
+  return render_template('maths/algebra/module-header-algebra.html')
+
+@app.route('/maths/algebra/<moduleId>')
+def maths_algebra_simplifying(moduleId):
+  return render_template('maths/algebra/{0}.html'.format(moduleId))
+
 
 
 @app.route('/computing')
