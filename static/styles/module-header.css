@@ -31,3 +31,26 @@
 .igcse-papers-grid div:nth-child(12n+6) {
   background-color: var(--table-background)
 }
+
+.ks3-past-papers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width:100%;
+}
+
+.ks3-past-papers-grid div:nth-child(12n+1) {
+  background-color: var(--table-background)
+}
+
+.ks3-past-papers-grid div:nth-child(12n+2) {
+  background-color: var(--table-background)
+}
+
+.ks3-past-papers-grid div:nth-child(12n+3) {
+  background-color: var(--table-background)
+}
+
+.ks3-past-papers-grid div:nth-child(12n+4) {
+  background-color: var(--table-background)
+}
+
