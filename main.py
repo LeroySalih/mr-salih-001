@@ -29,6 +29,11 @@ def maths_algebra_simplifying(moduleId):
 def computing():
   return render_template('module-header-computing.html')
 
+
+@app.route('/computing/databases/intro')
+def computing_databases_intro():
+  return render_template('computing/databases/intro-with-mysql.html')
+
 @app.route('/computing/p5-intro')
 def computing_p5Intro():
   return render_template("computing/p5-intro.html")
