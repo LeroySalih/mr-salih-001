@@ -23,6 +23,14 @@ def maths_algebra():
 def maths_algebra_simplifying(moduleId):
   return render_template('maths/algebra/{0}.html'.format(moduleId))
 
+@app.route('/maths/trig')
+def maths_trig():
+  return render_template('maths/trig/module-header-trig.html')
+
+@app.route('/maths/trig/<moduleId>')
+def maths_trig_module(moduleId):
+  return render_template('maths/trig/{0}.html'.format(moduleId))
+
 
 
 @app.route('/computing')
@@ -30,9 +38,9 @@ def computing():
   return render_template('module-header-computing.html')
 
 
-@app.route('/computing/databases/intro')
-def computing_databases_intro():
-  return render_template('computing/databases/intro-with-mysql.html')
+@app.route('/computing/databases/<moduleId>')
+def computing_databases_intro(moduleId):
+  return render_template('computing/databases/{0}.html'.format(moduleId))
 
 @app.route('/computing/p5-intro')
 def computing_p5Intro():
