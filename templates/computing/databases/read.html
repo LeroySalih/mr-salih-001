@@ -1,0 +1,305 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Read: Intro to Databses with MYSQL
+{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/images/13-Data Management.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      
+      <a href="#setup">SetUp</a>
+      <a href="#queries">Queries.</a>
+     
+      <a href="#additional">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">        
+        <a name="home"><h1>Reading Data.</h1></a>
+        <div>
+          In this module we are going to gain an understanding of how to read data from a single table.
+        </div>
+
+        <section>
+          <a name="setup"><h2>Set Up</h2></a>
+          <div>
+            <p>To run the exercises in this module, you first need to setup a <code>PUPILS</code> table.</p>
+            <ol>
+              <li>log in to the <a href="https://remotemysql.com/phpmyadmin/server_sql.php" target="_new">remotemysql admin page</a>.</li>
+              <li>Paste the following script to the SQL page.</li>
+              <li>Ensure that you change the database name to reflect your database name.</li>
+              <code>
+                <pre>
+#Replace with your database name
+USE &lt;database_name&gt; ;
+
+DROP TABLE IF EXISTS PUPILS;
+
+CREATE TABLE PUPILS (
+  first_name 		    VARCHAR(255) NOT NULL,
+  family_name		    VARCHAR(255) NOT NULL,
+  form                      VARCHAR(3) NOT NULL,
+  date_of_birth	            DATE NOT NULL,
+  gender                    VARCHAR(1) NOT NULL
+);
+
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bill', 'ElHabibbi ', '10B', '2012-05-04', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fred', 'Connon ', '10B', '2012-07-07', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bill', 'ElHabibbi ', '10A', '2012-02-05', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Charles', 'Fawkes ', '10A', '2012-09-04', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Ali ', '10B', '2012-07-02', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fred', 'Connon ', '10B', '2012-09-01', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Danial', 'Ali ', '10A', '2012-04-01', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Ali ', '10A', '2012-06-07', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Ahmed', 'Ali ', '10B', '2012-06-09', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fred', 'Babouch ', '10B', '2012-03-06', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Charles', 'Grant ', '10A', '2012-04-03', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Charles', 'ElHabibbi ', '10A', '2012-03-02', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Dawes ', '10B', '2012-05-04', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bronwyn', 'Babouch ', '10B', '2012-06-03', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bronwyn', 'Grant ', '10A', '2012-08-02', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Elise', 'Dawes ', '10A', '2012-06-07', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bronwyn', 'Dawes ', '10B', '2012-06-01', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Fawkes ', '10B', '2012-03-09', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Alison', 'Dawes ', '10A', '2012-02-09', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Alison', 'Connon ', '10A', '2012-07-08', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Carol', 'ElHabibbi ', '10B', '2012-01-06', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Alison', 'Ali ', '10B', '2012-04-04', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Grant ', '10A', '2012-03-09', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Carol', 'Grant ', '10A', '2012-02-03', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Danial', 'Ali ', '10B', '2012-07-01', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Erol', 'Fawkes ', '10B', '2012-03-06', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Ahmed', 'Fawkes ', '10A', '2012-08-07', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Erol', 'Dawes ', '10A', '2012-04-09', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Connon ', '10B', '2012-01-02', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Ahmed', 'Connon ', '10B', '2012-07-03', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Ali ', '10A', '2012-08-04', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Erol', 'ElHabibbi ', '10A', '2012-06-06', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bill', 'Babouch ', '10B', '2012-09-05', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bill', 'Grant ', '10B', '2012-01-03', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Fawkes ', '10A', '2012-09-01', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fred', 'Babouch ', '10A', '2012-07-05', 'M');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fredrica', 'Fawkes ', '10B', '2012-09-06', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Carol', 'Grant ', '10B', '2012-06-07', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Elise', 'Babouch ', '10A', '2012-02-02', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Carol', 'Dawes ', '10A', '2012-07-05', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Carol', 'Fawkes ', '10B', '2012-02-02', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'ElHabibbi ', '10B', '2012-01-02', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Grant ', '10A', '2012-02-03', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Fawkes ', '10A', '2012-03-08', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fredrica', 'Dawes ', '10B', '2012-02-01', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Gertrude', 'Grant ', '10B', '2012-03-07', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Fredrica', 'Ali ', '10A', '2012-07-09', 'F');
+INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Dee', 'Connon ', '10A', '2012-08-05', 'F');
+          </code>
+
+            </ul>
+          </div>
+          <div class="task">
+            <h3>Create Query Web Page</h3>
+            <p> We are going to create a web page that lists all of the queries that you write.</p>
+            <ul>
+              <li>Create a HTML repl page.</li>
+              <li>As you complete each task, copy the query results to the index.html page with an appropriate heading.</li>
+              <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
+              <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
+            </ul>
+
+            
+          </div>
+        </section>
+
+        <section>
+          <a name="queries"><h2>Queries</h2></a>
+          <my-lo >
+            <p>
+              To be able to:
+              <ul>
+                <li>execute single table queries</li>
+                <li>sort results</li>
+                <li>filter results</li>
+              </ul>
+            </p>
+          </my-lo>
+
+          <h3>Reading Data</h3>
+          <div>
+            <p>To use our database, we are going to use the SQL language.</p>
+            <p>In SQL, to read data, we use the <code>SELECT</code> command. </p>
+            <p>This command has the following format.</p>
+            <pre><code>
+              SELECT fields to select 
+              FROM   table name 
+              WHERE  filters
+              ORDER BY fields to order by 
+            </code></pre>
+          </div>
+          
+        
+          <h3>SELECT ... FROM ... </h3>
+          <div>
+            <p>The <code>SELECT FROM</code> line allows us to specify the fields and tables we want to see in our query.</p>
+            <p>We can either specify specific fields such as:</p>
+            <p>
+              <pre><code>
+                SELECT first_name, family_name, gender, date_of_birth 
+                FROM PUPILS;
+              </code></pre>
+            </p>
+            <p>This will display the first name, family name and form of all the pupils in our PUPILS table.</p>
+            <p><b>Note:</b> The order of the fields in the table is not important.  Fields will be returned in order specified in our <code>SELECT</code>.</p>
+
+
+            <p>
+              We can also use the wildcard <code>*</code> to return all the fields in a table.
+            </p>
+            <p>
+              <pre><code>
+                SELECT * 
+                FROM PUPILS;
+              </code></pre>
+            </p>
+            <p><b>Note:</b> In this case, the fields are returned in the order that they exist in the table.</p>
+
+          </div>
+          <div class="task">
+            <h3>Task 1. Pupils List</h3>
+            <p>Display the Form, Family Name, First Name and Gender of all pupils in your database.</p>
+            <p>Fields should appear in the order specified above.</p>
+          </div>
+
+          <h3>WHERE ... </h3>
+          <div>
+            <p>Adding the <code>WHERE</code> to our SQL command allows us to filter the rows returned.</p>
+            <p>The <code>WHERE</code> clause is an operator (similar to Python), which will return rows that match the criteria.</p>
+            <p>
+              <pre>
+              <code>
+                SELECT first_name, family_name, gender
+                FROM   PUPILS
+                WHERE  gender='M'
+              </code>
+            </pre>
+            </p>
+            <p>will return the first name, family name and form of all the <b>Male</b> pupils.</p>
+            <p>When using a <code>WHERE</code> clause, we can use =, != > to specify the filter.  We can also AND/OR to join fields into a single filter</p>
+            <p>
+                <pre>
+                <code>
+                SELECT first_name, family_name, gender
+                FROM   PUPILS
+                WHERE  gender='M' AND first_name='Bob'
+                </code>
+              </pre>
+              </p>
+              <p>will return a list of males with a first name of Bob</p>
+          </div>
+
+          <div class="task">
+            <h3>Task 2. List Females in 10B</h3>
+            <p>Create a query that will return the form, family name, first name, gender of all females in 10B  </p>
+          </div>
+
+          <h3>ORDER BY ...</h3>
+          <div>
+            <p>The <code>ORDER BY</code> clause allows us to specify order the records are returned.</p>
+            <p>The <code>ORDER BY</code> takes a list of fields, and a modifier of <code>ASC</code> or <code>DESC</code></p>
+            <p>The <code>ORDER BY</code> can be used with or without the <code>WHERE</code> clause</p>
+            <p>
+                <pre>
+                <code>
+                SELECT form, first_name, family_name, gender
+                FROM   PUPILS
+                ORDER BY form ASC
+                </code>
+              </pre>
+              </p>
+              <p>will return a list of males with a first name of Bob</p>
+
+              <p>
+                  <pre>
+                  <code>
+                  SELECT form, first_name, family_name, gender
+                  FROM   PUPILS
+                  ORDER BY form ASC, gender DESC
+                  </code>
+                </pre>
+                </p>
+                <p>will return a list of males with a first name of Bob</p>
+          </div>   
+          <div class="task">
+              <h3>Task 3: Sorted Pupil List in 10B</h3>
+              <p>Create a query that will return the form, family name, first name, gender of all females in 10B, sorted by date of birth (youngest first) </p>
+            </div>  
+            
+            <div class="task">
+                <h3>Reading From Python</h3>
+                <div>
+                  <p>Fork this <a href="https://repl.it/@mrsalih/MySQL-READ">repl</a>.</p>
+                  <p>Update the credentials so that the code can execute.</p>
+                  <p>Modify the READ command, so that it produces:</p>
+                  <ul>
+                    <li>A list of Males</li>
+                    <li>In 10B</li>
+                    <li>Ordered by FamilyName</li>
+                  </ul>
+                </div>
+              </div>
+        </section>
+
+        <section>
+          <a name="extension"><h2>Extension: Rowcount</h2></a>
+          <div>
+            <p>Read the first section of this <a href="http://www.mysqltutorial.org/mysql-row-count/">page</a>.</p>
+            <p>Change your query to produce a count of rows, instead of returning the fields.</p>
+            <p>Remember to add this query to your document.</p>
+          </div>
+        </section>
+
+        <section>
+          <a name="additional"><h3>Additional Resources</h3></a>
+          <ul>
+            <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
+          </ul>
+        
+        </section>
+         
+
+
+
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+

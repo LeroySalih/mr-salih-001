@@ -1,0 +1,153 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Project
+{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/images/13-Data Management.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+  .table_design {
+    width: 80%;
+    border: dashed green 5px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      
+      <a href="#project">Project</a>
+      <a href="#requirements">Requirements.</a>
+    </div>
+
+    <div class="content">        
+        <a name="home"><h1>Project - Bank System</h1></a>
+
+
+
+        <div>
+          In this module we are going to practice <b>Creating</b> tables to hold our data.
+        </div>
+
+        
+
+
+
+
+
+        <section>
+          <a name="project"><h3>Project</h3></a>
+          <my-lo >
+            <p>
+              To be able to practice creating and using database tools.  In this project, you will:
+              <ul>
+                <li>Create the tables required for a business system.</li>
+                <li>Create the updates required to keep the system correct.</li>
+                <li>Create the UI to display .</li> 
+              </ul>
+            </p>
+            <p>To be able to design a table, choosing appropriate data types.</p>
+            <p>To be able to build a table, using MYSQL commands.</p>
+
+          </my-lo>
+          
+        </section>
+          <a name="requirements"><h2>Requirements</h2></a>
+          <p>Using a python based environment, create a Bank Account system.
+
+            <ol>
+              <l1>Create a Customer table, that contains:
+                <ul>
+                  <li>CustomerID</li>
+                  <li>firstName</li>
+                  <li>familyName</li>
+                  <li>currentBalance</li>
+                  <li>Is active</li>
+                </ul>
+              </l1>
+              <li>Create a transactions table, that contains:
+                  <ul>
+                    <li>TransactionId</li>
+                    <li>CustomerId</li>
+                    <li>Date</li>
+                    <li>Type (deposit or withdrawl)</li>
+                    <li>Amount</li>
+                  </ul>
+              </li>
+              <li>
+                Your system must allow the following actions:
+                <ul>
+                  <li>Create Customer</li>
+                  <li>Make Customer Active/Inactive</li>
+                  <li>Deposit money</li>
+                  <li>Withdraw Money, preventing the user from withdrawing more money than available.</li>
+                  <li></li>
+                  <li>List All transactions</li>
+                  <li>List All transactions of a type</li>
+                  <li>List all transactions since a date</li>
+                </ul>
+              </li>
+              <li>
+                  Extension: As an extension, your system will:
+                  <ul>
+                    <li>Use transactions to ensure that tables are kept consistent</li>
+                    <li>Use a UI other than a command prompt (TkInter, etc)</li>
+                    <li></li>
+                  </ul>
+                </li>
+
+            </ol>
+          </p>
+
+        
+        <section>
+        </section>
+
+       
+            
+        
+
+
+        <section>
+          <a name="additional"><h3>Additional Resources</h3></a>
+          <ul>
+            <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
+          </ul>
+        
+        </section>
+         
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+
