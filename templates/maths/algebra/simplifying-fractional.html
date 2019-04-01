@@ -1,0 +1,166 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Simplifying Fractional Expressions{% endblock %}
+
+{% block style%}
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<style>
+
+  .timeline li {
+    line-height: 3em;
+  }
+  .remember {
+    border: solid 2px #f50642;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .correct {
+    color: green;
+    font-size: 2em;
+  }
+
+  .incorrect {
+    color: red;
+    font-size: 2em;
+  }
+
+</style>
+
+{% endblock %}
+{% block body%}
+<div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+  
+      <a href="#sums">Simplifying Fractional Expressions</a>
+      <a href="#fractions">Solving Equations with Fractions</a>
+      <a href="#genie">Maths Genie: Solving Linear Algebra</a>
+      
+      
+      
+    </div>
+    <div class="content">
+        <a name="home"><h1>Fractional Expressions</h1></a>
+
+        <section>
+
+
+            <a name="sums"><h2>Simplifying Fractional Expressions</h2></a>
+            <div>
+              <p>LO:</p>
+              <p>After watching these videos, you should be able to simplify the following expressions:</p>
+              <table style="width: 80%">
+                <tr><td>\( \frac{4x}{6} \)</td><td>\( \frac{4x^2}{6x} \)</td><td>\( \frac{4x^2y^2}{6xy} \)</td></tr>
+                
+              </table>
+              <div class="remember">
+                  <h3>Remember: Multiplying Fractions</h3>
+                  <p>When we multiply fractions, we multiply the numerator and the denominator.</p>
+                  <p>  \(\frac{2}{3} \times x = \frac{2}{3} \times \frac{x}{1} = \frac{2x}{3}\)</p>
+                  <p>So, when we see a fraction, such as \frac{4x}{6}, we can think of it as \frac{4}{6} \times x</p>
+                  <p>Therfore, </p>
+                  <p>\(\frac{4x}{6} = \frac{4}{6} \times x = \frac{2}{3} \times x = \frac{2x}{3}\)</p>
+                  
+                </div>
+
+              <iframe width="560" 
+                      height="315" 
+                      src="https://www.youtube.com/embed/WSQh4o3yu4I" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          
+        </section>
+
+        <section>
+            <a name="genie"><H2>Test Questions: Solving Linear Algebra</h2></a>
+            <p>Complete the following questions in the back of your maths book.</p>
+            <p><a href="/static/modules/maths/algebra/simplifying-fractions-questions.pdf">Simplifying Fractional Exppressions</a></p>
+          </section>
+
+        <section><h2>Addition and Subtraction Fractional Algebra</h2>
+          <div>
+              <p>LO:</p>
+              <p>After watching this video, you should be able to simplify the following expressions:</p>
+              <table style="width: 80%">
+                <tr><td>\( \frac{a}{4} + \frac{b}{5} \)</td><td>\( \frac{3x}{5} - \frac{x}{3} \)</td><td>\( \frac{1}{x}  + \frac{1}{2x}\)</td></tr>
+                
+              </table>
+              
+            </div>
+          <iframe width="560" 
+                  height="315" 
+                  src="https://www.youtube.com/embed/NyTGsPKb1tw" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </section>
+
+        <section>
+            <a name="genie"><H2>Test Questions: Adding and Subtracting Fractional Algebra</h2></a>
+            <p>Complete the following questions in the back of your maths book.</p>
+            <p><a href="/static/modules/maths/algebra/simplifying-add-sub-fractions-questions.pdf">Adding & Subtracting Fractional Exppressions</a></p>
+          </section>
+
+        
+
+        
+    </div>
+</div>
+<script src="/static/js/q-a.js"></script>
+<script >
+
+  var q, q2;
+
+  function generateQ() {
+  
+    q = generateQuestion(QUESTION_TYPES.SOLVE_LINEAR_1)
+
+    katex.render(q.questionText(), question, {
+      throwOnError: false
+    });
+
+    $("#x0").val('') 
+    $("#result").html('')
+
+}
+
+
+
+function checkAnswers() {
+    
+    const a = parseInt($("#x0").val()) || 0
+    //console.log(a);
+    if (q.checkAnswer(a)){
+      $("#result").html("Correct")
+      $("#result").removeClass('incorrect')
+      $("#result").addClass('correct')
+
+    } else {
+      $("#result").html("Incorrect")
+      $("#result").removeClass('correct')
+      $("#result").addClass('incorrect')
+    }
+  }
+
+  
+
+  function onLoad() {
+    console.log('Loaded')
+    generateQ();
+  }
+
+  window.addEventListener("load", onLoad);
+  
+</script>
+
+  
+{% endblock %}
