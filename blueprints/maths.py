@@ -24,3 +24,15 @@ def maths_trig():
 @mathsBP.route('/trig/<moduleId>')
 def maths_trig_module(moduleId):
   return render_template('maths/trig/{0}.html'.format(moduleId))
+
+@mathsBP.route('/venn-diagrams')
+def maths_venn_diagrams():
+  return render_template("venn-diagrams.html")
+
+@mathsBP.route('/functions')
+def maths_functions():
+  return render_template("maths/functions.html")
+
+@mathsBP.route('/past-papers')
+def maths_past_papers():
+  return render_template("maths/past-papers.html")
