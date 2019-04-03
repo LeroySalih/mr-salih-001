@@ -5,5 +5,10 @@ entrypoint: gunicorn -b :$PORT main:app
 runtime_config:
     python_version: 3
 
+#[START cloudsql_settings]
+beta_settings:
+    cloud_sql_instances: "flask003:europe-west6:mrsalih-com"
+#[END cloudsql_settings]
+
 env_variables:
     CLOUD_STORAGE_BUCKET: flask002.appspot.com

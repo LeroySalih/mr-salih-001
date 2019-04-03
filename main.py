@@ -1,85 +1,40 @@
 from flask import Flask, render_template, url_for
 
+from blueprints.maths import mathsBP
+from blueprints.computing import computingBP
 
-from db import cursor
+#from db import cursor
+
+import config 
 
 app = Flask(__name__)
+app.register_blueprint(mathsBP, url_prefix='/maths')
+app.register_blueprint(computingBP, url_prefix='/computing')
 
+app.config.from_object(config)
 app.config['DEBUG'] = True
+
+print (' * {dbUri}'.format(dbUri=app.config['SQLALCHEMY_DATABASE_URI']))
+
 
 @app.route('/')
 def hello():
   return render_template('index.html', results=None)
 
-@app.route('/maths')
-def maths():
-  return render_template('module-header-maths.html')
-
-@app.route('/maths/algebra')
-def maths_algebra():
-  return render_template('maths/algebra/module-header-algebra.html')
-
-@app.route('/maths/algebra/<moduleId>')
-def maths_algebra_simplifying(moduleId):
-  return render_template('maths/algebra/{0}.html'.format(moduleId))
-
-@app.route('/maths/trig')
-def maths_trig():
-  return render_template('maths/trig/module-header-trig.html')
-
-@app.route('/maths/trig/<moduleId>')
-def maths_trig_module(moduleId):
-  return render_template('maths/trig/{0}.html'.format(moduleId))
 
 
 
-@app.route('/computing')
-def computing():
-  return render_template('module-header-computing.html')
-
-
-@app.route('/computing/databases/<moduleId>')
-def computing_databases_intro(moduleId):
-  return render_template('computing/databases/{0}.html'.format(moduleId))
-
-@app.route('/computing/p5-intro')
-def computing_p5Intro():
-  return render_template("computing/p5-intro.html")
-
-@app.route('/computing/models/modelling-with-sketchup')
-def computing_sketchUpIntro():
-  return render_template("computing/models/modelling-with-sketchup.html")
-
-
-@app.route('/computing/python-intro')
-def computing_python_intro():
-  return render_template("computing/python-intro.html")
-
-@app.route('/computing/algorithms')
-def computing_algorithms():
-  return render_template("computing/algorithms.html")
-
-@app.route('/computing/using-arrays')
-def computing_arrays():
-  return render_template("computing/using-arrays.html")
 
 
 
-@app.route('/computing/web/internet-www')
-def computing_internet_www():
-  return render_template("computing/web/internet-www.html")
 
-@app.route('/computing/web/intro-html-css-js')
-def computing_intro_html():
-  return render_template("computing/web/intro-html-css-js.html")
-
-@app.route('/computing/web/web-server')
-def computing_web_server():
-  return render_template("computing/web/web-server.html")
-
-@app.route('/computing/web/web-design')
-def computing_web_design():
-  return render_template("computing/web/web-design-with-figma.html")
+@app.route('/admin/users')
+def admin_users():
+  cursor.execute("SELECT * FROM USERS;")
+  for x in cursor:
+    print(x)
+    
+  return "Users Admin Page"
 
 
 
