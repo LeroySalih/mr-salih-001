@@ -3,10 +3,6 @@ import os
 from creds import CLOUDSQL_USER, CLOUDSQL_PASSWORD, CLOUDSQL_DATABASE
 
 
-
-
-
-
 DATA_BACKEND = 'datastore'
 PROJECT_ID = 'flask003'
 

@@ -9,12 +9,6 @@ import config
 
 db=SQLAlchemy()
 
-builtin_list = list 
-
-
-def init_app(app):
-  app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', False)
-  db.init_app(app)
 
 def from_sql(row):
   data = row.__dict__.copy()
@@ -32,18 +26,18 @@ class User(db.Model):
     return "<User(id='{id}', firstName={first_name})>".format(id=id, first_name=first_name)
 #[END model]
 
-def list(limit=10, cursor=None):
+def list_users(limit=10, cursor=None):
   cursor = int(cursor) if cursor else 0
   query = (User.query
               .order_by(User.first_name)
               .offset(cursor)
               )
-  users = builtin_list (map(from_sql, query.all()))
+  users = list (map(from_sql, query.all()))
   next_page = cursor + limit if len(users) == limit else None
   return (users, next_page)
 
 #[START read]
-def read(id):
+def read_user(id):
   result = User.query.get(id)
   if not result:
     return None
@@ -51,7 +45,7 @@ def read(id):
 #[END read]
 
 #[START user]
-def create(data):
+def create_user(data):
   user = User(**data)
   db.session.add(user)
   db.session.commit()
@@ -59,7 +53,7 @@ def create(data):
 #[END user]
 
 #[START update]
-def update(data, id):
+def update_user(data, id):
   user = User.query.get(id)
   for k, v in data.items():
     setattr(user, k, v)
@@ -68,38 +62,19 @@ def update(data, id):
 #[END update]
 
 #[START delete]
-def delete(id):
+def delete_user(id):
   User.query.filter_by(id=id).delete()
   db.session.commit()
 #[END delete]
 
-#[START createDB]
-def _create_database(app):
-  
-  with app.app_context():
-    db.drop_all()
-    db.create_all()
-    print ('All tables created')
-    
-  
-#[END createDB]
+
+
+
 
 #[START _add_users]
-def _add_users(app):
-
+def _list_users(app):
   with app.app_context():
-    user1 = User(first_name='person1')
-    db.session.add(user1)
-    admin = User(first_name='admin')
-    db.session.add(admin)
-    db.session.commit()
-    print ('Users Added')
-#[END _add_users]
-
-#[START _add_users]
-def _listUsers(app):
-  with app.app_context():
-    result = list()
+    result = list_users()
     for u in result[0]:
       print (u)
 #[END _add_users]
@@ -107,13 +82,7 @@ def _listUsers(app):
   
 
 
-if __name__ == '__main__':
-  app = Flask(__name__)
-  app.config.from_object(config)
-  init_app(app)
-  _create_database(app)
-  _add_users(app)
-  _listUsers (app)
+
   #
 
 

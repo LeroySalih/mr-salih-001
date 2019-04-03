@@ -1,5 +1,13 @@
 <html>
   <body>
     <H1>Hello Users</H1>
+    <div>
+      Found {{ rowCount }} rows
+    </div>
+    <ul>
+    {% for row in rows %}
+     <li>{{row.first_name}}</li>
+    {% endfor %}
+  </ul>
   </body>
 </html>

@@ -3,10 +3,12 @@ from flask import Flask, render_template, url_for
 from blueprints.maths import mathsBP
 from blueprints.computing import computingBP
 from blueprints.users import usersBP
+from models.init import init_app
 
 #from db import cursor
 
 import config 
+from models import init_db
 
 app = Flask(__name__)
 app.register_blueprint(mathsBP, url_prefix='/maths')
@@ -15,6 +17,8 @@ app.register_blueprint(usersBP, url_prefix='/users')
 
 app.config.from_object(config)
 app.config['DEBUG'] = True
+
+init_app(app)
 
 print (' * {dbUri}'.format(dbUri=app.config['SQLALCHEMY_DATABASE_URI']))
 
