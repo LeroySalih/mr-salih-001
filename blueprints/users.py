@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, abort, current_app as app
-
+from models.init import db
+from models.user import _create_user
 from wtforms.validators import InputRequired 
 
 import models.user  
@@ -40,6 +41,9 @@ def show_login():
     return '<H1>The username is {}.  The password is {}.'.format(form.username.data, form.password.data)
   return render_template('users/login.html', form=form)
   
+def register_user(form):
+  user = User(first_name = form.first_name.data)
+
 @usersBP.route('/register', methods=['GET', 'POST'])
 def show_register():
   form = RegisterForm()
