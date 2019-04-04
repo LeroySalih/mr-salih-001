@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, current_app
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 
 import sys
 sys.path.append('.')
@@ -8,6 +9,13 @@ sys.path.append('.')
 import config
 
 db=SQLAlchemy()
+#bcrypt = Bcrypt(current_app
+
+def check_password (hash, pwd):
+  return bcrypt.check_password_hash(pwd, password)
+
+def hash_password (pwd):
+  return bcrypt.generate_password_hash(pwd) 
 
 
 def from_sql(row):
@@ -78,6 +86,13 @@ def _list_users(app):
     for u in result[0]:
       print (u)
 #[END _add_users]
+
+#[START _create_user]
+def _create_user(app, user):
+  with app.app_context():
+    return create_user(user)
+
+  
 
   
 

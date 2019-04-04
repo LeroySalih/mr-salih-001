@@ -1,8 +1,12 @@
 from flask import Flask, render_template, url_for
+from flask_wtf import FlaskForm 
 
 from blueprints.maths import mathsBP
 from blueprints.computing import computingBP
 from blueprints.users import usersBP
+
+
+
 from models.init import init_app
 
 #from db import cursor
@@ -10,7 +14,11 @@ from models.init import init_app
 import config 
 from models import init_db
 
+
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'thisisasecret'
+
 app.register_blueprint(mathsBP, url_prefix='/maths')
 app.register_blueprint(computingBP, url_prefix='/computing')
 app.register_blueprint(usersBP, url_prefix='/users')
