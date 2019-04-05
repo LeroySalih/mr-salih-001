@@ -254,7 +254,8 @@ INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES
                 </pre>
                 </p>
                 <p>will return a list of males with a first name of Bob</p>
-          </div>   
+          </div> 
+          
           <div class="task">
               <h3>Task 3: Sorted Pupil List in 10B</h3>
               <p>Create a query that will return the form, family name, first name, gender of all females in 10B, sorted by date of birth (youngest first) </p>
@@ -273,6 +274,23 @@ INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES
                   </ul>
                 </div>
               </div>
+              <h3>Wildcards</h3> 
+          <div>
+            <p>A wildcard can be used when we want the databse to return all fields.</p>
+            <p>Instead of specifying individual fields, e.g.</p>
+            <pre><code>
+
+              SELECT first_name, family_name
+              FROM   PUPILS 
+
+            </code></pre>
+            <p>We can instead use:</p>
+            <pre><code>
+              SELECT *
+              FROM PUPILS
+            </code></pre>
+            <p>This will return all fields in the table, in the order that they appear in the table definition.</p>
+          </div> 
         </section>
 
         <section>
