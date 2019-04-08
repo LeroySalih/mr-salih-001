@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, abort, current_app as app
 from models.init import db
-from models.user import _create_user
+from models.user import _create_user, _list_users
 from wtforms.validators import InputRequired 
 
 import models.user  
@@ -53,3 +53,7 @@ def show_register():
     return render_template('users/register_success.html', form=form)
   
   return render_template('users/register.html', form=form)
+
+
+
+

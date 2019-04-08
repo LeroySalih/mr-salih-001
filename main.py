@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for
 from flask_wtf import FlaskForm 
-from flask_debugtoolbar import DebugToolbarExtension
+#from flask_debugtoolbar import DebugToolbarExtension
 
 from blueprints.maths import mathsBP
 from blueprints.computing import computingBP
@@ -15,12 +15,10 @@ from models.init import init_app
 import config 
 from models import init_db
 
-
-
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'thisisasecret'
-toolbar = DebugToolbarExtension(app)
+#toolbar = DebugToolbarExtension(app)
 
 app.register_blueprint(mathsBP, url_prefix='/maths')
 app.register_blueprint(computingBP, url_prefix='/computing')

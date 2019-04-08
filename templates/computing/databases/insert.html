@@ -44,41 +44,23 @@ background-image: url('/static/images/13-Data Management.svg');
 
     <div class="content">        
         <a name="home"><h1>Inserting Data.</h1></a>
+        
+        <a name="inserts"><h2>INSERTS</h2></a>
+          <my-lo >
+            <p>
+              To be able to:
+              <ul>
+                <li>insert data into a single table where all fields are specified</li>
+                <li>insert data into a single table where all fields are some specified</li>
+              </ul>
+            </p>
+          </my-lo>
+        
         <div>
           In this module we are going to gain an understanding of how to <b><u>add</u></b> data to a single table.
         </div>
 
-        <section>
-          <a name="setup"><h2>Set Up</h2></a>
-          <div>
-            <p>To run the exercises in this module, you first need to setup a <code>PUPILS</code> table.</p>
-            <ol>
-              <li>log in to the <a href="https://remotemysql.com/phpmyadmin/server_sql.php" target="_new">remotemysql admin page</a>.</li>
-              <li>Paste the following script to the SQL page.</li>
-              <li>Ensure that you change the database name to reflect your database name.</li>
-              <code>
-                <pre>
-#Replace with your database name
-USE &lt;database_name&gt; ;
-
-DROP TABLE IF EXISTS PUPILS;
-
-CREATE TABLE PUPILS (
-  first_name 		    VARCHAR(255) NOT NULL,
-  family_name		    VARCHAR(255) NOT NULL,
-  form                      VARCHAR(3) NOT NULL,
-  date_of_birth	            DATE NOT NULL,
-  gender                    VARCHAR(1) 
-);
-
-INSERT INTO PUPILS (first_name, family_name, form, date_of_birth) VALUES ('Bill', 'ElHabibbi ', '10B', '2012-05-04');
-INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Jones ', '10B', '2012-05-04', 'M');
-
-          </code>
-
-            </ul>
-          </div>
-          <div class="task">
+        <div class="task">
             <h3>Task 1: Create INSERT Web Page</h3>
             <p> We are going to create a web page that lists all of the queries that you write.</p>
             <ul>
@@ -91,19 +73,13 @@ INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES
 
             
           </div>
-        </section>
+
+          
+
+        
 
         <section>
-          <a name="inserts"><h2>INSERTS</h2></a>
-          <my-lo >
-            <p>
-              To be able to:
-              <ul>
-                <li>insert data into a single table where all fields are specified</li>
-                <li>insert data into a single table where all fields are some specified</li>
-              </ul>
-            </p>
-          </my-lo>
+          
 
           <h3>Inserting Data</h3>
           <div>
@@ -111,7 +87,7 @@ INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES
             <p>In SQL, to insert data, we use the <code>INSERT</code> command. </p>
             <p>This command has the following format.</p>
             <pre><code>
-              INSERT INTO <table_name> 
+              INSERT INTO &lt;table_name&gt;
                 (<fields>...)
               VALUES  
                 ('Val1', 2, NULL)
@@ -143,12 +119,43 @@ INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES
         
           
 
-          
+    
+             
+              <div>
+                <p>To run the exercises in this module, you first need to setup a <code>PUPILS</code> table.</p>
+                <ol>
+                  <li>log in to the <a href="https://remotemysql.com/phpmyadmin/server_sql.php" target="_new">remotemysql admin page</a>.</li>
+                  <li>Paste the following script to the SQL page.</li>
+                  <li>Ensure that you change the database name to reflect your database name.</li>
+                  <code>
+                    <pre>
+    #Replace with your database name
+    USE &lt;database_name&gt; ;
+    
+    DROP TABLE IF EXISTS PUPILS;
+    
+    CREATE TABLE PUPILS (
+      first_name 		    VARCHAR(255) NOT NULL,
+      family_name		    VARCHAR(255) NOT NULL,
+      form                      VARCHAR(3) NOT NULL,
+      date_of_birth	            DATE NOT NULL,
+      gender                    VARCHAR(1) 
+    );
+    
+    INSERT INTO PUPILS (first_name, family_name, form, date_of_birth) VALUES ('Bill', 'ElHabibbi ', '10B', '2012-05-04');
+    INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Jones ', '10B', '2012-05-04', 'M');
+    
+              </code>
+    
+                </ul>
+              </div>
+              
+      
 
             
           <div class="task">
             <h3>Task 2: Insert Data</h3>
-            <p>COPY and PASTE the script from the setup secition of the web page to the SQL Admin Page.  Rememeber to update the database details in the USE command. </p>
+            <p>COPY and PASTE the script from the section above of the web page to the SQL Admin Page.  Rememeber to update the database details in the USE command. </p>
             <p>Look at the INSERT fields, are all of the available fields used?</p>
             <p>USING a SELECT command, display the data in the table.</p>
             <p>What do you notice about the Gender field?</p>
