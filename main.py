@@ -1,50 +1,45 @@
 from flask import Flask, render_template, url_for
-from flask_wtf import FlaskForm 
+
+from models.init import init_app
+
+#from flask_wtf import FlaskForm 
+#from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 #from flask_debugtoolbar import DebugToolbarExtension
 
+from blueprints.index import indexBP
 from blueprints.maths import mathsBP
 from blueprints.computing import computingBP
 from blueprints.users import usersBP
+#from blueprints.login import loginBP
 
 
 
-from models.init import init_app
+
 
 #from db import cursor
 
 import config 
-from models import init_db
+
 
 app = Flask(__name__)
-app.debug = True
+
 app.config['SECRET_KEY'] = 'thisisasecret'
+app.config.from_object(config)
+app.config['DEBUG'] = True
+app.debug = True
+
 #toolbar = DebugToolbarExtension(app)
 
+app.register_blueprint(indexBP)
 app.register_blueprint(mathsBP, url_prefix='/maths')
 app.register_blueprint(computingBP, url_prefix='/computing')
 app.register_blueprint(usersBP, url_prefix='/users')
+#app.register_blueprint(loginBP, url_prefix='/login')
 
-app.config.from_object(config)
-app.config['DEBUG'] = True
-
+#SQLAlchemy Initialisation
 init_app(app)
 
-print (' * {dbUri}'.format(dbUri=app.config['SQLALCHEMY_DATABASE_URI']))
-
-
-@app.route('/') 
-def hello():
-  return render_template('index.html', results=None)
-
-
-@app.route('/admin/users')
-def admin_users():
-  cursor.execute("SELECT * FROM USERS;")
-  for x in cursor:
-    print(x)
-    
-  return "Users Admin Page"
-
+# print (' * {dbUri}'.format(dbUri=app.config['SQLALCHEMY_DATABASE_URI']))
 
 if __name__ == '__main__':
   app.run(debug=True)

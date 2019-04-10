@@ -5,10 +5,12 @@ from flask_bcrypt import Bcrypt
 
 import sys
 sys.path.append('.')
-
+from flask_login import UserMixin, LoginManager 
+from models.init import db 
 import config
 
-db=SQLAlchemy()
+# db=SQLAlchemy()
+#login_manager = LoginManager()
 #bcrypt = Bcrypt(current_app
 
 def check_password (hash, pwd):
@@ -25,7 +27,7 @@ def from_sql(row):
   return data 
 
 #[START model]
-class User(db.Model):
+class User(db.Model, UserMixin):
   __tablename__ = 'USERS'
   id = db.Column(db.Integer, primary_key=True)
   first_name = db.Column(db.String(255))
@@ -34,7 +36,22 @@ class User(db.Model):
     return "<User(id='{id}', firstName={first_name})>".format(id=id, first_name=first_name)
 #[END model]
 
-def list_users(limit=10, cursor=None):
+
+#[START Login Manager Scripts]
+"""
+@login_manager.user_loader
+def load_user(user_id):
+  user = User.query.filter_by(id=user_id).first()
+
+  if user:
+    return user 
+  else: 
+    return None
+"""
+#[END Login_manager_scripts]
+
+
+def _list(limit=10, cursor=None):
   cursor = int(cursor) if cursor else 0
   query = (User.query
               .order_by(User.first_name)
@@ -45,7 +62,7 @@ def list_users(limit=10, cursor=None):
   return (users, next_page)
 
 #[START read]
-def read_user(id):
+def _read(id):
   result = User.query.get(id)
   if not result:
     return None
@@ -53,7 +70,7 @@ def read_user(id):
 #[END read]
 
 #[START user]
-def create_user(data):
+def _create(data):
   user = User(**data)
   db.session.add(user)
   db.session.commit()
@@ -61,7 +78,7 @@ def create_user(data):
 #[END user]
 
 #[START update]
-def update_user(data, id):
+def _update(data, id):
   user = User.query.get(id)
   for k, v in data.items():
     setattr(user, k, v)
@@ -70,7 +87,7 @@ def update_user(data, id):
 #[END update]
 
 #[START delete]
-def delete_user(id):
+def _delete(id):
   User.query.filter_by(id=id).delete()
   db.session.commit()
 #[END delete]
@@ -79,18 +96,21 @@ def delete_user(id):
 
 
 
-#[START _add_users]
-def _list_users(app):
+#[START list_users]
+def list_users(app):
   with app.app_context():
-    result = list_users()
+    result = _list()
+    print ("Found {} rows".format(len(result[0])))
     for u in result[0]:
       print (u)
-#[END _add_users]
+    return result[0]
+#[END list_users]
 
-#[START _create_user]
-def _create_user(app, user):
+#[START create_user]
+def create_user(app, user):
   with app.app_context():
-    return create_user(user)
+    return _create(user)
+#END create_user]
 
   
 

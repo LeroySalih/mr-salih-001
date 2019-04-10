@@ -1,25 +1,27 @@
 from flask import Blueprint, render_template, abort, current_app as app
 from models.init import db
-from models.user import _create_user, _list_users
+from models.user import User, list_users
 from wtforms.validators import InputRequired 
+from flask_login import UserMixin, LoginManager 
 
-import models.user  
 #from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField 
 
 usersBP = Blueprint('users', __name__, template_folder='templates')
 
-
+#login_manager = LoginManager()
+#login_manager.init_app(app)
 
 
 @usersBP.route('/')
 def show_users():
   # app = current_app()
-  result = models.user.list_users(app)
-  rows=result[0]
+  result = list_users(app)
+  print (result)
+  
   print ('found', result)
-  return render_template('users/index.html', rowCount=len(rows), rows=rows)
+  return render_template('users/index.html', rowCount=len(result), rows=result)
 
 class LoginForm(FlaskForm):
   username = StringField('username', validators=[InputRequired('A username is required')])

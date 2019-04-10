@@ -1,15 +1,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from models.user import  User, _list_users 
+from init import db, init_app 
+from user import  User, list_users 
 
 import config
-
-db=SQLAlchemy()
-
+import models
+# db=SQLAlchemy()
 
 
 #[START createDB]
-def _create_database(app):
+def create_database(app):
   with app.app_context():
     db.reflect()
     db.drop_all()
@@ -19,7 +19,7 @@ def _create_database(app):
 
 
 #[START _add_users]
-def _add_test_users(app):
+def add_test_users(app):
 
   with app.app_context():
     user1 = User(first_name='person1')
@@ -30,10 +30,18 @@ def _add_test_users(app):
     print ('Users Added')
 #[END _add_users]
 
+
+#execute this script by python models/init_db.py
+#this script will initialise the database
+
+# To start the proxy server:
+# /Users/leroy/cloud_sql_proxy -instances="flask003:europe-west6:mrsalih-com"=tcp:3306
+
+
 if __name__ == '__main__':
   app = Flask(__name__)
   app.config.from_object(config)
   init_app(app)
-  _create_database(app)
-  _add_test_users(app)
-  _list_users (app)
+  create_database(app)
+  add_test_users(app)
+  list_users (app)
