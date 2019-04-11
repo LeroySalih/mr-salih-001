@@ -1,11 +1,12 @@
 from flask import Flask, current_app
+from flask_login import UserMixin
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 import sys
 sys.path.append('.')
-from flask_login import UserMixin, LoginManager 
+
 from models.init import db 
 import config
 
@@ -24,7 +25,11 @@ def from_sql(row):
   data = row.__dict__.copy()
   data['id'] = row.id
   data.pop('_sa_instance_state')
-  return data 
+  u = User()
+  u.id = data['id']
+  u.first_name = data['first_name']
+  print ('*** fromSql:', u)
+  return u 
 
 #[START model]
 class User(db.Model, UserMixin):
@@ -33,7 +38,7 @@ class User(db.Model, UserMixin):
   first_name = db.Column(db.String(255))
 
   def __repr__(self):
-    return "<User(id='{id}', firstName={first_name})>".format(id=id, first_name=first_name)
+    return "<User(id='{}', firstName={})>".format(self.id, self.first_name)
 #[END model]
 
 
@@ -63,8 +68,10 @@ def _list(limit=10, cursor=None):
 
 #[START read]
 def _read(id):
+  print ('*** read called')
   result = User.query.get(id)
   if not result:
+    print('result was none')
     return None
   return from_sql(result)
 #[END read]

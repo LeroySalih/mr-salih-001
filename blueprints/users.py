@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, abort, current_app as app
 from models.init import db
 from models.user import User, list_users
 from wtforms.validators import InputRequired 
-from flask_login import UserMixin, LoginManager 
+from flask_login import UserMixin, LoginManager, current_user , login_user, current_user, logout_user
 
 #from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -38,11 +38,30 @@ class RegisterForm(FlaskForm):
 
 @usersBP.route('/login', methods=['GET', 'POST'])
 def show_login():
+  """
   form = LoginForm()
   if form.validate_on_submit():
     return '<H1>The username is {}.  The password is {}.'.format(form.username.data, form.password.data)
   return render_template('users/login.html', form=form)
-  
+  """
+  u = User.query.filter_by(first_name='admin').first()
+  login_user(u)
+  return "User Logged In"
+
+@usersBP.route('/logout', methods=['GET', 'POST'])
+def show_logout():
+  """
+  form = LoginForm()
+  if form.validate_on_submit():
+    return '<H1>The username is {}.  The password is {}.'.format(form.username.data, form.password.data)
+  return render_template('users/login.html', form=form)
+  """
+  #u = current_user # User.query.filter_by(first_name='admin').first()
+  logout_user()
+  return "User Logged Out"
+
+
+
 def register_user(form):
   user = User(first_name = form.first_name.data)
 
@@ -55,6 +74,13 @@ def show_register():
     return render_template('users/register_success.html', form=form)
   
   return render_template('users/register.html', form=form)
+
+
+@usersBP.route('/check')
+def show_check():
+  cu = current_user
+  print(cu)
+  return render_template('users/check.html', cu=cu)
 
 
 

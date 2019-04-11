@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for
-
+from flask_login import LoginManager
 from models.init import init_app
+from models.user import User, _read
 
 #from flask_wtf import FlaskForm 
 #from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
@@ -28,16 +29,23 @@ app.config.from_object(config)
 app.config['DEBUG'] = True
 app.debug = True
 
-#toolbar = DebugToolbarExtension(app)
+#SQLAlchemy Initialisation
+init_app(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
+@login_manager.user_loader
+def load_user(user_id):
+    return _read(user_id)
+
+#toolbar = DebugToolbarExtension(app)
 app.register_blueprint(indexBP)
 app.register_blueprint(mathsBP, url_prefix='/maths')
 app.register_blueprint(computingBP, url_prefix='/computing')
 app.register_blueprint(usersBP, url_prefix='/users')
 #app.register_blueprint(loginBP, url_prefix='/login')
 
-#SQLAlchemy Initialisation
-init_app(app)
+
 
 # print (' * {dbUri}'.format(dbUri=app.config['SQLALCHEMY_DATABASE_URI']))
 

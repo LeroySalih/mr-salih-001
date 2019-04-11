@@ -1,0 +1,15 @@
+
+{% extends "layout-slide.html" %}
+
+{% block title%}Check{% endblock %}
+{% block body %}
+    <H1>Check</H1>
+    
+    <table>
+      <tr><td>id:</td><td>{{cu.id}}</td></tr>
+      <tr><td>first name:</td><td>{{cu.first_name}}</td></tr>
+      <tr><td>is active:</td><td>{{cu.is_active}}</td></tr>
+      <tr><td>is anonymous:</td><td>{{cu.is_anonymous}}</td></tr>
+      <tr><td>is authenticated</td><td>{{cu.is_authenticated}} </td></tr>
+    </table>
+{% endblock %}
