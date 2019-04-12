@@ -7,7 +7,7 @@ runtime_config:
 
 #[START cloudsql_settings]
 beta_settings:
-    cloud_sql_instances: "flask003:europe-west6:mrsalih-com"
+    cloud_sql_instances: flask003:us-central1:mr-salih-001
 #[END cloudsql_settings]
 
 env_variables:

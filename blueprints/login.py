@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, abort, current_app as app
 from flask_login import LoginManager, login_user, login_required
 from models.init import db
-from models.user import User, _create_user, _list_users, login_manager
+from models.user import User, login_manager
 from wtforms.validators import InputRequired 
 
 import models.user  

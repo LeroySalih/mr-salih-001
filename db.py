@@ -1,36 +1,43 @@
-#import pymysql
+import pymysql
+import warnings 
+from sql.db import db 
+from sql.users import sqlDROP_USER_TABLE, sqlCREATE_USER_TABLE, sqlADD_USERS, sqlREAD_USERS 
 
-"""
-host = "34.65.137.44"
-username = "sleroy"
-pwd = "dolphin1234"
-dbName = "mrsalih001"
+from do.users_do import read_all
 
-#db = pymysql.connect(host, username, pwd, dbName,  ssl={'ca': './db-scripts/server-ca.pem'})
-db = pymysql.connect(host, username, pwd, dbName)
+def show_version(cursor):
+  cursor.execute("SELECT VERSION()")
+  data = cursor.fetchone()
+  print ("Database version: %s " % data)
 
-cursor = db.cursor()
+def initDb(cursor):
+  with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    print("Dropping Tables")
+    cursor.execute(sqlDROP_USER_TABLE)
+    print("Done")
 
+    print ("Creating Tables")
+    cursor.execute(sqlCREATE_USER_TABLE)
+    print("Done")
 
-import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="127.0.0.1",
-  user="root",
-  passwd="cardiff1",
-  database="lessons"
-)
-
-mycursor = mydb.cursor()
-
-mycursor.execute("SHOW TABLES")
-
-for x in mycursor:
-  print(x)
-
-mycursor.execute("SELECT * FROM tasks;")
+    print ("Adding Admin user")
+    cursor.execute(sqlADD_USERS)
+    print("done")
 
 
-for x in mycursor:
-  print(x)
-"""
+def listUsers(cursor):
+  users = read_all()
+  print (users)
+
+    
+
+
+if (__name__ == "__main__"):
+
+  cursor = db.cursor()
+  show_version(cursor)
+  #initDb(cursor)
+  listUsers(cursor)
+  db.close()
+

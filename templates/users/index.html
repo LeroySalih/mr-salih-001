@@ -5,8 +5,8 @@
       Found {{ rowCount }} rows
     </div>
     <ul>
-    {% for row in rows %}
-     <li>{{row['first_name']}}</li>
+    {% for user in users %}
+     <li>{{user.id}}, {{user.first_name}}</li>
     {% endfor %}
   </ul>
   </body>

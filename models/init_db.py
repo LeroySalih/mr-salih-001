@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from init import db, init_app 
-from user import  User, list_users 
+from user import  User
 
 import config
-import models
+#import models
 # db=SQLAlchemy()
 
 
@@ -14,6 +14,7 @@ def create_database(app):
     db.reflect()
     db.drop_all()
     db.create_all()
+    db.session.commit()
     print ('All tables created')
 #[END createDB]
 
@@ -43,5 +44,5 @@ if __name__ == '__main__':
   app.config.from_object(config)
   init_app(app)
   create_database(app)
-  add_test_users(app)
-  list_users (app)
+  #add_test_users(app)
+  #list_users (app)

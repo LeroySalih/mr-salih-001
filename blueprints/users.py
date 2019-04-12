@@ -1,12 +1,14 @@
 from flask import Blueprint, render_template, abort, current_app as app
-from models.init import db
-from models.user import User, list_users
+
+from models.user import User
 from wtforms.validators import InputRequired 
 from flask_login import UserMixin, LoginManager, current_user , login_user, current_user, logout_user
 
 #from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField 
+
+from do.users_do import read_all
 
 usersBP = Blueprint('users', __name__, template_folder='templates')
 
@@ -16,12 +18,8 @@ usersBP = Blueprint('users', __name__, template_folder='templates')
 
 @usersBP.route('/')
 def show_users():
-  # app = current_app()
-  result = list_users(app)
-  print (result)
-  
-  print ('found', result)
-  return render_template('users/index.html', rowCount=len(result), rows=result)
+  users = read_all()
+  return render_template('users/index.html', rowCount=len(users), users=users)
 
 class LoginForm(FlaskForm):
   username = StringField('username', validators=[InputRequired('A username is required')])
@@ -81,6 +79,19 @@ def show_check():
   cu = current_user
   print(cu)
   return render_template('users/check.html', cu=cu)
+
+
+@usersBP.route('/create')
+def show_cerate():
+  db.create_all()
+  with app.app_context():
+    user1 = User(first_name='person1')
+    db.session.add(user1)
+    admin = User(first_name='admin')
+    db.session.add(admin)
+    db.session.commit()
+    print ('Users Added')
+  return "DB Created"
 
 
 

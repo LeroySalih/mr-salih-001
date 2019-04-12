@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for
 from flask_login import LoginManager
 from models.init import init_app
-from models.user import User, _read
+from models.user import User
 
 #from flask_wtf import FlaskForm 
 #from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
@@ -34,9 +34,11 @@ init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+"""
 @login_manager.user_loader
 def load_user(user_id):
     return _read(user_id)
+"""
 
 #toolbar = DebugToolbarExtension(app)
 app.register_blueprint(indexBP)
