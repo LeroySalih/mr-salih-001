@@ -1,0 +1,73 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Read: Intro to Databses with MYSQL
+{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/images/13-Data Management.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+<div class="container">
+  <div class="sidebar">
+    <a class="active" href="#home">Home</a>
+
+    <a href="#sums">Repl Challenges</a>
+    <a href="#other">Other Challenges</a>
+   
+    
+    
+  </div>
+  <div class="content">
+      <a name="home"><h1>Python Challenges.</h1></a>
+      <div>This page will list the links to various python challenges</div>
+      <section>
+        <a name="repl"><h2>repl.it Challenges</h2></a>
+            <div>
+            <h3>Basic Python</h3>
+            <ul>
+              <li><a href="https://repl.it/classroom/invite/Y9j451l">12 Classroom Exercises</a></li>
+              <li><a href="https://repl.it/classroom/invite/Z1oGT08">12 Classroom Challenges</a></li>
+            </ul>
+            <div>
+          <div>
+          <h3>Advanced Python</h3>
+          <ul>
+            <li><a href="https://repl.it/classroom/invite/1EpDaBi">Lists</a></li>
+          </ul>
+          <div>
+          <h3>General Problem Solving</h3>
+          <ul>
+            <li><a href="https://repl.it/classroom/invite/1uY8lxV">Binary Number Challenge</a></p></li>
+            <li><a href="https://repl.it/classroom/invite/1WCzQ5B">Phone Encryption Challenge</a></p></li>
+            <li><a href="https://repl.it/classroom/invite/2RvYvSh">10 Bottles of Juice Challenge</a></p></li>
+            <li><a href="https://repl.it/classroom/invite/2fHR7BF">List statistics</a></p></li>
+          </ul>
+        </div>
+        </div>
+      </section>
+  </div>
+
+{% endblock%}
