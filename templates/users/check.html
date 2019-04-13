@@ -11,5 +11,13 @@
       <tr><td>is active:</td><td>{{cu.is_active}}</td></tr>
       <tr><td>is anonymous:</td><td>{{cu.is_anonymous}}</td></tr>
       <tr><td>is authenticated</td><td>{{cu.is_authenticated}} </td></tr>
+      <tr><td>Session Variables</td><td>{% if 'logged_in' in session %}
+                                            {{ 'Logged In'}}
+                                        {% else %}
+                                            {{ 'Logged Out'}}
+                                        {% endif %}
+                                          
+                                          </td></tr>
     </table>
+
 {% endblock %}

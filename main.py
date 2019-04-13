@@ -1,11 +1,13 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, session
 from flask_login import LoginManager
-from models.init import init_app
+
 from models.user import User
 
 #from flask_wtf import FlaskForm 
 #from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 #from flask_debugtoolbar import DebugToolbarExtension
+
+
 
 from blueprints.index import indexBP
 from blueprints.maths import mathsBP
@@ -30,15 +32,16 @@ app.config['DEBUG'] = True
 app.debug = True
 
 #SQLAlchemy Initialisation
-init_app(app)
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-"""
+
+
 @login_manager.user_loader
 def load_user(user_id):
-    return _read(user_id)
-"""
+    return User.get_by_id(user_id)
+
 
 #toolbar = DebugToolbarExtension(app)
 app.register_blueprint(indexBP)

@@ -7,6 +7,10 @@ def computing():
   return render_template('computing/module-header-computing.html')
 
 
+@computingBP.route('/igcse/<moduleId>')
+def computing_igcse(moduleId):
+  return render_template('computing/igcse/{0}.html'.format(moduleId))
+
 @computingBP.route('/databases/<moduleId>')
 def computing_databases_intro(moduleId):
   return render_template('computing/databases/{0}.html'.format(moduleId))

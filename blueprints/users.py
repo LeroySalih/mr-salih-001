@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort, current_app as app
+from flask import Blueprint, session, render_template, abort, current_app as app
 
 from models.user import User
 from wtforms.validators import InputRequired 
@@ -8,7 +8,7 @@ from flask_login import UserMixin, LoginManager, current_user , login_user, curr
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField 
 
-from do.users_do import read_all
+
 
 usersBP = Blueprint('users', __name__, template_folder='templates')
 
@@ -18,7 +18,7 @@ usersBP = Blueprint('users', __name__, template_folder='templates')
 
 @usersBP.route('/')
 def show_users():
-  users = read_all()
+  users = User.get_all()
   return render_template('users/index.html', rowCount=len(users), users=users)
 
 class LoginForm(FlaskForm):
@@ -36,16 +36,22 @@ class RegisterForm(FlaskForm):
 
 @usersBP.route('/login', methods=['GET', 'POST'])
 def show_login():
-  """
+  
   form = LoginForm()
   if form.validate_on_submit():
-    return '<H1>The username is {}.  The password is {}.'.format(form.username.data, form.password.data)
-  return render_template('users/login.html', form=form)
-  """
-  u = User.query.filter_by(first_name='admin').first()
-  login_user(u)
-  return "User Logged In"
-
+    u = User.get_by_uname_pwd(form.username.data, form.password.data)
+    if u == None:
+      return render_template('users/login.html', form=form, message="Invalid Login Details")
+    else:
+      #Log In User
+      login_user(u)
+      session['logged_in'] = True
+      session['user'] = u.to_dict()
+      return '<H1>The username is {}. '.format(form.username.data)
+  else:
+    return render_template('users/login.html', form=form, message="")
+  
+  
 @usersBP.route('/logout', methods=['GET', 'POST'])
 def show_logout():
   """
@@ -56,6 +62,8 @@ def show_logout():
   """
   #u = current_user # User.query.filter_by(first_name='admin').first()
   logout_user()
+  if ('logged_in' in session):
+    session.pop('logged_in')
   return "User Logged Out"
 
 
@@ -82,15 +90,8 @@ def show_check():
 
 
 @usersBP.route('/create')
-def show_cerate():
-  db.create_all()
-  with app.app_context():
-    user1 = User(first_name='person1')
-    db.session.add(user1)
-    admin = User(first_name='admin')
-    db.session.add(admin)
-    db.session.commit()
-    print ('Users Added')
+def show_create():
+  User.create_tables()
   return "DB Created"
 
 

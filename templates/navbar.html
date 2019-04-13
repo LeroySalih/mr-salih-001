@@ -21,6 +21,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">After School Clubs</a>
         </li>
+        
           <!--
         <li class="nav-item dropdown">
           
@@ -49,5 +50,13 @@
       </form>
       ---->
     </ul>
+    
+    <span class="navbar-text">
+        {% if 'logged_in' in session %}
+          {{ session['user']['first_name'] }}
+        {% else %}
+          Log In / Regsister
+        {% endif %}
+      </span>
     </div>
   </nav>

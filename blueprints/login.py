@@ -22,10 +22,14 @@ def show_login():
   with app.app_context():
    u = User.query.filter_by(first_name='admin').first()
    login_user(u)
+   session['logged_in']=True 
+   session['user'] = u 
   return "Login - BI {}".format(u.first_name)
 
 @loginBP.route('/logout')
 def show_logout():
+  session['logged_in'] = False
+  session['user'] = None 
   return "Logout - TBI"
 
 
