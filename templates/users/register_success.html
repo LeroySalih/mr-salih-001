@@ -1,0 +1,13 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Register Success{% endblock %}
+{% block body %}
+    <H1>Login</H1>
+    <table>
+      <tr><td>id</td><td>{{user.id}}</td></tr>
+      <tr><td>first_name</td><td>{{user.first_name}}</td></tr>
+      <tr><td>username</td><td>{{user.username}}</td></tr>
+      <tr><td>password</td><td>{{user.password}}</td></tr>
+      <tr><td>is authenticated</td><td>{{user.is_authenticated}}</td></tr>
+    </table>
+{% endblock %}

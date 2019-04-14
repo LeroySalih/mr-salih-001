@@ -40,7 +40,17 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get_by_id(user_id)
+  try:
+
+    u = User.get_by_id(user_id)
+    if (u == None):
+      raise ValueError("A user with id of {user_id} was not found.".format(user_id=user_id))
+    return u
+
+  except ValueError as err:
+    print (err.args)
+
+  
 
 
 #toolbar = DebugToolbarExtension(app)

@@ -1,4 +1,4 @@
-from flask import Blueprint, session, render_template, abort, current_app as app
+from flask import Blueprint, session, render_template, abort, current_app as app, redirect 
 
 from models.user import User
 from wtforms.validators import InputRequired 
@@ -28,10 +28,13 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
   username = StringField('Username', validators=[InputRequired('A username is required')])
   first_name = StringField('First Name', validators=[InputRequired('A First Name is required')])
-  family_name = StringField('Family Name', validators=[InputRequired('A Family Name is required')])
-  current_form = StringField('Current Form', validators=[InputRequired('A Current Form is required')])
   password = PasswordField('Password', validators=[InputRequired('A password is required')])
 
+
+def do_login(u):
+    login_user(u)
+    session['logged_in'] = True
+    session['user'] = u.to_dict()
 
 
 @usersBP.route('/login', methods=['GET', 'POST'])
@@ -39,32 +42,28 @@ def show_login():
   
   form = LoginForm()
   if form.validate_on_submit():
-    u = User.get_by_uname_pwd(form.username.data, form.password.data)
-    if u == None:
-      return render_template('users/login.html', form=form, message="Invalid Login Details")
+    u = User.get_by_username(form.username.data)
+    if u != None and u.check_pw(form.password.data):
+      do_login(u)
+      app.logger.info('%s login OK', u.username)
+      return redirect('/')
+      
     else:
-      #Log In User
-      login_user(u)
-      session['logged_in'] = True
-      session['user'] = u.to_dict()
-      return '<H1>The username is {}. '.format(form.username.data)
+      app.logger.info('%s login FAILED', u.username)
+      return render_template('users/login.html', form=form, message="Invalid Login Details")
+      
   else:
     return render_template('users/login.html', form=form, message="")
   
   
 @usersBP.route('/logout', methods=['GET', 'POST'])
 def show_logout():
-  """
-  form = LoginForm()
-  if form.validate_on_submit():
-    return '<H1>The username is {}.  The password is {}.'.format(form.username.data, form.password.data)
-  return render_template('users/login.html', form=form)
-  """
-  #u = current_user # User.query.filter_by(first_name='admin').first()
+  
   logout_user()
+  app.logger.info('logout OK')
   if ('logged_in' in session):
     session.pop('logged_in')
-  return "User Logged Out"
+  return redirect('/')
 
 
 
@@ -76,8 +75,12 @@ def show_register():
   form = RegisterForm()
 
   if form.validate_on_submit():
-    register_user(form)
-    return render_template('users/register_success.html', form=form)
+    #register_user(form)
+    u = User.from_form(form)
+    
+    u = User.add_user(u)
+    do_login(u)
+    return render_template('users/register_success.html', user=u)
   
   return render_template('users/register.html', form=form)
 
@@ -85,13 +88,13 @@ def show_register():
 @usersBP.route('/check')
 def show_check():
   cu = current_user
-  print(cu)
   return render_template('users/check.html', cu=cu)
 
 
 @usersBP.route('/create')
 def show_create():
   User.create_tables()
+  app.logger.info('DB Created OK')
   return "DB Created"
 
 

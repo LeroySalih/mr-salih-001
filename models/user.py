@@ -1,31 +1,67 @@
 from flask import Flask, current_app
 from flask_login import UserMixin
 
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from sql.db import cursor
-from sql.users import sqlREAD_USERS, sqlREAD_USER, sqlREAD_USER_BY_FIRST_NAME, sqlREAD_USER_BY_USERNAME_PWD, sqlDROP_USER_TABLE, sqlCREATE_USER_TABLE, sqlADD_USERS
+from sql.users import sqlREAD_USERS, sqlREAD_USER, sqlREAD_USER_BY_FIRST_NAME, sqlREAD_USER_BY_USERNAME, sqlDROP_USER_TABLE, sqlCREATE_USER_TABLE, sqlADD_USERS
+
+
+class UserException (Exception):
+
+  def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
 
 #[START model]
 class User(UserMixin):
   
   id = 0
   first_name = ""
+  __username = "not set"
+  __password = "not set"
 
   def __init__(self, dict):
+
+    if (dict == None):
+      raise UserException(dict, "Dictionary is None.  This is not allowed when creating a User object.")
+
     #Constructor
     for key in dict:
       setattr(self, key, dict[key])
 
   def __repr__(self):
-    return "<User(id={}, first_name='{}')>".format(self.id, self.first_name)
+    return "<User(id={}, first_name='{}', username='{}', password='{}')>".format(self.id, self.first_name, self.username, self.password)
 
 
   def to_dict(self):
-    return {'id': self.id, 'first_name': self.first_name}
-  """
-  def __str__(self):
-    return "{'id':{id}, 'first_name':{first_name}}".format(id=self.id, first_name=self.first_name)
-  """
+    return {'id': self.id, 'first_name': self.first_name, 'username': self.__username, 'password': self.password}
+  
+
+  def set_pw(self, pw):
+    self.__password = generate_password_hash(pw)
+   
+  
+  def check_pw(self, val):
+    return check_password_hash(self.__password, val)
+
+  @property
+  def username(self):
+    return self.__username
+  
+  @username.setter
+  def username(self, val):
+    self.__username = val
+
+  @property
+  def password(self):
+    return self.__password
+
+  @password.setter
+  def password(self, val):
+    self.__password = val
+  
 
   @staticmethod
   def get_all():
@@ -44,6 +80,8 @@ class User(UserMixin):
   def get_by_id(id): 
     cursor.execute(sqlREAD_USER.format(id))
     result = cursor.fetchone()
+    if result == None: 
+      return None
     return User(result) 
 
   @staticmethod 
@@ -56,19 +94,37 @@ class User(UserMixin):
     return users
 
   @staticmethod
-  def get_by_uname_pwd(username, pwd):
-    cursor.execute(sqlREAD_USER_BY_USERNAME_PWD.format(username, pwd))
+  def get_by_username(username):
+    cursor.execute(sqlREAD_USER_BY_USERNAME.format(username))
     user = cursor.fetchone()
     if user == None:
       return None 
     else: 
       return User(user)
+
+
+  @staticmethod
+  def add_user(u):
+    cursor.execute(sqlADD_USERS.format(first_name=u.first_name, username=u.username, password=u.password))
+    #reload user with ID
+    u = User.get_by_username(u.username)
+    return u
+    
   
   @staticmethod
   def create_tables():
     cursor.execute(sqlDROP_USER_TABLE)
     cursor.execute(sqlCREATE_USER_TABLE)
-    cursor.execute(sqlADD_USERS.format('admin', 'admin', 'password'))
+    
+
+
+  @staticmethod
+  def from_form(form):
+    userDict = { 'first_name': form.first_name.data, 'username': form.username.data }
+    u = User(userDict)
+    if len(form.password.data):
+      u.set_pw(form.password.data)
+    return u
     
 
 

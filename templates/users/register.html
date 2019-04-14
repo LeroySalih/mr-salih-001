@@ -3,16 +3,8 @@
 {% block title%}Login{% endblock %}
 {% block body %}
     <H1>Login</H1>
-    <form method="POST" action="/users/login">
+    <form method="POST" action="/users/register">
       {{ form.csrf_token }}
-
-      {{ form.username.label }}
-      {{ form.username }}
-      <ul>
-        {% for error in form.username.errors %}
-        <li style="color:red">{{error}}</li>
-        {% endfor %}
-      </ul>
 
       {{form.first_name.label}}
       {{form.first_name}}
@@ -22,22 +14,15 @@
         {% endfor %}
       </ul>
 
-      {{form.family_name.label}}
-      {{form.family_name}}
+      {{ form.username.label }}
+      {{ form.username }}
       <ul>
-        {% for error in form.family_name.errors %}
+        {% for error in form.username.errors %}
         <li style="color:red">{{error}}</li>
         {% endfor %}
       </ul>
 
-      {{form.current_form.label}}
-      {{form.current_form}}
-      <ul>
-        {% for error in form.current_form.errors %}
-        <li style="color:red">{{error}}</li>
-        {% endfor %}
-      </ul>
-
+      
       {{ form.password.label }}
       {{ form.password }}
       <input type="submit">
