@@ -198,16 +198,14 @@ background-image: url('/static/images/13-Data Management.svg');
         <div>
           <code><pre>
               USE &lt;database name&gt;;
-
-              DROP TABLE IF EXISTS PUPILS;
               
               CREATE TABLE PUPILS (
-                pupilId			INT AUTO_INCREMENT PRIMARY KEY,
-                first_name		VARCHAR(255) NOT NULL,
-                family_name		VARCHAR(255) NOT NULL,
-                dob			DATE NOT NULL, 
-                form			CHAR(3)
-              );
+                pupil_id	INT		AUTO_INCREMENT PRIMARY KEY,
+                  first_name   varchar(255) NOT NULL,
+                  family_name  varchar(255) NOT NULL,
+                  form         varchar(3) NOT NULL,
+                  dob          date NOT NULL
+              )
               
               INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
               INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');

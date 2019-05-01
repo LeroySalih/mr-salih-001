@@ -1,0 +1,162 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Linking Tables: Intro to Databases with MYSQL
+{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/images/13-Data Management.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      
+      <a href="#setup">SetUp</a>
+      <a href="#inserts">Update</a>
+     
+      <a href="#additional">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">        
+        <a name="home"><h1>Linking Tables.</h1></a>
+        
+        <a name="inserts"><h2>Update</h2></a>
+          <my-lo >
+            <p>
+              To be able to:
+              <ul>
+                <li>link 2 tables in a SELECT query.</li>
+                <li>identify primary and foreign keys.</li>
+              </ul>
+            </p>
+          </my-lo>
+        
+        <div>
+          In this module we are going to gain an understanding of how to <b><u>Link</u></b> data from multiple tables in a single query.
+        </div>
+
+        <div class="task">
+            <h3>Task 1: Create the Execise DB</h3>
+            <p> We are going to create a web page that lists all of the queries that you write.</p>
+            <ul>
+              <li>Create a HTML repl page.</li>
+              <li>Using H1 tag, give the page a title, <b>Linking Tables</b></b>.</li>
+              <li>As you complete each task, copy the command to the index.html page with an appropriate heading.</li>
+              <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
+              <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
+              <li>Run the following script to create the database being used.</li>
+            </ul>
+
+            
+          </div>
+
+          <pre>
+            use Nc1emhTgPx;
+
+DROP TABLE PUPILS; 
+DROP TABLE IF EXISTS HOUSE_POINTS;
+
+CREATE TABLE PUPILS (
+	pupil_id	 INT		AUTO_INCREMENT PRIMARY KEY,
+    first_name   varchar(255) NOT NULL,
+    family_name  varchar(255) NOT NULL,
+    form         varchar(3) NOT NULL,
+    dob          date NOT NULL
+);
+
+CREATE TABLE HOUSE_POINTS (
+	record_id	INT        AUTO_INCREMENT PRIMARY KEY,
+    date_issued date       NOT NULL,
+    number_hp  INT         NOT NULL,
+    pupil_id    INT        NOT NULL
+);
+
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-03-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Sarah', 'Smith', '2010-01-02', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Susan', 'Potts', '2010-07-01', '9C');
+          
+INSERT INTO HOUSE_POINTS (date_issued, number_hp, pupil_id) VALUES ('2019-04-03', 3, 1);
+INSERT INTO HOUSE_POINTS (date_issued, number_hp, pupil_id) VALUES ('2019-04-04', 2, 1);
+INSERT INTO HOUSE_POINTS (date_issued, number_hp, pupil_id) VALUES ('2019-04-03', 3, 2);
+INSERT INTO HOUSE_POINTS (date_issued, number_hp, pupil_id) VALUES ('2019-04-04', 2, 3);
+
+
+
+
+          </pre>
+
+          
+
+        
+
+        <section>
+          
+
+          <h3>Linking Data</h3>
+          <div>
+            
+            
+            <div class="example">
+              <h3>Example:</h3>
+              <pre>
+                <code>
+SELECT P.* 
+FROM PUPILS as P;
+
+SELECT HP.*, P.* 
+FROM PUPILS as P, HOUSE_POINTS as HP
+WHERE HP.pupil_id = P.pupil_id;
+                </code>
+              </pre>
+              </div>
+
+            
+            
+
+
+            
+          </div>
+
+          
+        
+  
+              
+      
+
+            
+          
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+

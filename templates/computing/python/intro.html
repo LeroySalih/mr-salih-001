@@ -1,0 +1,122 @@
+{% extends "layout-slide.html" %}
+
+{% block title%}Intro to Programming with Python
+{% endblock %}
+
+{% block style%}
+<style>
+  section{
+
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
+
+  h2:before {
+
+
+background-image: url('/static/images/13-Data Management.svg');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  margin-right:10px; 
+  content:"";
+
+}
+
+</style>
+{% endblock%}
+
+{% block body%}
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      
+      <a href="#connecting">Connecting</a>
+      <a href="#crud">CRUD.</a>
+     
+      <a href="#additional">Additional Resources</a>
+      
+    </div>
+
+    <div class="content">        
+        <a name="home"><h1>Intro to Programming with Python.</h1></a>
+        <div>
+          Intro Blurb goes here.
+          <p><a href='https://repl.it/classroom/invite/Y9j451l'>Link to repl exercises</a></p>
+          <p><a href=''>Link to repl challenges</a></p>
+        </div>
+
+        <!-- 
+        <section>
+            <a name="timeline"><h2>Timeline</h2></a>
+            <my-timeline>
+                <my-timeline-item >What Layout? </my-timeline-item>
+              <my-timeline-item >Using Colours. </my-timeline-item>
+              
+            </my-timeline> 
+        </section>
+        -->
+
+        <section>
+          <a name="ide"><h2>IDE, Login & Outputs</h2></a>
+        </section>
+
+
+
+        <section>
+          <a name="connecting"><h2>Registering</h2></a>
+          <my-lo >
+            <p>
+              To be able to:
+              <ul>
+                <li>Register with repl site</li>
+                <li>Enrol on Python Challenges.</li>
+                <li>Complete the first Python Challenge</li>
+              </ul>
+            </p>
+          </my-lo>
+
+          <h3>Registering & Enrolling with Repl</h3>
+          <div>
+              <p>In this task, we are going to create an account and register for the python course..</p>
+              <ul>
+                <li>Open a web browser.</li>
+                <li>Navigate to <a href="www.repl.it">www.repl.it</a></li>
+                <li>Click the Sign Up Button</li>
+                <li>Use your email or Google account to Sign Up.</li>
+                <li>Click this <a href="https://repl.it/classroom/invite/Y9j451l">link</a> to enrol in the python exercises.</li>
+                <li>In your repl menu bar, click the <b>student</b> link. You will see a page that contains the mr-salih python exercises.</li>
+                <!--  -->
+                <video width="600" height="450" controls>
+                    <source src="https://www.dropbox.com/s/n6hbkcmi0ax8rj3/enrol.mp4?raw=1" type="video/mp4">
+                  </video>
+
+              </ul>
+          </div>
+
+          <div class="task">
+            <h3>Complete the first task</h3>
+            <div>
+              <p>Now that you have enrolled in repl, complete exercise 1, "Hello Everyone". </p>
+            </div>
+          </div>
+          
+
+
+          
+        </section>
+
+        
+         
+  
+     
+    </div>
+  </div>
+
+{% endblock %}
+
+
