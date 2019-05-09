@@ -6,7 +6,8 @@ from flask_login import UserMixin, LoginManager, current_user , login_user, curr
 
 #from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField 
+from wtforms import StringField, PasswordField, SubmitField
+
 
 
 
@@ -19,16 +20,18 @@ usersBP = Blueprint('users', __name__, template_folder='templates')
 @usersBP.route('/')
 def show_users():
   users = User.get_all()
-  return render_template('users/index.html', rowCount=len(users), users=users)
+  return render_template('users/index.html', rowCount=len(users), users=users, )
 
 class LoginForm(FlaskForm):
-  username = StringField('username', validators=[InputRequired('A username is required')])
-  password = PasswordField('password', validators=[InputRequired('A password is required')])
-
+  username = StringField('Username', validators=[InputRequired('A username is required')])
+  password = PasswordField('Password', validators=[InputRequired('A password is required')])
+  submit_button = SubmitField('Submit')
+  
 class RegisterForm(FlaskForm):
   username = StringField('Username', validators=[InputRequired('A username is required')])
   first_name = StringField('First Name', validators=[InputRequired('A First Name is required')])
   password = PasswordField('Password', validators=[InputRequired('A password is required')])
+  submit_button = SubmitField('Submit')
 
 
 def do_login(u):

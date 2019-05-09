@@ -1,13 +1,19 @@
-{% extends "layout.html" %}
+{% extends "bootstrap/base.html" %}
 
-{% block style %}
+
+{% block title%}Maths{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
 <link href="/static/styles/module-header.css" rel="stylesheet">
-  
-  <style>
-  </style>
 {% endblock %}
 
-{% block body%}
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
 <div class="container">
     <H1>Maths Materials</H1>
 
@@ -17,118 +23,119 @@
 
     <h2>Past Papers</h2>
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item"><a class="nav-link active" id="tab46-tab" data-toggle="tab" href="#tab46" role="tab" aria-controls="tab46" aria-selected="true">Level 4-6</a></li>
-      <li class="nav-item"><a class="nav-link" id="tab57-tab" data-toggle="tab" href="#tab57" role="tab" aria-controls="tab57" aria-selected="true">Level 5-7</a></li>
-      <li class="nav-item"><a class="nav-link" id="tab68-tab" data-toggle="tab" href="#tab68" role="tab" aria-controls="tab68" aria-selected="false">Level 6-8</a></li>
-      <li class="nav-item"><a class="nav-link" id="igcse-tab" data-toggle="tab" href="#igcse" role="tab" aria-controls="igcse" aria-selected="false">iGCSE</a></li>
+    <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#tab46-tab" aria-controls="tab46-tab" role="tab" data-toggle="tab">Level 4-6</a></li>
+      <li role="presentation"><a href="#tab57-tab" aria-controls="tab57-tab" role="tab" data-toggle="tab">Level 5-7</a></li>
+      <li role="presentation"><a href="#tab68-tab" aria-controls="tab68-tab" role="tab" data-toggle="tab">Level 6-8</a></li>
+      <li role="presentation"><a href="#tabiGCSE-tab" aria-controls="tabiGCSE-tab" role="tab" data-toggle="tab">iGCSE</a></li>
     </ul>
-      <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="tab46" role="tabpanel" aria-labelledby="tab46-tab">
-
-              <h3>4-6</h3>
-              <div class="igcse-papers-grid">
-                  <div>2000</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/7n6lnjfbhicloi0/46-2000-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p1.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-              
-                  <div>2000</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/8vdz5xnfrnuzdge/46-2000-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-              
-                  <div>2001</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/eg0r5m28a1i5hwq/46-2001-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-                
-                  <div>2001</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/dm6v9x91pn3qz17/46-2001-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-    
-                  <div>2002</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/9zt84ienl48fls6/46-2002-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-                
-                  <div>2002</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/lnv8skkc612bhek/46-2002-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-    
-                  <div>2003</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/iz8uehyao1f6ark/46-2003-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-                
-                  <div>2003</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/6bmao8a45z9irti/46-2003-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/02izv0nk2yhcxjf/ms-2003-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-    
-    
-                  <div>2004</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/3f9pwzmzifkie17/46-2004-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/bm982bha7xbabxm/ms-2004-p1.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-                
-                  <div>2004</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/1xmajv0bd2w7ec6/46-2004-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/bp8t7w2vnqo8ijk/ms-2004-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-    
-                  <div>2005</div>
-                  <div>4-6</div>
-                  <div>Paper 1
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/ghm7gw91bwms4fw/46-2005-p1.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/z309vtopysn0847/ms-2005-p1.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-                
-                  <div>2005</div>
-                  <div>4-6</div>
-                  <div>Paper 2
-                  </div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/o6uy7bvpo0rxwgd/46-2005-p2.pdf?dl=0">Questions</a></div>
-                  <div><a target="_new" href="https://www.dropbox.com/s/253nee3jgcb9ot1/ms-2005-p2.pdf?dl=0">Mark Scheme</a></div>
-                  <div><a target="_new" >Solutions</a></div>
-              
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="tab46-tab">
+          <h3>4-6</h3>
+          <div class="igcse-papers-grid">
+              <div>2000</div>
+              <div>4-6</div>
+              <div>Paper 1
               </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/7n6lnjfbhicloi0/46-2000-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p1.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+          
+              <div>2000</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/8vdz5xnfrnuzdge/46-2000-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+          
+              <div>2001</div>
+              <div>4-6</div>
+              <div>Paper 1
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/eg0r5m28a1i5hwq/46-2001-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+            
+              <div>2001</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/dm6v9x91pn3qz17/46-2001-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
 
-            </div>
-        <div class="tab-pane fade show " id="tab57" role="tabpanel" aria-labelledby="tab57-tab">
+              <div>2002</div>
+              <div>4-6</div>
+              <div>Paper 1
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/9zt84ienl48fls6/46-2002-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+            
+              <div>2002</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/lnv8skkc612bhek/46-2002-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+
+              <div>2003</div>
+              <div>4-6</div>
+              <div>Paper 1
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/iz8uehyao1f6ark/46-2003-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/5t38c296krhcg1m/ms-2000-p2.pdf?dl=">Mark Scheme</a></div>
+              <div></div>
+            
+              <div>2003</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/6bmao8a45z9irti/46-2003-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/02izv0nk2yhcxjf/ms-2003-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+
+
+              <div>2004</div>
+              <div>4-6</div>
+              <div>Paper 1
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/3f9pwzmzifkie17/46-2004-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/bm982bha7xbabxm/ms-2004-p1.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+            
+              <div>2004</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/1xmajv0bd2w7ec6/46-2004-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/bp8t7w2vnqo8ijk/ms-2004-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+
+              <div>2005</div>
+              <div>4-6</div>
+              <div>Paper 1
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/ghm7gw91bwms4fw/46-2005-p1.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/z309vtopysn0847/ms-2005-p1.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+            
+              <div>2005</div>
+              <div>4-6</div>
+              <div>Paper 2
+              </div>
+              <div><a target="_new" href="https://www.dropbox.com/s/o6uy7bvpo0rxwgd/46-2005-p2.pdf?dl=0">Questions</a></div>
+              <div><a target="_new" href="https://www.dropbox.com/s/253nee3jgcb9ot1/ms-2005-p2.pdf?dl=0">Mark Scheme</a></div>
+              <div></div>
+          
+          </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="tab57-tab">
           <h3>5-7</h3>
           <div class="igcse-papers-grid">
               <div>2000</div>
@@ -137,7 +144,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/65e8pacq6m5ok71/57-2000-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/2wkpqs20isnmypj/ms-2000-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
           
               <div>2000</div>
               <div>5-7</div>
@@ -153,7 +160,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/seqmiihyi6qvy7z/57-2001-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/n38eyi7zxkrqlmu/ms-2001-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2001</div>
               <div>5-7</div>
@@ -161,7 +168,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/xl4zyj88xswj1cn/57-2001-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/7uqcj5twgma65uy/ms-2001-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2002</div>
               <div>5-7</div>
@@ -169,7 +176,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/sxzmvsdk0kp2sj0/57-2002-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/n6s3eexa9m65u4r/ms-2002-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2002</div>
               <div>5-7</div>
@@ -177,7 +184,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/3x92cv9twesmjws/57-2002-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/qdbks63gnvxam9l/ms-2002-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2003</div>
               <div>5-7</div>
@@ -185,7 +192,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/785m9vq5h1h2bjt/57-2003-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/ielayg8o1gvedmi/ms-2003-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2003</div>
               <div>5-7</div>
@@ -193,7 +200,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/1ilo0m8ln0vhxqv/57-2003-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/02izv0nk2yhcxjf/ms-2003-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
 
               <div>2004</div>
@@ -202,7 +209,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/qk7atf1njxdtw23/57-2004-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/bm982bha7xbabxm/ms-2004-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2004</div>
               <div>5-7</div>
@@ -210,7 +217,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/u5jn9igf46f52xn/57-2004-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/bp8t7w2vnqo8ijk/ms-2004-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2005</div>
               <div>5-7</div>
@@ -218,7 +225,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/ijik2lknsztg3rt/57-2005-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/z309vtopysn0847/ms-2005-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2005</div>
               <div>5-7</div>
@@ -226,10 +233,10 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/nswpjss3fag3bje/57-2005-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/253nee3jgcb9ot1/ms-2005-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
           </div>
-        </div>
-        <div class="tab-pane fade" id="tab68" role="tabpanel" aria-labelledby="tab68-tab">
+      </div>
+      <div role="tabpanel" class="tab-pane" id="tab68-tab">
           <h3>6-8</h3>
           <div class="igcse-papers-grid">
               <div>2000</div>
@@ -254,7 +261,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/tx7fmh727fgh2jy/68-2001-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/n38eyi7zxkrqlmu/ms-2001-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2001</div>
               <div>6-8</div>
@@ -262,7 +269,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/avilx593x5zrdl9/68-2001-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/7uqcj5twgma65uy/ms-2001-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2002</div>
               <div>6-8</div>
@@ -270,7 +277,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/t8romqnz3yb7lx8/68-2002-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/n6s3eexa9m65u4r/ms-2002-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2002</div>
               <div>6-8</div>
@@ -278,7 +285,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/kwxth2cr8ao2d6f/68-2002-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/qdbks63gnvxam9l/ms-2002-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2003</div>
               <div>6-8</div>
@@ -286,7 +293,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/wgpbv3x4okdsovp/68-2003-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/ielayg8o1gvedmi/ms-2003-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2003</div>
               <div>6-8</div>
@@ -294,7 +301,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/uba4vf5ulks3q03/68-2003-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/02izv0nk2yhcxjf/ms-2003-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
 
               <div>2004</div>
@@ -303,7 +310,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/ksuftzoygiy0lkq/68-2004-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/bm982bha7xbabxm/ms-2004-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2004</div>
               <div>6-8</div>
@@ -311,7 +318,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/x803q4h99qtrc66/68-2004-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/bp8t7w2vnqo8ijk/ms-2004-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
               <div>2005</div>
               <div>6-8</div>
@@ -319,7 +326,7 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/nrh2xtxif61ft5i/68-2005-p1.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/z309vtopysn0847/ms-2005-p1.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
             
               <div>2005</div>
               <div>6-8</div>
@@ -327,15 +334,13 @@
               </div>
               <div><a target="_new" href="https://www.dropbox.com/s/f0u110uew4x8akn/68-2005-p2.pdf?dl=0">Questions</a></div>
               <div><a target="_new" href="https://www.dropbox.com/s/253nee3jgcb9ot1/ms-2005-p2.pdf?dl=0">Mark Scheme</a></div>
-              <div><a target="_new" >Solutions</a></div>
+              <div></div>
 
             
             
           </div>
-              
-        </div>
-        <div class="tab-pane fade" id="igcse" role="tabpanel" aria-labelledby="igcse-tab">
-
+      </div>
+      <div role="tabpanel" class="tab-pane" id="tabiGCSE-tab">
           <h3>iGCSE</h3>
           <div class="igcse-papers-grid">
       
@@ -359,14 +364,14 @@
               <div>Paper 1H</div>
               <div><a href="https://www.dropbox.com/s/jkils9z3xr2xw24/4MA1_1H_que_20190110.pdf?dl=0">Questions</a></div>
               <div><a href="https://www.dropbox.com/s/w8fwbrumx7r1sko/4MA1_1H_msc_2019307.pdf?dl=0">Mark Scheme</a></div>
-              <div><a >Solutions</a></div>
+              <div></div>
               
               <div>2019</div>
               <div>Resit</div>
               <div>Paper 1HR</div>
               <div><a href="https://www.dropbox.com/s/hl843mx7m5aa4rg/4MA1_1HR_que_20190110.pdf?dl=0">Questions</a></div>
               <div><a href="https://www.dropbox.com/s/93l9pbuuo73dlrt/4MA1_1HR_msc_20190307.pdf?dl=0">Mark Scheme</a></div>
-              <div><a >Solutions</a></div>
+              <div></div>
             
               <div>2019</div>
               <div>Resit</div>
@@ -380,7 +385,7 @@
               <div>Paper 2HR</div>
               <div><a href="https://www.dropbox.com/s/vs82clioyjk2aou/4MA1_2HR_que_20190116.pdf?dl=0">Questions</a></div>
               <div><a href="https://www.dropbox.com/s/lh7p6098fyeeful/4MA1_2HR_msc_20190307.pdf?dl=0">Mark Scheme</a></div>
-              <div><a >Solutions</a></div>
+              <div></div>
               
             
               <div>2018</div>
@@ -412,18 +417,10 @@
               <div><a href="https://www.dropbox.com/s/yg9pqr5eola1h4q/4MA1_2HR_rms_20180822.pdf?dl=0">Mark Scheme</a></div>
               <div><a href="https://www.dropbox.com/s/c46ufwpw09wrp57/4MA1_2HR_que_20180608%20Solutions.pdf?dl=0">Solutions</a></div>
               
-        
-        
           </div> 
-        </div>
       </div>
+    </div>
 
-
-    
-      
-
-
-    
     
 </div>
 {% endblock %}

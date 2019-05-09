@@ -1,29 +1,20 @@
-{% extends "layout-slide.html" %}
+{% extends "bootstrap/base.html" %}
+
 
 {% block title%}Trigonometry{% endblock %}
 
-{% block style%}
-<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
-<style>
-
-  .remember {
-    border: solid 2px #f50642;
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-
-</style>
-<script src="/static/js/q-a.js"></script>
-
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+<link href="/static/styles/module-header.css" rel="stylesheet">
 {% endblock %}
-{% block body%}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+
+{% block content%}
 <div class="container">
     
     <div class="content">
@@ -40,12 +31,7 @@
           <tbody>
               <tr><td>1.</td><td><a href="/maths/trig/pythag">Pythagoras Theorem</a></td></tr>
               <tr><td>2.</td><td><a href="/maths/trig/sohcahtoa">SOHCAHTOA</a></td></tr>
-
-
-
-
           </tbody>
-          
         </table>        
     </div>
 </div>

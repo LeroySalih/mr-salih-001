@@ -1,6 +1,6 @@
 
 from flask import Blueprint, render_template, abort 
-from sql.db import db, cursor
+from sql.db import get_db
 
 question_bank_BP = Blueprint('questions', __name__, template_folder='templates')
 
@@ -13,9 +13,11 @@ def show_maths():
 
 @question_bank_BP.route('/quiz/create')
 def quiz_create():
+  db = get_db()
+  cursor = db.cursor()
   cursor.execute("SELECT * FROM QUIZ_QUESTIONS")
   data = cursor.fetchall()
-  
+  db.close()
   return "Creating A quiz"
 
 

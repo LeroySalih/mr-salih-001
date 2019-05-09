@@ -1,17 +1,22 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-  {% extends "layout.html" %}
-  {% block title %}www.mrsalih.com{% endblock %}
+{% block title%}mrsalih.com{% endblock %}
 
-  {% block style %}
-  
-  <link href="/static/styles/index.css" rel="stylesheet">
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+<link href="/static/styles/index.css" rel="stylesheet">
   <style>
+    .navbar {
+      margin-bottom: 0px;
+    }
+
     body {
       background-color: rgb(240, 238, 238);
     }
     .top-half {
       height: 50vh;
-
       background: rgb(177, 247, 237);
     }
 
@@ -29,10 +34,7 @@
 
     .landing-heading {
       margin-top: 150px;
-      
-    }
-    .landing-heading {
-      max-width: max-content;
+      width: 80vw;
     }
 
     .landing-heading h1 {
@@ -64,7 +66,7 @@
     }
 
     .block h1 {
-      font-size: 1rem;
+      font-size: 2rem;
       display: inline;
     }
 
@@ -74,9 +76,16 @@
       flex:1;
     }
   </style>
-  {% endblock %}
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+
+
   
-  {% block body %}
+  {% block content %}
   <div class="top-half">
   <section class="content">
       <section class="landing-heading ">

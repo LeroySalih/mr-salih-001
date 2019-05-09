@@ -3,7 +3,7 @@ from flask_login import UserMixin
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from sql.db import cursor
+from sql.db import get_db
 from sql.users import sqlREAD_USERS, sqlREAD_USER, sqlREAD_USER_BY_FIRST_NAME, sqlREAD_USER_BY_USERNAME, sqlDROP_USER_TABLE, sqlCREATE_USER_TABLE, sqlADD_USERS
 
 
@@ -67,6 +67,8 @@ class User(UserMixin):
   def get_all():
     users = []
 
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlREAD_USERS)
 
     results = cursor.fetchall()
@@ -74,12 +76,16 @@ class User(UserMixin):
     for record in results:
       users.append(User(record))
 
+    db.close()
     return users
 
   @staticmethod
   def get_by_id(id): 
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlREAD_USER.format(id))
     result = cursor.fetchone()
+    db.close()
     if result == None: 
       return None
     return User(result) 
@@ -87,16 +93,21 @@ class User(UserMixin):
   @staticmethod 
   def get_by_first_name(first_name):
     users = []
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlREAD_USER_BY_FIRST_NAME.format(first_name))
     for record in cursor.fetchall():
       users.append(User(record))
-    
+    db.close()
     return users
 
   @staticmethod
   def get_by_username(username):
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlREAD_USER_BY_USERNAME.format(username))
     user = cursor.fetchone()
+    db.close()
     if user == None:
       return None 
     else: 
@@ -105,16 +116,22 @@ class User(UserMixin):
 
   @staticmethod
   def add_user(u):
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlADD_USERS.format(first_name=u.first_name, username=u.username, password=u.password))
     #reload user with ID
     u = User.get_by_username(u.username)
+    db.close()
     return u
     
   
   @staticmethod
   def create_tables():
+    db = get_db()
+    cursor = db.cursor()
     cursor.execute(sqlDROP_USER_TABLE)
     cursor.execute(sqlCREATE_USER_TABLE)
+    db.close()
     
 
 

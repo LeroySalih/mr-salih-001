@@ -1,7 +1,11 @@
-{% extends "layout.html" %}
+{% extends "bootstrap/base.html" %}
+{% block title%}Computing{% endblock %}
 
-{% block style %}
-  <link href="/static/styles/module-header.css" rel="stylesheet">
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+<link href="/static/styles/module-header.css" rel="stylesheet">
+<link href="/static/styles/module-header.css" rel="stylesheet">
   <style>
     .module-container {
       display: flex;
@@ -53,7 +57,11 @@
   </style>
 {% endblock %}
 
-{% block body%}
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
 <div class="container">
     <H1>Computing Materials</H1>
     <h2>Modules</h2>

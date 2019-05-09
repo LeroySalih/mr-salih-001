@@ -1,26 +1,32 @@
-{% extends "layout-slide.html" %}
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title%}Login{% endblock %}
-{% block body %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 align-middle">
+
+      </div>
+    </div>
     <H1>Login</H1>
     <form method="POST" action="/users/login">
-      {{ form.csrf_token }}
-      {{ form.username.label }}
-      {{ form.username }}
-      <ul>
-        {% for error in form.username.errors %}
-        <li style="color:red">{{error}}</li>
-        {% endfor %}
-      </ul>
-      {{ form.password.label }}
-      {{ form.password }}
-      <ul>
-        {% for error in form.password.errors %}
-        <li style="color:red">{{error}}</li>
-        {% endfor %}
-      <input type="submit">
+      
+      {{ wtf.quick_form(form, button_map={'submit_button': 'primary'})}} 
+      
     </form>
-    <div>
-      {{message}}
-    </div>
+  </div>
+    
+    
 {% endblock %}
