@@ -1,8 +1,25 @@
-h1 {
-  color: red
+html {
+  scroll-behavior: smooth;
 }
 
-.slideImg {
-  border: none !important;
-  box-shadow: none !important;
+h1 {
+  color: black;
+  font-family: 'Ropa Sans'
 }
+
+
+.remember {
+  border: solid 2px #f50642;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.task {
+  border: solid 2px #f5f106;
+  background-color: #f8f79e;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+

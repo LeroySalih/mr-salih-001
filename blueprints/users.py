@@ -13,9 +13,6 @@ from wtforms import StringField, PasswordField, SubmitField
 
 usersBP = Blueprint('users', __name__, template_folder='templates')
 
-#login_manager = LoginManager()
-#login_manager.init_app(app)
-
 
 @usersBP.route('/')
 def show_users():

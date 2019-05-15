@@ -17,13 +17,13 @@ def maths_algebra():
 def maths_algebra_simplifying(moduleId):
   return render_template('maths/algebra/{0}.html'.format(moduleId))
 
-@mathsBP.route('/trig')
+@mathsBP.route('/geometry')
 def maths_trig():
-  return render_template('maths/trig/module-header-trig.html')
+  return render_template('maths/geometry/module-header.html')
 
-@mathsBP.route('/trig/<moduleId>')
+@mathsBP.route('/geometry/<moduleId>')
 def maths_trig_module(moduleId):
-  return render_template('maths/trig/{0}.html'.format(moduleId))
+  return render_template('maths/geometry/{0}.html'.format(moduleId))
 
 @mathsBP.route('/venn-diagrams')
 def maths_venn_diagrams():
@@ -32,7 +32,14 @@ def maths_venn_diagrams():
 @mathsBP.route('/functions')
 def maths_functions():
   return render_template("maths/functions.html")
+  
 
-@mathsBP.route('/past-papers')
-def maths_past_papers():
-  return render_template("maths/past-papers.html")
+@mathsBP.route('/mini-projects')
+def maths_mini_projects():
+  return render_template("maths/mini-projects/module-header.html")
+
+@mathsBP.route('/mini-projects/<moduleId>')
+def maths_mini_projects_file(moduleId):
+  return render_template("maths/mini-projects/{moduleId}.html".format(moduleId))
+
+

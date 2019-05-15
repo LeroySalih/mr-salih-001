@@ -11,6 +11,7 @@ import config
 
 
 app = Flask(__name__)
+app.logger.info('This is a log message!')  
 
 app.config['SECRET_KEY'] = 'thisisasecret'
 app.config.from_object(config)
