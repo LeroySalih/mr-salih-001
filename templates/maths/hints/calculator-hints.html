@@ -1,0 +1,92 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Calculator Hints{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+<style>
+
+</style>
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <h1>Calculator Hints</h1>
+          <p>Although it is vital to be able to generate solutions to questions using correct methods, it is also very handy to be able to check our answers using a calculator.</p>
+          <p>This page lists the common functions of a CASIO calculator that can help us perform these checks.</p>
+          <section>
+              <h3>Mode Check</h3>
+              <p>Check that your calculator is in the correct mode.</p>
+              <table>
+                <tr><td style="padding: 5px; width: 200px; background-color: silver; font-family: 'digital'">sin(30)</td>
+                    <td rowspan="2" style="font-family: 'Courier New'; ">
+                        <div style="margin: 10px; border: solid silver 2px; border-radius: 10px; padding: 15px;">
+                            <p>If you do not get sin(30) = 0.5, you are in the incorrect mode.</p>
+                            <p>To change to DEGREES</p>
+                            <p>[shift] [setup] 3</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td style="padding: 15px; width: 200px; background-color: silver; text-align: right; font-family: 'digital'">0.5</td></tr>
+              </table>
+          </section>
+
+          <section>
+              <h3>Prime Factors</h3>
+              <p>Calculate the prime factors of a number.</p>
+              <table>
+                <tr><td style="padding: 5px; width: 200px; background-color: silver; font-family: 'digital'">30</td>
+                    <td rowspan="2" style="font-family: 'Courier New'; ">
+                        <div style="margin: 10px; border: solid silver 2px; border-radius: 10px; padding: 15px;">
+                            <p>30 =</p>
+                            <p>[shift] FACT</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td style="padding: 15px; width: 200px; background-color: silver; text-align: right; font-family: 'digital'">2x3x5</td></tr>
+              </table>
+          </section>
+
+          <section>
+              <h3>Recurring Decimals</h3>
+              <p>Convert recurring decimals to fractions.</p>
+              <table>
+                <tr><td style="padding: 5px; width: 200px; background-color: silver; font-family: 'digital'">
+                    <p>&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
+                    <p>0.125</p>
+                  </td>
+                    <td rowspan="2" style="font-family: 'Courier New'; ">
+                        <div style="margin: 10px; border: solid silver 2px; border-radius: 10px; padding: 15px;">
+                            <p>0. =</p>
+                            <p>[shift] x^2 </p>
+                            <p>125</p>
+                            <p>=</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td style="padding: 15px; width: 200px; background-color: silver; text-align: right; font-family: 'digital'">
+                  <p  style="text-decoration: underline">125</p>
+                  <p>999</p>
+                </td></tr>
+              </table>
+          </section>
+      </div>
+
+      
+      
+      
+    </div>
+  </div>
+    
+    
+{% endblock %}

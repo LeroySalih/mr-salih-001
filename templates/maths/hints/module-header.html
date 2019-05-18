@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Maths Hints Pages{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+<style>
+
+</style>
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <section>
+        <h1>Maths Hints Pages</h1>
+        <p>A collection of hints and tips to help with maths.</p>
+      </section>
+      <div class="index-content">
+          <div class="container">
+                  <a href="/maths/hints/calculator-hints">
+                      <div class="col-lg-4">
+                          <div class="card">
+                              <p><h2 style="padding: 20px;">Calculator Tips</h2></p>
+                              <a href="/maths/hints/calculator-hints" class="blue-button">Read more</a>
+                          </div>
+                      </div>
+                  </a>
+
+                  <a href="/maths/hints/geogebra-hacks">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <p><h2 style="padding: 20px;">Geogebra Tips</h2></p>
+                            <a href="/maths/hints/geogebra-hacks" class="blue-button">Read more</a>
+                        </div>
+                    </div>
+                </a>
+                  
+                  
+      
+          </div>
+      </div>
+      
+    </div>
+  </div>
+    
+    
+{% endblock %}

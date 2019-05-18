@@ -43,3 +43,13 @@ def maths_mini_projects_file(moduleId):
   return render_template("maths/mini-projects/{moduleId}.html".format(moduleId))
 
 
+@mathsBP.route('/hints')
+def maths_hints():
+  return render_template("maths/hints/module-header.html")
+
+@mathsBP.route('/hints/<moduleId>')
+def maths_hints_file(moduleId):
+
+  return render_template("maths/hints/{moduleId}.html".format(moduleId=moduleId))
+
+
