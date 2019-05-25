@@ -1,0 +1,98 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Intro To HTML{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+ <!-- Polymer WebElement Files -->
+ <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+  
+ <!-- Polymer Web App -->
+  <script type="module" src="/static/webcomponents/SlideVideo.js"></script>
+  <script type="module" src="/static/webcomponents/lo.js"></script>
+  <script type="module" src="/static/webcomponents/pro-con.js"></script>
+  <script type="module" src="/static/webcomponents/timeline.js"></script>
+ 
+<style>
+
+
+
+  h2:before {
+    background-image: url();
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin-right:10px; 
+    content:"";
+  }
+
+  .table_design {
+    width: 80%;
+    border: dashed green 5px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+</style>
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="container" style="overflow-y: auto">
+
+  <div class="sidebar">
+    <a href="applystyles">Applying Styles</a>
+    <a href="#additional">Additional Resources</a>
+  </div>
+
+
+  <div class="content">        
+    <section>
+      <a name="css"><h2>Styling Your CV Web Page</h2></a>
+      <my-lo mdd="">
+        <p>To be able to:</p>
+        <p>Apply styles to elements of your Web Page</p>
+      </my-lo>
+
+      <h3>What is CSS</h3>
+      <div>Text goes here....</div>
+
+      <h3>You Try</h3>
+      <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="leroysalih" data-slug-hash="bZMVjo" data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS Tutorial">
+          <span>See the Pen <a href="https://codepen.io/leroysalih/pen/bZMVjo/">
+          CSS Tutorial</a> by Leroy Salih (<a href="https://codepen.io/leroysalih">@leroysalih</a>)
+          on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+      <a name="#applystyles"></a>
+      <h3>Applying Styles</h3>
+      <div>Continue from the Mr Salih CV you created last lesson.</div>
+      <div>Follow the video to recreate the styled CV for Mr Salih.</div>
+      <my-slide-video  videoUrl="https://www.dropbox.com/s/0cz7i9f5rv05byc/BasicCSS.mp4?raw=1">
+            
+      </my-slide-video>
+
+      <div class="task">
+          <h3>Style Your CV</h3>
+          <p>Using what you gave practised,</p>
+          <ul>
+      
+            <li>Style your own CV, you can reuse the sections in Mr Salih's CV, or create your own.</li>
+            <li>Remember that the whole world will be able to see your CV.</li>
+          </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% endblock %}
+
+

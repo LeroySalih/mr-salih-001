@@ -54,6 +54,11 @@ def computing_web_server():
 def computing_web_design():
   return render_template("computing/web/web-design-with-figma.html")
 
+
+@computingBP.route('/web/intro-html/<moduleId>')
+def computing_intro_html_css_js(moduleId):
+  return render_template(f"computing/web/intro-html/{moduleId}.html")
+
 @computingBP.route('/python/<module>')
 def computing_python_challenges(module):
   return render_template("computing/python/{}.html".format(module))

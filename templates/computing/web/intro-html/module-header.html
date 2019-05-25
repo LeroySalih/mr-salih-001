@@ -1,0 +1,40 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title%}Intro to Web Development{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+<link href="/static/styles/module-header.css" rel="stylesheet">
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+
+{% block content%}
+<div class="container">
+    
+    <div class="content">
+        <div style="display: flex; flex-direction: row;">
+            <a name="home">
+              <img src="/static/images/7684 - Math Book I.svg" style="height: 3rem; width: 3rem; margin-top: 1rem;"><h1>Intro to Web Development</h1></a>
+        </div>
+        
+
+        <table>
+          <thead>
+            <tr><th>Week</th><th>Topic</th></tr>
+          </thead>
+          <tbody>
+              <tr><td>1.</td><td><a href="/computing/web/intro-html/intro-html">Intro to HTML</a></td></tr>
+              <tr><td>2.</td><td><a href="/computing/web/intro-html/intro-css">Intro to CSS</a></td></tr>
+              <tr><td>3.</td><td><a href="/computing/web/intro-html/intro-js">Intro to JS</a></td></tr>
+          </tbody>
+          
+        </table>        
+    </div>
+</div>
+{% endblock %}
