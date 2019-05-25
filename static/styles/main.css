@@ -107,4 +107,32 @@ h1 {
 
 /* End of Module Header Styles */
 
+/* ************* */
+/* Lesson Styles */
+
+.sidebar {
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 80px;
+    left: 10;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+  .sidebar a{
+    display: block;
+    padding-top: 10px;
+  }
+
+  .content{
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+  }
+
+  section{
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgb(50, 100, 50);
+    margin-bottom: 50px;
+
+  }
 

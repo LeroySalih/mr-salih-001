@@ -1,30 +1,33 @@
-{% extends "layout-slide.html" %}
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-{% block title%}Creating Tables
-{% endblock %}
+{% block title%}Creating Tables{% endblock %}
 
-{% block style%}
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+ <!-- Polymer WebElement Files -->
+ <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+  
+ <!-- Polymer Web App -->
+  <script type="module" src="/static/webcomponents/SlideVideo.js"></script>
+  <script type="module" src="/static/webcomponents/lo.js"></script>
+  <script type="module" src="/static/webcomponents/pro-con.js"></script>
+  <script type="module" src="/static/webcomponents/timeline.js"></script>
+ 
 <style>
-  section{
 
-    padding-bottom: 50px;
-    border-bottom: 2px solid rgb(50, 100, 50);
-    margin-bottom: 50px;
 
-  }
 
   h2:before {
-
-
-background-image: url('/static/images/13-Data Management.svg');
-  background-size: 30px 30px;
-  display: inline-block;
-  width: 30px; 
-  height: 30px;
-  margin-right:10px; 
-  content:"";
-
-}
+    background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin-right:10px; 
+    content:"";
+  }
 
   .table_design {
     width: 80%;
@@ -33,243 +36,248 @@ background-image: url('/static/images/13-Data Management.svg');
     border-radius: 20px;
     margin-bottom: 30px;
   }
-
 </style>
-{% endblock%}
+{% endblock %}
 
-{% block body%}
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
 
-  <div class="container">
-    <div class="sidebar">
-      <a class="active" href="#home">Home</a>
-      
-      <a href="#keywords">Keywords</a>
-      <a href="#design">Designing our table.</a>
-      <a href="#build">Building our table.</a>
-     
-      <a href="#additional">Additional Resources</a>
-      
-    </div>
+{% block content %}
 
-    <div class="content">        
-        <a name="home"><h1>Creating Tables</h1></a>
+  <div class="container" style="overflow-y: auto">
 
-
-
-        <div>
-          In this module we are going to practice <b>Creating</b> tables to hold our data.
+        <div class="sidebar">
+          <a class="active" href="#home">Home</a>
+          <a href="#keywords">Keywords</a>
+          <a href="#design">Designing our table.</a>
+          <a href="#build">Building our table.</a>
+          <a href="#additional">Additional Resources</a>
         </div>
 
-        
+
+        <div class="content" >
+            <a name="home"><h1>Creating Tables</h1></a>
 
 
 
-
-
-        <section>
-          <a name="keywords"><h3>Keywords</h3></a>
-          <my-lo >
-            <p>
-              To be able to describe:
-              <ul>
-                <li>A Table - the structure used to store data.</li>
-                <li>A Record - a single entity in our database.</li>
-                <li>A Field - a property of each record.</li> 
-              </ul>
-            </p>
-            <p>To be able to design a table, choosing appropriate data types.</p>
-            <p>To be able to build a table, using MYSQL commands.</p>
-
-          </my-lo>
-          
-        </section>
-
-
-        
-        <section>
-          <a name="defining"><h2>Key Words</h2></a>
-          <div>
-              <p>The following images demonstrate Tables, Records and Columns. These are the keywords used in this module.</p>
-              <img src="/static/modules/computing/database/intro/keywords-record.svg">
-              <img src="/static/modules/computing/database/intro/keywords-field.svg">
-  
+            <div>
+              In this module we are going to practice <b>Creating</b> tables to hold our data.
             </div>
-          <div>
-            <p>When we define our tables, we need to consider:</p>
-            <ul>
-              <li>Design: What fields will our table contain?, How will we identify each <b>unique</b> record within the the table?</li>
-              <li>Build: How can we build our table using MySQL commands.</li>
-            </ul>
-          </div>
-
-          
-
-
-          <a name="design"><h2>Designing our Table</h2></a>
-          <h3>Naming our Table</h3>
-          <div>
-            <p>Although there are no formal rules for naming tables, it is helpful to have a convention.</p>
-            <p>Table names generally follow these conventions:</p>
-            <ul>
-              <li>Names reflect the type of data held in the table.  E.g. a table containing information on pupils, should be called <code>PUPILS</code>, not <code>Stuff for people</code>.  </li>
-              <li>Names are usually plurals. E.g. <code>CARS</code> not <CODE>CAR</CODE></li>
-              <li>Names are usually UPPER CASE. E.g. <code>ORDERS</code> not <code>Orders</code></li>
-            </ul>
-          </div>
-
-          <h3>Chosing Fields</h3>
-          <div>
-            <p>A table will contain the same fields for each record.</p>
-            <p>Each field will have a number of attributes: </p>
-            <ul>
-              <li>Field Name - e.g. First Name, Date of Birth, etc</li>
-              <li>Data Type - e.g. CHAR, VARCHAR, INT, FLOAT, BOOL, etc</li>
-              <li>Length - the size allocated to store the field</li>
-              <li>Allow NULL - can the field be empty or a value is mandatory</li>
-              <li>PRrimary Key - this field will uniquely identify the record</li>
-            </ul>
-
-            <p>To help us organise the design of a Table, we use a grid of fields, such as below.</p>
-            <div class="table_design">
-              <h3>Table: Pupils</h3>
-              <table class="table">
-                <thead>
-                  <th>Field Name</th>
-                  <th>Data Type</th>
-                  <th>Length</th>
-                  <th>ALLOW NULL</th>
-                  <th>Primary Key</th>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>Pupil Id</td>
-                      <td>INT</td>
-                      <td>1</td>
-                      <td>NO</td>
-                      <td>Yes</td>
-                    </tr>
-                    <tr>
-                      <td>FirstName</td>
-                      <td>VARCHAR</td>
-                      <td>255</td>
-                      <td>NO</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>FamilyName</td>
-                      <td>VARCHAR</td>
-                      <td>255</td>
-                      <td>NO</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Date Of Birth</td>
-                      <td>DATE</td>
-                      <td>1</td>
-                      <td>NO</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Address</td>
-                      <td>VARCHAR</td>
-                      <td>1024</td>
-                      <td>NO</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Gender</td>
-                      <td>CHAR</td>
-                      <td>1</td>
-                      <td>YES</td>
-                      <td></td>
-                    </tr>
-                
-                    <tr>
-                      <td>Distance To School</td>
-                      <td>FLOAT</td>
-                      <td>1</td>
-                      <td>YES</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Absences</td>
-                      <td>INT</td>
-                      <td>1</td>
-                      <td>YES</td>
-                      <td></td>
-                    </tr>
-                </tbody>
-                
-              </table>
-            </div>
-          </div>
-
-          <a name="build"><h2>Building Our Table</h2></a>
-          <div>
-            <p>We can take our design, and convert it to a MySQL command to create the table in the server.</p>
-            <p>The command to create a table is:</p>
-            <code>CREATE TABLE TABLENAME ( field description )</code>
-            <p>For a full set of options that we can use to build tables, visit <a target="_new" href="http://www.mysqltutorial.org/mysql-create-table/">Here</a></p>
-            <p>The following code shows the SQL for the PUPILS table.</p>
-            <p>
-              <pre><code>
-USE &lt;you database name&gt;;
-
-CREATE TABLE PUPILS (
-    pupil_id            INT NOT NULL,
-    first_name          VARCHAR(255) NOT NULL,
-    family_name         VARCHAR(255) NOT NULL,
-    date_of_birth       DATE NOT NULL,
-    address             VARCHAR(1024),
-    distance_to_school  INT,
-    gender              CHAR,
-    absences            INT
-);
-</code>
-                </pre>
+    
+            
+    
+    
+    
+    
+    
+            <section>
+              <a name="keywords"><h3>Keywords</h3></a>
+              <my-lo >
+                <p>
+                  To be able to describe:
+                  <ul>
+                    <li>A Table - the structure used to store data.</li>
+                    <li>A Record - a single entity in our database.</li>
+                    <li>A Field - a property of each record.</li> 
+                  </ul>
+                </p>
+                <p>To be able to design a table, choosing appropriate data types.</p>
+                <p>To be able to build a table, using MYSQL commands.</p>
+    
+              </my-lo>
               
-            </p>
-            <div class="task" style="margin-bottom: 30px;">
-              <h3>Create the Pupils Table</h3>
-              <div>Using the <a href="https://remotemysql.com/phpmyadmin/server_sql.php">database admin page, and the code above</a>,  create the PUPILS table.</div>
-            </div>
-
-            <div class="task">
-              <h3>Design a House Description Table.</h3>
+            </section>
+    
+    
+            
+            <section>
+              <a name="defining"><h2>Key Words</h2></a>
               <div>
-                <p>We are going to create a table to hold the data for houses.</p>
-                <p>Look at the <b>description</b> section of <a href="https://www.rightmove.co.uk/property-for-sale/property-76905467.html">this web page.</a></p>
-                <p>What would be a good name for our table?</p>
-                <p>What fields do we need in our table to store the data in the description section?</p>
+                  <p>The following images demonstrate Tables, Records and Columns. These are the keywords used in this module.</p>
+                  <img src="/static/modules/computing/database/intro/keywords-record.svg">
+                  <img src="/static/modules/computing/database/intro/keywords-field.svg">
+      
+                </div>
+              <div>
+                <p>When we define our tables, we need to consider:</p>
                 <ul>
-                  <li>Create a web page repl on repl.it</li>
-                  <li>Using HTML, and the TABLE tag, design your table to hold house description data.</li>
-                  <li>Using the database admin page, Write a MySQL command that will create the table.</li>
-                  <li>Place this command in your web page.</li>
+                  <li>Design: What fields will our table contain?, How will we identify each <b>unique</b> record within the the table?</li>
+                  <li>Build: How can we build our table using MySQL commands.</li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </section>
-
-       
+    
+              
+    
+    
+              <a name="design"><h2>Designing our Table</h2></a>
+              <h3>Naming our Table</h3>
+              <div>
+                <p>Although there are no formal rules for naming tables, it is helpful to have a convention.</p>
+                <p>Table names generally follow these conventions:</p>
+                <ul>
+                  <li>Names reflect the type of data held in the table.  E.g. a table containing information on pupils, should be called <code>PUPILS</code>, not <code>Stuff for people</code>.  </li>
+                  <li>Names are usually plurals. E.g. <code>CARS</code> not <CODE>CAR</CODE></li>
+                  <li>Names are usually UPPER CASE. E.g. <code>ORDERS</code> not <code>Orders</code></li>
+                </ul>
+              </div>
+    
+              <h3>Chosing Fields</h3>
+              <div>
+                <p>A table will contain the same fields for each record.</p>
+                <p>Each field will have a number of attributes: </p>
+                <ul>
+                  <li>Field Name - e.g. First Name, Date of Birth, etc</li>
+                  <li>Data Type - e.g. CHAR, VARCHAR, INT, FLOAT, BOOL, etc</li>
+                  <li>Length - the size allocated to store the field</li>
+                  <li>Allow NULL - can the field be empty or a value is mandatory</li>
+                  <li>PRrimary Key - this field will uniquely identify the record</li>
+                </ul>
+    
+                <p>To help us organise the design of a Table, we use a grid of fields, such as below.</p>
+                <div class="table_design">
+                  <h3>Table: Pupils</h3>
+                  <table class="table">
+                    <thead>
+                      <th>Field Name</th>
+                      <th>Data Type</th>
+                      <th>Length</th>
+                      <th>ALLOW NULL</th>
+                      <th>Primary Key</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>Pupil Id</td>
+                          <td>INT</td>
+                          <td>1</td>
+                          <td>NO</td>
+                          <td>Yes</td>
+                        </tr>
+                        <tr>
+                          <td>FirstName</td>
+                          <td>VARCHAR</td>
+                          <td>255</td>
+                          <td>NO</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>FamilyName</td>
+                          <td>VARCHAR</td>
+                          <td>255</td>
+                          <td>NO</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Date Of Birth</td>
+                          <td>DATE</td>
+                          <td>1</td>
+                          <td>NO</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Address</td>
+                          <td>VARCHAR</td>
+                          <td>1024</td>
+                          <td>NO</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Gender</td>
+                          <td>CHAR</td>
+                          <td>1</td>
+                          <td>YES</td>
+                          <td></td>
+                        </tr>
+                    
+                        <tr>
+                          <td>Distance To School</td>
+                          <td>FLOAT</td>
+                          <td>1</td>
+                          <td>YES</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Absences</td>
+                          <td>INT</td>
+                          <td>1</td>
+                          <td>YES</td>
+                          <td></td>
+                        </tr>
+                    </tbody>
+                    
+                  </table>
+                </div>
+              </div>
+    
+              <a name="build"><h2>Building Our Table</h2></a>
+              <div>
+                <p>We can take our design, and convert it to a MySQL command to create the table in the server.</p>
+                <p>The command to create a table is:</p>
+                <code>CREATE TABLE TABLENAME ( field description )</code>
+                <p>For a full set of options that we can use to build tables, visit <a target="_new" href="http://www.mysqltutorial.org/mysql-create-table/">Here</a></p>
+                <p>The following code shows the SQL for the PUPILS table.</p>
+                <p>
+                  <pre><code>
+    USE &lt;you database name&gt;;
+    
+    CREATE TABLE PUPILS (
+        pupil_id            INT NOT NULL,
+        first_name          VARCHAR(255) NOT NULL,
+        family_name         VARCHAR(255) NOT NULL,
+        date_of_birth       DATE NOT NULL,
+        address             VARCHAR(1024),
+        distance_to_school  INT,
+        gender              CHAR,
+        absences            INT
+    );
+    </code>
+                    </pre>
+                  
+                </p>
+                <div class="task" style="margin-bottom: 30px;">
+                  <h3>Create the Pupils Table</h3>
+                  <div>Using the <a href="https://remotemysql.com/phpmyadmin/server_sql.php">database admin page, and the code above</a>,  create the PUPILS table.</div>
+                </div>
+    
+                <div class="task">
+                  <h3>Design a House Description Table.</h3>
+                  <div>
+                    <p>We are going to create a table to hold the data for houses.</p>
+                    <p>Look at the <b>description</b> section of <a href="https://www.rightmove.co.uk/property-for-sale/property-76905467.html">this web page.</a></p>
+                    <p>What would be a good name for our table?</p>
+                    <p>What fields do we need in our table to store the data in the description section?</p>
+                    <ul>
+                      <li>Create a web page repl on repl.it</li>
+                      <li>Using HTML, and the TABLE tag, design your table to hold house description data.</li>
+                      <li>Using the database admin page, Write a MySQL command that will create the table.</li>
+                      <li>Place this command in your web page.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+           
+                
             
-        
-
-
-        <section>
-          <a name="additional"><h3>Additional Resources</h3></a>
-          <ul>
-            <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
-          </ul>
-        
-        </section>
+    
+    
+            <section>
+              <a name="additional"><h3>Additional Resources</h3></a>
+              <ul>
+                <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
+              </ul>
+            
+            </section>
+             
+      
          
-  
-     
-    </div>
+        </div>
+        </div>
+             
+      
   </div>
-
 {% endblock %}
+
 
 

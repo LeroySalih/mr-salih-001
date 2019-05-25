@@ -1,219 +1,232 @@
-{% extends "layout-slide.html" %}
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-{% block title%}Insert: Intro to Databses with MYSQL
-{% endblock %}
+{% block title%}Modelling with SketchUp{% endblock %}
 
-{% block style%}
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+ <!-- Polymer WebElement Files -->
+ <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+  
+ <!-- Polymer Web App -->
+  <script type="module" src="/static/webcomponents/SlideVideo.js"></script>
+  <script type="module" src="/static/webcomponents/lo.js"></script>
+  <script type="module" src="/static/webcomponents/pro-con.js"></script>
+  <script type="module" src="/static/webcomponents/timeline.js"></script>
+ 
 <style>
-  section{
 
-    padding-bottom: 50px;
-    border-bottom: 2px solid rgb(50, 100, 50);
-    margin-bottom: 50px;
 
-  }
 
   h2:before {
-
-
-background-image: url('/static/images/13-Data Management.svg');
-  background-size: 30px 30px;
-  display: inline-block;
-  width: 30px; 
-  height: 30px;
-  margin-right:10px; 
-  content:"";
-
-}
-
+    background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin-right:10px; 
+    content:"";
+  }
 </style>
-{% endblock%}
+{% endblock %}
 
-{% block body%}
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
 
-  <div class="container">
-    <div class="sidebar">
-      <a class="active" href="#home">Home</a>
-      
-      <a href="#setup">SetUp</a>
-      <a href="#inserts">Insert</a>
-     
-      <a href="#additional">Additional Resources</a>
-      
-    </div>
+{% block content %}
 
-    <div class="content">        
-        <a name="home"><h1>Inserting Data.</h1></a>
-        
-        <a name="inserts"><h2>INSERTS</h2></a>
-          <my-lo >
-            <p>
-              To be able to:
-              <ul>
-                <li>insert data into a single table where all fields are specified</li>
-                <li>insert data into a single table where all fields are some specified</li>
-              </ul>
-            </p>
-          </my-lo>
-        
-        <div>
-          In this module we are going to gain an understanding of how to <b><u>add</u></b> data to a single table.
+  <div class="container" style="overflow-y: auto">
+
+        <div class="sidebar">
+            <a class="active" href="#home">Home</a>
+            <a href="#setup">SetUp</a>
+            <a href="#inserts">Insert</a>
+            <a href="#additional">Additional Resources</a>
         </div>
 
-        <div class="task">
-            <h3>Task 1: Create INSERT Web Page</h3>
-            <p> We are going to create a web page that lists all of the queries that you write.</p>
-            <ul>
-              <li>Create a HTML repl page.</li>
-              <li>Using H1 tag, give the page a title, INSERTING data.</li>
-              <li>As you complete each task, copy the command to the index.html page with an appropriate heading.</li>
-              <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
-              <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
-            </ul>
 
+        <div class="content" >
+
+            <a name="home"><h1>Inserting Data.</h1></a>
+        
+            <a name="inserts"><h2>INSERTS</h2></a>
+              <my-lo >
+                <p>
+                  To be able to:
+                  <ul>
+                    <li>insert data into a single table where all fields are specified</li>
+                    <li>insert data into a single table where all fields are some specified</li>
+                  </ul>
+                </p>
+              </my-lo>
             
-          </div>
-
-          
-
-        
-
-        <section>
-          
-
-          <h3>Inserting Data</h3>
-          <div>
-            <p>To use our database, we are going to use the SQL language.</p>
-            <p>In SQL, to insert data, we use the <code>INSERT</code> command. </p>
-            <p>This command has the following format.</p>
-            <pre><code>
-              INSERT INTO &lt;table_name&gt;
-                (<fields>...)
-              VALUES  
-                ('Val1', 2, NULL)
-               
-            </code></pre>
-
-
-            <p>for example...</p>
-            <pre>
-              <code>
-                INSERT INTO PUPILS 
-                  (first_name, family_name)
-                VALUES 
-                  ('Billy', 'Bob')
-              </code>
-            </pre>
-            <p>Whether this command works depends on how we have 
-                specified the table.  If the table only has these fields, 
-                the data type is correct, then the command will work and the 
-                record will be added to the table.
+            <div>
+              In this module we are going to gain an understanding of how to <b><u>add</u></b> data to a single table.
+            </div>
+    
+            <div class="task">
+                <h3>Task 1: Create INSERT Web Page</h3>
+                <p> We are going to create a web page that lists all of the queries that you write.</p>
+                <ul>
+                  <li>Create a HTML repl page.</li>
+                  <li>Using H1 tag, give the page a title, INSERTING data.</li>
+                  <li>As you complete each task, copy the command to the index.html page with an appropriate heading.</li>
+                  <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
+                  <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
+                </ul>
+    
+                
+              </div>
+    
               
-            </p>
-            <p>
-              If the table definition has addition fields, that have been specified as NOT NULL, and no value has be supplied, then the command will fail and no record will be added to the 
-            </p>
-          </div>
-
-          
-        
-          
-
     
-             
+            
+    
+            <section>
+              
+    
+              <h3>Inserting Data</h3>
               <div>
-                <p>To run the exercises in this module, you first need to setup a <code>PUPILS</code> table.</p>
-                <ol>
-                  <li>log in to the <a href="https://remotemysql.com/phpmyadmin/server_sql.php" target="_new">remotemysql admin page</a>.</li>
-                  <li>Paste the following script to the SQL page.</li>
-                  <li>Ensure that you change the database name to reflect your database name.</li>
+                <p>To use our database, we are going to use the SQL language.</p>
+                <p>In SQL, to insert data, we use the <code>INSERT</code> command. </p>
+                <p>This command has the following format.</p>
+                <pre><code>
+                  INSERT INTO &lt;table_name&gt;
+                    (<fields>...)
+                  VALUES  
+                    ('Val1', 2, NULL)
+                   
+                </code></pre>
+    
+    
+                <p>for example...</p>
+                <pre>
                   <code>
-                    <pre>
-    #Replace with your database name
-    USE &lt;database_name&gt; ;
+                    INSERT INTO PUPILS 
+                      (first_name, family_name)
+                    VALUES 
+                      ('Billy', 'Bob')
+                  </code>
+                </pre>
+                <p>Whether this command works depends on how we have 
+                    specified the table.  If the table only has these fields, 
+                    the data type is correct, then the command will work and the 
+                    record will be added to the table.
+                  
+                </p>
+                <p>
+                  If the table definition has addition fields, that have been specified as NOT NULL, and no value has be supplied, then the command will fail and no record will be added to the 
+                </p>
+              </div>
     
-    DROP TABLE IF EXISTS PUPILS;
+              
+            
+              
     
-    CREATE TABLE PUPILS (
-      first_name 		    VARCHAR(255) NOT NULL,
-      family_name		    VARCHAR(255) NOT NULL,
-      form                      VARCHAR(3) NOT NULL,
-      date_of_birth	            DATE NOT NULL,
-      gender                    VARCHAR(1) 
-    );
+        
+                 
+                  <div>
+                    <p>To run the exercises in this module, you first need to setup a <code>PUPILS</code> table.</p>
+                    <ol>
+                      <li>log in to the <a href="https://remotemysql.com/phpmyadmin/server_sql.php" target="_new">remotemysql admin page</a>.</li>
+                      <li>Paste the following script to the SQL page.</li>
+                      <li>Ensure that you change the database name to reflect your database name.</li>
+                      <code>
+                        <pre>
+        #Replace with your database name
+        USE &lt;database_name&gt; ;
+        
+        DROP TABLE IF EXISTS PUPILS;
+        
+        CREATE TABLE PUPILS (
+          first_name 		    VARCHAR(255) NOT NULL,
+          family_name		    VARCHAR(255) NOT NULL,
+          form                      VARCHAR(3) NOT NULL,
+          date_of_birth	            DATE NOT NULL,
+          gender                    VARCHAR(1) 
+        );
+        
+        INSERT INTO PUPILS (first_name, family_name, form, date_of_birth) VALUES ('Bill', 'ElHabibbi ', '10B', '2012-05-04');
+        INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Jones ', '10B', '2012-05-04', 'M');
+        
+                  </code>
+        
+                    </ul>
+                  </div>
+                  
+          
     
-    INSERT INTO PUPILS (first_name, family_name, form, date_of_birth) VALUES ('Bill', 'ElHabibbi ', '10B', '2012-05-04');
-    INSERT INTO PUPILS (first_name, family_name, form, date_of_birth, gender) VALUES ('Bob', 'Jones ', '10B', '2012-05-04', 'M');
+                
+              <div class="task">
+                <h3>Task 2: Insert Data</h3>
+                <p>COPY and PASTE the script from the section above of the web page to the SQL Admin Page.  Rememeber to update the database details in the USE command. </p>
+                <p>Look at the INSERT fields, are all of the available fields used?</p>
+                <p>USING a SELECT command, display the data in the table.</p>
+                <p>What do you notice about the Gender field?</p>
+                <p>Using a <code>SELECT</code> command with a <code>WHERE gender IS NULL</code>, produce a list of records that have NULL in the gender field.</p>
+              </div>  
+            </section>
     
-              </code>
-    
+            <section>
+              <a name="datatypes"><h3>Data Types</h3></a>
+              <div>
+                <p>We know that every field will have a <code>DATA TYPE</code>, such as INTEGER, FLOAT, BOOL, VARCHAR, CHAR, etc.  When we add data to a table, we must ensure that the data we are passing, matches the data type of the field.  </p>
+                <ul>
+                 <li>INTEGERS and FLOATS are written as digits, e.g. <code>VALUES (123, 12.4)</code></li>
+                 <li>BOOLS are written as either words or digits, TRUE or 1 / FALSE or 0, with no quotes, e.g. <code>VALUES (TRUE, FALSE, 1, 0)</code></li>
+                 <li>CHARS and VARCHARs are written with either single or double quotes, e.g. <code>VALUES('Mr', "Salih")</code></li>
+                 <li>DATES are written is a number of different formats, but the easiest to use is as a string in the format YYYY-MM-DD, e.g. <code>VALUES('2019-01-31')</code> </li>
                 </ul>
               </div>
-              
-      
-
+            </section>
+    
+            <div class="task">
+              <h3>Task 3: Create an Estate Owner Table</h3>
+              <div>
+                <p>Create a table that will allow us to store an estate agent, using appropriate data types.  The table will store the following information.</p>
+                <ul>
+                  <li>Name</li>
+                  <li>Location</li>
+                  <li>Number of Employees</li>
+                  <li>Annual Income (in millions, to 2 decimal places)</li>
+                  <li>Currently Active (will be yes or no)</li>
+                  <li>Date Started Business</li>
+                  <li>Fax Number (may not be known)</li>
+                </ul>
+                <p>
+                  Once you have created the table, add three different estate agents to your table.
+    
+                </p>
+                <p>Once you have completed, remember to add the script to your Web Page.</p>
+              </div>
+            </div>
             
-          <div class="task">
-            <h3>Task 2: Insert Data</h3>
-            <p>COPY and PASTE the script from the section above of the web page to the SQL Admin Page.  Rememeber to update the database details in the USE command. </p>
-            <p>Look at the INSERT fields, are all of the available fields used?</p>
-            <p>USING a SELECT command, display the data in the table.</p>
-            <p>What do you notice about the Gender field?</p>
-            <p>Using a <code>SELECT</code> command with a <code>WHERE gender IS NULL</code>, produce a list of records that have NULL in the gender field.</p>
-          </div>  
-        </section>
-
-        <section>
-          <a name="datatypes"><h3>Data Types</h3></a>
-          <div>
-            <p>We know that every field will have a <code>DATA TYPE</code>, such as INTEGER, FLOAT, BOOL, VARCHAR, CHAR, etc.  When we add data to a table, we must ensure that the data we are passing, matches the data type of the field.  </p>
-            <ul>
-             <li>INTEGERS and FLOATS are written as digits, e.g. <code>VALUES (123, 12.4)</code></li>
-             <li>BOOLS are written as either words or digits, TRUE or 1 / FALSE or 0, with no quotes, e.g. <code>VALUES (TRUE, FALSE, 1, 0)</code></li>
-             <li>CHARS and VARCHARs are written with either single or double quotes, e.g. <code>VALUES('Mr', "Salih")</code></li>
-             <li>DATES are written is a number of different formats, but the easiest to use is as a string in the format YYYY-MM-DD, e.g. <code>VALUES('2019-01-31')</code> </li>
-            </ul>
-          </div>
-        </section>
-
-        <div class="task">
-          <h3>Task 3: Create an Estate Owner Table</h3>
-          <div>
-            <p>Create a table that will allow us to store an estate agent, using appropriate data types.  The table will store the following information.</p>
-            <ul>
-              <li>Name</li>
-              <li>Location</li>
-              <li>Number of Employees</li>
-              <li>Annual Income (in millions, to 2 decimal places)</li>
-              <li>Currently Active (will be yes or no)</li>
-              <li>Date Started Business</li>
-              <li>Fax Number (may not be known)</li>
-            </ul>
-            <p>
-              Once you have created the table, add three different estate agents to your table.
-
-            </p>
-            <p>Once you have completed, remember to add the script to your Web Page.</p>
-          </div>
-        </div>
-        
-
-        <section>
-          <a name="additional"><h3>Additional Resources</h3></a>
-          <ul>
-            <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
-          </ul>
-        
-        </section>
+    
+            <section>
+              <a name="additional"><h3>Additional Resources</h3></a>
+              <ul>
+                <a href="http://www.mysqltutorial.org/mysql-cheat-sheet.aspx">My SQL Cheat Sheet</a>
+              </ul>
+            
+            </section>
+             
+    
+    
+    
+      
          
+        </div>
+             
+      
+         
+        </div>
+        </div>
 
-
-
-  
-     
     </div>
+      
   </div>
-
 {% endblock %}
 
 

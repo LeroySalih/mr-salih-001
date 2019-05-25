@@ -1,239 +1,251 @@
-{% extends "layout-slide.html" %}
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-{% block title%}Update: Intro to Databses with MYSQL
-{% endblock %}
+{% block title%}Creating Tables{% endblock %}
 
-{% block style%}
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+ <!-- Polymer WebElement Files -->
+ <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+  
+ <!-- Polymer Web App -->
+  <script type="module" src="/static/webcomponents/SlideVideo.js"></script>
+  <script type="module" src="/static/webcomponents/lo.js"></script>
+  <script type="module" src="/static/webcomponents/pro-con.js"></script>
+  <script type="module" src="/static/webcomponents/timeline.js"></script>
+ 
 <style>
-  section{
 
-    padding-bottom: 50px;
-    border-bottom: 2px solid rgb(50, 100, 50);
-    margin-bottom: 50px;
 
-  }
 
   h2:before {
+    background-image: url('/static/modules/sketchup/images/sketchup_logo.png');
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    margin-right:10px; 
+    content:"";
+  }
 
-
-background-image: url('/static/images/13-Data Management.svg');
-  background-size: 30px 30px;
-  display: inline-block;
-  width: 30px; 
-  height: 30px;
-  margin-right:10px; 
-  content:"";
-
-}
-
+  .table_design {
+    width: 80%;
+    border: dashed green 5px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
 </style>
-{% endblock%}
+{% endblock %}
 
-{% block body%}
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
 
-  <div class="container">
-    <div class="sidebar">
-      <a class="active" href="#home">Home</a>
-      
-      <a href="#setup">SetUp</a>
-      <a href="#inserts">Update</a>
-     
-      <a href="#additional">Additional Resources</a>
-      
-    </div>
+{% block content %}
+<div class="container" style="overflow-y: auto">
 
-    <div class="content">        
-        <a name="home"><h1>Updating Data.</h1></a>
-        
-        <a name="inserts"><h2>Update</h2></a>
-          <my-lo >
-            <p>
-              To be able to:
-              <ul>
-                <li>update all records in a table</li>
-                <li>update filtered records in a table</li>
-              </ul>
-            </p>
-          </my-lo>
-        
-        <div>
-          In this module we are going to gain an understanding of how to <b><u>update</u></b> data in a single table.
-        </div>
-
-        <div class="task">
-            <h3>Task 1: Create UPDATE Web Page</h3>
-            <p> We are going to create a web page that lists all of the queries that you write.</p>
-            <ul>
-              <li>Create a HTML repl page.</li>
-              <li>Using H1 tag, give the page a title, UPDATING data.</li>
-              <li>As you complete each task, copy the command to the index.html page with an appropriate heading.</li>
-              <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
-              <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
-            </ul>
-
-            
-          </div>
-
-          
-
-        
-
-        <section>
-          
-
-          <h3>Updating Data</h3>
-          <div>
-            <p>To use our database, we are going to use the SQL language.</p>
-            <p>In SQL, to insert data, we use the <code>UPDATE</code> command. </p>
-            <p>This command has the following format.</p>
-            <pre><code>
-              UPDATE &lt;table_name&gt; 
-              SET &lt;field_name&gt;=&lt;value&gt;
-              WHERE &lt; criteria... &gt;
-            </code></pre>
-            
-            
-            <div class="example">
-              <h3>Example:</h3>
-              <p>for example, the following command will set the <code>in_class</code> field to TRUE for all records in the PUPILS table.</p>
-              <pre>
-                <code>
-                  UPDATE PUPILS
-                  SET in_class = TRUE
-                </code>
-              </pre>
-              </div>
-
-            <div class="example">
-              <h3>Example:</h3>
-              <p>The following command will set the <code>form</code> field to '10C' for all records in the PUPILS table that currently have a field value or '9C'.</p>
-              <pre>
-                <code>
-                  UPDATE PUPILS
-                  SET form = '10C'
-                  WHERE form = '9C'
-                </code>
-              </pre>
-            </div>
-            
-
-
-            
-          </div>
-
-          
-        
-  
-              
-      
-
-            
-          <div class="task">
-            <h3>Task: Update Data</h3>
-            <p>COPY, PASTE and EXECUTE the script from the following section of the web page to the SQL Admin Page.  Remember to update the database details in the USE command. </p>
-            <ul>
-              <li>Using a SELECT command, display the data in the table.</li>
-              <li>Using an UPDATE command, update all the forms from 9C to 10C </li>
-              <li>Using an UPDATE WHERE command, update the first_name of Muhammad Ali, born on 2010-03-01, from "Muhammad", to "Huhammed"</li>
-            </ul>
-            <p></p>
-          </div>  
-          <div>
-            <code>
-              <pre>
-    USE &lt;database_name&gt;;
-
-    DROP TABLE IF EXISTS PUPILS;
-    
-    CREATE TABLE PUPILS (
-      first_name		VARCHAR(255) NOT NULL,
-      family_name		VARCHAR(255) NOT NULL,
-      dob			DATE NOT NULL, 
-      form			CHAR(3)
-    );
-    
-    INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
-    INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');
-    INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-03-01', '9C');
-    INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Sarah', 'Smith', '2010-01-02', '9C');
-    INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Susan', 'Potts', '2010-07-01', '9C');
-  
-              </pre>
-            </code>
-              
-          </div>
-        </section>
-
-        <section>
-          <a name="datatypes"><h3>PRIMARY KEYS</h3></a>
-          <div>
-            <p>As you can see, it can become complex to uniquely identify a single row, based on the naturally occurring fields of a record.</p>
-            <p>Therefore, it is often necessary, to introduce a <code>PRIMARY KEY</code>.  This is a field that is <code>NOT NULL</code> and <code>UNIQUE</code> within our table.</p>
-            <p>In order for a field to be a <code>PRIMARY KEY</code>, the current and future data must be guaranteed unique.  
-            <p>The following are usually considered unique:</p>
-            <ul>
-              <li>IQAMA Numbers</li>
-              <li>Passport IDs</li>
-              <li>Numbers or Keys generated by the database</li>
-            </ul>
-            <p>The following are usually NOT considered unique, and should not be used as <code>PRIMARY KEYS</code>:</p>
-            <ul>
-              <li>Names</li>
-              <li>Phone Numbers</li>
-              <li>Date of Birth</li>
-            </ul>
-            
-          </div>
-        </section>
-
-        <div class="task">
-          <h3>Task: Update Data 2</h3>
-            <p>COPY, PASTE and EXECUTE the script from the following section of the web page to the SQL Admin Page.  Remember to update the database details in the USE command. </p>
-            <ul>
-              <li>Using a SELECT command, display the data in the table.  Note the new field.</li>
-              <li>Using an UPDATE WHERE command, update the first_name of Muhammad Ali, born on 2010-03-01, from "Muhammad", to "Huhammed".  This time, create the WHERE clause using the PRIMARY KEY.  </li>
-            </ul>
-            <p></p>
-        </div>
-        <div>
-          <code><pre>
-              USE &lt;database name&gt;;
-              
-              CREATE TABLE PUPILS (
-                pupil_id	INT		AUTO_INCREMENT PRIMARY KEY,
-                  first_name   varchar(255) NOT NULL,
-                  family_name  varchar(255) NOT NULL,
-                  form         varchar(3) NOT NULL,
-                  dob          date NOT NULL
-              )
-              
-              INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
-              INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');
-              INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-03-01', '9C');
-              INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Sarah', 'Smith', '2010-01-02', '9C');
-              INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Susan', 'Potts', '2010-07-01', '9C');
-          </pre></code>
-        </div>
-        
-        <div class="task">
-          <h3>Task: Edit Your Estate Agent Table</h3>
-          <p>Edit your estate agent table to include a Primary Key.</p>
-        </div>
-
-        <section>
-          <a name="additional"><h3>Additional Resources</h3></a>
-          <ul>
-            <a href="http://www.mysqltutorial.org/mysql-primary-key/">My SQL Tutorial: Primary Keys </a>
-          </ul>
-        </section>
-         
-
-
-
-  
-     
-    </div>
+  <div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="#setup">SetUp</a>
+    <a href="#inserts">Update</a>
+    <a href="#additional">Additional Resources</a>
   </div>
+
+
+  <div class="content">        
+    <a name="home"><h1>Updating Data.</h1></a>
+    
+    <a name="inserts"><h2>Update</h2></a>
+      <my-lo >
+        <p>
+          To be able to:
+          <ul>
+            <li>update all records in a table</li>
+            <li>update filtered records in a table</li>
+          </ul>
+        </p>
+      </my-lo>
+    
+    <div>
+      In this module we are going to gain an understanding of how to <b><u>update</u></b> data in a single table.
+    </div>
+
+    <div class="task">
+        <h3>Task 1: Create UPDATE Web Page</h3>
+        <p> We are going to create a web page that lists all of the queries that you write.</p>
+        <ul>
+          <li>Create a HTML repl page.</li>
+          <li>Using H1 tag, give the page a title, UPDATING data.</li>
+          <li>As you complete each task, copy the command to the index.html page with an appropriate heading.</li>
+          <li>You can use the "copy to clipboard" link to copy the SQL and results from the admin page.</li>
+          <li>Place the results inside a &lt;PRE&gt; tag to maintain spaces and line breaks.</li>
+        </ul>
+
+        
+      </div>
+
+      
+
+    
+
+    <section>
+      
+
+      <h3>Updating Data</h3>
+      <div>
+        <p>To use our database, we are going to use the SQL language.</p>
+        <p>In SQL, to insert data, we use the <code>UPDATE</code> command. </p>
+        <p>This command has the following format.</p>
+        <pre><code>
+          UPDATE &lt;table_name&gt; 
+          SET &lt;field_name&gt;=&lt;value&gt;
+          WHERE &lt; criteria... &gt;
+        </code></pre>
+        
+        
+        <div class="example">
+          <h3>Example:</h3>
+          <p>for example, the following command will set the <code>in_class</code> field to TRUE for all records in the PUPILS table.</p>
+          <pre>
+            <code>
+              UPDATE PUPILS
+              SET in_class = TRUE
+            </code>
+          </pre>
+          </div>
+
+        <div class="example">
+          <h3>Example:</h3>
+          <p>The following command will set the <code>form</code> field to '10C' for all records in the PUPILS table that currently have a field value or '9C'.</p>
+          <pre>
+            <code>
+              UPDATE PUPILS
+              SET form = '10C'
+              WHERE form = '9C'
+            </code>
+          </pre>
+        </div>
+        
+
+
+        
+      </div>
+
+      
+    
+
+          
+  
+
+        
+      <div class="task">
+        <h3>Task: Update Data</h3>
+        <p>COPY, PASTE and EXECUTE the script from the following section of the web page to the SQL Admin Page.  Remember to update the database details in the USE command. </p>
+        <ul>
+          <li>Using a SELECT command, display the data in the table.</li>
+          <li>Using an UPDATE command, update all the forms from 9C to 10C </li>
+          <li>Using an UPDATE WHERE command, update the first_name of Muhammad Ali, born on 2010-03-01, from "Muhammad", to "Huhammed"</li>
+        </ul>
+        <p></p>
+      </div>  
+      <div>
+        <code>
+          <pre>
+USE &lt;database_name&gt;;
+
+DROP TABLE IF EXISTS PUPILS;
+
+CREATE TABLE PUPILS (
+  first_name		VARCHAR(255) NOT NULL,
+  family_name		VARCHAR(255) NOT NULL,
+  dob			DATE NOT NULL, 
+  form			CHAR(3)
+);
+
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-03-01', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Sarah', 'Smith', '2010-01-02', '9C');
+INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Susan', 'Potts', '2010-07-01', '9C');
+
+          </pre>
+        </code>
+          
+      </div>
+    </section>
+
+    <section>
+      <a name="datatypes"><h3>PRIMARY KEYS</h3></a>
+      <div>
+        <p>As you can see, it can become complex to uniquely identify a single row, based on the naturally occurring fields of a record.</p>
+        <p>Therefore, it is often necessary, to introduce a <code>PRIMARY KEY</code>.  This is a field that is <code>NOT NULL</code> and <code>UNIQUE</code> within our table.</p>
+        <p>In order for a field to be a <code>PRIMARY KEY</code>, the current and future data must be guaranteed unique.  
+        <p>The following are usually considered unique:</p>
+        <ul>
+          <li>IQAMA Numbers</li>
+          <li>Passport IDs</li>
+          <li>Numbers or Keys generated by the database</li>
+        </ul>
+        <p>The following are usually NOT considered unique, and should not be used as <code>PRIMARY KEYS</code>:</p>
+        <ul>
+          <li>Names</li>
+          <li>Phone Numbers</li>
+          <li>Date of Birth</li>
+        </ul>
+        
+      </div>
+    </section>
+
+    <div class="task">
+      <h3>Task: Update Data 2</h3>
+        <p>COPY, PASTE and EXECUTE the script from the following section of the web page to the SQL Admin Page.  Remember to update the database details in the USE command. </p>
+        <ul>
+          <li>Using a SELECT command, display the data in the table.  Note the new field.</li>
+          <li>Using an UPDATE WHERE command, update the first_name of Muhammad Ali, born on 2010-03-01, from "Muhammad", to "Huhammed".  This time, create the WHERE clause using the PRIMARY KEY.  </li>
+        </ul>
+        <p></p>
+    </div>
+    <div>
+      <code><pre>
+          USE &lt;database name&gt;;
+          
+          CREATE TABLE PUPILS (
+            pupil_id	INT		AUTO_INCREMENT PRIMARY KEY,
+              first_name   varchar(255) NOT NULL,
+              family_name  varchar(255) NOT NULL,
+              form         varchar(3) NOT NULL,
+              dob          date NOT NULL
+          )
+          
+          INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Alfred', 'Jones', '2010-03-01', '9C');
+          INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-02-01', '9C');
+          INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Muhammad', 'Ali', '2010-03-01', '9C');
+          INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Sarah', 'Smith', '2010-01-02', '9C');
+          INSERT INTO PUPILS (first_name, family_name, dob, form) VALUES ('Susan', 'Potts', '2010-07-01', '9C');
+      </pre></code>
+    </div>
+    
+    <div class="task">
+      <h3>Task: Edit Your Estate Agent Table</h3>
+      <p>Edit your estate agent table to include a Primary Key.</p>
+    </div>
+
+    <section>
+      <a name="additional"><h3>Additional Resources</h3></a>
+      <ul>
+        <a href="http://www.mysqltutorial.org/mysql-primary-key/">My SQL Tutorial: Primary Keys </a>
+      </ul>
+    </section>
+     
+
+
+
+
+ 
+</div>
+</div>
 
 {% endblock %}
 
