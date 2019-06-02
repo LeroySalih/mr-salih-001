@@ -1,78 +1,73 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout-topic.html" %}
+{% block title%}Angles{% endblock %}
 
-{% block title%}Login{% endblock %}
 
-{% block styles%}
-{{ super() }}
-{% include "style-includes.html" %}
+{% block back_to %}
+<li><a href="/maths/geometry">Back to: Geometry</a></li>
 {% endblock %}
 
-{% block navbar %}
-{% include "navbar.html" %}
+{% block inpage_links %}
+<p><a href="#triangle">Triangles</a></p>
+<p><a href="#60degrees">60 Degree Triangles</a></p>
+<p><a href="#angle-bisection">Angle Bisection</a></p>
+<p><a href="#perp-bisection">Perpendicular Bisector</a></p>
+<p><a href="#sub-divide">Subdivide a Line</a></p>
 {% endblock %}
 
-{% block content %}
 
-  <div class="container">
+{% block main_page %}
 
-    <div class="row">
-      <div class="col-md-12">
+  
+
+      <div>
         <h1>Constructions</h1>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <p><a href="#triangle">Triangles</a></p>
-        <p><a href="#60degrees">60 Degree Triangles</a></p>
-        <p><a href="#angle-bisection">Angle Bisection</a></p>
-        <p><a href="#perp-bisector">Perpendicular Bisector</a></p>
-        <p><a href="#sub-divide">Subdivide a Line</a></p>
-      </div>
-
-      <div class="col-md-9">
-        <section>
-          <h3>Construct a Triangle</h3>
+    
+      <section>
           <a name="triangle"></a>
+          <h3>Construct a Triangle</h3>
           <p>LO: After watching this video,m you should be able to construct a triangle with given side length.</p>
           <iframe width="560" 
                   height="315" 
                   src="https://www.youtube.com/embed/JmwRBPtLbhc" 
                   frameborder="0" 
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
-        <section>
-          <h3>60 Degree Angle & Equilateral Triangles</h3>
-          <a name="60degrees"></a>
-          <p>LO:  After watching this video you should be able to construct a 60 degree angle or an equilateral triangle.</p>
-          <iframe width="560" 
-                  height="315" 
-                  src="https://www.youtube.com/embed/hMcTg4ZfOm8" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
-        <section>
-            <h3>Angle Bisection</h3>
-            <a name="angle-bisection"></a>
-            <p>LO:  After watching this video you should be able to  bisect an angle.</p>
-            <iframe width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/_JpwlTasQJ8" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      
-        
-        </section>
+      </section>
+   
+    
+      <section>
+        <a name="60degrees"></a>
+        <h3>60 Degree Angle & Equilateral Triangles</h3>
+        <p>LO:  After watching this video you should be able to construct a 60 degree angle or an equilateral triangle.</p>
+        <iframe width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/hMcTg4ZfOm8" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
 
-        <section>
-            <h3>Perpendicular Bisection</h3>
-            <p>LO:  After watching this video you should be able to create a perpendicular bisector.</p>
-            <iframe width="560" 
-                  height="315" 
-                  src="https://www.youtube.com/embed/1beKcgU9ogE" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
+      <section>
+        <a name="angle-bisection"></a>
+        <h3>Angle Bisection</h3>
+        <p>LO:  After watching this video you should be able to  bisect an angle.</p>
+        <iframe width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/_JpwlTasQJ8" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      
+      
+      </section>
+
+      <section>
+          <a name="perp-bisection"></a>
+          <h3>Perpendicular Bisection</h3>
+          <p>LO:  After watching this video you should be able to create a perpendicular bisector.</p>
+          <iframe width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/1beKcgU9ogE" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
 
         <section class="task">
           <h3>Test Questions</h3>
@@ -80,9 +75,10 @@
           <p><h4><a href="https://www.mathsgenie.co.uk/resources/76_loci-and-construction.pdf">Math Genie</a></h4></p>
         </section>
 
-        <a name="sub-divide"></a>
+        
         <h3>Advanced Constructions</h3>
         <section>
+            <a name="sub-divide"></a>
             <h3>Sub Division</h3>
             <p>LO:</p>
               <p>After watching this video, you should be able to sub divide a line into multiple parts.</p>
@@ -92,19 +88,11 @@
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                       allowfullscreen></iframe>
 
-            <p>The following vide shows an alternative method, which includes "copying" an angle.</p>
+            <p>The following vide0 shows an alternative method, which includes "copying" an angle.</p>
             <iframe width="560" height="315" 
                     src="https://www.youtube.com/embed/QY68Cm7GZwc" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>
         </section>
-
-
-      </div>
-    </div>
-  </div>
-
-    
-    
 {% endblock %}
