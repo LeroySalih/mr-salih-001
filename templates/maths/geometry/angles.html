@@ -1,0 +1,151 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title%}Angles{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Angles</h1>
+        <p>Angles are created when 2 lines meet (or <b>intersect</b>).  We can often use what we know about angles to calculate the remaining angles.</p>
+        <p>These videos and challenges show us how to calculate angles using simple techniques.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <p><a href="#types">Types of Angles</a></p>
+        <p><a href="#complementary">Complementary and Supplementary Angles</a></p>
+        <p><a href="#corresponding">Corresponding Angles</a></p>
+        <p><a href="#alternative">Alternate Angles</a></p>
+        <p><a href="#test">Test Questions</a></p>
+      </div>
+
+      
+      <div class="col-md-9 col-sm-12">
+        <section>
+          <a name="types">
+
+          </a>
+          <h3>Types of Angles</h3>
+          <p>LO:  You should be able to name the types of angles.</p>
+          <p>LO:  You should be able to identify acute, right, obtuse, straight, reflex and full angles.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BS9yhPUdIhw" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </section>
+
+        <section>
+          <a name="complementary"></a>
+          <h3>Complimentary and Supplementary Angles</h3>
+          <p>LO:  You should understand the difference between Complementary and Supplementary angles.</p>
+          <iframe width="560" height="315" 
+                  src="https://www.youtube.com/embed/DGKwdHMiqCg" 
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </section>
+        <section>
+            <a name="corresponding"></a>
+            <h3>Corresponding Angles</h3>
+            <p>LO:</p>
+              <p>Learn how to spot Corresponding Angles</p>
+              
+              
+              <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/fhvR6lzy_jg" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </section>
+
+        
+
+        <div class="col-md-9 col-sm-12">
+            <a name="alternative"></a>
+            <section>
+                <h3>Alternate Angles</h3>
+                <p>LO:</p>
+                  <p>Learn how to spot Alternative Angles</p>
+                  
+                  <iframe width="560" height="315" 
+                          src="https://www.youtube.com/embed/-BPdBfwFgUM" frameborder="0" 
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen></iframe> 
+                
+                  
+            </section>
+        <section>
+          <h3>Try it out</h3>
+          <p>Use these Geogebra links to see how corresponding and alternate angles change in relation to each other.</p>
+          <div sytyle="display: inline">
+
+              <a href="https://www.geogebra.org/graphing/yptfmsam">
+                <img src="/static/images/maths/corresponding-angles.png" style="width:150px; margin: 20px;">
+              </a>
+
+              <a href="https://ggbm.at/dv6j7mah">
+                <img src="/static/images/maths/alternative-angles.png" style="width:150px; margin: 20px;">
+               </a>
+
+              
+
+               
+          </div>
+          <div class="task">
+              <h3>Task:</h3>
+              Using Geogebra (<a href="https://www.geogebra.org/geometry">https://www.geogebra.org/geometry</a>);
+              <ul>
+                <li>Create 2 parrallel lines.</li>
+                <li>Add a third line (a traversal).</li>
+                <li>Label 2 corresponding angles.</li>
+                <li>Label 2 alternate angles.</li>
+              </ul>
+
+              <iframe width="560" height="315" 
+              src="https://www.youtube.com/embed/I9B58a2hiqc" frameborder="0" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>
+            </div>
+
+            
+        </section>
+        <section class="task">
+            <a name="test"></a>
+            <H3>Maths Genie: Angles</h3>
+            <p>Test you understanding by completing the following questions in the back of your maths book.</p>
+            <table style="width: 100%">
+              <tr>
+                <td><a href="https://www.mathsgenie.co.uk/resources/15_angles.pdf">Angles.</a></td>
+                <td><a href="https://www.mathsgenie.co.uk/resources/15_anglesans.pdf">Solutions.</a></td>
+              </tr>
+              <tr>
+                <td><a href="https://www.mathsgenie.co.uk/resources/33_angles-parallel-lines.pdf">Angles in Parallel Lines</a></td>
+                <td><a href="https://www.mathsgenie.co.uk/resources/33_angles-parallel-linesans.pdf">Solutions.</a></td>
+                <td></td>
+              </tr>
+            </table>
+          </section>
+
+      </div>
+    </div>
+  </div>
+
+    
+    
+{% endblock %}
+
+
+
