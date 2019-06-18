@@ -40,7 +40,7 @@ def maths_mini_projects():
 
 @mathsBP.route('/mini-projects/<moduleId>')
 def maths_mini_projects_file(moduleId):
-  return render_template("maths/mini-projects/{moduleId}.html".format(moduleId))
+  return render_template(f"maths/mini-projects/{moduleId}.html")
 
 
 @mathsBP.route('/hints')
