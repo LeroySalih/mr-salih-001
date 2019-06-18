@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Mini Projects{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      
+        <h1>Zig Zag Challenge</h1>
+        <p>Using the <code>penup</code>, <code>goto</code> and <code>forward</code> commands, draw two horizontal lines that are 300 pixels long.</p>
+        <p>You may need to use <code>goto</code> to start at a specific location to allow the full length of the line.</p>
+        <p>The lines should be 75 pixels apart (vertically).</p>
+        <p>Using the <code>left</code>, <code>right</code> and <code>forward</code> commands, draw a zig zag line that creates 10 isosceles triangles.</p>
+        <p>Ensure that the tip of the triangle touches the upper line and the lower line forms the base.</p>
+        <p>The result will be identical to the image below:</p>
+        <img src="https://docs.google.com/drawings/d/e/2PACX-1vTbr4V1UZAK3FMvctF68cF7KX3jkNFl88J4jqWOTOSfU0aNKn2OPolPqhcBGS1p6L5tE4yNgI4Eg1gm/pub?w=885&h=100">
+        <h3>Extension</h3>
+        <p>As an extension, complete the exercise in less than 15 lines of code.</p>
+      <div>
+            <iframe src="https://trinket.io/embed/python/ead4cdbdff" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+      </div>
+      
+    </div>
+  </div>
+    
+    
+{% endblock %}
