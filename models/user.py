@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sql.db import get_db
 from sql.users import sqlREAD_USERS, sqlREAD_USER, sqlREAD_USER_BY_FIRST_NAME, sqlREAD_USER_BY_USERNAME, sqlDROP_USER_TABLE, sqlCREATE_USER_TABLE, sqlADD_USERS
 
-from log.log import logger
+
 
 
 class UserException (Exception):
@@ -82,7 +82,7 @@ class User(UserMixin):
           users.append(User(record))
 
       except pymysql.err.OperationalError as e:
-        current_app.logging.error("An db threw an exception")
+        current_app.logging.error("The db threw an exception")
 
       finally:
         if db != None:

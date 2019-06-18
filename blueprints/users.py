@@ -8,9 +8,6 @@ from flask_login import UserMixin, LoginManager, current_user , login_user, curr
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 
-
-
-
 usersBP = Blueprint('users', __name__, template_folder='templates')
 
 
@@ -45,11 +42,11 @@ def show_login():
     u = User.get_by_username(form.username.data)
     if u != None and u.check_pw(form.password.data):
       do_login(u)
-      app.logger.info('%s login OK', u.username)
+      app.logger.info(f'{u.username} logged in')
       return redirect('/')
       
     else:
-      app.logger.info('%s login FAILED', u.username)
+      app.logger.info('{u.username} login FAILED')
       return render_template('users/login.html', form=form, message="Invalid Login Details")
       
   else:
@@ -60,7 +57,7 @@ def show_login():
 def show_logout():
   
   logout_user()
-  app.logger.info('logout OK')
+  app.logger.info(f'User logged OUT')
   if ('logged_in' in session):
     session.pop('logged_in')
   return redirect('/')
@@ -80,7 +77,8 @@ def show_register():
     
     u = User.add_user(u)
     do_login(u)
-    return render_template('users/register_success.html', user=u)
+    app.logger.info(f'{u.username} registered')
+    return redirect('/')
   
   return render_template('users/register.html', form=form)
 

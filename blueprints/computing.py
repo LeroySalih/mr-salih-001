@@ -63,3 +63,7 @@ def computing_intro_html_css_js(moduleId):
 def computing_python_challenges(module):
   return render_template("computing/python/{}.html".format(module))
 
+
+@computingBP.route('/games-dev/<moduleId>')
+def computing_games_dev(moduleId):
+  return render_template(f"computing/games-dev/{moduleId}.html")

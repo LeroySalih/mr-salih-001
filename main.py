@@ -8,15 +8,17 @@ from models.user import User
 #from flask_debugtoolbar import DebugToolbarExtension
 
 import config 
+import logging 
 
 
 app = Flask(__name__)
-app.logger.info('This is a log message!')  
+app.logger.setLevel(logging.INFO)
+app.logger.info('*** Starting Up ****')
 
 app.config['SECRET_KEY'] = 'thisisasecret'
 app.config.from_object(config)
 app.config['DEBUG'] = True
-app.debug = True
+app.debug = True   
 
 Bootstrap(app)
 

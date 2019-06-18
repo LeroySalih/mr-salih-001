@@ -1,0 +1,95 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Games Dev{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content%}
+<div class="container">
+    
+    <div class="content module-header">
+        <div style="display: flex; flex-direction: row;">
+            <a name="home">
+              <h1>
+                  
+                Games Dev Club
+            </h1></a>
+        </div>
+
+        <div>
+          <h3>2019-06-17</h3>  
+          <h1><img src="/static/images/computing/games-dev/godot-logo.svg" style="height: 5rem;  margin-top: 1rem; margin-right: 30px; margin-bottom: 10px;">Game Engine for 2019-2020</h1>
+          <hr>
+          <p>
+            In 2018-19, the club used javascript and the p5 libraries to create its game projects.  However, as the department will be focussing on python for all programming, we have decided to use the excellent GODOT engine for 2019-2020.
+          </p> 
+          <p>
+            Godot meets a number of criteria, such as:
+            <ul>
+              <li>Multi platform and be used on Windows and Mac computers.</li>
+              <li>Is easily installed, and can be made to run at home with minumim expereince.</li>
+              <li>It is open source and free to use, again encouraging pupils to install the software at home.</li>
+              <li>It is well documented with a host of video tutorials.</li>
+            </ul>
+          </p>
+          <p>While GODOT is not exactly python based, its scripting language GScript is based on python, and the two are very similar.  GODOT is often described as a lighter contender to Unity and Unreal game engines and is certainly capable of producing very professional games quickly.</p>
+          <p>I'm really looking forward to seeing what the Games Club makes in the new year with this exciting software package.</p>
+          <p>GODOT can be downloaded from <a href="https://godotengine.org/">here</a>.</p>
+        </div>
+
+        <section>
+          <h2>Video Tutorials</h2>
+          <p>The following playlists are an excellent way to start to explore the GODOT game engine.</p>
+          <div style="display: flex; flex-direction: row; width: 100%">
+            <div style="width: 200px; margin: 30px;">
+              <a href="https://www.youtube.com/watch?v=gHA4M2cqWb0&list=PLsk-HSGFjnaFISfGRTXxp65FXOa9UkYc5">
+                <img src="/static/images/computing/games-dev/kidscancode-logo.png" style="width:200px; height: 150px;">
+                <p style="font-size: 1rem; color: black; line-height: 1.4rem"><b>KidsCanCode</b> is an excellent starting point for GODOT.  This series of videos will explain how to create a 2D platform game.</p>
+              </a>
+            </div>
+
+            <div style="width: 200px; margin: 30px;">
+                <a href="https://www.youtube.com/watch?v=gHA4M2cqWb0&list=PLsk-HSGFjnaFISfGRTXxp65FXOa9UkYc5">
+                  <img src="/static/images/computing/games-dev/kids-can-code-3d-logo.png" style="width:200px; height: 150px;">
+                  <p style="font-size: 1rem; color: black; line-height: 1.4rem">Once you are confortable with the 2D functions of GODOT, try these videos to explore the 3D world of GODOT.</p>
+                </a>
+              </div>
+          </div>
+        </section>
+
+        <!--
+        <table>
+          <thead>
+            <tr><th>Lesson</th><th>Topic</th></tr>
+          </thead>
+          <tbody>
+              <tr><td>1.</td><td><a href="/computing/databases/intro">Intro To Databases</a></td></tr>
+              <tr><td>2.</td><td><a href="/computing/databases/tables">Creating Tables</a></td></tr>
+              <tr><td>3.</td><td><a href="/computing/databases/read">Reading Data</a></td></tr>
+              <tr><td>4.</td><td><a href="/computing/databases/insert">Inserting Data</a></td></tr>
+              <tr><td>5.</td><td><a href="/computing/databases/update">Updating Data & Primary Keys</a></td></tr>
+              <tr><td>6.</td><td>Deleting Data</td></tr>
+              <tr><td>7.</td><td><a href="/computing/databases/linking-tables">Linking Tables</a></td></tr>
+          </tbody>
+        </table>  
+      -->      
+    </div>
+</div>
+
+
+
+
+
+
+
+  
+{% endblock %}

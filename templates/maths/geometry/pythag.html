@@ -1,86 +1,70 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout-topic.html" %}
+{% block title%}Pythagoras Theorem{% endblock %}
 
-{% block title%}Login{% endblock %}
 
-{% block styles%}
-{{ super() }}
-{% include "style-includes.html" %}
+{% block back_to %}
+<li><a href="/maths/geometry">Back to: Geometry</a></li>
 {% endblock %}
 
-{% block navbar %}
-{% include "navbar.html" %}
+{% block inpage_links %}
+<p><a href="#triangle">Pythag</a></p>
+<p><a href="#test">Test Questions</a></p>
 {% endblock %}
 
-{% block content %}
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Constructions</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <p><a href="#triangle">Pythag</a></p>
-        <p><a href="#test">Test Questions</a></p>
-      </div>
-
-      <div class="col-md-9 col-sm-12">
-        <section>
-            <h3>Pythag Missing Side</h3>
-            <p>LO:</p>
-              <p>After watching this video, you should be able to solve:</p>
-              <div stye="display:inline;">
-                  <svg style="width: 300px; height: 300px; border: solid silver 1px">
-                      <polygon points="  50, 60 
-                                        50,200 
-                                        200,200" 
-                                        stroke="black"
-                                        fill-opacity="0" />
-                      <text x="5" y="130" fill="red">9 cms</text>
-                      <text x="120" y="220" fill="red">5 cms</text>
-                      <text x="130" y="130" fill="red"  font-style="italic">h</text>
-                      <text x="20" y="40" fill="black" font-style="italic">Find the length of h</text>
-                    </svg>
-                    <svg style="width: 300px; height: 300px; border: solid silver 1px">
-                        <polygon points="  50, 60 
-                                          50,200 
-                                          200,200" 
-                                          stroke="black"
-                                          fill-opacity="0" />
-                        <text x="40" y="130" fill="red">a</text>
-                        <text x="120" y="220" fill="red">5 cms</text>
-                        <text x="130" y="130" fill="red"  font-style="italic">9 cms</text>
-                        <text x="20" y="40" fill="black" font-style="italic">Find the length of a</text>
-                      </svg>
-              </div>
-              
-            <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/e6cpx-B9UNs" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-        </section>
-
-        
-
-        <section class="task">
-            <a name="test"></a>
-            <H3>Maths Genie: Pythagoras</h3>
-            <p>Complete the following questions in the back of your maths book.</p>
-            <p><a href="https://www.mathsgenie.co.uk/resources/70_pythagoras.pdf">Pythagoras Theorem.</a></p>
-            <p><a href="https://www.mathsgenie.co.uk/resources/70_pythagorasans.pdf">Solutions.</a></p>
-          </section>
-
-      </div>
-    </div>
+{% block main_page %}
+  <div>
+    <h1>Pythagoras Theorem</h1>
   </div>
 
-    
-    
+  <section>
+      <a name="triangle"></a>
+      <h3>Pythag Missing Side</h3>
+      <p>LO:</p>
+        <p>After watching this video, you should be able to solve:</p>
+        <div stye="display:inline;">
+            <svg style="width: 300px; height: 300px; border: solid silver 1px">
+                <polygon points="  50, 60 
+                                  50,200 
+                                  200,200" 
+                                  stroke="black"
+                                  fill-opacity="0" />
+                <text x="5" y="130" fill="red">9 cms</text>
+                <text x="120" y="220" fill="red">5 cms</text>
+                <text x="130" y="130" fill="red"  font-style="italic">h</text>
+                <text x="20" y="40" fill="black" font-style="italic">Find the length of h</text>
+              </svg>
+              <svg style="width: 300px; height: 300px; border: solid silver 1px">
+                  <polygon points="  50, 60 
+                                    50,200 
+                                    200,200" 
+                                    stroke="black"
+                                    fill-opacity="0" />
+                  <text x="40" y="130" fill="red">a</text>
+                  <text x="120" y="220" fill="red">5 cms</text>
+                  <text x="130" y="130" fill="red"  font-style="italic">9 cms</text>
+                  <text x="20" y="40" fill="black" font-style="italic">Find the length of a</text>
+                </svg>
+        </div>
+        
+      <iframe width="560" height="315" 
+              src="https://www.youtube.com/embed/e6cpx-B9UNs" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>
+  </section>
+
+  
+
+  <section class="task">
+      <a name="test"></a>
+      <H3>Maths Genie: Pythagoras</h3>
+      <p>Complete the following questions in the back of your maths book.</p>
+      <p><a href="https://www.mathsgenie.co.uk/resources/70_pythagoras.pdf">Pythagoras Theorem.</a></p>
+      <p><a href="https://www.mathsgenie.co.uk/resources/70_pythagorasans.pdf">Solutions.</a></p>
+    </section>
+  
+  
 {% endblock %}
 
 
