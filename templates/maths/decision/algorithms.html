@@ -1,0 +1,293 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title%}Using and understanding algorithms.{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+        <h1>1.1 Using and understanding algorithms</h1>
+        <h3>LO:
+          <ul>
+            <li>Use and understand an algorithm given in words.</li>
+            <li>Execute an algorithm using a trace table.</li>
+            
+          </ul>
+        </h3>
+    
+          <h3>Pre Lesson Videos</h3>
+          <div style="display: flex; flex-direction: row">
+            <div >
+              <iframe width="300" 
+                  height="200" 
+                  src="https://www.youtube.com/embed/qwd4piEEyR0" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+            </div>
+  
+            <div>
+              <iframe width="300" 
+                  height="200" 
+                  src="https://www.youtube.com/embed/UhziRgmVKuQ" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>Algorithm, trace table</i></div>
+        
+      </section>
+
+      <section>
+          <h1>1.2 Flowcharts</h1>
+          <h3>LO:
+            <ul>
+              <li>To be able to interpret a given flowchart.</li>
+              <li>To be able to complete a trace table associated with a flowchart.</li>
+            </ul>
+          </h3>
+          <h3>Pre Lesson Videos</h3>
+          <p>Using bullet points, describe in your exercise book how you complete a trace table. </p>
+          <div>
+            <iframe width="300" height="200" 
+                  src="https://www.youtube.com/embed/JsXupsz9YLQ" 
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+          </div>
+
+        
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>flowchart, Start/End, Instruction, Decision</i></div>
+
+          <h3>Key Notes</h3>
+          <div>For those who took iGCSE Computer Science, note the simplified symbols used in Decision (i.e. output, etc).</div>
+      </section>
+
+      <section>
+          <h1>1.3 Bubble sort</h1>
+          <h3>LO:
+            <ul>
+              <li>To be able to carry out a bubble sort.</li>
+            </ul>
+          </h3>
+          <h3>Pre Lesson Videos</h3>
+          <p>Using bullet points, describe in your exercise book how you consuct a bubble sort. </p>
+          <div style="display: flex; flex-direction: row">
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" 
+                        height="200" 
+                        src="https://www.youtube.com/embed/v8VqBFIUGuQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                <p>Note: This video demonstrates a comparison by comparison approach for the first pass, and then a pass by pass approach for the remaining passes.</p>
+            </div>
+            <div style="width: 300px; margin-right: 20px;">
+              <iframe width="300" height="200" 
+                    src="https://www.youtube.com/embed/bwmtGKkohx0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                    <p>Note: This video demonstrates a pass by pass approach for all passes.</p>
+            </div>
+
+            <div style="width: 300px">
+                <iframe width="300" 
+                        height="200" 
+                        src="https://www.youtube.com/embed/xvHcOhbJ6mk" 
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+          </div>
+        
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>Bubble sort, comparison, pass, swap</i></div>
+
+          <h3>Key Notes</h3>
+          <div>Ensure that you understand what you are being asked to show: comparison by comparison, pass by pass, first line or all numbers.</div>
+      </section>
+
+      <section>
+          <h1>1.4 Quick sort</h1>
+          <h3>LO:
+            <ul>
+              <li>To be able to carry out a quick sort.</li>
+            </ul>
+          </h3>
+          <h3>Pre Lesson Videos</h3>
+          <p>Using bullet points, describe in your exercise book how you conduct a quick sort. </p>
+          <div style="display: flex; flex-direction: row">
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                        src="https://www.youtube.com/embed/wzZ4OKhLMuc" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                
+            </div>
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                src="https://www.youtube.com/embed/vR7S3nW0rwg" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+            </div>
+
+            
+          </div>
+        
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>Quick sort, middle number, pivot</i></div>
+
+          <h3>Key Notes</h3>
+          <div>
+            <ul>
+              <li>Ensure that you understand how to calculate the middle number, as this will become the pivot.</li>
+              <li>Ensure that you are clear in the use of current and previous pivot symbols.</li>
+            </ul></div>
+      </section>
+
+      <section>
+          <h1>1.5 Bin Packing Algorithms</h1>
+          <h3>LO:
+            <ul>
+              <li>To be able to carry out 3 bin packing algorithms and understand their strengths.</li>
+              <li>To be able to understand how to calculate the lower bound of the bins required.</li>
+            </ul>
+          </h3>
+          <h3>Pre Lesson Videos</h3>
+          <p>Using bullet points, describe in your exercise book how you complete the three bin filling algorithms. </p>
+          <div style="display: flex; flex-direction: row">
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                        src="https://www.youtube.com/embed/kiMFyTWqLhc" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                
+            </div>
+
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                        src="https://www.youtube.com/embed/hCOYDezX-Gc" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                
+            </div>
+            
+
+            
+          </div>
+        
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>first-fit, first-fit decreasing, full-bin</i></div>
+
+          <h3>Key Notes</h3>
+          <div>
+            <ul>
+              <li>Ensure that you are utilising the correct algorithm.</li>
+              <li>Ensure that you understand how to calculate the lower bound of the number of bins</li>
+              <li>Ensure that you understand the rules for calculating wasted space.</li>
+            </ul></div>
+      </section>
+
+      <section>
+          <h1>1.6 Binary Search</h1>
+          <h3>LO:
+            <ul>
+              <li>To be able to carry a binary search.</li>
+              
+            </ul>
+          </h3>
+          <h3>Pre Lesson Videos</h3>
+          <p>Using bullet points, describe in your exercise book how you complete a binary search. </p>
+          <div style="display: flex; flex-direction: row">
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                        src="https://www.youtube.com/embed/_PDkOtf7uVM" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                
+            </div>
+
+            <div style="width: 300px; margin-right: 20px;">
+                <iframe width="300" height="200" 
+                        src="https://www.youtube.com/embed/CpHoJMcHp84" frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                
+            </div>
+            
+
+            
+          </div>
+        
+          <h3>Key Terms</h3>
+          <div>The following terms are introduced: <i>first-fit, first-fit decreasing, full-bin</i></div>
+
+          <h3>Key Notes</h3>
+          <div>
+            <ul>
+              <li>Ensure that you understand the pre-requisites for using this algorithm.</li>
+            </ul></div>
+      </section>
+
+
+
+      <section>
+        <h1>
+          Past Paper Chapter Questions
+        </h1>
+        <div  style="display: flex; flex-direction: row;">
+          <div style="width: 350px; margin-right: 20px;">
+            <h3>Sorting Papers</h3>
+            <ul>
+              <li><a href="https://www.dropbox.com/s/91pgqsd7dn9uk7f/sorting-algorithms-qp.rtf?dl=0">Sorting Algorithms - Questions</a></li>
+              <li><a href="https://www.dropbox.com/s/c6y8kirs81tjq2c/sorting-algorithms-ms.docx?dl=0">Sorting Algorithms - Mark Scheme</a></li>
+              <li><a href="https://www.dropbox.com/s/1ti7ie5ei299plb/sorting-algorithms-er.docx?dl=0">Sorting Algorithms - Examiner Report</a></li>
+            </ul>
+          </div>
+
+          <div style="width: 350px; margin-right: 20px;">
+            <h3>Searching Papers</h3>
+            <ul>
+              <li><a href="https://www.dropbox.com/s/xdb7h78r3vb1l99/binary-search-qp.docx?dl=0">Searching Algorithms - Questions</a></li>
+              <li><a href="https://www.dropbox.com/s/29667fzroknuxfz/binary-search-ms.docx?dl=0">Searching Algorithms - Mark Scheme</a></li>
+              <li><a href="https://www.dropbox.com/s/youp8bxoz332853/binary-search-er.docx?dl=0">Searching Algorithms - Examiner Report</a></li>
+            </ul>
+          </div>
+
+          <div style="width: 350px; margin-right: 20px;">
+            <h3>Bin Packing Papers</h3>
+            <ul>
+              <li><a href="https://www.dropbox.com/s/y2tfaqj04voc4wf/bin-packing-qp.docx?dl=0">Bin Packing Algorithms - Questions</a></li>
+              <li><a href="https://www.dropbox.com/s/cruoqsqb2ntnccd/bin-packing-ms.docx?dl=0">Bin Packing Algorithms - Mark Scheme</a></li>
+              <li><a href="https://www.dropbox.com/s/mbexkquss41mdlh/bin-packing-er.docx?dl=0">Bin Packing Algorithms - Examiner Report</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </div>
+    
+    
+{% endblock %}

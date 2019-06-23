@@ -42,6 +42,10 @@ def maths_mini_projects():
 def maths_mini_projects_file(moduleId):
   return render_template(f"maths/mini-projects/{moduleId}.html")
 
+@mathsBP.route('/decision/<moduleId>')
+def decision_algorithms(moduleId):
+  return render_template(f"maths/decision/{moduleId}.html")
+
 
 @mathsBP.route('/hints')
 def maths_hints():
