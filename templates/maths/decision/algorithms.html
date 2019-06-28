@@ -1,7 +1,7 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout-topic.html" %}
+{% block title%}Algorithms{% endblock %}
 
-{% block title%}Using and understanding algorithms.{% endblock %}
+
 
 {% block styles%}
 {{ super() }}
@@ -13,13 +13,26 @@
 {% include "navbar.html" %}
 {% endblock %}
 
-{% block content %}
+{% block back_to %}
+<li><a href="/maths/decision">Back to: </a></li>
+{% endblock %}
 
-  <div class="container">
-    <div class="row">
+{% block inpage_links %}
+<p><a href="#using">Using and Understanding algorithms</a></p>
+<p><a href="#flowcharts">Flowcharts</a></p>
+<p><a href="#bubble-sort">Bubble sort</a></p>
+<p><a href="#quick-sort">Quick sort</a></p>
+<p><a href="#bin-packing">Bin Packing</a></p>
+<p><a href="#binary-search">Binary Search</a></p>
+<p><a href="#past-paper-questions">Past Paper Questions</a></p>
+{% endblock %}
+
+{% block main_page %}
+
+
 
       <section>
-        <h1>1.1 Using and understanding algorithms</h1>
+        <a name="using"><h1>1.1 Using and understanding algorithms</h1></a>
         <h3>LO:
           <ul>
             <li>Use and understand an algorithm given in words.</li>
@@ -55,7 +68,7 @@
       </section>
 
       <section>
-          <h1>1.2 Flowcharts</h1>
+          <a name="flowcharts"><h1>1.2 Flowcharts</h1></a>
           <h3>LO:
             <ul>
               <li>To be able to interpret a given flowchart.</li>
@@ -80,7 +93,7 @@
       </section>
 
       <section>
-          <h1>1.3 Bubble sort</h1>
+          <a name="bubble-sort"><h1>1.3 Bubble sort</h1></a>
           <h3>LO:
             <ul>
               <li>To be able to carry out a bubble sort.</li>
@@ -124,7 +137,7 @@
       </section>
 
       <section>
-          <h1>1.4 Quick sort</h1>
+          <a name="quick-sort"><h1>1.4 Quick sort</h1></a>
           <h3>LO:
             <ul>
               <li>To be able to carry out a quick sort.</li>
@@ -164,7 +177,7 @@
       </section>
 
       <section>
-          <h1>1.5 Bin Packing Algorithms</h1>
+          <a name="bin-packing"><h1>1.5 Bin Packing Algorithms</h1></a>
           <h3>LO:
             <ul>
               <li>To be able to carry out 3 bin packing algorithms and understand their strengths.</li>
@@ -209,7 +222,7 @@
       </section>
 
       <section>
-          <h1>1.6 Binary Search</h1>
+          <a name="binary-search"><h1>1.6 Binary Search</h1></a>
           <h3>LO:
             <ul>
               <li>To be able to carry a binary search.</li>
@@ -253,9 +266,11 @@
 
 
       <section>
+        <a name="past-paper-questions">
         <h1>
           Past Paper Chapter Questions
         </h1>
+        </a>
         <div  style="display: flex; flex-direction: row;">
           <div style="width: 350px; margin-right: 20px;">
             <h3>Sorting Papers</h3>
@@ -286,8 +301,6 @@
         </div>
       </section>
       
-    </div>
-  </div>
     
     
 {% endblock %}
