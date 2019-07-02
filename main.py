@@ -29,8 +29,7 @@ from blueprints.maths import mathsBP
 from blueprints.computing import computingBP
 from blueprints.users import usersBP
 from blueprints.question_bank import question_bank_BP
-
-
+from blueprints.modules import modulesBP
 
 
 
@@ -68,6 +67,7 @@ app.register_blueprint(mathsBP, url_prefix='/maths')
 app.register_blueprint(computingBP, url_prefix='/computing')
 app.register_blueprint(usersBP, url_prefix='/users')
 app.register_blueprint(question_bank_BP, url_prefix='/question-bank')
+app.register_blueprint(modulesBP, url_prefix='/modules')
 #app.register_blueprint(loginBP, url_prefix='/login')
 
 

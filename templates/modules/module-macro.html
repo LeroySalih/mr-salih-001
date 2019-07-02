@@ -1,0 +1,94 @@
+{% macro hello(name) %}
+<h1>Hello {{name}}</h1>
+{% endmacro %}
+
+
+{% macro LO(lo) %}
+  <tr>
+    <td>{{lo.title}}</td>
+    <td class="sc">{{lo.developing}}</td>
+    <td class="sc pupil-selected teacher-selected">{{lo.satisfactory}}</td>
+    <td class="sc ">{{lo.exceeding}}</td>
+  </tr>
+{% endmacro %}
+
+{% macro LOGroup(loGroup) %}
+<table class="lo">
+    <tr>
+      <th><h5 class="">{{loGroup[0][0]}}</h5></th>
+      <th class="sc developing">Developing</th>
+      <th class="sc satisfactory">Satisfactory</th>
+      <th class="sc exceeding">Exceeding</th>
+    </tr>
+
+    {% for lo in loGroup[1] %}
+     <div>{{LO(lo) }}</div>
+    {% endfor %}
+    
+    
+  </table>
+{% endmacro %}
+
+{% macro Lesson(lesson) %}
+<tr>
+    <td>lesson.number</td>
+    <td>lesson.description</td>
+
+    <td>
+      {% for lo in lesson.los %}
+      {{ lo.title }}
+      {% endfor %}
+    </td>
+
+    <td rowspan="2">
+      <div>I can remember and understand the generations of computing.</div>
+      <div>I can remember and understand key historic figures from the world of computing.</div>
+
+    </td>
+    <td>{{lesson.hw_due}}</td>
+    <td>{{lesson.hw_set}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      {{lesson.description}}
+    </td>
+    
+  </tr>
+
+{% endmacro %}
+
+{% macro Lesson2(lesson) %}
+
+<div class="grid_lesson">
+  <div class="grid_title_row">
+    <div class="grid_title_header">#</div>
+    <div class="grid_title_header">Title</div>
+
+    <div>{{lesson.number}}</div>
+    <div>{{lesson.title}}</div>
+
+  </div>
+  <div class="grid_lesson_details">
+      <div>Description</div>
+      <div>LOs</div>
+      <div>{{lesson.description}}</div>
+      <div>
+        <ul>
+        {% for lo in lesson.learning_objectives.values() %}
+        <li>{{ lo.title}}</li>
+        {% endfor %}
+      </ul>
+      </div>
+      
+  </div>
+  <div class="grid_lesson_footer">
+      <div>HW Due</div> 
+      <div>{{lesson.hw_due}}</div>
+      <div>HW Set</div>
+      <div>{{lesson.hw_set}}</div>
+  </div>
+  
+
+</div>
+
+{% endmacro %}

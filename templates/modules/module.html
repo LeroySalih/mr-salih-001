@@ -1,0 +1,129 @@
+{% extends "layout-topic.html" %}
+{% block title%}{{module.title}}{% endblock %}
+
+{% from "/modules/module-macro.html" import LOGroup, Lesson, Lesson2 %}
+
+{% block styles%}
+{{ super() }}
+
+{% include "style-includes.html" %}
+
+<style>
+.description {
+  background-color: #f7f5f5;
+  padding: 15px;
+  border: solid 1px silver;
+}
+
+.curriculum-link {
+  color: silver;
+}
+
+.curriculum-link:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.lo {
+  background-color:white;
+  padding: 15px;
+}
+
+.sc {
+  padding: 5px;
+}
+.sc.exceeding {
+  background-color: #f9fab9
+}
+
+.sc.satisfactory {
+  background-color: #e4f1f5 
+}
+
+.sc.developing {
+  background-color: #fdcc94 
+}
+
+.sc.pupil-selected {
+  background-color: yellow;
+}
+
+.sc.teacher-selected {
+  border: solid green 3px;
+}
+
+.grid_title_row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background-color: antiquewhite;
+}
+
+.grid_lesson_details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid_lesson_footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+</style>
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block back_to %}
+<li><a href="/maths/decision">Back to: </a></li>
+{% endblock %}
+
+{% block inpage_links %}
+<p><a href="#home">Home</a></p>
+<p><a href="#module-los">Module LO's</a></p>
+<p><a href="#flowcharts">Flowcharts</a></p>
+<p><a href="#bubble-sort">Bubble sort</a></p>
+<p><a href="#quick-sort">Quick sort</a></p>
+<p><a href="#bin-packing">Bin Packing</a></p>
+<p><a href="#binary-search">Binary Search</a></p>
+<p><a href="#past-paper-questions">Past Paper Questions</a></p>
+{% endblock %}
+
+{% block main_page %}
+<a name="home"></a>
+<h1>{{module.title}}</h1>
+<div class="description">
+{{module.description}}
+</div>
+
+
+
+<section>
+  <a name="module-los"></a>
+    <h2>Module Learning Objectives</h2>
+  <p class="curriculum-link">Curriculum Link</p>
+  
+  <div class="los">
+      
+      {% for log in loGroups %}
+      {{ LOGroup( log ) }}
+
+      {% endfor %}
+  </div>
+</section>
+
+
+
+<section>
+
+  <h1>Lessons</h1>
+
+  {% for lesson in module.lessons.values() %}
+  {{ Lesson2(lesson) }}
+  {% endfor %}
+
+</section>
+
+{% endblock %}

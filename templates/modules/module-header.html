@@ -1,0 +1,32 @@
+{% extends "layout-topic.html" %}
+{% block title%}Algorithms{% endblock %}
+
+
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block back_to %}
+<li><a href="/maths/decision">Back to: </a></li>
+{% endblock %}
+
+{% block inpage_links %}
+<p><a href="#using">Using and Understanding algorithms</a></p>
+<p><a href="#flowcharts">Flowcharts</a></p>
+<p><a href="#bubble-sort">Bubble sort</a></p>
+<p><a href="#quick-sort">Quick sort</a></p>
+<p><a href="#bin-packing">Bin Packing</a></p>
+<p><a href="#binary-search">Binary Search</a></p>
+<p><a href="#past-paper-questions">Past Paper Questions</a></p>
+{% endblock %}
+
+{% block main_page %}
+<h1>Main Page goes here.</h1>
+{% endblock %}
