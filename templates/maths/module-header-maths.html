@@ -1,4 +1,20 @@
 {% extends "bootstrap/base.html" %}
+{% macro igcse_past_paper(year, month, paper, qp, ms, so)%}
+      
+    <div>{{year}}</div>
+    <div>{{month}}</div>
+    <div>{{paper}}</div>
+    <div><a href="{{qp}}">Questions</a></div>
+    <div><a href="{{ms}}">Mark Scheme</a></div>
+    <div>
+        {% if so == '' %}
+        <span> Solutions</span>
+        {% else %}
+        <a href="{{so}}">Solutions</a>
+        {% endif %}
+    </div>
+    
+ {% endmacro %}
 
 
 {% block title%}Maths{% endblock %}
@@ -345,17 +361,73 @@
             
           </div>
       </div>
+
+      
+
       <div role="tabpanel" class="tab-pane" id="tabiGCSE-tab">
           <h3>iGCSE</h3>
           <div class="igcse-papers-grid">
-      
-              <div>Specimen Paper</div>
-              <div></div>
-              <div>Paper 1</div>
-              <div><a href="https://www.dropbox.com/s/3u7dkrqvet703dd/4MA1%201H%20Specimen%20Papers%20-%20Question%20Paper.pdf?dl=0">Questions</a></div>
-              <div><a href="https://www.dropbox.com/s/wsumsx6liko3ep2/4MA1%201H%20Specimen%20Papers%20-%20Mark%20Scheme.pdf?dl=0">Mark Scheme</a></div>
-              <div><a href="https://www.dropbox.com/s/s3mfrg4hoyzaxg6/4MA1%201H%20Specimen%20Papers%20-%20Question%20Paper%20solutions.pdf?dl=0">Solutions</a></div>
-            
+
+              {{ igcse_past_paper (2011, 'June', '3H', 
+                        'https://www.dropbox.com/s/jnrs6rzt0iwz3iv/2011-06-3H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/osnkah2cshkdjqj/2011-06-3H-MSC.pdf?dl=0', 
+                        '') }} 
+
+              {{ igcse_past_paper (2011, 'June', '4H', 
+                        'https://www.dropbox.com/s/jnrs6rzt0iwz3iv/2011-06-3H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/osnkah2cshkdjqj/2011-06-3H-MSC.pdf?dl=0', 
+                        '') }}
+                        
+            {{ igcse_past_paper (2012, 'Jan', '3H', 
+                        'https://www.dropbox.com/s/2d7con11shffdci/2012-01-3H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/qyvbs5xkd5shhk6/2012-01-3H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2012, 'Jan', '4H', 
+                        'https://www.dropbox.com/s/a440hze5kg885f2/2012-01-4H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/2fs7g67g22xiq10/2012-01-4H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2012, 'June', '3H', 
+                        'https://www.dropbox.com/s/pbnpms5soebfm5t/2012-06-3H-QP.pdf?dl=0',
+                        'https://www.dropbox.com/s/2mv7p7kjyr480bw/2012-06-3H-MS.pdf?dl=0',
+                        '') }}
+
+            {{ igcse_past_paper (2012, 'June', '4H', 
+                        'https://www.dropbox.com/s/67fqgdb7za94l6y/2012-06-4H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/czlpwfn01eibjie/2012-06-4H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2013, 'Jan', '3H', 
+                        'https://www.dropbox.com/s/vlcbwl4lyqxl9la/2013-01-3H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/vy1guvr2o0u8gga/2013-01-3H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2013, 'Jan', '4H', 
+                        'https://www.dropbox.com/s/gwbchw0ktzgqzrn/2013-01-4H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/z1ld6kx288fzo5w/2013-01-4H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2013, 'Jun', '3H', 
+                        'https://www.dropbox.com/s/mzxlumfdrm2um7o/2013-06-3H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/h17x5o0z57n4ue2/2013-06-3H-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2013, 'Jun', '3HR', 
+                        'https://www.dropbox.com/s/tn3w8u7ibuwjo62/2013-06-3HR-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/m3p1ndyj12pp9s4/2013-06-3HR-MS.pdf?dl=0', 
+                        '') }}
+
+            {{ igcse_past_paper (2013, 'Jun', '4H', 
+                        'https://www.dropbox.com/s/twaqep40gxydvfg/2013-06-4H-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/7vfracdm8k7jed0/2013-06-4H-MS.pdf?dl=0', 
+                        '') }}
+                        
+            {{ igcse_past_paper (2013, 'Jun', '4HR', 
+                        'https://www.dropbox.com/s/sczbkxqzng0gnkj/2013-06-4HR-QP.pdf?dl=0', 
+                        'https://www.dropbox.com/s/ze77snp3qq0qsbd/2013-06-4HR-MS.pdf?dl=0', 
+                        '') }}
+
               <div>Specimen Paper</div>
               <div></div>
               <div>Paper 2</div>

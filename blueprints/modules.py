@@ -11,7 +11,8 @@ modulesBP = Blueprint('modules', __name__, template_folder='templates')
 @modulesBP.route('/')
 def show_modules():
   try:
-    return render_template('modules/module-header.html')
+    modules = moduleDB.modules.values()
+    return render_template('modules/module-header.html', modules=modules)
   except TemplateNotFound:
     print ('Template Not Found error', 'modules/module-header.html' )
     abort(404)

@@ -52,9 +52,30 @@ class ModuleDB:
 
     self.modules[module.id] = module 
 
+  def create_office_online(self):
+    module = Module(
+      'odoo', 
+      'One Drive & Office Online', 
+      'In this module, pupils will become familiar with the One Drive and Office Online environment.  They will learn how to create, edit, save and upload documents to the cloud.',
+      'one-drive-office-online')
+
+    lesson1 = Lesson(
+      'odoo01',
+      1, 
+      'OneDrive & Office online',
+      'Intro to OneDrive and Office Learn to create, edit, save and upload documents in the cloud. ', 
+      'None', 
+      'None')
+    lesson1.setLearningObjectiveIds( 'ss02')
+    module.add_lesson(lesson1)
+
+    self.modules[module.id] = module
+
+  
   def init_data(self):
     self.create_history_of_computing()
     self.create_induction()
+    self.create_office_online()
     
   def __init__(self):
     self.modules = {}
