@@ -3,74 +3,51 @@
 {% endmacro %}
 
 
+
+
 {% macro LO(lo) %}
-  <tr>
-    <td>{{lo.title}}</td>
-    <td class="sc">{{lo.developing}}</td>
-    <td class="sc pupil-selected teacher-selected">{{lo.satisfactory}}</td>
-    <td class="sc ">{{lo.exceeding}}</td>
-  </tr>
+  
+  <h2>{{lo.title}}</h2>
+  <div class="sc">{{lo.developing}}</div>
+  <div class="sc ">{{lo.satisfactory}}</div>
+  <div class="sc ">{{lo.exceeding}}</div>
+  
 {% endmacro %}
 
-{% macro LOGroup(loGroup) %}
-<table class="lo">
-    <tr>
-      <th><h5 class="">{{loGroup[0][0]}}</h5></th>
-      <th class="sc developing">Developing</th>
-      <th class="sc satisfactory">Satisfactory</th>
-      <th class="sc exceeding">Exceeding</th>
-    </tr>
+{% macro LOGroup( loGroup, index ) %}
+<div class="grid-logroup">
+  <h1>
+    <a name="log{{index}}"></a>
+    {{loGroup[0][0]}}
+  </h1>
+  <div class="developing">Developing</div>
+  <div class="satisfactory">Satisfactory</div>
+  <div class="exceeding">Exceeding</div>
 
-    {% for lo in loGroup[1] %}
-     <div>{{LO(lo) }}</div>
-    {% endfor %}
-    
-    
-  </table>
+  {% for lo in loGroup[1] %}
+    {{LO(lo) }}
+  {% endfor %}
+</div>
 {% endmacro %}
 
-{% macro Lesson(lesson) %}
-<tr>
-    <td>lesson.number</td>
-    <td>lesson.description</td>
 
-    <td>
-      {% for lo in lesson.los %}
-      {{ lo.title }}
-      {% endfor %}
-    </td>
 
-    <td rowspan="2">
-      <div>I can remember and understand the generations of computing.</div>
-      <div>I can remember and understand key historic figures from the world of computing.</div>
-
-    </td>
-    <td>{{lesson.hw_due}}</td>
-    <td>{{lesson.hw_set}}</td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      {{lesson.description}}
-    </td>
-    
-  </tr>
-
-{% endmacro %}
-
-{% macro Lesson2(lesson) %}
+{% macro Lesson(lesson, lessons) %}
 
 <div class="grid_lesson">
   <div class="grid_title_row">
-    <div class="grid_title_header">#</div>
-    <div class="grid_title_header">Title</div>
-
-    <div>{{lesson.number}}</div>
-    <div>{{lesson.title}}</div>
+    
+    <h1>
+        <a name="{{lesson.number}}"></a>
+      {{lesson.title}}
+    </h1>
+    <h1>{{lesson.number}} of {{lessons | length}}</h1>
+    
 
   </div>
   <div class="grid_lesson_details">
-      <div>Description</div>
-      <div>LOs</div>
+      <h1>Description</h1>
+      <h1>LOs</h1>
       <div>{{lesson.description}}</div>
       <div>
         <ul>
@@ -79,13 +56,15 @@
         {% endfor %}
       </ul>
       </div>
+      <h1>HW Set</h1>
+      <h1>Resources</h1>
+      <div>{{lesson.hw_set}}</div>
+      
+      <div>Links</div>
       
   </div>
   <div class="grid_lesson_footer">
-      <div>HW Due</div> 
-      <div>{{lesson.hw_due}}</div>
-      <div>HW Set</div>
-      <div>{{lesson.hw_set}}</div>
+      
   </div>
   
 

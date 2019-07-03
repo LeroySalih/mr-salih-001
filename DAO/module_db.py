@@ -25,7 +25,7 @@ class ModuleDB:
     lesson3.setLearningObjectiveIds( 'oo01*')
     module.add_lesson(lesson3)
 
-    lesson4 = Lesson('hoc04',3, 'Project','In this lesson, pupils will complete their project work and offer feedback to each other.', 'None', 'None')
+    lesson4 = Lesson('hoc04',4, 'Project','In this lesson, pupils will complete their project work and offer feedback to each other.', 'None', 'None')
    #lesson4.setLearningObjectiveIds( 'oo01*')
     module.add_lesson(lesson4)
 

@@ -18,6 +18,11 @@ h1 {
   font-family: 'Ropa Sans'
 }
 
+h2 {
+  color: black;
+  font-family: 'Ropa Sans'
+}
+
 /* Lesson Pages */
 .remember {
   border: solid 2px #f50642;

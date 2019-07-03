@@ -1,7 +1,7 @@
 {% extends "layout-topic.html" %}
 {% block title%}{{module.title}}{% endblock %}
 
-{% from "/modules/module-macro.html" import LOGroup, Lesson, Lesson2 %}
+{% from "/modules/module-macro.html" import LOGroup,  Lesson, Lesson2 %}
 
 {% block styles%}
 {{ super() }}
@@ -9,6 +9,10 @@
 {% include "style-includes.html" %}
 
 <style>
+
+.page-heading {
+  font-size: 5.5rem;
+}
 .description {
   background-color: #f7f5f5;
   padding: 15px;
@@ -30,18 +34,51 @@
   padding: 15px;
 }
 
+
+.module-los {
+  border: solid 2px silver;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.grid-logroup {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.grid-logroup h1 {
+    /* color: red; */
+    background-color: #b1f7ed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 2rem;
+}
+
+.grid-logroup h2 {
+  font-family: 'Open Sans';
+  font-size: 1.5rem;
+}
+
+
 .sc {
   padding: 5px;
+  font-family: 'Open Sans';
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
-.sc.exceeding {
+.exceeding {
   background-color: #f9fab9
 }
 
-.sc.satisfactory {
+.satisfactory {
   background-color: #e4f1f5 
 }
 
-.sc.developing {
+.developing {
   background-color: #fdcc94 
 }
 
@@ -55,8 +92,22 @@
 
 .grid_title_row {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  background-color: antiquewhite;
+  grid-template-columns: 1fr auto;
+  background-color: rgb(177, 247, 237);
+}
+
+.grid_title_row h1 {
+    color: black;
+    font-size: 2.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.grid_lesson {
+    border: solid silver 2px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .grid_lesson_details {
@@ -64,9 +115,19 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.grid_lesson_details h1 {
+  color:rgb(130, 130, 130);
+  font-size: 2rem;
+}
+
 .grid_lesson_footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid_lesson_footer h1 {
+  color:rgb(130, 130, 130);
+  font-size: 2rem;
 }
 
 </style>
@@ -83,17 +144,20 @@
 {% block inpage_links %}
 <p><a href="#home">Home</a></p>
 <p><a href="#module-los">Module LO's</a></p>
-<p><a href="#flowcharts">Flowcharts</a></p>
-<p><a href="#bubble-sort">Bubble sort</a></p>
-<p><a href="#quick-sort">Quick sort</a></p>
-<p><a href="#bin-packing">Bin Packing</a></p>
-<p><a href="#binary-search">Binary Search</a></p>
-<p><a href="#past-paper-questions">Past Paper Questions</a></p>
+{% for log in loGroups %}
+  <p>&nbsp;&nbsp;<a href="#log{{loop.index}}">{{log[0][0]}}</a></p>
+{% endfor %}
+
+<p><a href="#lessons">Lessons</a></p>
+{% for lesson in module.lessons.values() %}
+<p>&nbsp;&nbsp;<a href="#{{lesson.number}}">{{lesson.title}}</a></p>
+{% endfor %}
+
 {% endblock %}
 
 {% block main_page %}
 <a name="home"></a>
-<h1>{{module.title}}</h1>
+<h1 class="page-heading">{{module.title}}</h1>
 <div class="description">
 {{module.description}}
 </div>
@@ -102,26 +166,29 @@
 
 <section>
   <a name="module-los"></a>
-    <h2>Module Learning Objectives</h2>
-  <p class="curriculum-link">Curriculum Link</p>
-  
-  <div class="los">
-      
-      {% for log in loGroups %}
-      {{ LOGroup( log ) }}
+  <h1>Module Learning Objectives</h1>
+    <div class="module-los">
+    
 
-      {% endfor %}
-  </div>
+    {% for log in loGroups %}
+      {{ LOGroup(log, loop.index)}}
+    {% endfor %}
+    </div>
+  
+
+  <!--<p class="curriculum-link">Curriculum Link</p>-->
+  
 </section>
 
 
 
 <section>
 
+  <a name="lessons"></a>
   <h1>Lessons</h1>
 
   {% for lesson in module.lessons.values() %}
-  {{ Lesson2(lesson) }}
+  {{ Lesson(lesson,  module.lessons.values())  }}
   {% endfor %}
 
 </section>
