@@ -1,0 +1,239 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title%}{{lesson.title}} - {{module.title}}{% endblock %}
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+<style>
+  .page-header-grid {
+    
+    display: grid;
+    grid-template-columns: auto min-content;
+  }
+
+  .page-header-lesson {
+    grid-row : 1 / span 1;
+    grid-column : 1 / 2;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-bottom: silver solid 2px;
+  }
+  .page-header-lesson p {
+    font-family: 'Open Sans';
+    font-size: 1.8rem;
+}
+
+  .page-header-logo {
+    grid-row : 1 / span 2;
+    grid-column : 2 / 3;
+    padding: 30px;
+  }
+  .page-header-module {
+    grid-row : 2 / span 1;
+    grid-column : 1/ 2;
+    padding-top: 10px;
+    padding-left: 30px;
+    margin-top: 0px;
+  }
+
+  .page-header-module p {
+    font-family: 'Open Sans';
+    font-size: 1.4rem;
+  }
+
+  .page-main-grid {
+    display : grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  .lo-container {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+  }
+
+  .lo-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: silver 1px dashed;
+    margin-bottom: 3px;
+}
+
+  .lo-header {
+    font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 10px;
+    background-color: rgba(100,100,100,0.1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .lo-group-title {
+    
+  }
+  .lo-sc-title {
+
+  }
+
+  
+
+  .lo-title {
+    grid-row-start: span 3;
+    font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding-left: 10px;
+    
+  }
+
+  .sc {
+    font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-bottom: 5px;
+  }
+
+  .page-footer-grid {
+    padding-left: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+  }
+
+  .section-header {
+    font-size: 2.5rem;
+    background-color: #b1f7ed;
+    padding: 10px;
+  }
+
+  .timeline-container {
+    grid-row: 1/ span 2;
+    grid-column: 4 / 4;
+  }
+
+  .section-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-column-gap: 5px;
+  }
+
+
+
+  .timeline-item {
+    
+  }
+
+  .timeline-item.header {
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header-grid">
+
+  <div class="page-header-module">
+    <h2>{{module.title}}</h2>
+    <p>{{module.description | safe}}</p>
+  </div>
+  <img src="/static/images/bisak-logo.jpg" class="page-header-logo">
+  <div class="page-header-lesson">
+    <h1 >{{lesson.title}}</h1>
+    <p>{{lesson.description | safe}}</p>
+  </div>
+</div>
+
+<div class="page-main-grid">
+    {{ LessonLO(loGroups) }}
+    {{ LessonTimeline(lesson) }}
+    
+    {{ LessonStarter (lesson) }}
+    {{ LessonHomework (lesson) }}
+    {{ LessonResources (lesson) }}
+    
+</div>
+<div class="page-footer-grid">
+  
+</div>
+
+{% endblock %}
+
+
+
+
+{% macro LessonLO(loGroups)%}
+<div class="lo-container section-container">
+    <h1 class="section-header">Learning Objectives</h1>
+  {% for log  in loGroups %}
+  
+    <div class="lo-grid">
+      <div class="lo-header">{{log[0][0]}}</div>
+      <div class="lo-header">Success Criteria</div>
+      
+    
+    {% for lo in log[1] %}
+      
+        <div class="lo-title">{{lo.title}}</div>
+        <div class="sc">{{lo.developing}}</div>
+        <div class="sc">{{lo.satisfactory}}</div>
+        <div class="sc">{{lo.exceeding}}</div>
+      
+    {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+{% endmacro %} 
+
+
+{% macro LessonTimeline(lesson)%}
+  <div class="timeline-container section-container">
+    <h1 class="section-header">Lesson Timeline</h1>
+    <div class="timeline-grid">
+        <div class="timeline-item header">Till</div>
+        <div class="timeline-item header">Item</div>
+      {% for item in lesson.timeline %}
+        <div class="timeline-item">{{item.time}}</div>
+        <div class="timeline-item">{{item.item}}</div>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro LessonStarter(lesson)%}
+  <div class="starter-container section-container">
+    <h1 class="section-header">Starter</h1>
+    <div class="section-item">
+      {{lesson.starter|safe}}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro LessonHomework(lesson)%}
+  <div class="homework-container section-container">
+    <h1 class="section-header">Homework</h1>
+    <div class="section-item">
+      {{lesson.homework|safe}}
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro LessonResources(lesson)%}
+  <div class="resources-container section-container">
+    <h1 class="section-header">Resources</h1>
+    <ul>
+      {% if lesson.resources %}
+        {% for resource in lesson.resources %}
+          <li><a href="{{resource.url}}">{{resource.text}}</a></li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+{% endmacro %}

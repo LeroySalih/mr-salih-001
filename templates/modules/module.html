@@ -138,7 +138,7 @@
 {% endblock %}
 
 {% block back_to %}
-<li><a href="/maths/decision">Back to: </a></li>
+<li><a href="/modules">Modules </a></li>
 {% endblock %}
 
 {% block inpage_links %}
@@ -188,7 +188,7 @@
   <h1>Lessons</h1>
 
   {% for lesson in module.lessons.values() %}
-  {{ Lesson(lesson,  module.lessons.values())  }}
+  {{ Lesson(module, lesson,  module.lessons.values())  }}
   {% endfor %}
 
 </section>

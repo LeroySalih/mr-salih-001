@@ -1,5 +1,6 @@
 from itertools import groupby
 
+
 class Module:
 
   def __init__(self, id, title, description, url):
@@ -25,6 +26,11 @@ class Module:
     return self 
 
 
+class TimelineItem:
+  def __init__(self, time, item):
+    self.time = time 
+    self.item = item 
+
 class Lesson:
 
   def __init__ (self, id, number, title, description, hw_due, hw_set):
@@ -34,8 +40,20 @@ class Lesson:
     self.description = description 
     self.hw_due = hw_due 
     self.hw_set = hw_set 
-
+    self.resources = []
+    self._timeline = {}
     self.los = []
+
+  @property  
+  def timeline(self):
+   
+    return sorted(self._timeline.values(), key=lambda x: x.time, reverse=False)
+
+  def addTimelineItems(self, *timelineitems):
+    
+    for item in timelineitems:
+      self._timeline[item.time] = item
+
 
   def setLearningObjectiveIds(self, *args):
     """ adds the id of the lo to the list of los.

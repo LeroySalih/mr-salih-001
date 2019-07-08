@@ -40,3 +40,21 @@ def modules_general(moduleId):
     print ('Template Not Found error', f'modules/module.html' )
     abort(404)
 
+
+
+@modulesBP.route('/<moduleId>/<lessonId>')
+def modules_lesson(moduleId, lessonId):
+
+  try:
+    module = moduleDB.findById(moduleId)
+    lesson = module.lessons.get(lessonId)
+    loIds = lesson.los 
+    los = loDB.findByIds(*loIds)
+    loGroups = loDB.groupByType(los)
+
+    return render_template(f'modules/lesson.html', module=module, lesson=lesson, loGroups=loGroups)
+ 
+  except TemplateNotFound:
+    print ('Template Not Found error', f'modules/lesson.html' )
+    abort(404)
+

@@ -32,14 +32,14 @@
 
 
 
-{% macro Lesson(lesson, lessons) %}
+{% macro Lesson(module, lesson, lessons) %}
 
 <div class="grid_lesson">
   <div class="grid_title_row">
     
     <h1>
         <a name="{{lesson.number}}"></a>
-      {{lesson.title}}
+      <a href="/modules/{{module.id}}/{{lesson.id}}">{{lesson.title}}</a>
     </h1>
     <h1>{{lesson.number}} of {{lessons | length}}</h1>
     

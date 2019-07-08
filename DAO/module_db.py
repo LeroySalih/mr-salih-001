@@ -1,4 +1,4 @@
-from models.lo_models import LearningObjective, Lesson
+from models.lo_models import LearningObjective, Lesson, TimelineItem
 from models.lo_models import Module
 
 from DAO.lo_db import loDB
@@ -7,25 +7,25 @@ class ModuleDB:
 
   def create_history_of_computing(self):
     module = Module(
-            'hoc', 
+            'history-of-computing', 
             'History of Computing', 
             'In this module, pupils will learn how computers have changed from simple mechanical devices to the sophisticated machines we see today.',
             'history-of-computing'
             )
 
-    lesson1 = Lesson('hoc01',1, 'Introduction to History of Computing','In this lesson, pupils will be introduced to the project, the generations of computing and the historical figures.', 'None', 'None')
+    lesson1 = Lesson('introduction-to-the-history-of-computing',1, 'Introduction to the History of Computing','In this lesson, pupils will be introduced to the project, the generations of computing and the historical figures.', 'None', 'None')
     lesson1.setLearningObjectiveIds( 'hoc01', 'hoc02')
     module.add_lesson(lesson1)
 
-    lesson2 = Lesson('hoc02',2, 'Styling my Work','In this lesson, pupils will practice applying styles and layouts to ensure that documents are consistent and easy to read.', 'None', 'None')
+    lesson2 = Lesson('styling-my-work',2, 'Styling my Work','In this lesson, pupils will practice applying styles and layouts to ensure that documents are consistent and easy to read.', 'None', 'None')
     lesson2.setLearningObjectiveIds( 'aict02', 'ss02')
     module.add_lesson(lesson2)
 
-    lesson3 = Lesson('hoc03',3, 'Searching Online','In this lesson, pupils will practice searching for information online.  They will also discuss how to evaluate their results.', 'None', 'None')
+    lesson3 = Lesson('searching-online',3, 'Searching Online','In this lesson, pupils will practice searching for information online.  They will also discuss how to evaluate their results.', 'None', 'None')
     lesson3.setLearningObjectiveIds( 'oo01*')
     module.add_lesson(lesson3)
 
-    lesson4 = Lesson('hoc04',4, 'Project','In this lesson, pupils will complete their project work and offer feedback to each other.', 'None', 'None')
+    lesson4 = Lesson('project',4, 'Project','In this lesson, pupils will complete their project work and offer feedback to each other.', 'None', 'None')
    #lesson4.setLearningObjectiveIds( 'oo01*')
     module.add_lesson(lesson4)
 
@@ -33,20 +33,20 @@ class ModuleDB:
 
   def create_induction(self):
     module = Module(
-      'ind', 
+      'induction', 
       'Induction', 
       'In this module, pupils will learn the rules and expectations of the Computing Department.  They will gain an overview of the modules that will be covered, the safety and school closure procedures that must be followed, and how to use key software applications.',
       'induction')
  
-    lesson1 = Lesson('ind01',1, 'Computing Department Expectations',"In this lesson, pupils will be introduced to the Computing Department and will be introduced the the 5B's and 5P's of the computer department expectations. ", 'None', 'None')
+    lesson1 = Lesson('computing-department-expectations',1, 'Computing Department Expectations',"In this lesson, pupils will be introduced to the Computing Department and will be introduced the the 5B's and 5P's of the computer department expectations. ", 'None', 'None')
     lesson1.setLearningObjectiveIds( 'ind01*')
     module.add_lesson(lesson1)
 
-    lesson2 = Lesson('ind02',1, 'Using the VLE',"In this lesson, pupils will be introduced to the VLE and how to use the software. ", 'None', 'None')
+    lesson2 = Lesson('using-the-vle',1, 'Using the VLE',"In this lesson, pupils will be introduced to the VLE and how to use the software. ", 'None', 'None')
     lesson2.setLearningObjectiveIds( 'ind02*')
     module.add_lesson(lesson2)
 
-    lesson3 = Lesson('ind03',1, 'Netizens',"In this lesson, pupils will be introduced to the importance of being a good Netizen. ", 'None', 'None')
+    lesson3 = Lesson('netizens',1, 'Netizens',"In this lesson, pupils will be introduced to the importance of being a good Netizen. ", 'None', 'None')
     lesson3.setLearningObjectiveIds( 'ind03*')
     module.add_lesson(lesson3)
 
@@ -54,19 +54,46 @@ class ModuleDB:
 
   def create_office_online(self):
     module = Module(
-      'odoo', 
+      'onedrive-and-office-online', 
       'One Drive & Office Online', 
-      'In this module, pupils will become familiar with the One Drive and Office Online environment.  They will learn how to create, edit, save and upload documents to the cloud.',
+      'In this introduction to OneDrive and Office Online, pupils will learn to create, edit, save and upload documents in the cloud so that they can <b>create and edit documents from school or home</b>.',
       'one-drive-office-online')
 
     lesson1 = Lesson(
-      'odoo01',
+      'onedrive-and-office-online',
       1, 
       'OneDrive & Office online',
-      'Intro to OneDrive and Office Learn to create, edit, save and upload documents in the cloud. ', 
+      'How to create, edit, save, upload and access documents using OneDrive and Office Online', 
       'None', 
       'None')
-    lesson1.setLearningObjectiveIds( 'ss02')
+    lesson1.setLearningObjectiveIds( 'ss02', 'oo02*')
+    lesson1.starter = """
+      <ul>
+        <li>Work in groups of 2's or 3's</li>
+        <li>Take one piece of paper per group.</li>
+        <li>Discuss and identify 3 difficulties of <b>using thumb drives</b></li>
+      </ul>"""
+    lesson1.resources = [{'url': '', 'text':'Lesson Slides'}, 
+                         {'url': '', 'text':'Cheat Sheet'}, 
+                        ]
+
+    lesson1.addTimelineItems(
+          TimelineItem('00:10', 'Starter'), 
+          TimelineItem('00:20', 'What is OneDrive?'), 
+          TimelineItem('00:40a', 'Exercise: Uploading and locating files in the Cloud.'),
+          TimelineItem('00:40b', 'Extension: What is OneDrive Version History?.'),
+          TimelineItem('00:45', 'Test Your Knowledge'),
+          TimelineItem('00:50', 'Bring It All Together'),
+          TimelineItem('00:54', 'Rate Your Progress'),
+          TimelineItem('00:57', 'Nail It Down'),
+          TimelineItem('00:59', 'LOPU'),
+          )
+
+    
+
+    lesson1.homework = """From `vle"""
+    
+    
     module.add_lesson(lesson1)
 
     self.modules[module.id] = module

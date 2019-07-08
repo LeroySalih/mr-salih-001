@@ -44,6 +44,16 @@ class LoDB:
                     exceeding= 'Can assess the quality and veracity of a result'
                     
       ),
+
+      'oo02*' : LearningObjective (
+                    id='oo02*',
+                    title='Create, edit, save and upload documents in a cloud environment.',
+                    group='Operating Online',
+                    developing='Is able to create a document online.',
+                    satisfactory= 'Is able to upload and edit a file created offline.',
+                    exceeding= 'Is able to locate a file created online in the synchronised folder.'
+                    
+      ),
       
       'aict01': LearningObjective(
                     id='aict01',
