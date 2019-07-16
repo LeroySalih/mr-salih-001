@@ -142,7 +142,6 @@ class LoDB:
     log_data = []
 
     for group in groups:
-      print (group)
       log_data_item = [group, list(group[1])]
       log_data.append(log_data_item)
 

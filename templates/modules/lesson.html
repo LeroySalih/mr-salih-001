@@ -198,13 +198,17 @@
     <div class="timeline-grid">
         <div class="timeline-item header">Till</div>
         <div class="timeline-item header">Item</div>
-      {% for item in lesson.timeline %}
-        <div class="timeline-item">{{item.time}}</div>
-        <div class="timeline-item">{{item.item}}</div>
+      {% for activity in lesson.activities %}
+        <div class="timeline-item">{{activity.duration}}</div>
+        <div class="timeline-item">
+          <a href="/modules/{{module.id}}/{{lesson.id}}/activity?index={{loop.index - 1}}">{{activity.title}}</a> 
+        </div>
+      
       {% endfor %}
     </div>
   </div>
 {% endmacro %}
+
 
 {% macro LessonStarter(lesson)%}
   <div class="starter-container section-container">

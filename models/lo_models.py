@@ -1,9 +1,9 @@
 from itertools import groupby
-
+import uuid 
 
 class Module:
 
-  def __init__(self, id, title, description, url):
+  def __init__(self,  id, title, description, url):
 
     self.id = id
     self.title = title
@@ -11,7 +11,13 @@ class Module:
     self.url = url
     self.lessons = {}
   
-  def add_lesson(self, lesson):
+
+
+  @property 
+  def path(self):
+    return self.id 
+
+  def add_lesson(self, lesson, replace=False):
 
     """ 
     Add a lesson to the lesson dictionary.
@@ -19,17 +25,16 @@ class Module:
 
     returns self to allow chaining
     """
-    if self.lessons.get(lesson.id) != None:
-      print (f'WARNING: Overwriting lesson id {lesson.id}')
+
+    if self.lessons.get(lesson.id) != None and not replace:
+      raise NameError(f'WARNING: Overwriting lesson id {lesson.id}')
 
     self.lessons[lesson.id] = lesson
-    return self 
+    return self.lessons[lesson.id] 
 
 
-class TimelineItem:
-  def __init__(self, time, item):
-    self.time = time 
-    self.item = item 
+
+
 
 class Lesson:
 
@@ -41,19 +46,20 @@ class Lesson:
     self.hw_due = hw_due 
     self.hw_set = hw_set 
     self.resources = []
-    self._timeline = {}
+    self.activities = []
     self.los = []
+    self.module = {'id': 'Not Set'}
 
   @property  
   def timeline(self):
    
     return sorted(self._timeline.values(), key=lambda x: x.time, reverse=False)
 
-  def addTimelineItems(self, *timelineitems):
+  def addActivities(self, *activities):
     
-    for item in timelineitems:
-      self._timeline[item.time] = item
-
+    for activity in activities:
+      self.activities.append(activity)
+      
 
   def setLearningObjectiveIds(self, *args):
     """ adds the id of the lo to the list of los.
@@ -63,6 +69,7 @@ class Lesson:
     self.los = args
 
     return self 
+
 
 
 class LearningObjective : 
@@ -78,8 +85,4 @@ class LearningObjective :
 
   def __repr__(self):
     return f'<LearningObjective id:{self.id} title:{self.title}>'
-
-
-
-      
 

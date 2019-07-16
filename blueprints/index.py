@@ -1,6 +1,9 @@
-from flask import Blueprint, render_template, abort 
+from flask import Blueprint, render_template, abort, app 
+from flask_socketio import SocketIO
 
 indexBP = Blueprint('indexBP', __name__, template_folder='templates')
+
+
 
 @indexBP.route('/')
 def index():

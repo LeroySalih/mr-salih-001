@@ -1,0 +1,408 @@
+{% extends "layout-activity.html" %}
+{% block title%}Algorithms{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+
+{% macro activityTitle (prefix, title) %}
+<div class="activity-title">
+    <h1>{{prefix}}
+        {% if prefix != "" %}:{% endif %} 
+        {{title}}</h1> 
+    
+    <button id="prev" onclick="previous()">Previous</button>
+    <button id="next" onclick="next()">Next</button>
+    
+  </div>
+{% endmacro %}
+
+{% macro showActivity (index, activity) %}
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("Activity", activity.title ) }}
+      <div id="content" style="height:80%; text-align: center;margin-top:150px;">
+        {{activity.content | safe}}
+      </div>
+  </div>
+
+{% endmacro %}
+
+{% macro showVideoActivity (index, activity) %}
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("Video", activity.title ) }}
+      <video controls="true" width="100%">
+        <source src="{{activity.url}}">
+      </video>
+      <h2>Points to remember:</h2>
+      <ul>
+        <li>When taking notes, include the time.</li>
+        <li>Why are you watching this video? What is it we are trying to learn?</li>
+      </ul>
+      
+  </div>
+{% endmacro %}
+
+
+{% macro showQuizActivity (index, activity) %}
+
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("Quiz", activity.title ) }}
+      
+      {% for question in activity.quiz.questions.values() %}
+        <div class="question-wrapper" name="question">
+        {% set rowloop = loop %}
+        <div class="question-label">{{question.text}}</div>
+        
+          {% for answer in question.answers %}
+           
+              <input type="checkbox" 
+                     name="answers_chk-{{rowloop.index}}-{{loop.index}}"
+                     id="answers_chk-{{rowloop.index}}-{{loop.index}}" 
+                     onchange="showMessage('')"
+              >
+              <label for="answers_chk-{{rowloop.index}}-{{loop.index}}" class="answer-label">{{answer}}</label>  
+          {% endfor %}
+        </div>
+      {% endfor %}
+
+      <div>
+        <button onclick="checkAnswers()" class="checkmyanswers">Check My Answers</button>
+        <img name="spinner" id="spinner" class="spinner-off" src="/static/images/spinner.gif" height="30px">
+        <span name="score" id="score"></span>
+      </div>
+      
+  </div>
+
+{% endmacro %}
+
+{% macro showRateProgressActivity (index, activity) %}
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("", activity.title ) }}
+  </div>
+
+{% endmacro %}
+
+{% macro showRecapActivity (index, activity) %}
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("", activity.title ) }}
+  </div>
+
+{% endmacro %}
+
+{% macro showLoPuActivity (index, activity) %}
+  <div id="activity_{{index}}" class="activity-off">
+      {{ activityTitle("", activity.title ) }}
+  </div>
+
+{% endmacro %}
+
+
+
+
+
+{% block styles%}
+{{ super() }}
+{% include "style-includes.html" %}
+
+<style>
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: min-content;
+    }
+
+
+    .activity-side-bar {
+      grid-column: 1 / 2;
+      grid-row : 2 / 3;
+      margin: 15px;
+      border: solid 1px silver;
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    .side-item {
+      padding: 5px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .side-item-on {
+      font-weight: bold;
+      color: black;
+      background-color: rgb(177, 247, 237);
+    }
+
+    .side-item-off {
+      font-weight: normal;
+      color: black;
+      background-color: ''
+    }
+
+    .activity-off {
+      display: none;
+    }
+
+    .activity-on {
+      display: inline;
+    }
+
+    .activity-header {
+      grid-column: 1 / 3;
+      grid-row : 1 /2;
+    }
+
+    .activity-header h1 {
+      font-size: 2rem;
+      border-bottom: silver 1px solid
+    }
+
+    .activity-header h2 {
+      font-size: 2rem;
+    }
+
+    .display {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .activity-title {
+      display: grid;
+      grid-template-columns: auto min-content min-content;
+      vertical-align: middle;
+    }
+
+    button{
+      margin-right: 5px;
+      height: 40px;
+      border-radius: 10px;
+      border: solid rgb(177, 247, 237) 2px;
+      width: 70px;
+
+    }
+
+    button:hover {
+      background-color:  rgb(177, 247, 237);
+      border: solid 1px silver;
+      color: black;
+    }
+
+    /* ==================== */
+    /* Custom Checkbox */
+    /* ==================== */
+    input[type="checkbox"] + label {
+      display : block;
+      margin: 0.2em;
+    }
+
+    input[type=checkbox] {
+      display: none
+    }
+
+    input[type="checkbox"] + label:before {
+      content : " ";
+      border: 0.1em black solid;
+      padding: 0.2em;
+      margin: 0.1em;
+      margin-right: 1rem;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border-radius: 0.5em;
+      vertical-align: bottom;
+      color: transparent;
+      
+    }
+
+    input[type="checkbox"]:checked + label:before {
+      background-color : rgb(177, 247, 237) ;
+      color: white;
+    }
+    .question-wrapper {
+      margin: 20px;
+      font-family: 'Open Sans';
+      font-size: 1.8rem;
+    }
+
+    .question-wrapper {
+      font-size: 2rem;
+      margin-bottom: 5rem;
+    }
+    .answer-label {
+      font-size: 1.8rem;
+    }
+
+    button.checkmyanswers {
+      width : 150px
+    }
+
+    .spinner-off  {
+      display: none;
+    }
+
+    .spinner-on {
+      display: inline;
+    }
+    
+  </style>
+
+{% endblock %}
+
+
+
+{% block mainpage %}
+
+    <div class="page-grid">
+      <div class="activity-header">
+        <h1>{{lesson.title}}</h1>
+        <h2>Module: {{module.title}}</h2>
+      </div>
+    
+
+      <div class="activity-side-bar">
+        <div><a href="/modules/{{module.id}}/{{lesson.id}}">Back to: </a></div>
+        {% for activity in lesson.activities %}
+          <div id="act_{{loop.index - 1}}" class="side-item side-item-off" onclick="sideBarItemOnClick({{loop.index - 1}})">{{activity.title}}</div>
+        {% endfor %}
+      
+      
+        
+      </div>
+
+      <div id="display">
+          {% for activity in lesson.activities %}
+    
+            {% if activity.__class__.__name__ == "Activity" %}
+            {{  showActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+            {% if activity.__class__.__name__ == "VideoActivity" %}
+            {{  showVideoActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+    
+            {% if activity.__class__.__name__ == "QuizActivity" %}
+            {{  showQuizActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+            {% if activity.__class__.__name__ == "RateProgressActivity" %}
+            {{  showRateProgressActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+            {% if activity.__class__.__name__ == "RecapActivity" %}
+            {{  showRecapActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+            {% if activity.__class__.__name__ == "LoPuActivity" %}
+            {{  showLoPuActivity(loop.index - 1, activity) }}
+            {% endif %}
+    
+          {% endfor %}
+        </div>
+    </div>
+    
+    
+
+<script>
+
+  var currentIndex = {{index}}
+
+  function sideBarItemOnClick(newIndex){
+    let tmpIndex = currentIndex
+    currentIndex = newIndex 
+    showIndex(tmpIndex, currentIndex)
+  }
+
+  function showIndex (currentIndex, newIndex) {
+    document.getElementById(`act_${currentIndex}`).className = "side-item side-item-off"
+    document.getElementById(`act_${newIndex}`).className = "side-item side-item-on"
+
+    document.getElementById(`activity_${currentIndex}`).className = "activity-off"
+    document.getElementById(`activity_${newIndex}`).className = "activity-on"
+  }
+
+  function previous() {
+    console.log('Previous')
+  }
+
+  function next() {
+    let tmpIndex = currentIndex 
+    currentIndex = (currentIndex + 1) % {{ lesson.activities | length}}
+    showIndex(tmpIndex, currentIndex) 
+  }
+
+  function previous() {
+    let tmpIndex = currentIndex 
+    currentIndex = (currentIndex + ({{ lesson.activities | length}} - 1)) % {{ lesson.activities | length}}
+    showIndex(tmpIndex, currentIndex) 
+  }
+
+  showIndex(currentIndex, currentIndex)
+
+
+  function checkAnswers() {
+    // var elems = document.getElementsByName('answers_chk')
+    
+    var questions = document.getElementsByName('question')
+    var qData = {}
+
+    for (qIndex = 0; qIndex < questions.length; qIndex ++){
+      question = questions[qIndex];
+      answers = []
+      inputs = question.getElementsByTagName('input')
+      for (index =  0; index < inputs.length; index++) {
+        chk = inputs[index]
+        console.log(chk.checked)
+        answers.push(chk.checked)
+      }
+      qData[qIndex] = answers
+    }
+    
+    showSpinner(true) 
+
+    callServer(qData).then((reply) => {
+      var obj = JSON.parse(reply);
+      showSpinner(false)
+      showMessage(`You have scored ${obj.result * 100}%`)
+    });
+  }
+
+  function showSpinner (on) {
+    var spinner = document.getElementById('spinner');
+    className = (on) ? 'spinner-on' : 'spinner-off';
+    console.log(spinner, className)
+    spinner.className = className;
+  }
+
+  function showMessage(message) {
+    document.getElementById('score').innerHTML = message
+  }
+
+  function callServer(qData) {
+
+    return new Promise( (resolve, reject) => {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          resolve(this.responseText);
+        } 
+      };
+
+      xhttp.open("POST", '/quiz/check/onedrive-and-office-online/onedrive-and-office-online/2')
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      // obj = {"0":[false, true], "1": [true, false, false, false]}
+      xhttp.send(`data=${JSON.stringify(qData)}`)
+    })
+    
+
+  }
+
+</script>
+
+
+{% endblock %}
+
+

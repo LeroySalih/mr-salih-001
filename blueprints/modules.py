@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request
 from jinja2 import TemplateNotFound
 
 from models.lo_models import Module
@@ -29,9 +29,9 @@ def modules_general(moduleId):
     moduleDB.populateLessons(module)
 
     loIds = moduleDB.getAllLOIds(module.id)
-    print (f"found loIds {loIds}")
+    
     los = loDB.findByIds(*loIds)
-    print (f"found los {los}")
+    
     loGroups = loDB.groupByType(los)
 
 
@@ -58,3 +58,16 @@ def modules_lesson(moduleId, lessonId):
     print ('Template Not Found error', f'modules/lesson.html' )
     abort(404)
 
+
+
+@modulesBP.route('/<moduleId>/<lessonId>/activity')
+def modules_lesson_activity (moduleId, lessonId):
+  index = int(request.args.get('index', 0))
+  module = moduleDB.findById(moduleId)
+  lesson = moduleDB.findLessonByIds(moduleId, lessonId)
+  # findPastAnswers = quizDB.findPastAnswers('userId', moduleId, lessonId)
+  pastAnswers = {1:                                             #Activity Index
+                          {0:[False, False, True, False]}       #Question Checkboxes
+                    }
+  
+  return render_template('modules/activities.html', module=module, lesson=lesson, index=index, pastAnswers=pastAnswers)

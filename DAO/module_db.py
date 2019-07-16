@@ -1,5 +1,7 @@
-from models.lo_models import LearningObjective, Lesson, TimelineItem
+from models.lo_models import LearningObjective, Lesson
 from models.lo_models import Module
+from models.activity import Activity, VideoActivity, QuizActivity, RateProgressActivity, RecapActivity, LoPuActivity
+from models.quiz import Quiz
 
 from DAO.lo_db import loDB
 
@@ -77,17 +79,29 @@ class ModuleDB:
                          {'url': '', 'text':'Cheat Sheet'}, 
                         ]
 
-    lesson1.addTimelineItems(
-          TimelineItem('00:10', 'Starter'), 
-          TimelineItem('00:20', 'What is OneDrive?'), 
-          TimelineItem('00:40a', 'Exercise: Uploading and locating files in the Cloud.'),
-          TimelineItem('00:40b', 'Extension: What is OneDrive Version History?.'),
-          TimelineItem('00:45', 'Test Your Knowledge'),
-          TimelineItem('00:50', 'Bring It All Together'),
-          TimelineItem('00:54', 'Rate Your Progress'),
-          TimelineItem('00:57', 'Nail It Down'),
-          TimelineItem('00:59', 'LOPU'),
-          )
+    tlQuiz = Quiz('q1', 'Using OneDrive?' )
+    tlQuiz.add_question(0, 'What is OneDrive?', ['A house with one drive', 'A software service that can store files.'],[False, True])
+    tlQuiz.add_question(1, 'Which software company creates OneDrive?', ['Microsoft', 'BISAK', 'Google', 'DropBox'],[True, False, False, False])
+
+    lesson1.addActivities(
+          Activity(10, 'Starter', """
+          <h2>In pairs, create a list of the issues you may face when you use a thumbdrive to transport files to and from home.</h2> 
+          """), 
+          VideoActivity(10,  'What is OneDrive?', 'https://www.dropbox.com/s/tkjpefa581rsibg/Internet%20Safety%20-%20Newsround%20Caught%20In%20The%20Web%20%289%20Feb%202010%29.mp4?raw=1'),
+          QuizActivity(10, 'What is OneDrive?', tlQuiz),
+          Activity(15, 'Uploading and locating files in the Cloud.', content=""),
+          Activity(0, '(Extension) What is OneDrive Version History?', content=""), 
+          RateProgressActivity(5, 'Rate your progress'),
+          RecapActivity(10, 'Recap'),
+          LoPuActivity(5, 'LoPu')
+          #,
+          # QuizItem    ('00:45',  f"CFU: {tlQuiz.title}", tlQuiz),
+          
+     #     TimelineItem('00:50',  BringItAllTogetherItem('Bring It All Together'),
+     #     TimelineItem('00:54',  RateYourProgressItem('Rate Your Progress'),
+     #     TimelineItem('00:57',  NailItDown('Nail It Down'),
+     #     TimelineItem('00:59',  LOPU()),
+          )    
 
     
 
@@ -131,7 +145,7 @@ class ModuleDB:
     """ loop through all lessons, compile a list of LO id's """
 
     module = self.findById(moduleId)
-    print (f"looking for {moduleId}, found {module}")
+  
     result = []
     for lesson in module.lessons.values():
       result = result + list(lesson.los)
@@ -145,7 +159,6 @@ class ModuleDB:
     ids = self.getAllLOIds(module.id)
     
     for lesson in module.lessons.values():
-      print ("lesson:", lesson)
       lesson.learning_objectives = {}
       for loId in lesson.los:
         lo = loDB.learning_objectives.get(loId)
@@ -153,6 +166,15 @@ class ModuleDB:
           lesson.learning_objectives[lo.id] = lo 
         
     
+  def findLessonByIds (self, moduleId, lessonId):
+    module = self.modules.get(moduleId)
+    if module != None:
+      return module.lessons.get(lessonId)
+    else: 
+
+      
+      raise NameError(f'No module found with matching id {moduleId}')
+      return None 
     
   
 moduleDB = ModuleDB()

@@ -247,7 +247,7 @@ class PastPaper():
       'sols_link':'Sols Here',
       }
     pp = PastPaper.add_past_paper(PastPaper(pp_data))
-    print (pp)
+   
 
     
 
@@ -268,7 +268,7 @@ if __name__=="__main__":
 
   pp = PastPaper(pp_data)
 
-  print (pp)
+
 
 
   

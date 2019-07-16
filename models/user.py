@@ -23,6 +23,7 @@ class User(UserMixin):
   first_name = ""
   __username = "not set"
   __password = "not set"
+  __is_teacher = False 
 
   def __init__(self, dict):
 
@@ -34,7 +35,7 @@ class User(UserMixin):
       setattr(self, key, dict[key])
 
   def __repr__(self):
-    return "<User(id={}, first_name='{}', username='{}', password='{}')>".format(self.id, self.first_name, self.username, self.password)
+    return f"<User(id={self.id}, first_name='{self.first_name}', username='{self.__username}', password='{self.__password}' is_teacher='{self.__is_teacher}')>"
 
 
   def to_dict(self):
@@ -63,6 +64,15 @@ class User(UserMixin):
   @password.setter
   def password(self, val):
     self.__password = val
+
+  @property
+  def is_teacher(self):
+    return self.__is_teacher
+  
+  @is_teacher.setter
+  def is_teacher(self, val):
+    self.__is_teacher = val 
+    
   
 
   @staticmethod
