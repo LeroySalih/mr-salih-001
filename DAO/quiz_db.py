@@ -1,36 +1,48 @@
 from datetime import datetime
-
+from flask import current_app as app 
 
 class QuizDB:
 
   def __init__(self):
-    self.attempts = {}
+    self.answers = {}
     self.history = [] 
 
 
   def makeKey(self, userId, moduleId, lessonId, activityId):
     return f"{userId}-{moduleId}-{lessonId}-{activityId}"
 
-  def save_attempt(self, userId, moduleId, lessonId, activityId, score, answers):
-
+  def saveActivityAnswers(self, userId, moduleId, lessonId, activityId, score, answers):
+    app.logger.debug(f'{userId} {answers}')
     key = self.makeKey (userId, moduleId, lessonId, activityId)
     now = datetime.now()
     ts = datetime.timestamp(now)
     attempt =            {'userId': userId, 
                           'moduleId': moduleId,
                           'lessonId': lessonId,
-                          'activityId': activityId,
+                          'activityId': int(activityId),
                           'score': score,
                           'answers': answers, 
                           'timestamp': ts}
     
-    self.attempts[key] = attempt
+    self.answers[key] = attempt
     self.history.append(attempt)
     
 
-  def get_attempt(self, userId, moduleId, lessonId, activityId):
-    key = makeKey(userId, moduleId, lessonId, activityId)
-    return self.attempts.get(key, None)
+  def getAnswersForLesson(self, userId, moduleId, lessonId):
+    result = {}
+    attempts = list(filter(lambda item: item['userId'] == userId and 
+                                   item['moduleId'] == moduleId and 
+                                   item['lessonId'] == lessonId, 
+                                   self.answers.values())
+                    )
+   
+
+    
+      
+    for attempt in attempts:
+      result[int(attempt['activityId'])] = attempt 
+
+    return result
 
 
 quizDB = QuizDB()

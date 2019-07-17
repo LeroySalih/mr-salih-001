@@ -43,7 +43,7 @@ def modules_check_quiz_answers(moduleId, lessonId, activityId):
     
     #parse the  text data into an object
     answers = json.loads(d)
-    
+    print (answers)
     #get the correct answers from the appropriate quiz (remember a lesson may have more than 1 quiz.) 
     lesson = moduleDB.findLessonByIds(moduleId, lessonId)
     activity = lesson.activities[int(activityId)]
@@ -52,9 +52,9 @@ def modules_check_quiz_answers(moduleId, lessonId, activityId):
     #Calculate correct percentage. 
     score = quiz.check_answers(answers) / len(list(quiz.questions.keys()))
     
-    if current_user != None:
+    if current_user.is_anonymous == False: 
       app.logger.info(f'Saving attempt for user id: {current_user.id}.')
-      quizDB.save_attempt(current_user.id, moduleId, lessonId, activityId, score, answers)
+      quizDB.saveActivityAnswers(current_user.id, moduleId, lessonId, activityId, score, answers)
 
     #Return the correct score.
     return f'{{"result":{score} }}'

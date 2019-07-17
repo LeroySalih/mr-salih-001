@@ -47,21 +47,37 @@
 {% macro showQuizActivity (index, activity) %}
 
   <div id="activity_{{index}}" class="activity-off">
+      <!-- Macro to display title -->
       {{ activityTitle("Quiz", activity.title ) }}
+
+      <!-- Get any previous answers for this user for this activity. -->
+      {% set activityAnswers = lessonAnswers.get(index).answers or {}%}
+
+      <!-- Todo: remove this debug line-->
+      <!-- <div>{{ activityAnswers | tojson }}</div>--> 
+        
       
       {% for question in activity.quiz.questions.values() %}
-        <div class="question-wrapper" name="question">
+        <div class="question-wrapper" name="activity_{{index}}">
         {% set rowloop = loop %}
-        <div class="question-label">{{question.text}}</div>
-        
+        {% set answerIndex = (rowloop.index - 1)|string %}
+        {% set answers = activityAnswers.get( answerIndex ) %}
+
+        <div class="question-label" >{{question.text}}</div>
+          
           {% for answer in question.answers %}
-           
+              {% set user_response = answers[ loop.index - 1] %}
               <input type="checkbox" 
-                     name="answers_chk-{{rowloop.index}}-{{loop.index}}"
-                     id="answers_chk-{{rowloop.index}}-{{loop.index}}" 
+                     name="answers_chk-{{index}}-{{rowloop.index}}-{{loop.index}}"
+                     id="answers_chk-{{index}}-{{rowloop.index}}-{{loop.index}}" 
+                     {% if user_response == True %}
+                     checked="true"
+                     {% endif %}
+                     
                      onchange="showMessage('')"
               >
-              <label for="answers_chk-{{rowloop.index}}-{{loop.index}}" class="answer-label">{{answer}}</label>  
+              <label for="answers_chk-{{index}}-{{rowloop.index}}-{{loop.index}}" class="answer-label">{{answer}}</label>  
+              
           {% endfor %}
         </div>
       {% endfor %}
@@ -69,7 +85,7 @@
       <div>
         <button onclick="checkAnswers()" class="checkmyanswers">Check My Answers</button>
         <img name="spinner" id="spinner" class="spinner-off" src="/static/images/spinner.gif" height="30px">
-        <span name="score" id="score"></span>
+        <span name="score_{{index}}" id="score_{{index}}"></span>
       </div>
       
   </div>
@@ -300,6 +316,7 @@
     
           {% endfor %}
         </div>
+        
     </div>
     
     
@@ -344,7 +361,7 @@
   function checkAnswers() {
     // var elems = document.getElementsByName('answers_chk')
     
-    var questions = document.getElementsByName('question')
+    var questions = document.getElementsByName(`activity_${currentIndex}`)
     var qData = {}
 
     for (qIndex = 0; qIndex < questions.length; qIndex ++){
@@ -353,13 +370,14 @@
       inputs = question.getElementsByTagName('input')
       for (index =  0; index < inputs.length; index++) {
         chk = inputs[index]
-        console.log(chk.checked)
         answers.push(chk.checked)
       }
       qData[qIndex] = answers
+      console.log(qData)
     }
     
     showSpinner(true) 
+    showMessage('')
 
     callServer(qData).then((reply) => {
       var obj = JSON.parse(reply);
@@ -371,12 +389,11 @@
   function showSpinner (on) {
     var spinner = document.getElementById('spinner');
     className = (on) ? 'spinner-on' : 'spinner-off';
-    console.log(spinner, className)
     spinner.className = className;
   }
-
+ 
   function showMessage(message) {
-    document.getElementById('score').innerHTML = message
+    document.getElementById(`score_${currentIndex}`).innerHTML = message
   }
 
   function callServer(qData) {
@@ -386,14 +403,13 @@
 
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
           resolve(this.responseText);
         } 
       };
 
-      xhttp.open("POST", '/quiz/check/onedrive-and-office-online/onedrive-and-office-online/2')
+      url = '/quiz/check/{{module.id}}/{{lesson.id}}/' + currentIndex;
+      xhttp.open("POST", url)
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      // obj = {"0":[false, true], "1": [true, false, false, false]}
       xhttp.send(`data=${JSON.stringify(qData)}`)
     })
     

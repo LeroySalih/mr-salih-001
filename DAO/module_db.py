@@ -79,17 +79,23 @@ class ModuleDB:
                          {'url': '', 'text':'Cheat Sheet'}, 
                         ]
 
-    tlQuiz = Quiz('q1', 'Using OneDrive?' )
-    tlQuiz.add_question(0, 'What is OneDrive?', ['A house with one drive', 'A software service that can store files.'],[False, True])
-    tlQuiz.add_question(1, 'Which software company creates OneDrive?', ['Microsoft', 'BISAK', 'Google', 'DropBox'],[True, False, False, False])
+    q1 = Quiz('q1', 'Using OneDrive?' )
+    q1.add_question(0, 'What is OneDrive?', ['A house with one drive', 'A software service that can store files.'],[False, True])
+    q1.add_question(1, 'Which software company creates OneDrive?', ['Microsoft', 'BISAK', 'Google', 'DropBox'],[True, False, False, False])
+
+    q2 = Quiz('q2', 'Uploading Files.' )
+    q2.add_question(0, 'Test Question 1?', ['Answer 1', 'Answer 2.'],[False, True])
+    q2.add_question(1, 'Test Question 2?', ['Answer 1', 'Answer 2.'],[True, False])
+
 
     lesson1.addActivities(
           Activity(10, 'Starter', """
           <h2>In pairs, create a list of the issues you may face when you use a thumbdrive to transport files to and from home.</h2> 
           """), 
           VideoActivity(10,  'What is OneDrive?', 'https://www.dropbox.com/s/tkjpefa581rsibg/Internet%20Safety%20-%20Newsround%20Caught%20In%20The%20Web%20%289%20Feb%202010%29.mp4?raw=1'),
-          QuizActivity(10, 'What is OneDrive?', tlQuiz),
+          QuizActivity(10, 'What is OneDrive?', q1),
           Activity(15, 'Uploading and locating files in the Cloud.', content=""),
+          QuizActivity(10, 'Test Quiz?', q2),
           Activity(0, '(Extension) What is OneDrive Version History?', content=""), 
           RateProgressActivity(5, 'Rate your progress'),
           RecapActivity(10, 'Recap'),

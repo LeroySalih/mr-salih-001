@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, abort, request
+from flask_login import current_user
 from jinja2 import TemplateNotFound
 
 from models.lo_models import Module
 
 from DAO.module_db import ModuleDB, moduleDB
 from DAO.lo_db import LoDB, loDB
+from DAO.quiz_db import quizDB 
 
 modulesBP = Blueprint('modules', __name__, template_folder='templates')
 
@@ -66,8 +68,10 @@ def modules_lesson_activity (moduleId, lessonId):
   module = moduleDB.findById(moduleId)
   lesson = moduleDB.findLessonByIds(moduleId, lessonId)
   # findPastAnswers = quizDB.findPastAnswers('userId', moduleId, lessonId)
-  pastAnswers = {1:                                             #Activity Index
-                          {0:[False, False, True, False]}       #Question Checkboxes
-                    }
-  
-  return render_template('modules/activities.html', module=module, lesson=lesson, index=index, pastAnswers=pastAnswers)
+  if current_user.is_anonymous == False:
+    pastAnswers = quizDB.getAnswersForLesson(current_user.id, moduleId, lessonId)
+    print (pastAnswers)
+  else:
+    pastAnswers = None 
+
+  return render_template('modules/activities.html', module=module, lesson=lesson, index=index, lessonAnswers=pastAnswers)
